@@ -1,9 +1,16 @@
 # B005 — Đề bài nghiên cứu bổ sung để chốt đặc tả và pilot MVP
 
 - Ngày: **11/11/2026**.
-- Trạng thái: **đề xuất mục tiêu và cách tổ chức nghiên cứu; chưa triển khai, chưa được Owner phê duyệt**.
+- Trạng thái: **Owner đã yêu cầu thực hiện nghiên cứu và commit vào PR #1 ngày 11/11/2026; đã có kết quả nghiên cứu tài liệu R006**. Phỏng vấn/quan sát, thử thiết bị/sandbox/restore và pilot chưa thực hiện; các chính sách MVP đề nghị chưa được Owner phê duyệt.
 - Căn cứ: [R005 — Phân tích khoảng trống và mục tiêu](../reports/2026-11-11-05-khoang-trong-va-muc-tieu-mvp/report.vi.md) và [nguồn R005](../reports/2026-11-11-05-khoang-trong-va-muc-tieu-mvp/sources.md).
 - R005 là kết quả phân tích đề bài lần này; **không phải kết quả hoàn thành B005**.
+- Kết quả thực hiện: [R006 — Nghiên cứu bổ sung để chốt đặc tả MVP](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/report.vi.md), [sổ nguồn và giới hạn](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/sources.md). Bảng NC-01–NC-10 trong R006 phân biệt đầu ra đã có với bằng chứng còn thiếu; chưa nghiệm thu toàn bộ B005.
+
+## Kết quả đợt nghiên cứu tài liệu ngày 11/11/2026
+
+Đã đối chiếu nguồn sơ cấp và xây bốn phụ lục: [nghiệp vụ và số liệu](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/nghiep-vu-va-so-lieu.vi.md), [PWA/vận hành tenant](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/pwa-va-van-hanh-tenant.vi.md), [hóa đơn/tuân thủ](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/hoa-don-va-tuan-thu.vi.md), [phân khúc/pilot/tích hợp](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/pilot-va-tich-hop.vi.md). Có glossary/quan hệ/quyền, ma trận tác động hàng–nợ–tiền, bộ tính giả lập tái lập được, contract offline/restore, điều khoản pháp lý và bộ ca kiểm chứng.
+
+Phạm vi và điều kiện kết thúc bên dưới được giữ làm chuẩn theo dõi. Nghiên cứu tài liệu không thay thế phỏng vấn hoặc các bài thử đã yêu cầu; việc lưu kết quả không tự phê duyệt quyết định sản phẩm, nhà cung cấp hoặc lịch triển khai.
 
 ## 1. Mục đích
 

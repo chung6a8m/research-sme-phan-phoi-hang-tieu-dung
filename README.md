@@ -18,7 +18,13 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 | R004 | [Glossary, ERD khái niệm và kịch bản nghiệp vụ MVP](reports/2026-11-11-04-deep-research-erd-nghiep-vu/report.vi.md) | Bản biên tập đã có; glossary/ERD/trạng thái và phạm vi chi tiết chưa nghiệm thu; một số nguồn chưa đủ URL/điều khoản. |
 | R005 | [Khoảng trống và mục tiêu nghiên cứu bổ sung để đạt MVP](reports/2026-11-11-05-khoang-trong-va-muc-tieu-mvp/report.vi.md) | Đã phân tích R001–R004 và đối chiếu một số nguồn sơ cấp; đề xuất 10 mục tiêu nghiên cứu, chưa thực hiện khảo sát/spike/pilot. |
 | R005-S | [Nguồn và giới hạn bằng chứng của R005](reports/2026-11-11-05-khoang-trong-va-muc-tieu-mvp/sources.md) | Baseline, nguồn đã đọc, phạm vi kiểm chứng và những việc chưa thực hiện. |
-| B005 | [Đề bài nghiên cứu bổ sung để chốt đặc tả và pilot MVP](briefs/2026-11-11-05-nghien-cuu-bo-sung-dat-mvp.md) | Đề xuất chưa triển khai/chưa được Owner phê duyệt; không phải active roadmap phát triển hoặc kết quả hoàn thành nghiên cứu. |
+| B005 | [Đề bài nghiên cứu bổ sung để chốt đặc tả và pilot MVP](briefs/2026-11-11-05-nghien-cuu-bo-sung-dat-mvp.md) | Owner đã yêu cầu thực hiện; có kết quả nghiên cứu tài liệu R006. Chưa hoàn tất bằng chứng thực địa/thử nghiệm/pilot; chính sách chi tiết vẫn cần quyết định. |
+| R006 | [Kết quả nghiên cứu bổ sung để chốt đặc tả MVP](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/report.vi.md) | Đã đối chiếu nguồn sơ cấp, xây phương án và kiểm tra bộ số liệu giả lập; ghi mức hoàn thành cả 10 mục tiêu B005. Chưa nghiệm thu toàn bộ B005 hoặc sẵn sàng pilot. |
+| R006-B | [Nghiệp vụ, quy tắc và bộ số liệu](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/nghiep-vu-va-so-lieu.vi.md) | Glossary/quan hệ/quyền, A/B, UoM/giá vốn, giá/ưu đãi, ba sổ tiền và phép tính tái lập; là phương án đề nghị. |
+| R006-T | [PWA và vận hành mỗi tenant một database](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/pwa-va-van-hanh-tenant.vi.md) | Khả năng trình duyệt, quyền offline, ACK/đóng chuyến, cách ly/migration/restore; chưa chạy spike/diễn tập. |
+| R006-L | [Hóa đơn và tuân thủ](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/hoa-don-va-tuan-thu.vi.md) | Đối chiếu văn bản hiện hành theo điều/khoản, thời điểm hóa đơn, khuyến mại và dữ liệu cá nhân; áp dụng cụ thể cần xác nhận trước pilot. |
+| R006-P | [Phân khúc, pilot và tích hợp](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/pilot-va-tich-hop.vi.md) | Archetype, bằng chứng API, ca sandbox, cấu trúc import/cutover, tác vụ và công thức KPI; chưa có khảo sát hay kết quả pilot. |
+| R006-S | [Nguồn và giới hạn bằng chứng](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/sources.md) | Sổ nguồn tổng, sản phẩm/API và liên kết nguồn nghiệp vụ/kỹ thuật/pháp lý, ghi rõ tài liệu chỉ đọc được qua chỉ mục hoặc lỗi truy cập. |
 
 ## Cấu trúc
 
@@ -40,6 +46,16 @@ reports/
   2026-11-11-05-khoang-trong-va-muc-tieu-mvp/
     report.vi.md
     sources.md
+  2026-11-11-06-ket-qua-nghien-cuu-mvp/
+    report.vi.md
+    sources.md
+    nghiep-vu-va-so-lieu.vi.md
+    nguon-nghiep-vu.md
+    pwa-va-van-hanh-tenant.vi.md
+    nguon-ky-thuat.md
+    hoa-don-va-tuan-thu.vi.md
+    nguon-phap-ly.md
+    pilot-va-tich-hop.vi.md
 briefs/
   2026-11-11-02-nghiep-vu-mvp-pwa.md
   2026-11-11-05-nghien-cuu-bo-sung-dat-mvp.md
@@ -66,6 +82,8 @@ Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi
 **Cập nhật theo R003 ngày 11/11/2026:** multi-tenant đã chọn **mỗi tenant một database**. Các câu còn để mở cách tách database trong tài liệu trước đó phản ánh thời điểm cũ. Ánh xạ doanh nghiệp–tenant–bên thuê SaaS, chính sách chuyến kết hợp A/B, phương pháp giá vốn và các quy tắc chi tiết khác vẫn cần xác minh/chốt.
 
 [R005](reports/2026-11-11-05-khoang-trong-va-muc-tieu-mvp/report.vi.md) đối chiếu các báo cáo hiện có và đề xuất mục tiêu bổ sung về phân khúc/pilot, mô hình dữ liệu, A/B, UoM/giá vốn, giá/khuyến mại, công nợ/đối soát, PWA offline, hóa đơn, vận hành tenant và onboarding/đo giá trị. Đây là phân tích và đề xuất; không tự phê duyệt glossary, schema, chính sách nghiệp vụ hoặc lịch triển khai. Hóa đơn điện tử tiếp tục thuộc phạm vi ban đầu dù danh sách MVP trong R004 chưa liệt kê lại hạng mục này.
+
+**Kết quả thực hiện B005 ngày 11/11/2026:** [R006](reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/report.vi.md) và bốn phụ lục bổ sung nguồn đã kiểm tra, phương án MVP cụ thể, số dư giả lập, contract offline/restore, ma trận pháp lý và tiêu chí kiểm chứng. Đợt này phát hiện cần phân biệt offline ghi nhận giao dịch với khả năng lập hóa đơn đúng thời điểm; một DB riêng cũng chưa bảo đảm replay an toàn sau restore. Giữ các bản R001–R005 nguyên trạng để theo dõi diễn tiến. R006 chưa thay thế phỏng vấn NPP, sandbox/thiết bị, diễn tập hoặc bằng chứng sử dụng/trả phí của pilot.
 
 ## Quy tắc sử dụng kết quả
 
