@@ -2,7 +2,9 @@
 
 - Ngày ghi nhận: **11/11/2026**.
 - Loại tài liệu: **đề bài nghiên cứu**, không phải báo cáo kết quả.
-- Trạng thái lưu trữ: chưa nhập báo cáo nghiên cứu đầy đủ của đợt này vào repository.
+- Trạng thái lưu trữ: **đã nhập đầy đủ file báo cáo đính kèm** của đợt này vào repository dưới mã R002; chưa kiểm chứng lại nội dung nghiên cứu.
+- Kết quả: [R002 — Nghiệp vụ nhà phân phối FMCG và MVP PWA — báo cáo đầy đủ](../reports/2026-11-11-02-nghiep-vu-mvp-pwa/report.vi.md).
+- Xuất xứ và kiểm tra toàn vẹn: [R002-S](../reports/2026-11-11-02-nghiep-vu-mvp-pwa/sources.md).
 - Bối cảnh: [báo cáo tổng quan R001](../reports/2026-11-11-01-tong-quan/report.vi.md), mục 9 về MVP ban đầu.
 
 ## Yêu cầu trực tiếp của chủ dự án
@@ -40,3 +42,9 @@ Những mục dưới đây là hướng khảo sát, **chưa phải kết luậ
 Báo cáo tiếng Việt cần nêu các mô hình nghiệp vụ, luồng xử lý và ngoại lệ; ma trận vai trò/chứng từ; mức phù hợp và giới hạn PWA; đề xuất ưu tiên MVP; nguồn tham khảo và kế hoạch kiểm chứng. Phân biệt đề xuất thiết kế với kết quả nghiên cứu thực tế.
 
 Khi đã có báo cáo đầy đủ, tạo thư mục tương ứng trong `reports/` theo quy ước README, lưu báo cáo cùng nguồn và cập nhật mục lục. Không tạo file báo cáo giả để biểu thị nghiên cứu đã hoàn thành khi mới chỉ có đề bài.
+
+## Kết quả đã lưu
+
+Ngày **11/11/2026**, đã bổ sung [toàn văn báo cáo R002](../reports/2026-11-11-02-nghiep-vu-mvp-pwa/report.vi.md) từ file `deep-research-report (1).md` do chủ dự án cung cấp. Báo cáo giữ đủ các phần về cách vận hành nghiệp vụ, bốn mô hình bán hàng, vai trò/chứng từ, phần mềm tại Việt Nam, PWA, đề xuất MVP và pháp lý.
+
+B002 được giữ lại làm đề bài để truy xuất yêu cầu ban đầu; **nội dung kết quả nghiên cứu nằm ở R002, không chỉ ở bản đề bài này**. [Tài liệu xuất xứ R002-S](../reports/2026-11-11-02-nghiep-vu-mvp-pwa/sources.md) ghi mã kiểm tra và giới hạn bằng chứng. Trạng thái đã lưu đủ file nguồn không tự xác nhận mọi câu hỏi nghiên cứu đã được kiểm chứng hoặc mọi đề xuất đã được phê duyệt.

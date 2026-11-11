@@ -10,7 +10,9 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 |---|---|---|
 | R001 | [Tổng quan hệ sinh thái SaaS cho SME phân phối FMCG Việt Nam](reports/2026-11-11-01-tong-quan/report.vi.md) | Bản dịch tiếng Việt đã có trong cuộc trao đổi; lưu nguyên văn, chưa kiểm chứng lại các nguồn. |
 | R001-S | [Xuất xứ, nguồn tham khảo và giới hạn của R001](reports/2026-11-11-01-tong-quan/sources.md) | Thông tin lưu trữ và các URL lấy từ báo cáo gốc trong cuộc trao đổi. |
-| B002 | [Đề bài nghiên cứu nghiệp vụ MVP và PWA tại Việt Nam](briefs/2026-11-11-02-nghiep-vu-mvp-pwa.md) | Đề bài, **không phải báo cáo kết quả**; chưa nhập báo cáo nghiên cứu này vào repo. |
+| B002 | [Đề bài nghiên cứu nghiệp vụ MVP và PWA tại Việt Nam](briefs/2026-11-11-02-nghiep-vu-mvp-pwa.md) | Đề bài; đã liên kết tới báo cáo kết quả R002 được nhập từ file đính kèm. |
+| R002 | [Nghiệp vụ nhà phân phối FMCG và MVP PWA — báo cáo đầy đủ](reports/2026-11-11-02-nghiep-vu-mvp-pwa/report.vi.md) | Đã lưu nguyên văn toàn bộ file `deep-research-report (1).md`; đã đối chiếu mã kiểm tra nội dung, chưa kiểm chứng lại các nhận định. |
+| R002-S | [Xuất xứ bản lưu và giới hạn bằng chứng của R002](reports/2026-11-11-02-nghiep-vu-mvp-pwa/sources.md) | Thông tin file nguồn, mã kiểm tra, phạm vi nội dung và giới hạn của lần nhập. |
 
 ## Cấu trúc
 
@@ -19,6 +21,9 @@ README.md
 AGENTS.md
 reports/
   2026-11-11-01-tong-quan/
+    report.vi.md
+    sources.md
+  2026-11-11-02-nghiep-vu-mvp-pwa/
     report.vi.md
     sources.md
 briefs/
@@ -36,6 +41,8 @@ Tên thư mục báo cáo theo mẫu `YYYY-MM-DD-NN-chu-de`; báo cáo chính l�
 Chủ dự án lựa chọn MVP ban đầu tập trung vào quản trị nhà phân phối, đơn hàng, kho, hóa đơn điện tử, thu tiền/công nợ và báo cáo cơ bản. Ứng dụng đặt hàng cho nhân viên thị trường sử dụng **PWA thay cho ứng dụng di động native**.
 
 Báo cáo R001 là bản ghi lịch sử trước lựa chọn PWA. Giữ nguyên phần kiến trúc/ứng dụng di động trong báo cáo đó để bảo toàn nội dung; không xem các đề xuất lịch sử là quyết định mới. Đề bài B002 ghi nhận lựa chọn hiện tại và yêu cầu nghiên cứu cách vận hành nghiệp vụ tại Việt Nam.
+
+Kết quả nghiên cứu của đợt B002 đã được lưu tại [R002](reports/2026-11-11-02-nghiep-vu-mvp-pwa/report.vi.md) theo toàn bộ file đính kèm do chủ dự án cung cấp. Giữ riêng đề bài và báo cáo; việc nhập đầy đủ file không đồng nghĩa với kiểm chứng hoặc nghiệm thu mọi nội dung nghiên cứu.
 
 ## Quy tắc sử dụng kết quả
 
