@@ -13,6 +13,7 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 | B002 | [Đề bài nghiên cứu nghiệp vụ MVP và PWA tại Việt Nam](briefs/2026-11-11-02-nghiep-vu-mvp-pwa.md) | Đề bài; đã liên kết tới báo cáo kết quả R002 được nhập từ file đính kèm. |
 | R002 | [Nghiệp vụ nhà phân phối FMCG và MVP PWA — báo cáo đầy đủ](reports/2026-11-11-02-nghiep-vu-mvp-pwa/report.vi.md) | Đã lưu nguyên văn toàn bộ file `deep-research-report (1).md`; đã đối chiếu mã kiểm tra nội dung, chưa kiểm chứng lại các nhận định. |
 | R002-S | [Xuất xứ bản lưu và giới hạn bằng chứng của R002](reports/2026-11-11-02-nghiep-vu-mvp-pwa/sources.md) | Thông tin file nguồn, mã kiểm tra, phạm vi nội dung và giới hạn của lần nhập. |
+| R002-D01 | [Lựa chọn mô hình A/B, nhân sự giao hàng và quy chuẩn thuật ngữ](reports/2026-11-11-02-nghiep-vu-mvp-pwa/quyet-dinh-va-thuat-ngu.vi.md) | Đã ghi lựa chọn A/B và quy tắc xe máy/xe tải của chủ dự án; glossary, ERD và ràng buộc chi tiết là đề xuất thiết kế. |
 
 ## Cấu trúc
 
@@ -26,6 +27,7 @@ reports/
   2026-11-11-02-nghiep-vu-mvp-pwa/
     report.vi.md
     sources.md
+    quyet-dinh-va-thuat-ngu.vi.md
 briefs/
   2026-11-11-02-nghiep-vu-mvp-pwa.md
 ```
@@ -43,6 +45,10 @@ Chủ dự án lựa chọn MVP ban đầu tập trung vào quản trị nhà ph
 Báo cáo R001 là bản ghi lịch sử trước lựa chọn PWA. Giữ nguyên phần kiến trúc/ứng dụng di động trong báo cáo đó để bảo toàn nội dung; không xem các đề xuất lịch sử là quyết định mới. Đề bài B002 ghi nhận lựa chọn hiện tại và yêu cầu nghiên cứu cách vận hành nghiệp vụ tại Việt Nam.
 
 Kết quả nghiên cứu của đợt B002 đã được lưu tại [R002](reports/2026-11-11-02-nghiep-vu-mvp-pwa/report.vi.md) theo toàn bộ file đính kèm do chủ dự án cung cấp. Giữ riêng đề bài và báo cáo; việc nhập đầy đủ file không đồng nghĩa với kiểm chứng hoặc nghiệm thu mọi nội dung nghiên cứu.
+
+Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi giao** và **Module B — bán theo xe** trong R002. Khi giao bằng xe máy, nhân viên giao hàng đồng thời là người lái xe; khi giao bằng xe tải, có thể có một người giao hàng và một người lái xe. Chủ dự án cũng yêu cầu chuẩn hóa các cụm từ khách hàng/customer, điểm bán, đại lý, NPP, doanh nghiệp và tenant.
+
+[Phụ lục R002-D01](reports/2026-11-11-02-nghiep-vu-mvp-pwa/quyet-dinh-va-thuat-ngu.vi.md) là nơi ghi lựa chọn mới và đề xuất thuật ngữ, phân vai, ERD để dùng khi viết đặc tả tiếp theo. Chỉ phần lựa chọn được nêu rõ là chủ dự án đã xác nhận; tên thực thể, ràng buộc dữ liệu và các chính sách bổ sung vẫn là đề xuất. Chưa chốt ánh xạ doanh nghiệp–tenant, cách tách database hoặc chính sách chuyến kết hợp A/B. R002 tiếp tục được giữ nguyên làm bản ghi nghiên cứu nguồn.
 
 ## Quy tắc sử dụng kết quả
 

@@ -40,3 +40,9 @@ Lần cập nhật này chỉ bổ sung báo cáo đã có vào repository và n
 **Đã lưu đầy đủ file nguồn không đồng nghĩa với đã giải quyết, kiểm chứng hoặc nghiệm thu toàn bộ câu hỏi trong B002.** Các ví dụ user story, ERD khái niệm, kế hoạch pilot và đề xuất tính năng trong R002 vẫn là nội dung nghiên cứu, không tự trở thành đặc tả triển khai hoặc quyết định đã được chủ dự án phê duyệt.
 
 Mọi kiểm chứng hoặc biên tập bổ sung sau này cần có tài liệu riêng và dẫn lại R002; không sửa âm thầm bản nhập nguyên văn này.
+
+## Phụ lục sau bản nhập
+
+Ngày **11/11/2026**, bổ sung [R002-D01 — Lựa chọn mô hình A/B, nhân sự giao hàng và quy chuẩn thuật ngữ](quyet-dinh-va-thuat-ngu.vi.md). Phụ lục ghi lựa chọn trực tiếp của chủ dự án về A/B và nhân sự xe máy/xe tải; tách riêng các định nghĩa, ERD và ràng buộc được đề xuất. Danh sách nguồn được đọc cho phụ lục nằm ở mục 10 của chính phụ lục; không gán các nguồn đó cho báo cáo gốc.
+
+Nội dung `report.vi.md`, dung lượng và các mã kiểm tra của bản nhập vẫn giữ nguyên. Phụ lục không thay đổi trạng thái chưa kiểm chứng toàn bộ nội dung R002.
