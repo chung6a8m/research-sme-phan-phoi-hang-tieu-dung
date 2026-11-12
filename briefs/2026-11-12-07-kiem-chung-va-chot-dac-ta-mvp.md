@@ -3,7 +3,8 @@
 - Ngày lập: **12/11/2026**, Asia/Bangkok.
 - Căn cứ: [review PR #1 — R007](../reports/2026-11-12-07-review-pr1-va-muc-tieu-tiep-theo/report.vi.md), tại HEAD `f267819bfa6a1587cacd8ace58265b9c0db93b71`.
 - Kế thừa: [B005](2026-11-11-05-nghien-cuu-bo-sung-dat-mvp.md) và [kết quả R006](../reports/2026-11-11-06-ket-qua-nghien-cuu-mvp/report.vi.md).
-- **Trạng thái: đề xuất mục tiêu tiếp nối để Owner xem xét.** Chưa là active roadmap phát triển, chưa có lịch/chi phí hoặc pilot được cam kết; không ghi chính sách trong R006 thành quyết định đã duyệt.
+- **Trạng thái: Owner đã yêu cầu thực hiện nghiên cứu ngày 12/11/2026; có kết quả R008.** Đã hoàn thành phần tài liệu, đặc tả ứng viên và kiểm chứng số học/mô hình trong phạm vi đầu vào hiện có. Bằng chứng thiết bị/provider/NPP/pilot và chấp nhận chính sách vẫn chưa có; không coi toàn bộ BS-01–06 đã nghiệm thu hoặc chuyển thành active roadmap phát triển.
+- **Kết quả và mức hoàn thành:** [R008 — Khép quy tắc và bổ sung đặc tả MVP](../reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/report.vi.md), [đặc tả đề nghị](../reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/dac-ta-mvp-de-nghi.vi.md), [nguồn/bằng chứng](../reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/sources.md). Các mục dưới tiếp tục là phạm vi/điều kiện hoàn tất của đề bài; xem bảng BS trong R008 để biết phần đã có và phần còn phụ thuộc đầu vào.
 
 ## 1. Mục đích và đầu vào giữ nguyên
 

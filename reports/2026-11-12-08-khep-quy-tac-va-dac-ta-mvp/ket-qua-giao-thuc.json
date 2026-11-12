@@ -1,0 +1,120 @@
+{
+  "research_model": "R008-BS04-C1",
+  "status": "MODEL_VERIFIED",
+  "executed_at_utc": "2026-11-12T00:05:25.388659+00:00",
+  "python": "3.12.14",
+  "model_source_sha256": "9b04bda421f6946ab1d780f6c733bb5b0e139d66fca3929e06eb83c03978e5b2",
+  "scenario_count": 14942,
+  "assertion_count": 269729,
+  "suites": {
+    "E2E17_transport_reorder_duplicate_restart": {
+      "scenarios": 3240,
+      "assertions": 135720,
+      "status": "passed"
+    },
+    "E2E17_dependency_failure_cycle_timeout": {
+      "scenarios": 10,
+      "assertions": 98,
+      "status": "passed"
+    },
+    "idempotency_payload_hash_mismatch": {
+      "scenarios": 4,
+      "assertions": 12,
+      "status": "passed"
+    },
+    "E2E03_atomic_sale_delivery_receipt": {
+      "scenarios": 7,
+      "assertions": 19,
+      "status": "passed"
+    },
+    "E2E08_two_ids_compete_for_credit": {
+      "scenarios": 120,
+      "assertions": 4200,
+      "status": "passed"
+    },
+    "E2E18_snapshot_delta_tombstone_activation": {
+      "scenarios": 1445,
+      "assertions": 8645,
+      "status": "passed"
+    },
+    "E2E18_app_update_old_queue_and_cursor": {
+      "scenarios": 5,
+      "assertions": 9,
+      "status": "passed"
+    },
+    "E2E19_restore_authority_privacy_invoice_gates": {
+      "scenarios": 10080,
+      "assertions": 120960,
+      "status": "passed"
+    },
+    "E2E19_controlplane_disaster_epoch_nonreuse": {
+      "scenarios": 8,
+      "assertions": 16,
+      "status": "passed"
+    },
+    "E2E09_local_atomic_save_and_bounded_offline_grant": {
+      "scenarios": 14,
+      "assertions": 31,
+      "status": "passed"
+    },
+    "E2E11_E2E19_external_effect_unknown": {
+      "scenarios": 5,
+      "assertions": 15,
+      "status": "passed"
+    },
+    "negative_controls_expected_violations": {
+      "scenarios": 4,
+      "assertions": 4,
+      "status": "passed"
+    }
+  },
+  "negative_controls_detected": [
+    "F04_nonpersistent_awaiting_ACK",
+    "F01_epoch_only_membership_resurrection",
+    "E2E18_mixed_bundle_activation",
+    "E2E03_full_gross_credit_even_when_cash_paid"
+  ],
+  "representative_expected_results": {
+    "sale_100_receipt_100": {
+      "ar": 0,
+      "cash": 100,
+      "credit_consumed": 0
+    },
+    "sale_100_receipt_60": {
+      "ar": 40,
+      "cash": 60,
+      "credit_consumed": 40
+    },
+    "sale_100_pending_bank_100": {
+      "ar": 100,
+      "cash": 0,
+      "credit_consumed": 100
+    },
+    "sale_100_receipt_60_reserved_credit_20": {
+      "ar": 20,
+      "cash": 60,
+      "credit_consumed": 20
+    },
+    "revoked_actor_after_restore": "fresh_login_denied",
+    "authority_missing_after_restore": "tenant_stays_locked",
+    "invoice_issued_before_restore": "same_external_id_no_second_send"
+  },
+  "assumptions": [
+    "JSON round-trip models a durable restart; atomic assignments model transactions.",
+    "AuthorityLedger, PrivacyActionLedger, RecoveryJournal and GenerationAnchor are assumed correct and independent of tenant rollback.",
+    "The model serializes shared-resource operations; it is not a concurrent DB isolation proof.",
+    "Finite event permutations, finite payload fixtures and simplified scalar grant balances only.",
+    "No fairness/liveness claim under endless network outage or missing operator/parent.",
+    "Model hash domain is integer/ASCII JSON and is not a production canonicalization implementation."
+  ],
+  "not_tested": [
+    "PWA/browser/device/IndexedDB/Service Worker",
+    "real disk/fsync/replica durability",
+    "actual database transactions and concurrent races",
+    "real network or provider API",
+    "cryptography and root-key disaster recovery",
+    "real backup/PITR restore or RPO/RTO",
+    "tenant isolation penetration test",
+    "legal compliance or pilot acceptance"
+  ]
+}
