@@ -39,12 +39,12 @@
 | DC-03 | `SKU`, `Uom`, `UomConversionSnapshot`, `Lot(expiry)`, `StockLocation` | Qty chuẩn và lô/FEFO; lot không tự quyết moving average cost. |
 | DC-04 | `Trip`, `TripAssignment`, `Vehicle`, `TripManifest`, `AReservation`, `BQuota`, `WriterGrant` | Cấp kho→xe chưa tạo AR; A/B sử dụng cùng nguồn lượng nhưng phân quyền riêng; 1 writer/trip. |
 | DC-05 | `AOrder`, `OrderLine`, `OrderTermsSnapshot`, `Delivery`, `DeliveryLine` | Nhiều delivery/order; số đã giao và phần chưa giao có nguồn, không sửa lịch sử. |
-| DC-06 | `Sale`, `SaleLine`, `Delivery`, `Receipt`, `Allocation`, `SaleDeliveryReceiptBundle` | Một compound command B có effect IDs riêng; được ghi toàn bộ hoặc không phần nào. |
+| DC-06 | `Sale`, `SaleLine`, `Delivery`, `Receipt`, `Allocation`, `SaleDeliveryReceiptBundle`, `creditExposureConsumed`, `customerCreditApplied` | Một compound command B có effect IDs riêng; debit grant/CustomerCredit và AR/custody/stock cùng transaction, không double consume. |
 | DC-07 | `StockMovement`, `CostBasisSnapshot`, `CostPosting`, `SourceCostVersion`, `CostAdjustment` | SKU×location moving-average; nguồn giá vốn xuất và điều chỉnh giữ version; kỳ khóa không mutate. |
 | DC-08 | `PriceRuleVersion`, `DiscountAllocation`, `GiftEntitlement`, `GiftHolding`, `GiftReturn`, `GiftWaiver` | Snapshot giá/thuế/quà theo giao dịch; waiver có nguồn, người duyệt, scope và số quà còn giữ. |
-| DC-09 | `ReceivableOpenItem`, `CustomerCredit`, `TermSnapshot`, `DueDate`, `ReceiptAllocation` | AR theo Customer; hạn theo delivery local date + N; phần thu thừa thành credit có nguồn. |
-| DC-10 | `CashCustodyLedger`, `CashHandover`, `CashHandoverAcceptance`, `CashShortageCase` | Handover cần bên nhận xác nhận; không trừ Customer AR lần hai. |
-| DC-11 | `AdvanceLedger`, `AdvanceIssue`, `ApprovedExpense`, `AdvanceReturn` | Tạm ứng tách custody và AR; chi tuyến chưa duyệt không bù thu hộ. |
+| DC-09 | `ReceivableOpenItem`, `CustomerCredit(creditSourceId,availableAmount)`, `TermSnapshot`, `DueDate`, `ReceiptAllocation(allocationId,receiptId,openItemId,amount)`, `CreditReservation(grantId,sourceId,remaining)` | AR theo Customer/delivery; hạn theo local date + N; receipt confirmed hỗ trợ nhiều phân bổ, phần chưa phân bổ là credit có nguồn; credit đã reserve không ghi trùng/không âm. |
+| DC-10 | `CashCustodyLedger`, `CashHandover(offeredAmount,acceptedAmount)`, `CashHandoverAcceptance(cashierId,acceptedAt,sourceId)`, `CashShortageCase`, `CashierFundLedger` | Chỉ actual money thuộc custody; accepted handover chuyển tiền tới quỹ đúng một lần, không trừ AR lần hai; chênh có case. |
+| DC-11 | `AdvanceLedger(issuedTotal,approvedExpenseTotal,cashierAcceptedReturns,outstanding)`, `AdvanceIssue`, `AdvanceExpenseApproval`, `AdvanceReturnOffer`, `AdvanceReturnAcceptance`, `AdvanceSettlementEvent` | Mỗi event có source/idempotency; `outstanding=issuedTotal-approvedExpenseTotal-cashierAcceptedReturns≥0`; quyết toán nhiều phần, confirm thủ quỹ; không bù custody/AR. |
 | DC-12 | `ReturnRequest`, `ReturnCustody`, `ReturnAcceptance`, `ReturnSourceLine`, `QuarantineStock` | Giữ hộ không làm giảm AR; nhận trả có nguồn, giới hạn giá trị/lượng; cách ly trước tái bán. |
 | DC-13 | `OfflineCommandEnvelope`, `ClientJournal`, `DurableInbox`, `Receipt`, `Dependency`, `ExceptionCase` | ID/hash bất biến, status revision tăng; chưa ACK bền journal vẫn giữ; event đã xảy ra không bị reject như nháp. |
 | DC-14 | `InvoiceIntent`, `LegalSellerProfile`, `ExternalEffectRegistry`, `ProviderFact`, `ExternalDocumentLink` | Intent tham chiếu delivery/correction; external ID/ref/hash giữ ngoài DB tenant rollback; pháp lý khác transport. |
@@ -56,6 +56,12 @@
 ### DC-13 — Envelope offline bắt buộc đối chiếu R008-T
 
 Dự kiến sử dụng `protocolVersion, payloadSchemaVersion, tenantId, commandId, canonicalizationVersion, payloadHash, commandType, kind(intent|occurredEvent), originalActorId, installationId, installationIncarnationId, tripId, sourceRecoveryEpoch, writerEpoch, offlineGrantId, grantHash, localSequence, dependsOn[], expectedResourceVersions, policyVersions, bundleId, documentIds[], occurredAtClaim, lastOnlineAnchorId, payload, attachments[]`. Không tin chữ ký/ID/giờ máy đơn lẻ để chấp nhận quyền. **Tên trường chi tiết là ứng viên R008, chưa phải OpenAPI đã chốt.**
+
+### DC-09/11 — Phân bổ thu từng phần và quyết toán advance
+
+- Receipt: `receiptId, customerId, paymentMethod, verifiedAt, confirmedAmount, allocationIds[], unallocatedCreditSourceId, cashCustodyEffectId?, bankSettlementRef?`. Một nguồn thanh toán có nhiều allocations theo `openItemId` và nhiều thời điểm; `sum(allocations)+availableCustomerCredit+sum(actualRefunds)=confirmedAmount` theo cùng source (trừ correction có version). Refund và credit application không sửa/bỏ receipt gốc. Pending bank không là nguồn receipt confirmed.
+- Advance: mỗi `advanceId` có issued amount, expense approvals đã duyệt và cashier-accepted returns liên kết. `AdvanceReturnOffer` từ nhân viên chưa đổi ledger; `AdvanceReturnAcceptance` từ thủ quỹ là điều kiện tạo returned amount. `outstanding` không âm; muốn thay quyết định phải có correction/reversal source mới, không overwrite event đã post.
+- Grant: `OfflineCreditGrantLedger(grantId,customerId,initialAmount,remaining,consumptionEventIds[],reservationStatus)` và `CustomerCreditReservation(sourceId,remaining)` là **hai loại nguồn**. `creditExposureConsumed` từ grant khác `customerCreditApplied` từ credit có sẵn; cả hai phải cùng version/transaction với sale/AR. Việc giải phóng phần chưa tiêu cần evidence reconciliation; không suy từ gross đã thu.
 
 ### DC-15 — Accounting Outbox/Receipt ứng viên
 
