@@ -4,7 +4,7 @@
 - **Đầu vào:** R008-SPEC cùng các phụ lục trong PR #1; bản tổng hợp quyết định NPP-01 đánh giá 12/11/2026; các quyết định Owner ghi nhận sau R008.
 - **Tính chất:** Baseline **chính sách và đặc tả thiết kế ban đầu để giao triển khai/review**, chưa là nghiệm thu xây dựng, tuân thủ pháp lý hay Pilot Go-Live.
 - **Trạng thái chung:** `SPEC_BASELINE_V1_DRAFT`. Các chính sách được chủ dự án chọn ghi `OWNER_DECIDED`; chi tiết kỹ thuật chưa được phê duyệt ghi `DESIGN_CANDIDATE`; kết quả ngoài nghiên cứu ghi `EVIDENCE_PENDING`.
-- **Lưu ý xuất xứ:** Bản Markdown tổng hợp NPP-01 được biên tập lại từ tệp tóm lược hiện có, không phải bản sao nguyên byte của báo cáo đầy đủ trong cuộc trò chuyện trước.
+- **Lưu ý xuất xứ:** [Tệp tóm lược NPP-01 nguyên văn](sources/npp-01-interview-summary-2026-11-12.original.txt) đã được lưu cùng checksum SHA-256 tại [R009-S](sources.md). Bản R009-NPP được biên tập riêng; **báo cáo Markdown đầy đủ từng nhắc tới chưa có bản gốc**. Q01–Q06 có lựa chọn hội thoại, D-07–D-15 dựa trên tóm lược (không có transcript hỏi–đáp để đối chiếu từng chi tiết).
 
 ## 1. Kết luận ngắn
 
@@ -16,7 +16,8 @@ R008 đã có các mô hình/fixture và đề nghị Q01–Q10. Sau phỏng v�
 
 | Mã | File | Đầu ra |
 |---|---|---|
-| R009-NPP | [Tổng hợp quyết định/khoảng trống NPP-01](npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md) | Nguồn chính sách, trạng thái 15 gói khoảng trống và các gate. |
+| R009-RAW | [Tệp NPP-01 nguyên văn](sources/npp-01-interview-summary-2026-11-12.original.txt) | Nguồn đầu vào được giữ nguyên, checksum/giới hạn tại R009-S. |
+| R009-NPP | [Tổng hợp quyết định/khoảng trống NPP-01](npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md) | Bản biên tập chính sách, 15 gói khoảng trống và các gate. |
 | R009-D | [Sổ quyết định và ADR](decision-register-and-adr.vi.md) | Chọn/chưa chọn, trạng thái, scope, giả định và ngoại lệ. |
 | R009-G | [Glossary và Data Contract](glossary-and-data-contracts.vi.md) | Định danh, ràng buộc dữ liệu, snapshot và authority. |
 | R009-BR | [Business Rules](business-rules.vi.md) | Các bất biến/normative rules đủ để viết logic/test. |
