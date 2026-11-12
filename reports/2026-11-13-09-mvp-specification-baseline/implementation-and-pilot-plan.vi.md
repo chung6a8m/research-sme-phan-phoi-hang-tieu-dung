@@ -11,7 +11,7 @@
 | **1. Baseline** | WP-01 Sổ quyết định + glossary, BR, DC, API/SM, AC/EV, trace | Có tài liệu phiên bản, link đúng, trạng thái chốt/pending minh bạch; Owner review nội dung trước khi khóa baseline | **Tài liệu đã soạn**, `OWNER_REVIEW_PENDING` |
 | **2. Dữ liệu và tích hợp NPP-01** | WP-02 Seller/accounting/provider profile, data sample + permission; WP-03 inventory writer lock + cost mapping | Có mẫu dữ liệu được phép dùng, contract đối tác, sơ đồ mọi đường ghi Kho-01; proof/case chưa đạt không bị ngụy trang | `NOT_STARTED` ngoài nghiên cứu |
 | **3. Vertical Slice A+B E2E** | WP-04 tenant/master; WP-05 inventory/order/trip; WP-06 sale/receipt/AR/custody/advance/return; WP-07 offline; WP-08 invoice/accounting outbox | Actual E2E trên PWA, API, SQL và adapters; AC có testRunId/ledger diff; negative paths/case queue có owner | `NOT_STARTED` |
-| **4. Cutover rehearsal + Go/No-Go** | WP-09 manifest/preview/approval/import/writer release, restore/fault drills | EV-04/08/09/12 và các gate pháp lý/tích hợp theo mode; xác nhận ký đa bên, forward recovery; No-Go nơi P0 pending | `NOT_STARTED` |
+| **4. Cutover rehearsal + Go/No-Go** | WP-09 manifest/preview/approval/import/writer release, restore/fault drills | EV-04, EV-08, EV-09, EV-12 và các gate pháp lý/tích hợp theo mode; xác nhận ký đa bên, forward recovery; No-Go nơi P0 pending | `NOT_STARTED` |
 | **5. Wave 1 đo thực** | WP-10 8 chuyến/ngày × ≥5 ngày, all Kho-01 writes on MVP; observe UX/SLO/support cost | EV-15, n/N, đối soát theo cutoff, case owners, mode-specific decision signed | `NOT_STARTED` |
 
 **Giới hạn:** Đợt 2 **không đóng** B-CASE chỉ bằng việc tìm hiểu kỹ thuật; giữ `EVIDENCE_PENDING` cho tới khi có seller profile, văn bản/đối chiếu áp dụng NPP và thử kênh thực. Có thể hoàn thành phần A/stock/offline/test và B online đã chứng minh mà không tuyên bố B no-channel được phép.
@@ -20,18 +20,18 @@
 
 | ID | Ưu tiên | Đầu việc giao phát triển | DoR trước khi nhận PR | DoD/AC/EV |
 |---|---|---|---|---|
-| DEV-01 | P0 | Tenant identity/authority, DB isolation, business seller profile | D-01, DC-01/17; TADR auth | AC-01/EV-01; test quyền sau revoke/restore |
-| DEV-02 | P0 | SKU/UoM/lot/stock ledger, A reserve/B quota, one writer Kho-01 toàn phạm vi | D-03/11, seller/supply sample, legacy write inventory | AC-03/04/05; EV-03/04 |
-| DEV-03 | P0 | A order–confirm–partial delivery, due per installment | D-02/03/06, BR-03/10, DC-05/09 | AC-02/03/08; EV-02/03/06 |
-| DEV-04 | P0 | B sale–delivery–receipt transaction, three ledgers, customer credit | BR-11/12/13/14, transaction TADR và grant limits | AC-09/10; EV-06/08 |
-| DEV-05 | P0 | Offline journal/inbox/ACK/dependency/idempotency/one writer/restore | R008-T, DC-13/17, TADR-02/04 | AC-11/12/13; EV-08/09 |
-| DEV-06 | P0 | Cutover preview/import + full writer lock + Forward Recovery | Manifest/cutoff/owner/source registry, device inventory | AC-04/10/16; EV-04/12 |
+| DEV-01 | P0 | Tenant identity/authority, DB isolation, business seller profile | D-01, DC-01, DC-17; TADR auth | AC-01/EV-01; test quyền sau revoke/restore |
+| DEV-02 | P0 | SKU/UoM/lot/stock ledger, A reserve/B quota, one writer Kho-01 toàn phạm vi | D-03, D-11, seller/supply sample, legacy write inventory | AC-03, AC-04, AC-05; EV-03, EV-04 |
+| DEV-03 | P0 | A order–confirm–partial delivery, due per installment | D-02, D-03, D-06, BR-03, BR-10, DC-05, DC-09 | AC-02, AC-03, AC-08; EV-02, EV-03, EV-06 |
+| DEV-04 | P0 | B sale–delivery–receipt transaction, three ledgers, customer credit, partial receipt allocation và advance settlement | BR-11, BR-12, BR-13, BR-14, transaction TADR, grant limits và thủ quỹ acceptance | AC-03, AC-09, AC-10, AC-20, AC-21; EV-03, EV-06, EV-08 |
+| DEV-05 | P0 | Offline journal/inbox/ACK/dependency/idempotency/one writer/restore | R008-T, DC-13, DC-17, TADR-02/04 | AC-11, AC-12, AC-13; EV-08, EV-09 |
+| DEV-06 | P0 | Cutover preview/import + full writer lock + Forward Recovery | Manifest/cutoff/owner/source registry, device inventory | AC-04, AC-10, AC-16; EV-04, EV-12 |
 | DEV-07 | P0 mode B | Invoice intent/external registry, seller/provider preflight, B-CASE gate | EV-10 hồ sơ thật để *mở nhánh giao dịch*; phát triển adapter/test có thể sớm hơn | AC-14; INV-01–09 real, B-CASE/LEGAL-MEMO theo phạm vi |
 | DEV-08 | P1 | Accounting Durable Outbox; adapter API/webhook/lookup hoặc file register và reconciliation | Accounting system actual contract, mapping + accounting approver | AC-15; EV-11 |
-| DEV-09 | P1 | Moving-average cost + source-return adjustments + period-cost reconciliation | D-04, sample cost data, accounting rules | AC-06/07; EV-07 |
-| DEV-10 | P1 | Returns/quarantine, pricing/gifts/waiver, visits/no-order, ops queue/metrics | D-05, source/approval policy, fixtures/test tasks | AC-05/07/17; EV-05/13 |
-| DEV-11 | P1 | Cutover/production readiness: runbooks, monitoring, backups & restore drill, hardening | Infra topology, RPO/RTO, key/registry policies, target devices | EV-08/09/12/14 |
-| DEV-12 | P2 | Baseline usability/cost and willingness-to-pay measurement | Cohort/owners/tasks/prepilot baseline | EV-13/15, no invented payback |
+| DEV-09 | P1 | Moving-average cost + source-return adjustments + period-cost reconciliation | D-04, sample cost data, accounting rules | AC-03, AC-06; EV-07 |
+| DEV-10 | P1 | Returns/quarantine, pricing/discount/VAT, gifts/waiver, visits/no-order, ops queue/metrics | D-05, source/approval policy, Decimal fixtures, provider/accounting mapping | AC-05, AC-07, AC-17, AC-19; EV-05, EV-06, EV-10, EV-11, EV-13 |
+| DEV-11 | P1 | Cutover/production readiness: runbooks, monitoring, backups & restore drill, hardening | Infra topology, RPO/RTO, key/registry policies, target devices | EV-08, EV-09, EV-12, EV-14 |
+| DEV-12 | P2 | Baseline usability/cost and willingness-to-pay measurement | Cohort/owners/tasks/prepilot baseline | EV-13, EV-15, no invented payback |
 
 Không suy việc tài liệu có lời giải thành kỹ thuật Done. Có thể chia PR theo Vertical Slice, nhưng mỗi slice phải giữ toàn vẹn ledger, idempotency và evidence của nó; không để phần nợ/chứng từ chờ vô thời hạn “sẽ xử lý sau”.
 
@@ -74,11 +74,11 @@ Không suy việc tài liệu có lời giải thành kỹ thuật Done. Có th�
 
 **DoR:** link D/BR/DC/API/SM/AC; Owner policy status; payload/source IDs, authority, transaction boundary, exact failure semantics; fixtures expected, môi trường test, phần dependency/case người nhận. Nếu hóa đơn/seller không có hồ sơ, chỉ nhận PR nháp/test/adapter không kích hoạt B no-channel thật.
 
-**DoD:** code+contract tests trên source HEAD; concurrency/retry/crash/regression theo affected BR; bảo vệ tenant/permission; không làm thay đổi history/giá/nợ sau post; evidence references và residual risks; migration/forward correction nếu có; reviewer ký AC theo phạm vi, không self-accept legal/finance.
+**DoD:** code+contract tests trên source HEAD; AC-03, AC-09, AC-19, AC-20, AC-21 so before/after từng ledger và dòng net/VAT/gross (không chỉ tổng), concurrency/retry/crash/regression theo affected BR; bảo vệ tenant/permission; không làm thay đổi history/giá/nợ sau post; evidence references và residual risks; migration/forward correction nếu có; reviewer ký AC theo phạm vi, không self-accept legal/finance.
 
 ## 7. Handoff và trạng thái đóng gói tài liệu
 
 - Repo hiện tại vẫn là **repository nghiên cứu/đặc tả**, không phải app source repository.
-- Đợt 1 cung cấp **tài liệu ứng viên v1**. Không có commit source/test integration/pilot thực trong R009.
+- Đợt 1 cung cấp **tài liệu ứng viên v1**. Có [script lint trace](kiem-tra-truy-vet.py) kiểm tra ID và AC→BR/EV trên source checkout; **chỉ cấu trúc tài liệu**, không có commit source/test integration/pilot thực trong R009.
 - Những việc cần xác nhận tiếp: Owner duyệt baseline policy/technical boundaries, NPP cung cấp data/seller/provider/legacy write inventory, kế toán xác nhận period cost và outbox, ops cung cấp hạ tầng/thiết bị/restore requirements.
 - B-CASE và LEGAL-MEMO giữ pending cho tới khi có hồ sơ; không viết “đã khép” chỉ vì báo cáo đã được commit vào PR.
