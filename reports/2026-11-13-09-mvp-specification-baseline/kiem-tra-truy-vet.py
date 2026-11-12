@@ -66,7 +66,11 @@ def ids(cell: str, allowed: tuple[str, ...], location: str) -> list[str]:
 def declaration_sets() -> dict[str, set[str]]:
     declared: dict[str, set[str]] = {}
     for kind, name in FILE_BY_TYPE.items():
-        matches = re.findall(DECLARATION_REGEX[kind], read(name), flags=re.MULTILINE)
+        content = read(name)
+        if kind == "D":
+            # Bảng sourceRef phía sau lặp D-xx để truy vết; không phải khai báo mới.
+            content = content.split("## 1. Decision Register", 1)[1].split("### 1.1.", 1)[0]
+        matches = re.findall(DECLARATION_REGEX[kind], content, flags=re.MULTILINE)
         duplicates = [key for key, count in Counter(matches).items() if count > 1]
         require(not duplicates, f"{kind}: khai báo trùng {duplicates}")
         require(bool(matches), f"{kind}: không có khai báo")
