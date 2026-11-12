@@ -22,8 +22,9 @@ R008 đã có các mô hình/fixture và đề nghị Q01–Q10. Sau phỏng v�
 | R009-G | [Glossary và Data Contract](glossary-and-data-contracts.vi.md) | Định danh, ràng buộc dữ liệu, snapshot và authority. |
 | R009-BR | [Business Rules](business-rules.vi.md) | Các bất biến/normative rules đủ để viết logic/test. |
 | R009-API | [API và State Machines](api-and-state-machines.vi.md) | Lệnh/sự kiện, ACK, status và chuyển bước theo vai trò. |
-| R009-TR | [Ma trận truy vết](traceability.vi.md) | `Decision → BR → DC → API/SM → AC → EV`. |
-| R009-AC | [Acceptance và sổ evidence](acceptance-tests-and-evidence.vi.md) | Ca Given/When/Then, mức bằng chứng và No-Go gate. |
+| R009-TR | [Ma trận truy vết](traceability.vi.md) | `Decision → BR → DC → API/SM → AC → EV`, ID đầy đủ. |
+| R009-AC | [Acceptance và sổ evidence](acceptance-tests-and-evidence.vi.md) | AC-01–AC-21, oracle mixed/giá/ba sổ, mức bằng chứng và No-Go gate. |
+| R009-VAL | [Kiểm tra truy vết](kiem-tra-truy-vet.py) | Lint khai báo/ID/orphan và assertion AC→BR/EV; không phải test ứng dụng. |
 | R009-PLAN | [Kế hoạch triển khai và pilot](implementation-and-pilot-plan.vi.md) | Slices, trách nhiệm, dependency, DoR/DoD, 5 đợt. |
 | R009-S | [Nguồn và giới hạn](sources.md) | Xuất xứ, phần kế thừa, việc chưa được xác nhận. |
 
@@ -31,10 +32,10 @@ R009 là tài liệu **mới** thay vì sửa ngược báo cáo lịch sử. R0
 
 ## 3. Tiêu chuẩn thay đổi baseline
 
-- Mỗi quyết định có ID/phiên bản, phạm vi, mốc xác nhận, link xuất xứ và `status`.
+- Mỗi quyết định có ID/phiên bản, phạm vi, vị trí nguồn có thể kiểm tra và `status`; D-07–D-15 là `SUMMARY_ONLY` từ bản gốc đã lưu, chưa là transcript chi tiết được ký.
 - Thay đổi `OWNER_DECIDED` phải có Owner acceptance/ADR mới; không đổi im lặng qua refactor schema, UI hay script.
 - Khi business rule đổi, cập nhật đồng thời data snapshot, API/state, AC, affected evidence và kế hoạch migrate.
-- `AC_PASS` chỉ khi có `testRunId`, commit/build/thiết bị (nếu áp), dữ liệu và actual result; demo/số học R008 ghi `MODEL_ONLY`.
+- `AC_PASS` chỉ khi có `testRunId`, commit/build/thiết bị (nếu áp), dữ liệu và actual result; demo/số học R008 ghi `MODEL_ONLY`. [Lint R009](kiem-tra-truy-vet.py) chỉ kiểm tra quan hệ tài liệu, không nâng trạng thái kiểm chứng.
 - Trước Go-Live thực phải có quyết định độc lập cho từng luồng A, B có kết nối, B mất kênh hóa đơn và mixed; không dùng một cờ `MVP_READY`.
 
 ## 4. Phạm vi loại trừ mặc định
