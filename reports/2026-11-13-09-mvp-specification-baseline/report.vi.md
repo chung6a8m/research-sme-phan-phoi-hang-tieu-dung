@@ -16,7 +16,7 @@ R008 đã có các mô hình/fixture và đề nghị Q01–Q10. Sau phỏng v�
 
 | Mã | File | Đầu ra |
 |---|---|---|
-| R009-NPP | [Tổng hợp quyết định/khoảng trống NPP-01](NPP-01_tong-hop-quyet-dinh-va-khoang-trong-MVP_2026-11-12.vi.md) | Nguồn chính sách, trạng thái 15 gói khoảng trống và các gate. |
+| R009-NPP | [Tổng hợp quyết định/khoảng trống NPP-01](npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md) | Nguồn chính sách, trạng thái 15 gói khoảng trống và các gate. |
 | R009-D | [Sổ quyết định và ADR](decision-register-and-adr.vi.md) | Chọn/chưa chọn, trạng thái, scope, giả định và ngoại lệ. |
 | R009-G | [Glossary và Data Contract](glossary-and-data-contracts.vi.md) | Định danh, ràng buộc dữ liệu, snapshot và authority. |
 | R009-BR | [Business Rules](business-rules.vi.md) | Các bất biến/normative rules đủ để viết logic/test. |

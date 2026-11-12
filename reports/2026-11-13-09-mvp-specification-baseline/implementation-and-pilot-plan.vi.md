@@ -1,7 +1,7 @@
 # R009-PLAN — Kế hoạch triển khai MVP Specification Baseline v1 và pilot NPP-01
 
 - **Ngày lập:** 13/11/2026; đây là execution plan **đề xuất**, chưa phải commit triển khai source hay lịch được NPP cam kết.
-- **Nguồn:** [NPP-01](NPP-01_tong-hop-quyet-dinh-va-khoang-trong-MVP_2026-11-12.vi.md), [D/ADR](decision-register-and-adr.vi.md), [traceability](traceability.vi.md), [AC/EV](acceptance-tests-and-evidence.vi.md) và hồ sơ [R008](../2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/report.vi.md).
+- **Nguồn:** [NPP-01](npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md), [D/ADR](decision-register-and-adr.vi.md), [traceability](traceability.vi.md), [AC/EV](acceptance-tests-and-evidence.vi.md) và hồ sơ [R008](../2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/report.vi.md).
 - **Chìa khóa:** D → BR → DC → API/SM → AC → EV; mỗi PR phải chỉ rõ đường này. Không thêm module DMS trước khi khép scope P0/P1.
 
 ## 1. Năm đợt và deliverables

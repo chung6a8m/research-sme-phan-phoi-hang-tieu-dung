@@ -35,6 +35,16 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 | R008-L | [Hồ sơ hóa đơn, vận chuyển và dữ liệu](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/hoa-don-va-du-lieu.vi.md) | Nguồn hiện hành/sắp hiệu lực, schema provider, profile/state/mapping và ca sandbox; chưa chạy provider hoặc xác nhận hồ sơ NPP. |
 | R008-P | [Pilot, viếng thăm và bàn giao](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/pilot-va-ban-giao.vi.md) | Hồ sơ tuyển/đầu vào, visit không đơn, 8 bài UX, cutover/import/export, ngoại lệ/KPI/cost; chưa có người dùng hoặc dữ liệu pilot. |
 | R008-S | [Nguồn và phạm vi kiểm chứng R008](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/sources.md) | Sổ nguồn chuyên đề, lệnh chạy, số liệu/mô hình, trạng thái bằng chứng và giới hạn. |
+| R009 | [MVP Specification Baseline v1 — NPP-01](reports/2026-11-13-09-mvp-specification-baseline/report.vi.md) | Đã lập bản baseline theo quyết định Owner sau R008; chính sách có trạng thái, đặc tả là draft, chưa có nghiệm thu hệ thống/Go-Live. |
+| R009-NPP | [Tổng hợp quyết định và khoảng trống NPP-01](reports/2026-11-13-09-mvp-specification-baseline/npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md) | Bản biên tập lại từ tóm lược ngày 12/11/2026, không phải bản sao byte của file Markdown đầy đủ; phân rã thành 15 gói khoảng trống và gate. |
+| R009-D | [Decision Register và ADR](reports/2026-11-13-09-mvp-specification-baseline/decision-register-and-adr.vi.md) | D-01–15; phân biệt chính sách đã chọn với kỹ thuật ứng viên và evidence còn thiếu. |
+| R009-G | [Glossary & Data Contracts](reports/2026-11-13-09-mvp-specification-baseline/glossary-and-data-contracts.vi.md) | DC-01–18: tenant, seller, Customer/Outlet/ShipTo, kho, tiền, offline, invoice, accounting, cutover, authority. |
+| R009-BR | [Business Rules v1](reports/2026-11-13-09-mvp-specification-baseline/business-rules.vi.md) | BR-01–24; bất biến kho–giao–thu–nợ–giá vốn–khuyến mại–offline–kế toán. |
+| R009-API | [API & State Machines v1](reports/2026-11-13-09-mvp-specification-baseline/api-and-state-machines.vi.md) | API-01–12, SM-01–10 ở mức contract ứng viên, không phải endpoint đã phát hành. |
+| R009-TR | [Ma trận truy vết D→BR→DC→API/SM→AC→EV](reports/2026-11-13-09-mvp-specification-baseline/traceability.vi.md) | Mapping quyết định đến acceptance/evidence, mode-specific readiness. |
+| R009-AC | [Acceptance Tests & Evidence Register](reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md) | AC-01–18 và EV-01–15; model-only khác product/pilot verified; P0 B-CASE vẫn pending. |
+| R009-PLAN | [Kế hoạch 5 đợt và Wave 1](reports/2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md) | WP-01–10, DEV-01–12, cutover và 8 chuyến/ngày × ≥5 ngày; chưa triển khai sản phẩm hoặc pilot thật. |
+| R009-S | [Xuất xứ và giới hạn R009](reports/2026-11-13-09-mvp-specification-baseline/sources.md) | Phân biệt tóm lược nguồn, quyết định Owner, mô hình R008 và các điều còn cần xác minh. |
 
 ## Cấu trúc
 
@@ -84,6 +94,17 @@ reports/
     ket-qua-so-lieu.json
     kiem-chung-giao-thuc.py
     ket-qua-giao-thuc.json
+  2026-11-13-09-mvp-specification-baseline/
+    report.vi.md
+    npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md
+    decision-register-and-adr.vi.md
+    glossary-and-data-contracts.vi.md
+    business-rules.vi.md
+    api-and-state-machines.vi.md
+    traceability.vi.md
+    acceptance-tests-and-evidence.vi.md
+    implementation-and-pilot-plan.vi.md
+    sources.md
 briefs/
   2026-11-11-02-nghiep-vu-mvp-pwa.md
   2026-11-11-05-nghien-cuu-bo-sung-dat-mvp.md
@@ -117,6 +138,8 @@ Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi
 **Review PR #1 ngày 12/11/2026:** [R007](reports/2026-11-12-07-review-pr1-va-muc-tieu-tiep-theo/report.vi.md) ghi nhận nền nghiên cứu đã có, tái tính fixture chính và nêu bốn điểm cần khép: quyền/yêu cầu dữ liệu sau restore, quà ròng sau giao–trả–giao, phần dư giá vốn trả từng phần và trách nhiệm sau receipt chờ phụ thuộc. [B007](briefs/2026-11-12-07-kiem-chung-va-chot-dac-ta-mvp.md) đề xuất sáu gói việc để hợp nhất đặc tả và tạo bằng chứng với dữ liệu/thiết bị/provider/pilot. R006 tiếp tục là hồ sơ nghiên cứu, chưa là đặc tả đã nghiệm thu; các chính sách chi tiết và mục tiêu tiếp nối chưa được tự động coi là Owner đã phê duyệt.
 
 **Thực hiện nghiên cứu tiếp nối ngày 12/11/2026:** theo yêu cầu Owner, [R008](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/report.vi.md) khép bốn findings ở lớp quy tắc/contract ứng viên, bổ sung bộ số liệu nhiều ngày và mô hình giao thức có kết quả chạy, hồ sơ hóa đơn/chứng từ cấp xe, đặc tả hợp nhất và công cụ chuẩn bị pilot. Việc thực hiện B007 đã được yêu cầu; các phương án sản phẩm trong R008 vẫn cần chấp nhận theo phạm vi. Chưa có thiết bị/provider/NPP/pilot để thay bằng chứng mô hình bằng nghiệm thu thực tế. R001–R007 giữ nguyên như lịch sử; đặc tả đề nghị mới nằm tại R008-SPEC.
+
+**Baseline NPP-01 ngày 13/11/2026:** [R009](reports/2026-11-13-09-mvp-specification-baseline/report.vi.md) hợp nhất những chính sách Owner đã chọn sau R008 thành Decision Register/ADR, glossary, rule/data/API/state, acceptance/evidence và roadmap triển khai. Các kỹ thuật chi tiết vẫn là ứng viên review; `B-CASE-001/002/003`, `LEGAL-MEMO`, quyền ghi kho độc quyền, offline/cutover và pilot thật vẫn cần chứng cứ trước Go-Live. Tài liệu NPP-01 kèm theo được biên tập từ bản tóm lược hiện có, không được gắn nhãn bản gốc nguyên văn.
 
 ## Quy tắc sử dụng kết quả
 
