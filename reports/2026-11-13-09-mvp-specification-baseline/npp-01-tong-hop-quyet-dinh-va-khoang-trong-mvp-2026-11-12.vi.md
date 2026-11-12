@@ -1,6 +1,6 @@
 # NPP-01 — Tổng hợp quyết định và khoảng trống MVP (đánh giá ngày 12/11/2026)
 
-> **Xuất xứ và mức tin cậy:** Bản Markdown **biên tập/tái lập ngày 13/11/2026** từ nội dung bản tổng hợp NPP-01 do người dùng cung cấp trong ngữ cảnh dự án (tệp `Phỏng vấn quyết định Q01.txt`, 143 dòng), kết hợp đối chiếu R008 tại PR #1. Không phải bản sao nguyên byte của tệp Markdown đầy đủ từng được dẫn tên `NPP-01_tong-hop-quyet-dinh-va-khoang-trong-MVP_2026-11-12.vi.md`. Bản nguồn được cung cấp là bản tóm lược, không chứa nguyên văn biên bản, từng câu hỏi và hồ sơ chứng cứ bên ngoài.
+> **Xuất xứ và mức tin cậy:** Bản Markdown **biên tập/tái lập ngày 13/11/2026** từ nội dung bản tổng hợp NPP-01 do người dùng cung cấp trong ngữ cảnh dự án (tệp [Phỏng vấn quyết định Q01.txt — lưu nguyên văn](sources/npp-01-interview-summary-2026-11-12.original.txt), SHA-256 `3205b94dfbd0057b9dd11c9e309f7b40dfd496e25d218ebce927d8c0a7078038`), kết hợp đối chiếu R008 tại PR #1. Không phải bản sao nguyên byte của tệp Markdown đầy đủ từng được dẫn tên `NPP-01_tong-hop-quyet-dinh-va-khoang-trong-MVP_2026-11-12.vi.md`. Bản nguồn được cung cấp là bản tóm lược, không chứa nguyên văn biên bản, từng câu hỏi và hồ sơ chứng cứ bên ngoài.
 >
 > **Phạm vi:** Quyết định nghiên cứu/phỏng vấn đến Mục 202; trạng thái bằng chứng tính đến 12/11/2026. Văn bản này không tự chứng nhận tuân thủ pháp luật, khả năng của hệ thống kế toán/provider hay kết quả pilot.
 >
