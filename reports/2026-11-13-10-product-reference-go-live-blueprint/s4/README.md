@@ -43,3 +43,7 @@ Tất cả chỉ là `S4_CONTRACT_VALIDATED_NOT_OPERATIONAL_EVIDENCE`. Hãy ch�
 ## 4. Handoff
 
 S5 dùng dossier/gap-control theo tenant để xác định người ký, source thực, ngưỡng còn UNSET và scope. S6 gắn workflow thật, thu artifact có hash/testRunId/SHA build, chạy negative tests F-01..22, cutover rehearsal rồi mới xin Product Verification và Tenant Go-Live Acceptance. Không đọc `tenant-operations-dossier.example.json` như dữ liệu NPP-01.
+
+## 5. Evidence CI structural — không phải nghiệm thu thật
+
+[GitHub Actions run 43399848506](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43399848506) **SUCCESS** trên `8a7049a0`: 30 OPS controls (22 P06/8 P08), 15 EV, 5 gate P0, **20 negative regression**, **17 JSON Schema negatives**. Báo cáo chi tiết [validation-results.vi.md](validation-results.vi.md). `realOperationalDrills:0`, `tenantSignoffs:0`; các giá trị GO/verification không thay đổi.
