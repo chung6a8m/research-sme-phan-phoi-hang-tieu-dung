@@ -109,7 +109,8 @@
     "product-baseline-snapshot-c.candidate.json",
     "product-baseline-snapshot-c.schema.json",
     "baseline-snapshot-c-readiness.vi.md",
-    "s5-snapshot-c-schema-tests.py"
+    "s5-snapshot-c-schema-tests.py",
+    "q09-interview-review-and-finding-disposition.vi.md"
   ],
   "unresolved": {
     "evidenceIds": [

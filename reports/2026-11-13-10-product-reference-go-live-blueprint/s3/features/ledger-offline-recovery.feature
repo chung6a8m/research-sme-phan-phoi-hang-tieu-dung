@@ -33,9 +33,9 @@ Feature: Sale/grant, three ledgers, journal, writer, restore
 
   @ac_11 @ev_08 @positive @not_run_product
   Scenario: S3-AC11-P — Durable ACK và dependency inbox
-    Given PWA journal có C phụ thuộc P; server phải lưu bền command/id/hash
-    When Server nhận C trước P, restart, sync P rồi replay C cùng ID/hash
-    Then awaiting_dependency có durable owner; ACK sau commit; 1 effect đúng dependency
+    Given Online scope EV-08/ONLINE_IDEMPOTENCY có durable inbox C phụ thuộc P, không cấp offline device grant
+    When Server nhận C trước P, restart, nhận P rồi replay C cùng ID/hash ở online scope
+    Then awaiting_dependency có durable owner; ACK sau commit; một effect đúng dependency và không tự bật OFFLINE_WRITE
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 
   @ac_11 @ev_08 @negative @not_run_product

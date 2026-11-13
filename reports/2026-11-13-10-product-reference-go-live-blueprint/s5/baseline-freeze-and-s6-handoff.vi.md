@@ -44,3 +44,9 @@ Manifest baseline ứng viên lưu **14 Git blob SHA** cho các đầu vào R009
 - [Snapshot C candidate](product-baseline-snapshot-c.candidate.json) và [readiness](baseline-snapshot-c-readiness.vi.md) quy định phạm vi toàn R009/R010 S1–S5, B010, README và CI. SHA C được nhận diện bằng GitHub commit chứa các file này; không tự tham chiếu SHA C trong cùng tree.
 - Quality Gate CI tại C vẫn phải xác nhận trên SHA cuối; các reviewer bắt buộc Product/BA, Technical, QA (và Finance/Legal/Ops theo phạm vi) đang PENDING cho đến khi có reviewRef có thật. Không yêu cầu bằng chứng system E2E cho việc duyệt hợp đồng sản phẩm.
 - Sau khi Q06/Q09 đủ điều kiện, Owner sẽ **tự** comment PR #2 với full SHA C; chỉ khi đó mới tạo R, không ký thay hoặc merge PR #2.
+
+## Q09-SIGN-03 — Findings phải khép trước khi trình Owner ký
+
+Owner chọn phương án 1: phân loại và xử lý mọi P0/P1 contract blocker, cập nhật SOP/POL/AC/EV/validators/negative regression, tạo candidate C' mới với source hashes, kiểm S1–S5 đúng SHA và review theo phạm vi ảnh hưởng. P2 chỉ defer nếu không làm yếu L0/P0 và có owner/exit criteria. Commit C gốc `4e2e4626208b52c6d09ebe3722b2a4462f6f6112` được giữ làm historical target, không thay đổi R009.
+
+Q09 interview: 12 Product/BA + 15 Technical + 10 QA lựa chọn; `Q09-SIGN-01=2` Owner kiêm ba vai trò nhưng không là ba reviewer độc lập; `Q09-SIGN-02=1` Finance/Legal/Ops phải review hợp đồng chuyên môn trước Owner sign-off. Chưa có bất kỳ reviewRef/acceptedAt/comment Owner hợp lệ nào trong giai đoạn chuẩn bị này. Báo cáo: [Q09 findings](q09-interview-review-and-finding-disposition.vi.md).

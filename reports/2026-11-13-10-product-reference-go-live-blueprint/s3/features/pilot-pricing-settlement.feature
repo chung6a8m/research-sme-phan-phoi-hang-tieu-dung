@@ -40,9 +40,9 @@ Feature: Visit, pilot, pricing, advance and customer credit
 
   @ac_19 @ev_05 @ev_06 @ev_10 @ev_11 @negative @not_run_product
   Scenario: S3-AC19-N — Pricing Decimal và partial return (negative/fault)
-    Given Thứ tự P/Q bị đổi, có partial return cùng nguồn hoặc adapter làm tròn lệch
+    Given Thứ tự P/Q bị đổi, partial return kèm quà chưa thu hồi cùng nguồn hoặc adapter làm tròn lệch
     When Thử tính bằng float, double-apply VAT, duplicate refund, hoặc thay nguồn lineId
-    Then Giữ line-stable rounding, không trùng, không xuất hóa đơn thật từ VAT fixture
+    Then Giữ line-stable rounding, không trùng; thiếu quà/waiver thì commercial settlement pending; không xuất hóa đơn thật từ VAT fixture
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 
   @ac_20 @ev_06 @positive @not_run_product

@@ -56,3 +56,11 @@ Nguồn: [R009 AC/EV](../../2026-11-13-09-mvp-specification-baseline/acceptance-
 ### Read-only evidence intake (schema + semantic)
 
 Trên máy có `jsonschema>=4.20,<5`, có thể chạy `python s3/s3-evidence-schema-test.py --record /secure/path/observation.json` để kiểm các quan hệ AC/scenario/EV/mode/fixture/fault của một file mới. Thành công chỉ in `S3_RECORD_CONTRACT_VALID_NOT_PRODUCT_VERIFIED`, không xác minh artifact tồn tại hoặc người ký/issuer.
+
+## Q09 — Online idempotency scope không đồng nghĩa Offline Write
+
+- `EV-08/ONLINE_IDEMPOTENCY_DURABLE_ACK_CONCURRENCY` bắt buộc chứng minh bằng hệ thống thật cho A/B_ONLINE/MIXED; đây chỉ là phạm vi evidence về durable ACK/retry/concurrency, **không phải PASS toàn bộ EV-08** hoặc Offline Device E2E.
+- MIXED Online vẫn cần gate A + B_ONLINE, Mixed E2E riêng, G-IDEMP và các P0 liên quan. `requiredEvIds` cho MIXED không còn yêu cầu EV-08 **unscoped**, nhưng `onlineIdempotencyEvidenceScope` vẫn bắt buộc EV-08 scoped real test.
+- `OFFLINE_WRITE` tách biệt, mặc định DISABLED, chỉ được xét khi `EV-08/09` real-device scope `OFFLINE_DEVICE_JOURNAL_REVOKE_RESTORE` đạt theo mode/trip/installation.
+- PBA-02/03/09 và TECH-11 bổ sung kiểm tra cash-only khi UNSET, hàng trả thực chưa settle quà, giá A Confirm, revoke file/export. Các Gherkin vẫn `NOT_RUN_PRODUCT`, không có step definitions thực ở S3.
+- Thay đổi này là `CONTRACT_CHANGE`, cần QA semantic re-review, CI đúng SHA candidate mới và sign-off có thật; không dùng để tuyên bố Product Verification.

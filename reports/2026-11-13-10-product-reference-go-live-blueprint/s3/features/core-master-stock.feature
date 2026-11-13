@@ -21,13 +21,13 @@ Feature: Tenant, Customer, Mixed, warehouse, cost, gift, due-date
   Scenario: S3-AC02-P — Customer không cần Outlet và ShipTo snapshot
     Given Customer C1 có 0 Outlet và địa chỉ giao S1 hợp lệ
     When Xác nhận A rồi giao hai lần, thay đổi master sau giao
-    Then Customer vẫn chịu AR; ShipTo, giá và terms của mỗi delivery là snapshot
+    Then Customer vẫn chịu AR; ShipTo/terms theo source, giá thương mại A khóa tại Confirm và không bị bảng giá mới thay đổi ở delivery sau
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 
   @ac_02 @ev_02 @negative @not_run_product
   Scenario: S3-AC02-N — Customer không cần Outlet và ShipTo snapshot (negative/fault)
     Given Master Customer hoặc Outlet bị chỉnh sửa sau delivery
-    When Thử cập nhật hồi tố debtor, ShipTo hoặc buộc sinh Outlet giả
+    When Thử cập nhật hồi tố debtor, ShipTo, giá A Confirm hoặc buộc sinh Outlet giả
     Then Snapshot chứng từ bất biến; không tạo Outlet giả và không đổi AR lịch sử
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 
@@ -91,14 +91,14 @@ Feature: Tenant, Customer, Mixed, warehouse, cost, gift, due-date
   Scenario: S3-AC07-P — Quà ròng và waiver được duyệt
     Given Net sale 20 mua được 2 quà; sau trả 11 mua và 2 quà rồi giao 11 mua
     When Recompute entitlement và ghi giao quà bù theo net delivered
-    Then Trả đủ 2 quà thì cấp lại 2; waiver giữ quà có duyệt thì không cấp thêm
+    Then Hàng trả vật lý vào QUARANTINE; commercial settlement chỉ post khi quà đã thu hồi đủ hoặc waiver có checker, không cấp quà bù sai nguồn
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 
   @ac_07 @ev_05 @negative @not_run_product
   Scenario: S3-AC07-N — Quà ròng và waiver được duyệt (negative/fault)
     Given Đã giữ 2 quà chưa hoàn hoặc thiếu waiver approval
-    When Thử cấp tiếp 2 quà, retry cùng source hoặc miễn thu hồi không người duyệt
-    Then Chặn cấp trùng và không thay lịch sử quà khi thiếu approval
+    When Thử cấp tiếp quà, giảm AR/refund trước khi giải quyết quà chưa thu hồi, retry cùng source hoặc waiver không checker
+    Then Không cấp trùng; AR/refund không đổi dù hàng vật lý đã nhận vào QUARANTINE; waiver thiếu checker giữ case
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 
   @ac_08 @ev_06 @positive @not_run_product
@@ -111,7 +111,7 @@ Feature: Tenant, Customer, Mixed, warehouse, cost, gift, due-date
   @ac_08 @ev_06 @negative @not_run_product
   Scenario: S3-AC08-N — Hạn nợ theo delivery snapshot (negative/fault)
     Given Terms master thay đổi khi AR cũ chưa tất toán
-    When Thử tính lại hạn cũ theo N=14 hoặc cấp nợ khi creditPolicy UNSET
-    Then AR cũ không đổi; UNSET fail-closed và không đồng nghĩa approved-zero
+    When Thử tính lại hạn cũ, cấp nợ khi creditPolicy UNSET, hoặc xử lý bán cash-only đã verified
+    Then AR cũ không đổi; UNSET chặn bán chịu, cho cash-only verified đủ tiền trong scope, không tự gán approved-zero
     And phải lưu source IDs, before/after ledger, testRunId, fault marker và artifact hash khi E2E thật được chạy
 

@@ -51,3 +51,7 @@ Các ví dụ synthetic không được dùng làm dữ liệu NPP thật. S6 m�
 - [Snapshot C candidate](product-baseline-snapshot-c.candidate.json), [schema](product-baseline-snapshot-c.schema.json), [readiness & QA handoff](baseline-snapshot-c-readiness.vi.md), [negative schema tests](s5-snapshot-c-schema-tests.py) chuẩn bị scope toàn-tree và quy trình ký; `snapshotCommitSha=null` trong chính file candidate để tránh self-reference. SHA GitHub của **commit chứa snapshot** là C sau khi commit được push.
 - CI S2–S5 sau retarget về main ở [0443705d](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/commit/0443705d4d5cd772a69eab9bf5b625e30a9c43a2) đã SUCCESS (synthetic/contract). **CI tại C và reviewer thật** vẫn phải được kiểm trước Owner sign-off; không tự chuyển matrix `PENDING_REVIEW` thành PASS.
 - **Không phải Acceptance Record R:** mẫu `product-baseline-acceptance.example.json` vẫn chưa ký, chưa có GitHub Owner comment, và các mode/EV/TADR vẫn pending. PR #2 tiếp tục Draft, không tự merge.
+
+## Q09 interview findings và candidate C' (chưa sign-off)
+
+[Báo cáo Q09 và disposition](q09-interview-review-and-finding-disposition.vi.md) ghi 37 lựa chọn qua phỏng vấn, năm contract findings và điều kiện review. Commit C gốc: `4e2e4626208b52c6d09ebe3722b2a4462f6f6112`; candidate C' là một commit mới, không tạo Owner approval hoặc Acceptance Record R từ phỏng vấn. Các TADR/EV/tenant/provider/legal vẫn pending.
