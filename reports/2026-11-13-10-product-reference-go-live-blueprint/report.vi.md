@@ -184,3 +184,20 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 **Ranh giới:** NPP-01 vẫn chưa có opening/cutover/revoke/restore/seller/provider/accounting/UX E2E và chữ ký. EV-01..15 vẫn real pending; EV-05..09 MODEL_ONLY nghiên cứu; B-CASE/LEGAL-MEMO EVIDENCE_PENDING, INV-09 NOT_RUN. Không tự đặt RPO/RTO, SLO/threshold, retention, pháp lý/thuế, nhà cung cấp hoặc tên người ký. OFFLINE_WRITE và PRODUCTION_CUTOVER DISABLED_PENDING; A/B_ONLINE/MIXED NO_GO_PENDING; B_NO_CHANNEL BLOCKED. TADR-01..06 DESIGN_CANDIDATE. S5 nhận gap/dossier theo tenant; S6 mới thực thi DR/cutover, thu testRunId, product verification và mode Go/No-Go độc lập.
 
 **CI S4 contract:** [run 43399848506](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43399848506) SUCCESS trên `8a7049a0`; `PASS_S4_CONTRACT_ONLY` 30 OPS (P06 22/P08 8), 15 EV, 5 gate P0; `PASS_S4_NEGATIVE_REGRESSION 20`; `PASS_S4_SCHEMA_DRAFT202012_NEGATIVES 17`. Xem [S4 validation results](s4/validation-results.vi.md). `realOperationalDrills=0`, `tenantSignoffs=0`; S4 chuẩn bị DOC_READY, không nghiệm thu Product/Tenant.
+
+## 14. Fix review findings S3/S4 F1–F6 — 13/11/2026
+
+**Phạm vi đã sửa trên PR #2:** hợp đồng/CI, không thay Product ADR Owner hay kết quả EV thực.
+
+| Finding | Kết quả sửa | Bằng chứng |
+|---|---|---|
+| F1 — P1 mode gate theo pha | `pilotStartRequiredEvIds` có EV-14, `productionGoLiveRequiredEvIds` thêm EV-15; B_ONLINE có EV-02; MIXED kế thừa A/B + EV-03; offline EV-08/09 riêng | S3 validator + negative regressions |
+| F2 — P1 evidence BLOCKED | `PRE_EXECUTION_BLOCKER` không bịa testRunId/clock; REAL FAILED phải có actual/artifact | Draft2020-12 + semantic tests |
+| F3 — P1 discovery NPP trước runtime | Dossier `TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL` với `discoveryGaps`, ví dụ synthetic-only, admission/signoffs rỗng | S4 schema/tests |
+| F4 — P1 semantic validation | CLI `--record`/`--dossier` read-only; AC/EV/scenario/mode/fault, 30 OPS, 6 mode, unique IDs, P1-only | S3/S4 regression + read-only CLI |
+| F5 — P2 upstream CI | Workflow S3/S4 theo dõi EVQ/SOP/POL/RACI và tài liệu liên quan; kiểm hợp đồng nguồn | GitHub Actions trên PR |
+| F6 — P2 exception | `p1Exceptions` có scope/owner/expiry/mitigation/compensation/reviewer/approvalRef; tuyệt đối không waiving P0/evidence | S4 schema + semantic tests |
+
+**CI synthetic tại HEAD tham chiếu `826c7e472eef`:** [S2](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938063), [S3](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938035), [S4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938263) đều **SUCCESS**. Sau các sửa tài liệu này cần đối chiếu CI HEAD cuối cùng. Các trạng thái `DOC_READY`, `PRODUCT_VERIFIED`, `TENANT_GO_LIVE_ACCEPTED` vẫn tách biệt; `realE2eRuns=0`, `realOperationalDrills=0`, `tenantSignoffs=0`.
+
+**Bàn giao:** chuyển sang **S5/P07** xây dựng gap assessment, tenant adoption profile và baseline freeze; tiếp theo S6 mới kiểm PWA/API/SQL/provider/accounting, writer lock toàn Kho-01, cutover/DR và Pilot theo từng mode. PR giữ Draft cho đến khi đủ tài liệu/approval; không merge hoặc mở production từ CI synthetic.

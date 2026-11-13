@@ -47,7 +47,9 @@ if len(sys.argv) > 1:
     if len(sys.argv) != 3 or sys.argv[1] != "--record":
         raise SystemExit("Usage: python s3-evidence-schema-test.py --record /secure/path/observation.json")
     record = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
-    errors = [e.message for e in validator.iter_errors(record)] + semantic_errors(record)
+    errors = [f"schema failure at {e.json_path}: {e.validator}" for e in validator.iter_errors(record)]
+    if not errors:
+        errors = semantic_errors(record)
     if errors:
         for message in errors:
             print("S3_RECORD_INVALID: " + message)

@@ -24,3 +24,9 @@
 EV-01..15 vẫn cần evidence runtime; EV-05..09 có MODEL_ONLY lịch sử nhưng real E2E `NOT_RUN`. `B-CASE-001/002/003` và `LEGAL-MEMO` là `EVIDENCE_PENDING`, `INV-09` là `NOT_RUN`. NPP-01 chưa có source opening/Stock writer-block proof, seller/legal/provider, DR rehearsal, Finance/Owner signoff, ngưỡng SLO/UX đã duyệt hoặc Pilot. `B_NO_CHANNEL` BLOCKED, OFFLINE_WRITE/PRODUCTION_CUTOVER DISABLED_PENDING, A/B_ONLINE/MIXED NO_GO_PENDING.
 
 **S5:** đối chiếu và ký Tenant Pilot Profile/role/version/gap theo NPP. **S6:** implement product, adapter/instrumentation, chạy E2E/fault/cutover/DR trên hệ thống thật, EV-14 trước EV-15 và xin quyết định hai cấp theo mode. Không nâng S4 lên `PRODUCT_VERIFIED`/ `TENANT_GO_LIVE_ACCEPTED`.
+
+## Bổ sung sau review F3/F4/F5/F6 — HEAD `826c7e472eef`
+
+- [S4 Actions run 43409938263](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938263): **SUCCESS**, 30 OPS (22 P06/8 P08), `PASS_S4_NEGATIVE_REGRESSION 27`, `PASS_S4_SCHEMA_DRAFT202012_NEGATIVES 17`, `PASS_S4_SEMANTIC_NEGATIVES 21`, `PASS_S4_IN_MEMORY_POSITIVES 4`.
+- Bổ sung `TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL` cho S5 trước runtime, synthetic sample; `p1Exceptions` có owner, scope, expiry, mitigation, independent review/ref, không miễn P0 hay cấp mode. CLI `--dossier` PASS và chỉ kết luận `S4_DOSSIER_CONTRACT_VALID_NOT_TENANT_ACCEPTED`.
+- `realOperationalDrills=0`, `tenantSignoffs=0`; B-CASE/LEGAL-MEMO/INV-09 giữ trạng thái pending/NOT_RUN. Chưa có dữ liệu NPP thật hay quyết định GO, dù các script/CI đã PASS.
