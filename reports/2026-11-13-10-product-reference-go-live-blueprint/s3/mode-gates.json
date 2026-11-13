@@ -60,7 +60,18 @@
         "EV-14",
         "EV-15"
       ],
-      "evidencePhaseDefinition": "PILOT_START requires EV-14; PRODUCTION_GO_LIVE additionally requires EV-15 and independent tenant approval"
+      "evidencePhaseDefinition": "PILOT_START requires EV-14; PRODUCTION_GO_LIVE additionally requires EV-15 and independent tenant approval",
+      "onlineIdempotencyEvidenceScope": {
+        "evId": "EV-08",
+        "evidenceScope": "ONLINE_IDEMPOTENCY_DURABLE_ACK_CONCURRENCY",
+        "acIds": [
+          "AC-11"
+        ],
+        "gateId": "G-IDEMP",
+        "realSystemEvidenceRequired": true,
+        "requiresFullOfflineDeviceE2E": false,
+        "confersOfflineWriterGrant": false
+      }
     },
     {
       "mode": "B_ONLINE",
@@ -117,7 +128,19 @@
         "EV-14",
         "EV-15"
       ],
-      "evidencePhaseDefinition": "PILOT_START requires EV-14; PRODUCTION_GO_LIVE additionally requires EV-15 and independent tenant approval"
+      "evidencePhaseDefinition": "PILOT_START requires EV-14; PRODUCTION_GO_LIVE additionally requires EV-15 and independent tenant approval",
+      "onlineIdempotencyEvidenceScope": {
+        "evId": "EV-08",
+        "evidenceScope": "ONLINE_IDEMPOTENCY_DURABLE_ACK_CONCURRENCY",
+        "acIds": [
+          "AC-09",
+          "AC-11"
+        ],
+        "gateId": "G-IDEMP",
+        "realSystemEvidenceRequired": true,
+        "requiresFullOfflineDeviceE2E": false,
+        "confersOfflineWriterGrant": false
+      }
     },
     {
       "mode": "MIXED",
@@ -142,7 +165,6 @@
         "EV-05",
         "EV-06",
         "EV-07",
-        "EV-08",
         "EV-09",
         "EV-10",
         "EV-11",
@@ -159,7 +181,6 @@
         "EV-05",
         "EV-06",
         "EV-07",
-        "EV-08",
         "EV-09",
         "EV-10",
         "EV-11",
@@ -175,7 +196,6 @@
         "EV-05",
         "EV-06",
         "EV-07",
-        "EV-08",
         "EV-09",
         "EV-10",
         "EV-11",
@@ -184,7 +204,20 @@
         "EV-14",
         "EV-15"
       ],
-      "evidencePhaseDefinition": "PILOT_START requires EV-14; PRODUCTION_GO_LIVE additionally requires EV-15 and independent tenant approval"
+      "evidencePhaseDefinition": "PILOT_START requires EV-14; PRODUCTION_GO_LIVE additionally requires EV-15 and independent tenant approval",
+      "onlineIdempotencyEvidenceScope": {
+        "evId": "EV-08",
+        "evidenceScope": "ONLINE_IDEMPOTENCY_DURABLE_ACK_CONCURRENCY",
+        "acIds": [
+          "AC-03",
+          "AC-09",
+          "AC-11"
+        ],
+        "gateId": "G-IDEMP",
+        "realSystemEvidenceRequired": true,
+        "requiresFullOfflineDeviceE2E": false,
+        "confersOfflineWriterGrant": false
+      }
     },
     {
       "mode": "OFFLINE_WRITE",
@@ -205,7 +238,9 @@
         "EV-09"
       ],
       "defaultEnabled": false,
-      "requiresRealDeviceE2E": true
+      "requiresRealDeviceE2E": true,
+      "requiredEvidenceScope": "OFFLINE_DEVICE_JOURNAL_REVOKE_RESTORE",
+      "requiresEV08AndEV09RealDeviceE2E": true
     },
     {
       "mode": "B_NO_CHANNEL",
@@ -256,12 +291,14 @@
       "EV-09"
     ],
     "defaultDisabled": true,
-    "independentDeviceTripScope": true
+    "independentDeviceTripScope": true,
+    "requiredEvidenceScope": "OFFLINE_DEVICE_JOURNAL_REVOKE_RESTORE"
   },
   "phasePolicy": {
     "pilotStart": "EV-14 signed before pilot, EV-15 not a precondition",
     "productionGoLive": "EV-15 reviewed after pilot, EV-14 preserved, independent tenant approval",
     "offlineWrite": "Offline requires EV-08/09 by device, trip and mode; not inferred from online approval",
-    "evidenceStatus": "CONTRACT_ONLY / NOT_RUN_PRODUCT"
+    "evidenceStatus": "CONTRACT_ONLY / NOT_RUN_PRODUCT",
+    "onlineIdempotency": "All A/B_ONLINE/MIXED must prove scoped EV-08 ONLINE durable ACK/retry/concurrency in real system; full EV-08/09 device offline E2E is a separate OFFLINE_WRITE admission and is never auto-enabled"
   }
 }

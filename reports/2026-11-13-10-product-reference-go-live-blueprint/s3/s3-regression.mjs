@@ -29,6 +29,15 @@ const mutations=[
  ["A_pilot_premature_EV15",d=>d.gates.gates.find(x=>x.mode==="A").pilotStartRequiredEvIds.push("EV-15")],
  ["B_go_live_missing_EV14",d=>d.gates.gates.find(x=>x.mode==="B_ONLINE").productionGoLiveRequiredEvIds=d.gates.gates.find(x=>x.mode==="B_ONLINE").productionGoLiveRequiredEvIds.filter(x=>x!=="EV-14")],
  ["offline_requirement_lost",d=>d.gates.conditionalEvidenceWhenOfflineWrite.requiredEvIds=["EV-08"]],
+ ["q09_AC07_checks_removed",d=>delete d.acceptance.cases.find(x=>x.acId==="AC-07").q09SemanticAcceptance],
+ ["online_scope_missing_A",d=>delete d.gates.gates.find(x=>x.mode==="A").onlineIdempotencyEvidenceScope],
+ ["online_scope_requires_offline",d=>d.gates.gates.find(x=>x.mode==="B_ONLINE").onlineIdempotencyEvidenceScope.requiresFullOfflineDeviceE2E=true],
+ ["online_scope_no_real_test",d=>d.gates.gates.find(x=>x.mode==="MIXED").onlineIdempotencyEvidenceScope.realSystemEvidenceRequired=false],
+ ["online_scope_no_G_IDEMP",d=>d.gates.gates.find(x=>x.mode==="A").gateIds=d.gates.gates.find(x=>x.mode==="A").gateIds.filter(x=>x!=="G-IDEMP")],
+ ["mixed_unscoped_EV08",d=>d.gates.gates.find(x=>x.mode==="MIXED").pilotStartRequiredEvIds.push("EV-08")],
+ ["offline_scope_lost",d=>d.gates.conditionalEvidenceWhenOfflineWrite.requiredEvidenceScope="ANY"],
+ ["cash_only_policy_lost",d=>d.policy=d.policy.replaceAll("PBA-02","MISSING")],
+ ["gift_settlement_missing",d=>d.sop=d.sop.replaceAll("COMMERCIAL_SETTLEMENT_POSTED","INVALID")],
  ["upstream_policy_lost",d=>d.policy="invalid"],
  ["upstream_EVQ_lost",d=>d.evq="invalid"]
 ];

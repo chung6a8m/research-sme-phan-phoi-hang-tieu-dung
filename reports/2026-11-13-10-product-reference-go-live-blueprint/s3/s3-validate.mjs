@@ -71,6 +71,8 @@ export function validateContract(d){
 
   for(const ac of A){
     check(ac.productExecutionStatus==="NOT_RUN" && ac.implementationStatus==="STEPS_UNBOUND","unbound product test must be NOT_RUN "+ac.acId);
+    const q09Req={"AC-01":"TECH-11","AC-02":"PBA-09","AC-07":"PBA-03","AC-08":"PBA-02","AC-11":"TECH-08","AC-19":"PBA-03"};
+    if(q09Req[ac.acId])check(ac.q09SemanticAcceptance?.findingRefs.includes(q09Req[ac.acId])&&ac.q09SemanticAcceptance.requiredSemanticChecks.length>=2,"Q09 semantic AC missing "+ac.acId);
     check(sorted(ac.scenarioIds)===sorted(["S3-"+ac.acId.replace("-","")+"-P","S3-"+ac.acId.replace("-","")+"-N"]),"P/N scenarios "+ac.acId);
     check(ac.modes.length>0 && ac.fixtureRefs.length>0 && ac.evidenceIds.length>0,"incomplete AC "+ac.acId);
     check(ac.gateIds.every(x=>d.gates.nonWaivableP0.includes(x)),"unknown P0 gate "+ac.acId);
@@ -141,18 +143,26 @@ export function validateContract(d){
   // F1: pilot readiness is not production Go-Live; do not lose inherited Mixed evidence.
   const commonEv=["EV-01","EV-02","EV-04","EV-05","EV-06","EV-07","EV-09","EV-10","EV-11","EV-12","EV-13","EV-14"];
   for(const id of ["A","B_ONLINE","MIXED"]){
-    const m=mode(id),pilot=id==="MIXED"?[...commonEv,"EV-03","EV-08"]:commonEv;
+    const m=mode(id),pilot=id==="MIXED"?[...commonEv,"EV-03"]:commonEv;
     check(sorted(m.requiredEvIds||[])===sorted(pilot),"legacy requiredEvIds is only PILOT_START "+id);
     check(sorted(m.pilotStartRequiredEvIds||[])===sorted(pilot),"PILOT_START completeness "+id);
     check(sorted(m.productionGoLiveRequiredEvIds||[])===sorted([...pilot,"EV-15"]),"PRODUCTION_GO_LIVE requires EV-15 "+id);
     check(!m.pilotStartRequiredEvIds.includes("EV-15") && m.productionGoLiveRequiredEvIds.includes("EV-14"),"EV14 before EV15 "+id);
   }
-  check(sorted(d.gates.conditionalEvidenceWhenOfflineWrite?.requiredEvIds||[])===sorted(["EV-08","EV-09"])&&d.gates.conditionalEvidenceWhenOfflineWrite?.defaultDisabled===true,"offline requires distinct EV08/09");
+  for(const id of ["A","B_ONLINE","MIXED"]){
+    const m=mode(id),scope=m.onlineIdempotencyEvidenceScope;
+    const acs=id==="A"?["AC-11"]:id==="MIXED"?["AC-03","AC-09","AC-11"]:["AC-09","AC-11"];
+    check(!!scope&&scope.evId==="EV-08"&&scope.evidenceScope==="ONLINE_IDEMPOTENCY_DURABLE_ACK_CONCURRENCY"&&sorted(scope.acIds||[])===sorted(acs)&&scope.gateId==="G-IDEMP"&&scope.realSystemEvidenceRequired===true&&scope.requiresFullOfflineDeviceE2E===false&&scope.confersOfflineWriterGrant===false&&m.gateIds.includes("G-IDEMP"),"online scope EV08/G-IDEMP missing or full offline improperly required "+id);
+  }
+  check(!mode("MIXED").requiredEvIds.includes("EV-08")&&!mode("MIXED").pilotStartRequiredEvIds.includes("EV-08")&&!mode("MIXED").productionGoLiveRequiredEvIds.includes("EV-08"),"Mixed online cannot require unscoped full EV08");
+  check(sorted(d.gates.conditionalEvidenceWhenOfflineWrite?.requiredEvIds||[])===sorted(["EV-08","EV-09"])&&d.gates.conditionalEvidenceWhenOfflineWrite?.defaultDisabled===true&&d.gates.conditionalEvidenceWhenOfflineWrite?.requiredEvidenceScope==="OFFLINE_DEVICE_JOURNAL_REVOKE_RESTORE"&&mode("OFFLINE_WRITE").requiredEvidenceScope==="OFFLINE_DEVICE_JOURNAL_REVOKE_RESTORE"&&mode("OFFLINE_WRITE").requiresEV08AndEV09RealDeviceE2E===true,"offline requires EV08/09 separate real device evidence");
   check(d.gates.phasePolicy?.pilotStart?.includes("EV-14")&&d.gates.phasePolicy?.productionGoLive?.includes("EV-15"),"phase policy text missing");
   // F5: CI watches S1/EVQ changes; contract also verifies upstream reference presence.
   for(const id of new Set(A.flatMap(x=>x.s1Trace.policyIds)))check(d.policy.includes(id),"orphan policy in upstream "+id);
   for(const id of new Set(A.flatMap(x=>x.s1Trace.sopIds)))check(d.sop.includes(id),"orphan SOP in upstream "+id);
   for(const id of ["EVQ-05","EVQ-07","B_ONLINE","B_NO_CHANNEL","EV-14","EV-13/14/15"])check(d.evq.includes(id),"upstream EVQ drift "+id);
+  for(const id of ["PBA-02","PBA-03","PBA-09","TECH-08","TECH-11"])check(d.policy.includes(id),"missing Q09 policy clarification "+id);
+  check(d.sop.includes("COMMERCIAL_SETTLEMENT_POSTED")&&d.sop.includes("CASH_ON_DELIVERY"),"physical return/credit UNSET contract clarification missing");
   check(d.schema.$schema==="https://json-schema.org/draft/2020-12/schema","schema draft");
   const e=d.example;
   check(e.runKind==="PLACEHOLDER" && e.executionStatus==="NOT_RUN" && e.testRunId===null && e.actual===null && e.artifacts.length===0 && e.review.state==="NOT_SUBMITTED","example must remain placeholder");

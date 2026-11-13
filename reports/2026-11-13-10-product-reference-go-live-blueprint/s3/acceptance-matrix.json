@@ -70,6 +70,15 @@
           "PADR-07",
           "PADR-08"
         ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "TECH-11"
+        ],
+        "requiredSemanticChecks": [
+          "REVOKED_MEMBERSHIP_DENIES_EXPORT_OR_FILE",
+          "SIGNED_URL_REVOKE_EXPIRY_AND_DOWNLOAD_AUTHORIZATION"
+        ]
       }
     },
     {
@@ -136,6 +145,15 @@
           "PADR-03",
           "PADR-04",
           "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-09"
+        ],
+        "requiredSemanticChecks": [
+          "A_CONFIRM_PRICE_LOCKED_ACROSS_PARTIAL_DELIVERIES",
+          "AMENDMENT_ONLY_UNDELIVERED_WITH_SOURCE_VERSION"
         ]
       }
     },
@@ -495,6 +513,15 @@
           "PADR-04",
           "PADR-05"
         ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-03"
+        ],
+        "requiredSemanticChecks": [
+          "PHYSICAL_RETURN_TO_QUARANTINE_WITHOUT_AR_CHANGE",
+          "GIFT_RECOVERED_OR_APPROVED_WAIVER_BEFORE_SETTLEMENT"
+        ]
       }
     },
     {
@@ -551,6 +578,15 @@
         "productAdrIdsViaPolicy": [
           "PADR-02",
           "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-02"
+        ],
+        "requiredSemanticChecks": [
+          "CREDIT_UNSET_ALLOW_VERIFIED_CASH_ONLY",
+          "CREDIT_UNSET_DENY_UNAPPROVED_DEFERRED_PAYMENT"
         ]
       }
     },
@@ -772,6 +808,15 @@
           "PADR-03",
           "PADR-07",
           "PADR-08"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "TECH-08"
+        ],
+        "requiredSemanticChecks": [
+          "ONLINE_DURABLE_ACK_IDEMPOTENCY_SCOPED_EV08",
+          "OFFLINE_DEVICE_E2E_IS_SEPARATE_ADMISSION"
         ]
       }
     },
@@ -1307,6 +1352,16 @@
           "PADR-02",
           "PADR-04",
           "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-03",
+          "PBA-09"
+        ],
+        "requiredSemanticChecks": [
+          "PARTIAL_RETURN_GIFT_HELD_BLOCKS_SETTLEMENT",
+          "A_CONFIRM_PRICE_SNAPSHOT_NON_RETROACTIVE"
         ]
       }
     },
