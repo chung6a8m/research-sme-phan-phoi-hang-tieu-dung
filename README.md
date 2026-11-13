@@ -11,6 +11,14 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 - **Hai thay đổi phạm vi:** Credit UNSET khác APPROVED=0 (PADR-02); MVP A/B_ONLINE/MIXED dùng B online, hoãn B cần kênh hóa đơn thay thế khi PWA mất mạng (EVQ-05). B_NO_CHANNEL tiếp tục BLOCKED.
 - **Bảo vệ evidence:** EV-01..15 EVIDENCE_PENDING hoặc MODEL_ONLY/real pending theo R009; B-CASE/LEGAL-MEMO pending, INV-09 NOT_RUN; synthetic CI không phải ProductVerification hoặc TenantGoLive.
 
+## S5/P07 — Adoption, Gap Assessment và Product Baseline Freeze candidate (PR #2)
+
+- [S5 index — quy trình và artifacts](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/README.md): 24 câu hỏi và mapping POL/CFG/OPS, 4 archetype giả thuyết, ma trận CSV 30 OPS `UNASSESSED`, disposition L0/L1/L2/BLOCKED.
+- [Tenant adoption profile](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/tenant-adoption-profile.schema.json), [Product Pilot Contract](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/product-pilot-contract.json), [NPP-01 pilot blueprint](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/npp-01-pilot-blueprint.example.json): kế hoạch D-15 3A+3B_ONLINE+2MIXED/ngày × ≥5 ngày, stock authority toàn Kho-01.
+- [Product Baseline v1 freeze candidate](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/product-baseline-freeze.candidate.json) và [S5 CI evidence](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/validation-results.vi.md): 14 Git blob anchors R009/S1–S4, 16 Owner decisions, TADR/evidence pending; **không phải phê duyệt freeze hoặc Go-Live**.
+
+**Trạng thái:** S5 contract-only đã được triển khai và CI synthetic PASS; `OWNER_BASELINE_ACCEPTANCE_PENDING`, `PRODUCT_VERIFIED=false`, `TENANT_GO_LIVE_ACCEPTED=false`. PR #2 tiếp tục Draft.
+
 ## Mục lục
 
 | Mã | Tài liệu | Trạng thái |

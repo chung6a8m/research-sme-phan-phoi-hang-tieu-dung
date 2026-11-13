@@ -201,3 +201,24 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 **CI synthetic tại HEAD tham chiếu `826c7e472eef`:** [S2](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938063), [S3](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938035), [S4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43409938263) đều **SUCCESS**. Sau các sửa tài liệu này cần đối chiếu CI HEAD cuối cùng. Các trạng thái `DOC_READY`, `PRODUCT_VERIFIED`, `TENANT_GO_LIVE_ACCEPTED` vẫn tách biệt; `realE2eRuns=0`, `realOperationalDrills=0`, `tenantSignoffs=0`.
 
 **Bàn giao:** chuyển sang **S5/P07** xây dựng gap assessment, tenant adoption profile và baseline freeze; tiếp theo S6 mới kiểm PWA/API/SQL/provider/accounting, writer lock toàn Kho-01, cutover/DR và Pilot theo từng mode. PR giữ Draft cho đến khi đủ tài liệu/approval; không merge hoặc mở production từ CI synthetic.
+
+## 15. S5/P07 — Tenant Adoption, Gap Assessment và Freeze v1 candidate (13/11/2026)
+
+**Đã triển khai contract/tài liệu trên PR #2**, chưa có khảo sát NPP hoặc Owner chấp thuận đóng băng Product Baseline v1.
+
+| Đầu ra | Artifact | Kết quả/gate |
+|---|---|---|
+| NPP archetype | [archetypes](s5/archetypes.json) | 4 mô hình **giả thuyết**, không trình bày như đã kiểm chứng thị trường |
+| Questionnaire | [24 câu hỏi](s5/questionnaire.json), [mẫu không có câu trả lời](s5/questionnaire-responses.example.json) | Bao phủ 24 POL, 24 CFG đúng ngữ nghĩa và 30 OPS; không bịa NPP input |
+| Working gap matrix | [30 OPS UNASSESSED](s5/gap-assessment-template.csv), [hướng dẫn khảo sát](s5/gap-assessment-and-adoption.vi.md) | P0/P1/role/AC/EV từ S4; gap thực phải lưu ở S4 dossier, S5 chỉ nối `gapId` |
+| Adoption/disposition | [quy tắc phân loại](s5/gap-disposition-policy.json), [schema](s5/tenant-adoption-profile.schema.json), [synthetic example](s5/tenant-adoption-profile.example.json) | ADOPT_STANDARD / CONFIGURE_L1 / EXTENSION_CANDIDATE_L2 / BLOCKED, no auto admission |
+| Pilot hai lớp | [Product Pilot Contract](s5/product-pilot-contract.json), [NPP-01 blueprint](s5/npp-01-pilot-blueprint.example.json) | D-15 giữ 3 A + 3 B_ONLINE + 2 MIXED/ngày × ≥5 ngày; EV-14 trước EV-15, Kho-01 toàn bộ stock |
+| Product freeze | [manifest ứng viên](s5/product-baseline-freeze.candidate.json), [hướng dẫn bàn giao S6](s5/baseline-freeze-and-s6-handoff.vi.md) | `OWNER_DECIDED_IN_CHAT` 16 PADR/EVQ; 14 reviewed blob anchors, nhưng freeze SHA/chữ ký vẫn null; TADR-01..06 pending |
+| Quality | [S5 validator](s5/s5-validate.mjs), [regression](s5/s5-regression.mjs), [schema tests](s5/s5-schema-tests.py), [CI results](s5/validation-results.vi.md) | S5 synthetic CI 50 negative regressions + 35 schema/semantic negatives, 4 in-memory positives |
+
+**Bằng chứng:** [S5 Actions 43415448385](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43415448385) SUCCESS trên `3bec78d008ef`. S2/S3/S4 cùng HEAD SUCCESS, xem [S5 validation record](s5/validation-results.vi.md). Sau các docs commits phải đối chiếu CI HEAD cuối.
+
+**Hồ sơ pending không đổi:** EV-01..15 real pending, B-CASE/LEGAL-MEMO EVIDENCE_PENDING, INV-09 NOT_RUN; A/B_ONLINE/MIXED NO_GO_PENDING, OFFLINE_WRITE/cutover DISABLED_PENDING, B_NO_CHANNEL BLOCKED. Không tạo seller/legal/provider/Finance/Owner signatures, không thu số liệu pilot, không tự đặt RPO/RTO/UX/SLO/retention.
+
+**Đề xuất chặng tiếp:** Owner review Product Baseline v1 candidate trong phiên bản nguồn được cố định; S6 triển khai source (TADR-01..06), E2E/fault/provider/accounting, cutover/DR và EV-14/EV-15 theo mode. `DOC_READY_CANDIDATE != OWNER_BASELINE_ACCEPTED != PRODUCT_VERIFIED != TENANT_GO_LIVE_ACCEPTED`.
+

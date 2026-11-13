@@ -92,7 +92,8 @@
     "s5-schema-tests.py",
     "gap-assessment-and-adoption.vi.md",
     "baseline-freeze-and-s6-handoff.vi.md",
-    "../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md"
+    "../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md",
+    "gap-assessment-template.csv"
   ],
   "unresolved": {
     "evidenceIds": [

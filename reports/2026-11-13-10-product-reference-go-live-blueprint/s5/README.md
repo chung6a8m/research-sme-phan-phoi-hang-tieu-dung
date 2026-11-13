@@ -24,3 +24,5 @@ S5 dùng **Product-First**: L0 bất biến, L1 cấu hình hữu hạn, L2 cầ
 Các ví dụ synthetic không được dùng làm dữ liệu NPP thật. S6 mới thực thi PWA/API/SQL/provider/accounting, kiểm thử thiết bị/offline/restore/cutover và xin Product Verification/Tenant Go-Live độc lập.
 
 **Versioned freeze candidate:** `reviewedInputBlobs[]` khóa 14 blob nguồn R009/S1–S4, CI phát hiện drift. Manifest không khóa chính nó và không thay được `ownerAcceptance` thực; `baselineFreezeCommitSha` vẫn null cho tới quyết định phiên bản mới có căn cứ.
+
+**CI kết quả S5:** [validation-results.vi.md](validation-results.vi.md) ghi GitHub Actions và các giới hạn không thể thay bằng synthetic checks.
