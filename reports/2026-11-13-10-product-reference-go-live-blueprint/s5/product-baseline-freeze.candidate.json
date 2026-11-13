@@ -110,7 +110,8 @@
     "product-baseline-snapshot-c.schema.json",
     "baseline-snapshot-c-readiness.vi.md",
     "s5-snapshot-c-schema-tests.py",
-    "q09-interview-review-and-finding-disposition.vi.md"
+    "q09-interview-review-and-finding-disposition.vi.md",
+    "product-baseline-snapshot-cprime.candidate.json"
   ],
   "unresolved": {
     "evidenceIds": [
@@ -156,11 +157,11 @@
     },
     {
       "relativePath": "../product-policy-catalog.vi.md",
-      "gitBlobSha": "a310e1b266d157872c64db3161e7b3c2ac9e0fdc"
+      "gitBlobSha": "e9a5ce3da0b06bca887c8ef3c30d046408dd1a2c"
     },
     {
       "relativePath": "../role-and-approval-matrix.vi.md",
-      "gitBlobSha": "b9a6dbc536bcf2de7f3bc73d85c3277cbed95433"
+      "gitBlobSha": "2027503bb557993645772e65fecc576573e6b653"
     },
     {
       "relativePath": "../s1-traceability.vi.md",
@@ -180,7 +181,7 @@
     },
     {
       "relativePath": "../s3/acceptance-matrix.json",
-      "gitBlobSha": "627ce166c961e598b45583c934ff3a8a1a338e4f"
+      "gitBlobSha": "68d5d8ca4cd6fe96ec8b2cc9d92577914f788859"
     },
     {
       "relativePath": "../s3/evidence-register.json",
@@ -188,7 +189,7 @@
     },
     {
       "relativePath": "../s3/mode-gates.json",
-      "gitBlobSha": "ab47e0b083d8fa8e49a0e361fae228de2eb3ecb5"
+      "gitBlobSha": "52d2f2e51f516314d7d8a182a416866887226841"
     },
     {
       "relativePath": "../s4/operational-controls.json",
