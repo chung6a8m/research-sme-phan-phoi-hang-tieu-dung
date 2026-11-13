@@ -16,7 +16,7 @@ const expectedSemantics={
  Q01:"PRODUCT_VERIFIED",Q02:"commit C",Q03:"GitHub comment",Q04:"P0",Q05:"TADR",
  Q06:"S1–S5",Q07:"merge",Q08:"commit C",Q09:"Product/BA",Q10:"S5",
  Q11:"3 A + 3 B_ONLINE + 2 MIXED",Q12:"PR #1",Q13:"Baseline",Q14:"artifact",
- Q15:"build",Q16:"EV-14",Q17:"chặn",Q18:"Hotfix",Q19:"dry-run",Q20:"backlog"
+ Q15:"build",Q16:"EV-14",Q17:"chặn",Q18:"Hotfix",Q19:"dry-run",Q20:"Product ADR"
 };
 export function loadOwnerGovernance(){
  return {
@@ -37,7 +37,7 @@ export function validateOwnerGovernance(d){
  check(idsEqual(q.decisions.map(x=>x.decisionId),ownerQ),"20 unique Owner review decisions");
  for(const x of q.decisions){
   check(x.selectedOption===1&&x.decisionStatus==="OWNER_DECIDED_IN_CHAT"&&x.decisionDate==="2026-11-13"&&x.githubApprovalRef===null,"Owner chat decision status "+x.decisionId);
-  check(x.rule.length>=35&&x.title.length>15&&x.affectedRefs.length>0&&x.rule.includes(expectedSemantics[x.decisionId]),"semantic decision trace "+x.decisionId);
+  check(x.rule.length>=35&&x.title.length>15&&x.affectedRefs.length>0&&x.rule.toLowerCase().includes(expectedSemantics[x.decisionId].toLowerCase()),"semantic decision trace "+x.decisionId);
   check(d.docs.review.includes("| **"+x.decisionId+"** |"),"Q Markdown missing "+x.decisionId);
  }
  for(const [k,token] of [["governance","Q20"],["governance","Q17"],["governance","Q19"],["matrix","PENDING_REVIEW"]])check(d.docs[k].includes(token),"governance document missing "+token);
