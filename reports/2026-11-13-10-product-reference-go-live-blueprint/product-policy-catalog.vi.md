@@ -1,6 +1,6 @@
 # R010-S1-P02a — Product Policy Catalog v0.1: chuẩn cứng, default, profile và feature gates
 
-- **Trạng thái:** `PRODUCT_POLICY_CANDIDATE`; **chưa có quyết định Owner mới** trong S1. R009 D-01–15 tiếp tục là `OWNER_DECIDED` ở phạm vi đã được ghi nhận; bảng dưới **không thay** nội dung gốc, chỉ biến từng BR thành contract sản phẩm gắn SOP, cấu hình và test.
+- **Trạng thái Owner Policy:** đã có 9 PADR và 7 EVQ được Owner lựa chọn ngày 13/11/2026; [Decision Register](owner-decisions-and-evidence-gates.vi.md). R009 D-01–15 tiếp tục là `OWNER_DECIDED` ở phạm vi đã được ghi nhận; bảng dưới **không thay** nội dung gốc, chỉ biến từng BR thành contract sản phẩm gắn SOP, cấu hình và test.
 - **Nguồn:** [R009 BR-01–24](../2026-11-13-09-mvp-specification-baseline/business-rules.vi.md), [Decision Register](../2026-11-13-09-mvp-specification-baseline/decision-register-and-adr.vi.md), [R009-TR](../2026-11-13-09-mvp-specification-baseline/traceability.vi.md). [SOP](sop-a-b-mixed.vi.md), [tenant profile](tenant-profile-schema.vi.md), [Product ADR](product-adrs.vi.md).
 - **Thuật ngữ:** `L0` = bất biến sản phẩm không override; `L1` = default/cấu hình **bị giới hạn**; `L2` = yêu cầu khác chuẩn đi qua ADR/exception. `PRODUCT_DEFAULT_PROPOSED` không phải policy đã được duyệt.
 
@@ -43,9 +43,9 @@
 | CFG-02 `localization.timezone` | `Asia/Ho_Chi_Minh` | IANA zone có chính sách chốt; ngày nghiệp vụ từ seller local date, không tin đồng hồ thiết bị | businessDate/timezoneSnapshot |
 | CFG-03 `business.sellerProfileRef` | **Thiếu → BLOCKED production** | Mã hồ sơ seller/provider thật được kiểm tra, không dùng dữ liệu demo để xuất hóa đơn | sellerProfileVersion |
 | CFG-04 `orders.a.partialsAllowed` | `true` | Không tắt bất biến hỗ trợ giao từng phần; có thể chọn giao một lần theo SOP | orderTerms/remaining |
-| CFG-05 `orders.creditTermsDefaultDays` | `0` (*default đề xuất*, bán thu ngay nếu không có approval terms) | Được set N không âm theo Customer/Order; phải snapshot lúc confirm | termsSnapshotId |
-| CFG-06 `orders.defaultCreditLimit` | `0` (không tự cấp bán chịu nếu chưa được duyệt) | Tenant/Customer có credit approval; B grant không vượt phần đã reserve | creditRuleVersion |
-| CFG-07 `trip.availableModes` | `A` sau dữ liệu/gate phù hợp; `B_ONLINE` và `MIXED` khởi tạo `DISABLED`; `B_NO_CHANNEL` `BLOCKED` | Chuyển mode theo admission gate + evidence; không suy A đã PASS khi mới cấu hình | modeAdmissionDecisionId |
+| CFG-05 `orders.creditTermsDefaultDays` | `UNSET` (null, thiếu chính sách); không suy ra N=0 đã được chấp thuận | Được set N không âm theo Customer/Order; phải snapshot lúc confirm | termsSnapshotId |
+| CFG-06 `orders.defaultCreditLimit` | `UNSET` (null, fail-closed); `APPROVED=0` phải có Finance approval | Tenant/Customer có credit approval; B grant không vượt phần đã reserve | creditRuleVersion |
+| CFG-07 `trip.availableModes` | A/B_ONLINE/MIXED đều `DISABLED` khi tạo tenant; B_NO_CHANNEL `BLOCKED`; nhánh kênh thay thế khi PWA mất mạng deferred | Chuyển mode theo admission gate + evidence; không suy A đã PASS khi mới cấu hình | modeAdmissionDecisionId |
 | CFG-08 `inventory.lotExpiryPolicy` | `SKU_PROFILE`, FEFO cho SKU có hạn dùng | Không được tắt trace lot đối với SKU cần lô; QA/quarantine khi return | lotPolicyVersion |
 | CFG-09 `inventory.returnLocation` | `QUARANTINE` (logical code) | Phải map tới stock location hợp lệ trước nhập | locationSnapshot |
 | CFG-10 `cost.operationalMethod` | `MOVING_AVG_SKU_LOCATION` theo D-04 | **Không override** trong MVP; kế toán cost kỳ ngoài DMS | sourceCostVersion |
@@ -54,17 +54,17 @@
 | CFG-13 `cash.bankVerification` | `MANUAL_VERIFIED_OR_PROVIDER_FACT` | Chỉ fact được kiểm mới CONFIRMED; ảnh chuyển khoản = pending | verificationSource |
 | CFG-14 `cash.handoverAcceptance` | `CASHIER_ACTUAL` | Không cho người offer tự accept; thiếu checker giữ pending/case | cashierAcceptanceId |
 | CFG-15 `advance.partialSettlement` | `true` | Approved expense và cashier return độc lập, outstanding không âm | advanceEventIds |
-| CFG-16 `offline.enabledModes` | `[]` (không bật offline giao dịch thật mặc định) | Chỉ bật mode/thiết bị sau E2E và quyền grant, B no-channel vẫn BLOCKED | grantPolicyVersion/evidence |
+| CFG-16 `offline.enabledModes` | `[]` (offline mặc định tắt); per mode/thiết bị/trip sau E2E, B alternative-channel deferred | Chỉ bật mode/thiết bị sau E2E và quyền grant, B no-channel vẫn BLOCKED | grantPolicyVersion/evidence |
 | CFG-17 `offline.singleWriterPerTrip` | `true` | L0 **không cho override** | writerEpoch/installationId |
 | CFG-18 `invoice.noChannelB` | `BLOCKED` | Chỉ đổi sau B-CASE/LEGAL-MEMO/INV-09, EV-10 hợp lệ; không có bypass bằng Owner flag | seller/legal/evidence refs |
-| CFG-19 `accounting.deliveryMode` | `DISABLED_UNTIL_ADAPTER_VERIFIED` | Adapter file/API có schema/ID/hash/lookup/manual register/reconcile đã test | mappingVersion/providerRef |
+| CFG-19 `accounting.deliveryMode` | `DISABLED_UNTIL_ADAPTER_VERIFIED` | API/FILE/MANUAL_REGISTER cần ID/hash, ghi nhận, lookup/read-back và đối soát đã test | mappingVersion/providerRef |
 | CFG-20 `reporting.freshness` | `AS_OF_WITH_PENDING` | Có thể chọn refresh cadence, không được bỏ pending/asOf | reportSourceRevision |
 | CFG-21 `ops.cutoverMode` | `CLEAN_FORWARD_ONLY` | Không dual-writer cùng kho; mở mode sau manifest/ký/legacy lock | cutoverApprovalRef |
 | CFG-22 `pilot.waveProfile` | `TENANT_SPECIFIC` | NPP-01 8 chuyến/ngày ≥5 ngày theo R009; mỗi tenant khác chọn ngưỡng kèm Owner acceptance | EV-14/15 |
 | CFG-23 `approvals.thresholds` | `UNSET` (thiếu thì hành vi cần duyệt giữ pending) | NPP điền nhóm quyền và ngưỡng; không tự chọn hạn mức bằng fixture | approvalPolicyVersion |
 | CFG-24 `privacy.retentionPolicy` | `UNSET` ở production | Phải được tư vấn/cấu hình theo phạm vi dữ liệu thực; restore không hồi sinh quyền đã thu hồi | privacyPolicyVersion |
 
-**Default `0` cho hạn/limit là lựa chọn an toàn để không tạo khoản tín dụng ngoài ý muốn, không phải điều khoản được NPP-01 xác nhận.** Cần Owner review Product ADR-02 trước chốt. Một đơn A có điều khoản N>0 phải có snapshot và phê duyệt phù hợp, không dùng default làm thay quyền.
+**PADR-02 đã chốt phương án 3:** UNSET khác APPROVED=0; cả hai đều không tự cấp tín dụng nhưng phải lưu nguồn phê duyệt/thiếu cấu hình đúng. Cập nhật Profile/JSON Schema/T02 và regression tương ứng. Một đơn A có điều khoản N>0 phải có snapshot và phê duyệt phù hợp, không dùng default làm thay quyền.
 
 ## 3. Chồng lớp cấu hình và precedence (đề xuất)
 
@@ -97,10 +97,14 @@ Lưu mode admission record riêng `tenantId, mode, scope, profileVersion, buildS
 4. Review Owner quyết định **sản phẩm** trước khi code. Reviewer kế toán/provider/pháp lý xác nhận **tenant/legal** theo mode, không thay nhau.
 5. Trace `POL → SOP → BR/DC/API/SM → AC/EV → build evidence`; kết quả kiểm cấu trúc tài liệu không thay E2E.
 
-## 6. Những lựa chọn chờ Owner
+## 6. Quyết định Owner đã chọn; các tham số còn thiếu
 
-- Approve hay sửa default CFG-05/06 (terms/limit 0), CFG-07 (thứ tự admission), CFG-11/12 (bounded price/rounding), CFG-16/18 (offline/no-channel), CFG-23 (approval threshold `UNSET`).
+Owner đã chọn các PADR liên quan CFG-05/06/07/11/12/16/18/19 và maker–checker; xem [register](owner-decisions-and-evidence-gates.vi.md). Các ngưỡng tiền thực, TTL/cap, SLO và privacy retention vẫn UNSET/TENANT_INPUT_REQUIRED cho đến phê duyệt đúng người. P0/Legal/Provider chưa có evidence thì chặn theo [EVQ Gates](evq-acceptance-gates.vi.md).
+
+## 6. Những lựa chọn chờ Owner (lịch sử trước phỏng vấn)
+
+- [Đã giải quyết] Approve hay sửa default CFG-05/06 (terms/limit 0), CFG-07 (thứ tự admission), CFG-11/12 (bounded price/rounding), CFG-16/18 (offline/no-channel), CFG-23 (approval threshold `UNSET`).
 - Chốt quyền kiêm nhiệm và giới hạn maker/checker cho NPP ít nhân sự; thẩm quyền kế toán, kho, thủ quỹ.
 - Chọn phạm vi module/cấu hình có thể điều chỉnh theo từng tenant mà không tạo logic riêng. Các câu hỏi này được ghi trong [Product ADR](product-adrs.vi.md), trạng thái `PROPOSED` chứ không giả nhận quyết định.
 
-**Kết luận:** Bộ catalog này đã bao phủ BR-01–24 ở mức thiết kế chính sách. Chưa có schema production/feature flags được triển khai, chưa có ngưỡng tài chính hoặc bằng chứng Go-Live thực.
+**Kết luận:** Bộ catalog BR-01–24 đã có lựa chọn Owner cấp policy; chưa có schema production/feature flags được triển khai hoặc bằng chứng Go-Live thực.

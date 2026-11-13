@@ -18,8 +18,9 @@
     "A"
   ],
   "customerPolicy": {
-    "defaultPaymentTermsDays": 0,
-    "defaultCreditLimitVnd": 0,
+    "creditPolicyStatus": "UNSET",
+    "defaultPaymentTermsDays": null,
+    "defaultCreditLimitVnd": null,
     "creditApprovalPolicyRef": null
   },
   "inventory": {
@@ -45,7 +46,7 @@
     "requested": false,
     "requestedModes": [],
     "grantTtlMinutes": null,
-    "maxCreditExposureVnd": 0
+    "maxCreditExposureVnd": null
   },
   "invoice": {
     "providerProfileRef": null,

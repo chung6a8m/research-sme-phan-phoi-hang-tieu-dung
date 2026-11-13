@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "R010 S1 Product Tenant Profile v0.1 (design candidate)",
+  "title": "R010 Product Tenant Profile v0.2 (Owner policy aligned, implementation candidate)",
   "description": "Structural validation ONLY; not proof of seller identity, legal invoice channel, security authorization or admission to production.",
   "type": "object",
   "additionalProperties": false,
@@ -121,18 +121,25 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "creditPolicyStatus",
         "defaultPaymentTermsDays",
         "defaultCreditLimitVnd",
         "creditApprovalPolicyRef"
       ],
       "properties": {
         "defaultPaymentTermsDays": {
-          "type": "integer",
+          "type": [
+            "integer",
+            "null"
+          ],
           "minimum": 0,
           "maximum": 365
         },
         "defaultCreditLimitVnd": {
-          "type": "integer",
+          "type": [
+            "integer",
+            "null"
+          ],
           "minimum": 0
         },
         "creditApprovalPolicyRef": {
@@ -141,8 +148,71 @@
             "null"
           ],
           "minLength": 1
+        },
+        "creditPolicyStatus": {
+          "type": "string",
+          "enum": [
+            "UNSET",
+            "APPROVED"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "creditPolicyStatus": {
+                "const": "UNSET"
+              }
+            },
+            "required": [
+              "creditPolicyStatus"
+            ]
+          },
+          "then": {
+            "properties": {
+              "defaultPaymentTermsDays": {
+                "type": "null"
+              },
+              "defaultCreditLimitVnd": {
+                "type": "null"
+              },
+              "creditApprovalPolicyRef": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "creditPolicyStatus": {
+                "const": "APPROVED"
+              }
+            },
+            "required": [
+              "creditPolicyStatus"
+            ]
+          },
+          "then": {
+            "properties": {
+              "defaultPaymentTermsDays": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 365
+              },
+              "defaultCreditLimitVnd": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "creditApprovalPolicyRef": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
     },
     "inventory": {
       "type": "object",
@@ -254,10 +324,39 @@
           ]
         },
         "maxCreditExposureVnd": {
-          "type": "integer",
+          "type": [
+            "integer",
+            "null"
+          ],
           "minimum": 0
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "requested": {
+                "const": true
+              }
+            },
+            "required": [
+              "requested"
+            ]
+          },
+          "then": {
+            "properties": {
+              "grantTtlMinutes": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "maxCreditExposureVnd": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      ]
     },
     "invoice": {
       "type": "object",
