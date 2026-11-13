@@ -44,7 +44,7 @@ export function validateContract(d){
     const line=sourceAC.find(x=>x.startsWith("| "+ac.acId+" —"));
     const brLine=sourceBR.find(x=>x.startsWith("| "+ac.acId+" |"));
     check(!!line && !!brLine,"AC missing in R009 "+ac.acId);
-    check(sorted(ac.evidenceIds)===sorted([...new Set(line.match(/EV-\d\d/g)||[])]),"EV mismatch with R009 "+ac.acId);
+    check(sorted(ac.evidenceIds)===sorted([...new Set((line.split("|").at(-2)||"").match(/EV-\d\d/g)||[])]),"EV mismatch with R009 "+ac.acId);
     check(sorted(ac.businessRules)===sorted([...new Set(brLine.match(/BR-\d\d/g)||[])]),"BR mismatch with R009 "+ac.acId);
     check(ac.evidenceIds.every(ev=>E.some(e=>e.evId===ev)),"orphan EV "+ac.acId);
   }
