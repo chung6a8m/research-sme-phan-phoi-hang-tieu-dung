@@ -1,0 +1,47 @@
+name: Research S2 synthetic data validation
+on:
+  pull_request:
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/**'
+      - '.github/workflows/s2-synthetic-validation.yml'
+  push:
+    branches:
+      - 'research/2026-11-13-product-reference-go-live-blueprint'
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/**'
+      - '.github/workflows/s2-synthetic-validation.yml'
+permissions:
+  contents: read
+jobs:
+  validate-s2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate bundled source/manifest and synthetic scenarios
+        shell: bash
+        run: |
+          set -euo pipefail
+          S2=reports/2026-11-13-10-product-reference-go-live-blueprint/s2
+          node "$S2/s2-data-tool.mjs" validate "$S2"
+          node "$S2/s2-trip-scenarios.mjs" validate "$S2"
+          node "$S2/s2-import-dry-run.mjs" --self-test
+      - name: Regenerate CSV and run non-writing import preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          S2=reports/2026-11-13-10-product-reference-go-live-blueprint/s2
+          OUT="$RUNNER_TEMP/s2-output"
+          node "$S2/s2-data-tool.mjs" generate "$OUT"
+          cp "$S2/golden-oracles.json" "$OUT/golden-oracles.json"
+          node "$S2/s2-data-tool.mjs" validate "$OUT"
+          node "$S2/s2-import-dry-run.mjs" "$OUT/fixtures/F0" --report "$RUNNER_TEMP/s2-import-dry-run.json"
+      - name: Upload technical dry-run report (not Go-Live evidence)
+        uses: actions/upload-artifact@v4
+        with:
+          name: s2-dry-run-report
+          path: ${{ runner.temp }}/s2-import-dry-run.json
+          retention-days: 7
