@@ -152,7 +152,7 @@ export function validateContract(d){
   // F5: CI watches S1/EVQ changes; contract also verifies upstream reference presence.
   for(const id of new Set(A.flatMap(x=>x.s1Trace.policyIds)))check(d.policy.includes(id),"orphan policy in upstream "+id);
   for(const id of new Set(A.flatMap(x=>x.s1Trace.sopIds)))check(d.sop.includes(id),"orphan SOP in upstream "+id);
-  for(const id of ["EVQ-05","B_ONLINE","B_NO_CHANNEL","EV-14","EV-15"])check(d.evq.includes(id),"upstream EVQ drift "+id);
+  for(const id of ["EVQ-05","EVQ-07","B_ONLINE","B_NO_CHANNEL","EV-14","EV-13/14/15"])check(d.evq.includes(id),"upstream EVQ drift "+id);
   check(d.schema.$schema==="https://json-schema.org/draft/2020-12/schema","schema draft");
   const e=d.example;
   check(e.runKind==="PLACEHOLDER" && e.executionStatus==="NOT_RUN" && e.testRunId===null && e.actual===null && e.artifacts.length===0 && e.review.state==="NOT_SUBMITTED","example must remain placeholder");
