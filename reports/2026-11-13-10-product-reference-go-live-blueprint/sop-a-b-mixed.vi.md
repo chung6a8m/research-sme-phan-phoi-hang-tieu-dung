@@ -15,7 +15,7 @@
 ## SOP-02 — Module A: đơn đặt trước và giao từng phần
 
 - **Trigger:** Sales nhận yêu cầu đặt trước; **Responsible:** Sales và Warehouse/Delivery operator; **Accountable:** Sales supervisor; **Verify:** Accountant cho AR.
-- **Các bước:** (1) tạo A Order ở DRAFT với Customer bắt buộc, ShipToSnapshot, SKU/UoM, price/tax/terms `policyVersion`; (2) kiểm hạn nợ/hạn mức và tồn khả dụng, không ghi AR khi mới đặt; (3) Confirm, giữ AReservation theo line/lot/location, snapshot terms N ngày; (4) lập manifest/chuyến và transfer kho→xe theo A hold, không tạo sale/COGS; (5) nhận chứng từ giao một phần thực tế `deliveryId/sourceLineId`, lượng không vượt phần còn lại; (6) post hiệu ứng hàng/giá vốn/AR theo *phần đã giao* và tạo invoice intent phù hợp; (7) lặp các lần giao tới hết hoặc close remainder có nguồn; (8) thu/đối soát theo SOP-07/10.
+- **Các bước:** (1) tạo A Order ở DRAFT với Customer bắt buộc, ShipToSnapshot, SKU/UoM, price/tax/terms `policyVersion`; (2) kiểm hạn nợ/hạn mức và tồn khả dụng, không ghi AR khi mới đặt; (3) Confirm, giữ AReservation theo line/lot/location, khóa giá thương mại/discount cho toàn lượng chốt và snapshot terms N ngày; CASH_ON_DELIVERY với credit UNSET không tạo quyền mua chịu; (4) lập manifest/chuyến và transfer kho→xe theo A hold, không tạo sale/COGS; (5) nhận chứng từ giao một phần thực tế `deliveryId/sourceLineId`, lượng không vượt phần còn lại, giữ giá Confirm hoặc amendment hợp lệ cho phần chưa giao; (6) post hiệu ứng hàng/giá vốn/AR theo *phần đã giao* và tạo invoice intent phù hợp; CASH_ON_DELIVERY yêu cầu tiền verified đủ trước khi xác nhận giao hoàn tất, không tự mở credit; (7) lặp các lần giao tới hết hoặc close remainder có nguồn; (8) thu/đối soát theo SOP-07/10.
 - **Kết quả:** `remainingQty` và A hold riêng, mỗi delivery có AR open item/dueDate tính theo local business date + N snapshot; thay terms master không đổi order đã Confirm.
 - **Ngoại lệ:** Customer không có Outlet vẫn hợp lệ; stock thiếu giữ pending/replan chứ không âm; giao ngoài quyền thành occurredEvent/case; unfulfilled không gán fulfilled. **Trace:** D-02/03/06, BR-02/03/04/08/10/18; DC-04/05/09/14; API-02/03/07; SM-01; AC-02/03/08/14, EV-02/03/06/10.
 
@@ -43,7 +43,7 @@
 ## SOP-06 — Pricing, quà khuyến mại và hàng trả
 
 - **Trigger:** lập/giao bán với bảng giá, nhận trả hàng hoặc quà; **Responsible:** Sales/Returns clerk; **Accountable:** Pricing/Returns approver.
-- **Các bước:** (1) chọn rule có thời hạn, phạm vi Customer group/SKU, price mode inclusive/exclusive và version; snapshot khi chốt theo chính sách; (2) áp discount thuộc tập hữu hạn, dùng Decimal và phân bổ phần dư ổn định theo sourceLineId, không phụ thuộc thứ tự UI; (3) tính quà `floor(netQualifiedPurchases / threshold)`, đối chiếu `giftHeld=delivered-acceptedBack`; (4) nếu hoàn trả, tạo ReturnRequest/HELD với delivery source; không giảm AR hoặc cộng available khi mới giữ; (5) sau nhận/duyệt thương mại post ReturnAcceptance giá trị/lượng lũy kế, vào quarantine; QA quyết định release hoặc dispose riêng; (6) waiver quà miễn thu hồi cần nguồn/role/approval; (7) hoàn credit/refund theo SOP-07 nếu đã thu đủ.
+- **Các bước:** (1) chọn rule có thời hạn, phạm vi Customer group/SKU, price mode inclusive/exclusive và version; giá/discount A khóa ở Confirm và chỉ amendment phần chưa giao, thuế theo mốc luật; (2) áp discount thuộc tập hữu hạn, dùng Decimal và phân bổ phần dư ổn định theo sourceLineId, không phụ thuộc thứ tự UI; (3) tính quà `floor(netQualifiedPurchases / threshold)`, đối chiếu `giftHeld=delivered-acceptedBack`; (4) nếu hoàn trả, tạo ReturnRequest/HELD với delivery source; không giảm AR hoặc cộng available khi mới giữ; (5) nhận hàng vật lý vào quarantine theo source ngay khi thực tế đã kiểm đếm; sau khi giải quyết quà thu hồi/waiver và duyệt thương mại mới post ReturnAcceptance điều chỉnh AR/credit/refund có nguồn; QA quyết định release hoặc dispose riêng; (6) waiver quà miễn thu hồi cần nguồn/role/approval và checker độc lập; chưa có thì commercial settlement pending, không hoàn tiền tự động; (7) hoàn credit/refund theo SOP-07 nếu đã thu đủ.
 - **Kết quả:** sum net/VAT/gross từng line khớp tổng, không double gift/return/refund, cost trả đúng nguồn, posted snapshot không tính lại từ master mới.
 - **Ngoại lệ:** thiếu delivery source, return vượt lượng nguồn, price rule xung đột/ngoài scope, tax chưa verified hoặc waiver không duyệt → blocked/case; hóa đơn điều chỉnh phụ thuộc profile pháp lý và provider. **Trace:** D-04/05, BR-06/07/08/09/14/20; DC-07/08/12; API-05/06/07; SM-04/05/06; AC-05/06/07/19; EV-05/06/07/10/11.
 
@@ -112,3 +112,11 @@
 - SOP-12: EVQ-07 phải có 8 bài UX, asOf, n/N, support/incident/case data; SLO/threshold định lượng do Owner/Finance/Ops ký trước EV-14, EV-15 là kết quả Pilot thật.
 
 [Owner Decision Register](owner-decisions-and-evidence-gates.vi.md) / [EVQ Acceptance Gates](evq-acceptance-gates.vi.md) là phần bổ sung theo version; SOP trước đây là ứng viên thiết kế, không phải hệ thống đã qua test.
+
+## Q09 — Acceptance clarifications cho SOP-02/06/07/09/11 (candidate C')
+
+1. `PBA-02`: Credit UNSET có thể tạo đơn `CASH_ON_DELIVERY` nhưng không tạo quyền nợ; giao phải có khoản thu verified đủ theo policy. Nếu thu tiền thực mà lệnh giao B chưa được phép, xử lý receipt/source/case riêng, không làm lệch compound ledger.
+2. `PBA-03`: `RETURN_PHYSICALLY_RECEIVED_QUARANTINED` không đồng nghĩa `COMMERCIAL_SETTLEMENT_POSTED`; thiếu quà chưa thu hồi giữ pending tới lúc recovered/waived. Legal/Tax review nghĩa vụ hóa đơn đúng hạn riêng.
+3. `PBA-09`: `priceSnapshotId` ở Confirm A cho toàn lượng; amendment phần chưa giao phải có nguồn/version/approval, không viết lại delivery posted.
+4. `TECH-08`: `G-IDEMP` online cần scoped EV-08 test; Offline E2E là gate tách biệt theo mode/device/trip, không tự bật.
+5. `TECH-11`: File/export/lookup authorize lúc phục vụ theo authority hiện hành; signed URL có expiry giới hạn và kiểm soát riêng khi revoke.

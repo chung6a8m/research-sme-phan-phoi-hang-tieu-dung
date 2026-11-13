@@ -109,3 +109,10 @@ Product QA/Engineering ký evidence test source; Tenant Owner/Kho/Cashier/Financ
 Phương thức MANUAL_REGISTER chỉ được dùng khi có immutable source ID/hash, người thực hiện/kiểm và bằng chứng posting/reconciliation. Chưa có RBAC production thực hoặc danh sách người ký NPP đã được xác nhận.
 
 Chi tiết [Owner decisions](owner-decisions-and-evidence-gates.vi.md) / [EVQ gates](evq-acceptance-gates.vi.md).
+
+## Q09 — Quyền file/export và ranh giới kiêm nhiệm review (candidate C')
+
+- `TECH-11`: API/lookup/file/export luôn kiểm tenant/membership/role/assignment hiện hành ở server. File qua server kiểm lại lúc tải; signed URL không revoke tức thời phải có expiry ngắn và chính sách được Security/Legal xác nhận. Support xuyên tenant chỉ grant đúng scope/time/audit.
+- `PBA-02`: Cash-only đã verified không đồng nghĩa phê duyệt credit; thông tin Finance approval không lấy thẩm quyền từ CSV. Tiền thực nhận khi giao bị chặn vẫn phải có source và xử lý độc lập.
+- `PBA-03`: Warehouse nhận hàng vật lý vào QUARANTINE; Finance duyệt settlement riêng sau khi xử lý quà và maker–checker. Nghĩa vụ Legal/Tax vẫn độc lập.
+- `Q09-SIGN-01=2`: Owner kiêm PRODUCT_BA, TECHNICAL và QA nhưng cần ba review records đúng SHA, khai báo không độc lập nhân sự. `Q09-SIGN-02=1`: FINANCE, LEGAL, OPERATIONS review phần contract liên quan bằng hồ sơ thật; không tự tạo chữ ký.
