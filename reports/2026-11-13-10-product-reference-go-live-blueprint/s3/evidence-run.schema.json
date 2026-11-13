@@ -1,0 +1,511 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S3 run observation; NOT product verification or tenant approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "runKind",
+    "executionStatus",
+    "acId",
+    "evIds",
+    "scenarioId",
+    "mode",
+    "testRunId",
+    "tenantId",
+    "profileVersion",
+    "runtime",
+    "fixtureId",
+    "fixtureHash",
+    "faultId",
+    "startedAt",
+    "endedAt",
+    "expected",
+    "actual",
+    "ledgerSnapshots",
+    "documentSourceIds",
+    "artifacts",
+    "review",
+    "openRisks",
+    "blockers"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s3-v1"
+    },
+    "recordKind": {
+      "const": "TEST_EXECUTION_OBSERVATION_NOT_GATE_APPROVAL"
+    },
+    "runKind": {
+      "enum": [
+        "PLACEHOLDER",
+        "REAL_SYSTEM"
+      ]
+    },
+    "executionStatus": {
+      "enum": [
+        "NOT_RUN",
+        "BLOCKED",
+        "FAILED",
+        "EXECUTED_UNREVIEWED"
+      ]
+    },
+    "acId": {
+      "type": "string",
+      "pattern": "^AC-(0[1-9]|1[0-9]|2[01])$"
+    },
+    "evIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^EV-(0[1-9]|1[0-5])$"
+      }
+    },
+    "scenarioId": {
+      "type": "string",
+      "pattern": "^S3-AC(0[1-9]|1[0-9]|2[01])-[PN]$"
+    },
+    "mode": {
+      "enum": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE",
+        "B_NO_CHANNEL",
+        "PRODUCTION_CUTOVER"
+      ]
+    },
+    "testRunId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tenantId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "profileVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "commitSha",
+        "buildVersion",
+        "environment",
+        "device",
+        "providerVersion",
+        "accountingAdapterVersion",
+        "schemaVersion"
+      ],
+      "properties": {
+        "repository": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commitSha": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "buildVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "environment": {
+          "oneOf": [
+            {
+              "enum": [
+                "LOCAL",
+                "PROTECTED_CI",
+                "INTEGRATION",
+                "PILOT"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "device": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "providerVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "accountingAdapterVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schemaVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "fixtureId": {
+      "oneOf": [
+        {
+          "enum": [
+            "F0",
+            "F1",
+            "F2",
+            "TENANT_REAL_APPROVED"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fixtureHash": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "faultId": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^F-(0[1-9]|1[0-9]|2[0-2])$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "startedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "endedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expected": {
+      "type": "string",
+      "minLength": 8
+    },
+    "actual": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ledgerSnapshots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "checkpoint",
+          "sourceLineIds",
+          "values",
+          "differences",
+          "reconciled"
+        ],
+        "properties": {
+          "checkpoint": {
+            "type": "string"
+          },
+          "sourceLineIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "values": {
+            "type": "object"
+          },
+          "differences": {
+            "type": "object"
+          },
+          "reconciled": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "documentSourceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "uri",
+          "sha256",
+          "classification"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string",
+            "minLength": 8
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "classification": {
+            "enum": [
+              "REDACTED",
+              "RESTRICTED_INTERNAL",
+              "TENANT_APPROVED"
+            ]
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "reviewer",
+        "at",
+        "signoffRef"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "NOT_SUBMITTED",
+            "AWAITING_REVIEW",
+            "REJECTED",
+            "APPROVED"
+          ]
+        },
+        "reviewer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signoffRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "openRisks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "runKind": {
+            "const": "PLACEHOLDER"
+          }
+        },
+        "required": [
+          "runKind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "executionStatus": {
+            "const": "NOT_RUN"
+          },
+          "testRunId": {
+            "type": "null"
+          },
+          "actual": {
+            "type": "null"
+          },
+          "startedAt": {
+            "type": "null"
+          },
+          "endedAt": {
+            "type": "null"
+          },
+          "ledgerSnapshots": {
+            "maxItems": 0
+          },
+          "artifacts": {
+            "maxItems": 0
+          },
+          "runtime": {
+            "properties": {
+              "commitSha": {
+                "type": "null"
+              },
+              "environment": {
+                "type": "null"
+              }
+            }
+          },
+          "review": {
+            "properties": {
+              "state": {
+                "const": "NOT_SUBMITTED"
+              },
+              "reviewer": {
+                "type": "null"
+              },
+              "at": {
+                "type": "null"
+              },
+              "signoffRef": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runKind": {
+            "const": "REAL_SYSTEM"
+          }
+        },
+        "required": [
+          "runKind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "executionStatus": {
+            "enum": [
+              "BLOCKED",
+              "FAILED",
+              "EXECUTED_UNREVIEWED"
+            ]
+          },
+          "testRunId": {
+            "type": "string",
+            "minLength": 8
+          },
+          "startedAt": {
+            "type": "string",
+            "minLength": 10
+          },
+          "endedAt": {
+            "type": "string",
+            "minLength": 10
+          },
+          "runtime": {
+            "properties": {
+              "repository": {
+                "type": "string"
+              },
+              "commitSha": {
+                "type": "string"
+              },
+              "buildVersion": {
+                "type": "string"
+              },
+              "environment": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "executionStatus": {
+            "const": "EXECUTED_UNREVIEWED"
+          }
+        },
+        "required": [
+          "executionStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actual": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifacts": {
+            "minItems": 1
+          },
+          "review": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "AWAITING_REVIEW",
+                  "REJECTED",
+                  "APPROVED"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
