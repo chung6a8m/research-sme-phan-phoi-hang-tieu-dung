@@ -78,7 +78,20 @@
     "../s4/tenant-operations-dossier.schema.json",
     "../evq-acceptance-gates.vi.md",
     "../report.vi.md",
-    "README.md"
+    "README.md",
+    "questionnaire.json",
+    "questionnaire-response.schema.json",
+    "archetypes.json",
+    "gap-disposition-policy.json",
+    "tenant-adoption-profile.schema.json",
+    "product-pilot-contract.json",
+    "tenant-pilot-profile.schema.json",
+    "product-baseline-freeze.schema.json",
+    "s5-validate.mjs",
+    "s5-regression.mjs",
+    "s5-schema-tests.py",
+    "gap-assessment-and-adoption.vi.md",
+    "baseline-freeze-and-s6-handoff.vi.md"
   ],
   "unresolved": {
     "evidenceIds": [

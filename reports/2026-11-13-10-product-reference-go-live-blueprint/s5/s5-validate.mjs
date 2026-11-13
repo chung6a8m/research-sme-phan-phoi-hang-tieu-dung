@@ -89,7 +89,7 @@ export function validate(d){
  check(Object.values(pilot.thresholds).every(x=>x==="UNSET"),"no fabricated thresholds");
  check(pilot.productVerificationRef===null&&pilot.tenantAcceptanceRef===null&&pilot.ownerApprovalRef===null,"no false tenant pilot signoffs");
  check(same(pilot.deferred,["B-CASE-001","B-CASE-002","B-CASE-003","LEGAL-MEMO","INV-09"]),"deferred B evidence preserved");
- check(d.r009Pilot.includes("3 A + 3 B + 2")&&d.r009Pilot.includes("5 ngày"),"R009 pilot historical decision drift");
+ check(/3\s+chuyến\s+A\s*\+\s*3\s+chuyến\s+B\s*\+\s*2\s+chuyến\s+A\+B/.test(d.r009Pilot)&&d.r009Pilot.includes("5 ngày"),"R009 pilot historical decision drift");
  check(f.recordKind==="PRODUCT_BASELINE_FREEZE_CANDIDATE_NOT_OWNER_APPROVAL"&&f.status==="FREEZE_CANDIDATE_REVIEW_PENDING"&&f.productDocReadiness==="DOC_READY_CANDIDATE_ONLY","baseline not owner-approved");
  check(f.baselineFreezeCommitSha===null&&f.ownerAcceptance.state==="PENDING"&&f.ownerAcceptance.approvalRef===null&&f.ownerAcceptance.acceptedAt===null&&f.ownerAcceptance.acceptedBy===null,"no fake freeze signoff");
  check(f.decisionStatus==="OWNER_DECIDED_IN_CHAT"&&same(f.productDecisionIds,seq("PADR",9))&&same(f.evidenceGateDecisionIds,seq("EVQ",7)),"16 decisions versioned");
