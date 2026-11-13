@@ -7,9 +7,9 @@
 | PRODUCT_BA — Product/BA | REQUIRED_BEFORE_OWNER_SIGNOFF | S1/PADR/EVQ Q01..Q20, 24 POL/CFG, 12 SOP, D→BR→DC/API/SM→AC/EV; tenant-adoption and pilot boundaries | `PENDING_REVIEW` |
 | TECHNICAL — Technical | REQUIRED_BEFORE_OWNER_SIGNOFF | Schema/CSV/validators, transaction boundaries pending TADR, source anchor consistency, read-only S3/S4, mode and cutover policies | `PENDING_REVIEW` |
 | QA — QA | REQUIRED_BEFORE_OWNER_SIGNOFF | S1-S5 synthetic CI on final HEAD, negative regression, 14 reviewed blobs, S5 whole-tree snapshot plan, outstanding vs evidence semantics | `PENDING_REVIEW` |
-| FINANCE — Finance | CONDITIONAL_SCOPE_REVIEW | Credit UNSET/approved-zero, accounting, ledger, cost bridge; actual tenant accounting signoff independent | `PENDING_REVIEW` |
-| LEGAL — Legal/Tax | CONDITIONAL_SCOPE_REVIEW | Seller/provider/legal invoice channel, privacy; B-CASE and LEGAL-MEMO remain PENDING | `PENDING_REVIEW` |
-| OPERATIONS — Operations/Security | CONDITIONAL_SCOPE_REVIEW | Warehouse writer/DR/offline thresholds/incident/cutover/pilot; real rehearsal and tenant signatures pending | `PENDING_REVIEW` |
+| FINANCE — Finance | REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF | Credit UNSET/approved-zero, accounting, ledger, cost bridge; actual tenant accounting signoff independent | `PENDING_REVIEW` |
+| LEGAL — Legal/Tax | REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF | Seller/provider/legal invoice channel, privacy; B-CASE and LEGAL-MEMO remain PENDING | `PENDING_REVIEW` |
+| OPERATIONS — Operations/Security | REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF | Warehouse writer/DR/offline thresholds/incident/cutover/pilot; real rehearsal and tenant signatures pending | `PENDING_REVIEW` |
 
 ## Definition of Done cho review chuyên môn
 
@@ -25,3 +25,10 @@
 - `TADR-01..06` là DESIGN_CANDIDATE; Engineering đề xuất, Technical/QA review theo từng vertical slice.
 - Product Verification per build/mode dùng testRunId/PWA/API/SQL/provider/accounting thật; Tenant Go-Live đòi chữ ký Finance/Warehouse/Legal/Operations/Owner theo gate.
 - Các mục `P1_OWNER_ACCEPTED_EXCEPTION` không biến FAILED/PENDING thành PASS; P0 không bao giờ waiver.
+
+## Owner Q09-SIGN-01/02/03 — Candidate C' chưa ký
+
+- Owner kiêm Product/BA, Technical, QA nhưng không đại diện ba người độc lập; phải có ba reviewRef đúng SHA, scope và conclusion riêng. `SIGN-01=2`.
+- Finance, Legal/Tax, Operations/Security bắt buộc review hợp đồng thuộc thẩm quyền trước Owner ký. `SIGN-02=1`.
+- P0/P1 contract blockers phải được sửa, kiểm chứng S1–S5 trên SHA candidate mới, sau đó review lại theo tác động. `SIGN-03=1`.
+- Tất cả reviewer vẫn `PENDING_REVIEW`, không tự điền người ký/timestamp/reviewRef. Product Verification và Tenant Go-Live là gate độc lập.

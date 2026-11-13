@@ -44,10 +44,12 @@ export function validateOwnerGovernance(d){
  check(m.recordKind==="BASELINE_REVIEW_MATRIX_PRE_SIGNOFF"&&m.status==="REVIEW_NOT_COMPLETE"&&m.reviewedCommitSha===null&&m.ownerAcceptanceRef===null,"review matrix cannot be signed");
  check(m.targetBaseline===f.baselineId,"review target");
  const roles=["PRODUCT_BA","TECHNICAL","QA","FINANCE","LEGAL","OPERATIONS"];
- check(idsEqual(m.reviewers.map(x=>x.roleCode),roles)&&idsEqual(m.requiredRoleCodes,roles.slice(0,3)),"review role coverage");
+ check(idsEqual(m.reviewers.map(x=>x.roleCode),roles)&&idsEqual(m.requiredRoleCodes,roles.slice(0,3))&&idsEqual(m.additionalMandatoryRoleCodesForQ09Cprime,roles.slice(3)),"Q09 six-role review coverage");
+ const multi=m.ownerMultiRoleReviewPolicy;
+ check(!!multi&&idsEqual(multi.roles,roles.slice(0,3))&&multi.singleOwnerMayPerformAllThree===true&&multi.independentReviewConfirmed===false&&multi.requiredSeparateReviewRefs===3&&multi.existingReviewRefs.length===0&&multi.status==="PENDING_ACTUAL_ROLE_REVIEW","Owner is not three independent reviewers");
  for(const r of m.reviewers){
   const required=m.requiredRoleCodes.includes(r.roleCode);
-  check(r.participation===(required?"REQUIRED_BEFORE_OWNER_SIGNOFF":"CONDITIONAL_SCOPE_REVIEW"),"review participation "+r.roleCode);
+  check(r.participation===(required?"REQUIRED_BEFORE_OWNER_SIGNOFF":"REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF"),"review participation "+r.roleCode);
   check(r.state==="PENDING_REVIEW"&&r.reviewerRef===null&&r.reviewedAt===null&&r.reviewEvidenceRefs.length===0&&r.findingRefs.length===0,"no fabricated review "+r.roleCode);
  }
  check(m.qualityGate.state==="NOT_EXECUTED_ON_FINAL_SNAPSHOT"&&m.qualityGate.checkedCommitSha===null&&m.qualityGate.candidateCommitSha===null&&m.qualityGate.ciRefs.length===0,"no fabricated final gate");
@@ -97,7 +99,7 @@ export function validateOwnerGovernance(d){
 
  for(const p of requiredSources)check(d.sourcesPresent[p]===true&&f.sourceDocuments.includes(p),"S5 freeze candidate must enumerate governance source "+p);
  check(f.ownerAcceptance.state==="PENDING"&&f.baselineFreezeCommitSha===null&&f.productVerification==="PENDING"&&f.tenantGoLiveAcceptance==="PENDING","candidate still pending");
- return {status:"S5_OWNER_GOVERNANCE_CONTRACT_ONLY",ownerReviewDecisions:20,requiredReviewers:3,conditionalReviewers:3,outstanding:o.registerEntries.length,p0NonWaivable:5,githubOwnerSigned:false,realE2eRuns:0,productVerified:false,tenantGoLiveAccepted:false};
+ return {status:"S5_OWNER_GOVERNANCE_CONTRACT_ONLY",ownerReviewDecisions:20,requiredReviewers:6,ownerCombinedRolesWithoutIndependence:3,outstanding:o.registerEntries.length,p0NonWaivable:5,githubOwnerSigned:false,realE2eRuns:0,productVerified:false,tenantGoLiveAccepted:false};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  try{console.log("PASS_S5_OWNER_GOVERNANCE_CONTRACT_ONLY "+JSON.stringify(validateOwnerGovernance(loadOwnerGovernance())));}

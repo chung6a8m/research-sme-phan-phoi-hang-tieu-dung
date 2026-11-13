@@ -21,7 +21,7 @@
       "reviewedAt": null,
       "reviewEvidenceRefs": [],
       "findingRefs": [],
-      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
     },
     {
       "roleCode": "TECHNICAL",
@@ -33,7 +33,7 @@
       "reviewedAt": null,
       "reviewEvidenceRefs": [],
       "findingRefs": [],
-      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
     },
     {
       "roleCode": "QA",
@@ -45,43 +45,43 @@
       "reviewedAt": null,
       "reviewEvidenceRefs": [],
       "findingRefs": [],
-      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
     },
     {
       "roleCode": "FINANCE",
       "roleName": "Finance",
-      "participation": "CONDITIONAL_SCOPE_REVIEW",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
       "scope": "Credit UNSET/approved-zero, accounting, ledger, cost bridge; actual tenant accounting signoff independent",
       "state": "PENDING_REVIEW",
       "reviewerRef": null,
       "reviewedAt": null,
       "reviewEvidenceRefs": [],
       "findingRefs": [],
-      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
     },
     {
       "roleCode": "LEGAL",
       "roleName": "Legal/Tax",
-      "participation": "CONDITIONAL_SCOPE_REVIEW",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
       "scope": "Seller/provider/legal invoice channel, privacy; B-CASE and LEGAL-MEMO remain PENDING",
       "state": "PENDING_REVIEW",
       "reviewerRef": null,
       "reviewedAt": null,
       "reviewEvidenceRefs": [],
       "findingRefs": [],
-      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
     },
     {
       "roleCode": "OPERATIONS",
       "roleName": "Operations/Security",
-      "participation": "CONDITIONAL_SCOPE_REVIEW",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
       "scope": "Warehouse writer/DR/offline thresholds/incident/cutover/pilot; real rehearsal and tenant signatures pending",
       "state": "PENDING_REVIEW",
       "reviewerRef": null,
       "reviewedAt": null,
       "reviewEvidenceRefs": [],
       "findingRefs": [],
-      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
     }
   ],
   "qualityGate": {
@@ -92,5 +92,22 @@
     "findingsDispositionRefs": [],
     "baselineSnapshotRef": null
   },
-  "comment": "Không có chữ ký hoặc reviewer đã được xác minh trong PR. CONDITIONAL_SCOPE_REVIEW không miễn trừ signoff Finance/Legal/Operations tại EV/tenant gates."
+  "comment": "Q09-SIGN-01=2 Owner kiêm ba vai trò Product/BA Technical QA nhưng không độc lập nhân sự, phải có ba reviewRef riêng. Q09-SIGN-02=1 Finance Legal Operations review contract trước signoff. Hiện tất cả PENDING, không có chữ ký hoặc evidence/Go-Live giả.",
+  "additionalMandatoryRoleCodesForQ09Cprime": [
+    "FINANCE",
+    "LEGAL",
+    "OPERATIONS"
+  ],
+  "ownerMultiRoleReviewPolicy": {
+    "roles": [
+      "PRODUCT_BA",
+      "TECHNICAL",
+      "QA"
+    ],
+    "singleOwnerMayPerformAllThree": true,
+    "independentReviewConfirmed": false,
+    "requiredSeparateReviewRefs": 3,
+    "existingReviewRefs": [],
+    "status": "PENDING_ACTUAL_ROLE_REVIEW"
+  }
 }
