@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "s5-acceptance-record-r-v1",
+  "recordKind": "Q09_FINDING_DISPOSITION_DOCUMENT_ONLY",
+  "approvedSnapshotCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+  "ownerApprovalRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994",
+  "reconciliationRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541",
+  "findings": [
+    {
+      "id": "PBA-02",
+      "severity": "P1_CONTRACT",
+      "disposition": "CLOSED_FOR_DOCUMENT_SCOPE",
+      "reviewerDisposition": "FIX_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "summary": "Credit UNSET blocks unapproved credit, permits verified cash-only; APPROVED=0 requires Finance approval.",
+      "roles": [
+        "PRODUCT_BA",
+        "QA",
+        "FINANCE"
+      ],
+      "reviewerRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860297537",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860324100"
+      ],
+      "traceRefs": [
+        "POL-03",
+        "CFG-06",
+        "SOP-02",
+        "SOP-07",
+        "AC-08"
+      ],
+      "realSystemVerification": "EVIDENCE_PENDING_NOT_RUNTIME_CLOSED"
+    },
+    {
+      "id": "PBA-03",
+      "severity": "P1_CONTRACT",
+      "disposition": "CLOSED_FOR_DOCUMENT_SCOPE",
+      "reviewerDisposition": "FIX_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "summary": "Physical returned goods enter QUARANTINE; settlement/refund/AR gated on gift recovery or approved waiver, legal/tax independent.",
+      "roles": [
+        "PRODUCT_BA",
+        "QA",
+        "FINANCE",
+        "LEGAL"
+      ],
+      "reviewerRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860297537",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860324100",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860325094"
+      ],
+      "traceRefs": [
+        "POL-09",
+        "POL-20",
+        "SOP-06",
+        "AC-07",
+        "AC-19"
+      ],
+      "realSystemVerification": "EVIDENCE_PENDING_NOT_RUNTIME_CLOSED"
+    },
+    {
+      "id": "PBA-09",
+      "severity": "P1_CONTRACT",
+      "disposition": "CLOSED_FOR_DOCUMENT_SCOPE",
+      "reviewerDisposition": "FIX_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "summary": "A Confirm locks commercial price/discount; source/version/approval amendment for undelivered quantities only.",
+      "roles": [
+        "PRODUCT_BA",
+        "QA",
+        "FINANCE",
+        "LEGAL"
+      ],
+      "reviewerRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860297537",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860324100",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860325094"
+      ],
+      "traceRefs": [
+        "POL-08",
+        "SOP-02",
+        "AC-02",
+        "AC-19"
+      ],
+      "realSystemVerification": "EVIDENCE_PENDING_NOT_RUNTIME_CLOSED"
+    },
+    {
+      "id": "TECH-08",
+      "severity": "P1_CONTRACT",
+      "disposition": "CLOSED_FOR_DOCUMENT_SCOPE",
+      "reviewerDisposition": "FIX_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "summary": "A/B_ONLINE/MIXED scoped online G-IDEMP is distinct from device OFFLINE_WRITE real E2E EV-08/09.",
+      "roles": [
+        "TECHNICAL",
+        "QA",
+        "OPERATIONS"
+      ],
+      "reviewerRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860298525",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860326019"
+      ],
+      "traceRefs": [
+        "G-IDEMP",
+        "EV-08/ONLINE_IDEMPOTENCY_DURABLE_ACK_CONCURRENCY",
+        "AC-11"
+      ],
+      "realSystemVerification": "EVIDENCE_PENDING_NOT_RUNTIME_CLOSED"
+    },
+    {
+      "id": "TECH-11",
+      "severity": "P1_SECURITY_CONTRACT",
+      "disposition": "CLOSED_FOR_DOCUMENT_SCOPE",
+      "reviewerDisposition": "FIX_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "summary": "Server current authority for lookup/API/file/export; signed URLs require expiry/download guard, runtime revoke remains unverified.",
+      "roles": [
+        "TECHNICAL",
+        "QA",
+        "LEGAL",
+        "OPERATIONS"
+      ],
+      "reviewerRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860298525",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860325094",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860326019"
+      ],
+      "traceRefs": [
+        "POL-01",
+        "POL-17",
+        "ROLE_RACI",
+        "AC-01"
+      ],
+      "realSystemVerification": "EVIDENCE_PENDING_NOT_RUNTIME_CLOSED"
+    }
+  ],
+  "allFiveDocumentScopeClosed": true,
+  "runtimeFindingsClosed": false,
+  "nonWaivableP0": [
+    "G-STOCK",
+    "G-CUT",
+    "G-IDEMP",
+    "G-LEDGER",
+    "G-INV"
+  ],
+  "authorityLimitations": [
+    "Not 6 independent specialists",
+    "Finance/Legal/Ops delegation Owner-attested only",
+    "Not a tenant/provider/real product verification"
+  ]
+}

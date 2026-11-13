@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "PRODUCT_BASELINE_ACCEPTANCE_RECORD",
+  "baselineId": "PRODUCT_BASELINE_V1",
+  "state": "OWNER_BASELINE_ACCEPTED",
+  "scope": "PRODUCT_POLICY_AND_CONTRACT_ONLY",
+  "upstreamPrNumber": 1,
+  "sourcePrNumber": 2,
+  "snapshotCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+  "ownerApproval": {
+    "githubCommentUrl": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994",
+    "githubLogin": "chung6a8m",
+    "githubCreatedAt": "2026-11-13T22:33:42Z",
+    "approvedSnapshotSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491"
+  },
+  "reviewMatrixRef": "baseline-review-matrix.json",
+  "qualityGateRef": "quality-gate.json",
+  "outstandingRegisterRef": "outstanding-register.json",
+  "decisionRefs": {
+    "ownerReview": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20"
+    ],
+    "padr": [
+      "PADR-01",
+      "PADR-02",
+      "PADR-03",
+      "PADR-04",
+      "PADR-05",
+      "PADR-06",
+      "PADR-07",
+      "PADR-08",
+      "PADR-09"
+    ],
+    "evq": [
+      "EVQ-01",
+      "EVQ-02",
+      "EVQ-03",
+      "EVQ-04",
+      "EVQ-05",
+      "EVQ-06",
+      "EVQ-07"
+    ]
+  },
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "modeState": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "notes": "Owner acceptance for exact Cprime Product Policy/Contract only. Six role-scoped reviews by connected Owner account: three Owner-multirole and three Owner-attested delegated expert consultations without independent proof. Five findings closed for document scope only. No Product Verification, Tenant Go-Live, runtime evidence, Mode Admission or merge."
+}
