@@ -45,3 +45,7 @@ Mỗi một trong 343 scenario theo một \`Trip\` giả lập có mã, source W
 | F-10 Missing offline journal | Không suy pending thành zero, có case/recovery | AC-11/16/18 / EV-08/12/15 |
 
 Các fault candidate là **bộ đề nghị kiểm thử**, chưa chạy fault injection trên PWA/API/SQL. S3 cần thiết kế \`testRunId/buildSha/env/expected/actual\` và S6 mới tạo evidence sản phẩm.
+
+## Bổ sung sau review PR #2 — fixture shape
+
+F0/F1/F2 mới cho phép nhiều stock lines cùng \`sourceDocumentId\` nhưng có \`sourceLineId\` khác nhau. T14 có hơn một case thuộc mode A, vẫn \`NO_GO/NOT_RUN\`; T01 yêu cầu A/B_ONLINE/MIXED mà chưa admission. T11 minh họa xe máy giao/lái cùng người, xe tải có người lái riêng và writerInstallationId theo từng chuyến. Mỗi trip scenario mang cả \`sourceDocumentId\` và \`sourceLineId\` để kiểm nguồn tồn; 343 scenario tiếp tục độc lập, không phải chuỗi giao dịch cộng dồn.

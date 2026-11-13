@@ -53,10 +53,24 @@ Lỗi hoặc unknown phải có \`sourceSystem,sourceRecordId,tenantCode,importB
 | N-01 | Sửa customerLabel sau hash | SOURCE_HASH |
 | N-02 | Outlet trỏ customer không tồn tại | FK_ORPHAN |
 | N-03 | Advance outstanding không khớp | ADVANCE_BALANCE |
-| N-04 | T14 tự ghi VERIFIED | GO_LIVE_FALSE_PASS hoặc cảnh báo cần evidence |
+| N-04 | T14 tự ghi VERIFIED | GO_LIVE_CLAIM_UNVERIFIED (error; canPost=false) |
 | N-05 | Quy đổi denominator bằng 0 | UOM_CONVERSION |
 | N-06 | CSV có dấu phẩy/quote | Parse đúng không tách lệch cột |
 | N-07 | Thiếu sourceHash/metadata | REQUIRED_META, không được bỏ qua |
 | N-08 | Record tenant không có T01 nguồn | TENANT_ORPHAN |
 
 Những phép thử này chỉ chạy trên **generator/validator logic**, không phải fault injection SQL, PWA, provider, browser. Gói F2 tạo **input** cho fault-injection thực ở S3/S6, chưa tự chạy 100% các loại lỗi trong hệ thống.
+
+## Bổ sung sau review PR #2 — kiểm tra khóa và quyền theo chuyến
+
+Kiểm tra định danh import phân biệt \`recordType=Txx\` để tránh xung đột giả giữa Customer/SKU cùng mã nguồn. Đối với tồn đầu kỳ, đối chiếu theo **document header + sourceLineId**, không khóa một document chỉ một line. T14 dùng \`caseId\` để ghi các gate/AC/EV cùng mode; không ghi trạng thái Go-Live bằng phép nhập CSV.
+
+Kiểm tra \`Trip\` theo đúng ma trận:
+- \`A\`: có AReservation, không có BQuota.
+- \`B_ONLINE\`: có BQuota, không có AReservation.
+- \`MIXED\`: có cả hai, vẫn tách riêng nguồn.
+- \`B_NO_CHANNEL\`: vẫn chặn, không hợp thức hóa bằng metadata.
+
+Cùng installation có thể dùng nhiều chuyến tuần tự; hai installation **trong một chuyến** bị chặn, grantId không được tái sử dụng ở chuyến khác. Xe máy nhân viên giao và lái là cùng người; xe tải có thể phân vai. Các ràng buộc này là structural checks; tính độc quyền trong SQL/PWA và phân quyền theo thời điểm thuộc S3/S6.
+
+Đã có [26 ca regression](s2-regression-tests.mjs) gồm mã nguồn đa loại, source/line, multi-evidence, A/B/MIXED, writer reuse/concurrency giả lập, driver, thiếu metadata, FK, balance, CSV quoted/formula. Không coi chúng là fault injection hoặc E2E trên hệ thống thật.

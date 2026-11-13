@@ -31,7 +31,7 @@ Các file CSV **blank** trong [templates/blank/](templates/blank/) chỉ chứa 
 - Ngày: ISO \`YYYY-MM-DD\` cho business date theo timezone seller; phân biệt ngày tạo/sự kiện, ngày post và \`occurredAtClaim\` như R009. Đừng dùng thời gian máy làm căn cứ pháp lý duy nhất.
 - Bắt buộc mọi dòng có \`tenantCode, schemaVersion, sourceSystem, sourceRecordId, sourceHash, importBatchId\` để truy nguồn/cutover. \`schemaVersion=s2-v1\` là **schema giả lập/thiết kế**, không là schema production.
 - \`sourceHash\`: SHA-256 từ các cột nghiệp vụ theo thứ tự dictionary rồi nối \`tenantCode|schemaVersion|sourceSystem|sourceRecordId|importBatchId\`. Dùng chuẩn UTF-8 và canonicalization version có ADR trước import thật. **Không bịa hash hoặc bỏ lỗi để qua validation**.
-- Cùng \`sourceRecordId\` khác hash: conflict/chặn; cùng ID/hash trong cùng batch cũng cần xử lý duplicate có chủ, không tạo effect mới. Danh tính thuộc namespace tenant+sourceSystem.
+- Cùng \`sourceRecordId\` khác hash: conflict/chặn; cùng ID/hash trong cùng batch cũng cần xử lý duplicate có chủ, không tạo effect mới. Danh tính thuộc namespace tenant+sourceSystem+recordType(Txx); T05 còn có khóa dòng theo sourceDocumentId+sourceLineId.
 
 ## 3. Quy trình vận hành nhập liệu đề nghị
 
@@ -59,7 +59,18 @@ S2=reports/2026-11-13-10-product-reference-go-live-blueprint/s2
 node "$S2/s2-data-tool.mjs" generate /tmp/s2-data
 node "$S2/s2-import-dry-run.mjs" /tmp/s2-data/fixtures/F0 --report /tmp/s2-preview.json
 node "$S2/s2-import-dry-run.mjs" --self-test
+node "$S2/s2-regression-tests.mjs"
 python "$S2/s2-create-xlsx.py" /tmp/S2_NPP_Import_Templates.xlsx
 \`\`\`
 
 **Chú ý:** CI và script thuần mẫu chỉ chạy được với dữ liệu giả lập hiện có. Tổ chức import NPP thật phải có approval, hoàn thiện các contract thực và triển khai code import có transaction/idempotency, không dùng script nghiên cứu để ghi production.
+
+## Bổ sung sau review PR #2 — ánh xạ template mới
+
+- **T01:** biểu diễn nhiều mode CSV bằng một chuỗi phân tách \`|\` (ví dụ \`A|B_ONLINE|MIXED\`) rồi chuẩn hóa thành \`["A","B_ONLINE","MIXED"]\` cho S1 JSON Schema. Giá trị chỉ là requested, không tự mở feature/mode gate.
+- **T05:** \`sourceDocumentId\` là chứng từ/biên bản đầu kỳ có thể có nhiều line; \`sourceLineId\` là định danh bắt buộc của từng line. Không dùng \`sourceDocumentId\` làm unique key toàn template. Kết hợp namespace tenant/sourceSystem; giữ riêng \`sourceRecordId\` phục vụ chống nhập lại.
+- **T11:** \`vehicleKind=MOTORBIKE|TRUCK\`, \`deliveryEmployeeCode\` là người giao hàng và writer nghiệp vụ dự kiến, \`driverEmployeeCode\` là người lái xe. Xe máy cùng người, xe tải cho phép người khác; role/TripAssignment/WriterGrant thực vẫn phải có grant theo thời điểm, không cấp quyền chỉ nhờ CSV. Một writer mỗi Trip **không phải** một Trip cho mỗi installation.
+- **T14:** có \`caseId\`; có thể có nhiều gate/AC/EV trên cùng mode. Nhập \`GO\`/\`VERIFIED\` bằng CSV sẽ tạo lỗi \`GO_LIVE_CLAIM_UNVERIFIED\`; phải có workflow evidence độc lập.
+- **A/B:** A chỉ cho \`aReservationRef\`; B_ONLINE chỉ cho \`bQuotaRef\`; MIXED bắt buộc cả hai và B_NO_CHANNEL chưa được phép tạo chuyến giao dịch.
+
+**Hành động khi nâng bản mẫu:** loại bỏ file CSV/XLSX tạo trước lần sửa các header T05/T11/T14 hoặc chuyển đổi có kiểm soát theo [data dictionary](data-dictionary.json). Sinh lại template bằng các công cụ hiện tại; không tự suy \`sourceLineId\`, nhân viên lái xe hay quyết định Go-Live khi thiếu chứng từ.

@@ -16,7 +16,7 @@
 | P04 | [trip-scenarios.json](trip-scenarios.json) | 343 trường hợp chuyến độc lập liên kết SKU, trip, Customer, tồn/cost, AR/custody |
 | P04 | [fixture-manifest.json](fixture-manifest.json) | Seed và SHA-256 của các file fixture/source trong gói; không phải chữ ký/evidence pháp lý |
 | P04 | [s2-data-tool.mjs](s2-data-tool.mjs), [s2-trip-scenarios.mjs](s2-trip-scenarios.mjs) | Công cụ Node.js để tái lập/kiểm dữ liệu và các mô hình trước–sau |
-| QA | [.github/workflows/s2-synthetic-validation.yml](../../../.github/workflows/s2-synthetic-validation.yml) | GitHub Actions chạy Node validation/CSV dry-run và lưu báo cáo kỹ thuật |
+| QA | [.github/workflows/s2-synthetic-validation.yml](../../../.github/workflows/s2-synthetic-validation.yml) | GitHub Actions kiểm S1 lint/JSON Schema, S2 model/CSV regression và lưu báo cáo kỹ thuật |
 
 Đọc [hướng dẫn nhập liệu](import-template-guide.vi.md), [quy tắc chất lượng/đối soát](data-quality-and-reconciliation.vi.md), [kịch bản giả lập](reference-scenarios.vi.md) và [kết quả kiểm chứng](validation-results.vi.md). Các ví dụ chỉ mô phỏng, không có người ký xác nhận NPP.
 
@@ -42,6 +42,7 @@ S2=reports/2026-11-13-10-product-reference-go-live-blueprint/s2
 node "$S2/s2-data-tool.mjs" validate "$S2"
 node "$S2/s2-trip-scenarios.mjs" validate "$S2"
 node "$S2/s2-import-dry-run.mjs" --self-test
+node "$S2/s2-regression-tests.mjs"
 node "$S2/s2-data-tool.mjs" generate /tmp/s2-generated
 node "$S2/s2-import-dry-run.mjs" /tmp/s2-generated/fixtures/F0 --report /tmp/s2-dry-run.json
 \`\`\`
@@ -64,3 +65,18 @@ Workbook này là form hỗ trợ nhập liệu và tra từ điển; **không t
 - \`P03\` đã có template CSV + generator Excel + validator dry-run; \`P04\` đã có fixture/model/reconciliation checks. Cả hai **chưa đủ** để tuyên bố \`TENANT_GO_LIVE_ACCEPTED\`.
 
 **Đánh giá:** S2 có thể bàn giao làm đầu vào S3 test/acceptance và S5 onboarding gap. NPP thật phải được phép dùng dữ liệu và ký xác nhận riêng trước bất kỳ import production nào.
+
+## Bổ sung sau review PR #2 — contract dữ liệu và regression
+
+Đã sửa các điểm P1 trong S2, đồng thời bổ sung [26 regression tests](s2-regression-tests.mjs). Bộ F0/F1/F2, 343 trip scenarios và manifest SHA-256 đã được tái tạo đồng bộ; cấu trúc vẫn **MODEL_ONLY**, không phải transaction/product verification.
+
+| Template | Quy tắc sau sửa | Lưu ý admission / business effect |
+|---|---|---|
+| T01 | \`requestedModes\` là tập token \`A|B_ONLINE|MIXED\` (phân cách \`|\`, không trùng); map sang mảng S1 \`requestedModes[]\` | Requested không phải ModeAdmission/permission |
+| T05 | Một \`sourceDocumentId\` có thể chứa nhiều \`sourceLineId\` (SKU×location×lot×status); natural key theo tenant + sourceSystem + document + line | Không gộp theo document; cần kiểm kê, cost và đối soát thực |
+| T11 | \`vehicleKind\`, \`deliveryEmployeeCode\`, \`driverEmployeeCode\` tách rõ nhiệm vụ; xe máy cùng người, xe tải có thể tách | Một writer/trip, grant không chia giữa chuyến; installation có thể dùng lại ở chuyến tuần tự; role grant do server xác minh |
+| T14 | \`caseId\` là khóa case; một mode có nhiều gate/AC/EV | CSV không thể tự tuyên bố \`GO\`/\`VERIFIED\`, dry-run chặn \`GO_LIVE_CLAIM_UNVERIFIED\` |
+
+Dedupe source dùng namespace \`tenant + sourceSystem + recordType(Txx) + sourceRecordId\`: mã 001 của Customer và mã 001 của SKU không bị xung đột chỉ vì trùng ký tự. Trong **cùng loại**, source ID/hash xung đột phải chặn. A chỉ có AReservation, B_ONLINE chỉ có BQuota, MIXED có cả hai; B_NO_CHANNEL vẫn BLOCKED.
+
+**Tương thích template:** Các header T05/T11/T14 đã thay đổi; cần tái tạo CSV/Excel mới và remap các file nhập cũ trước dry-run. Đây vẫn là schema nghiên cứu \`s2-v1\` chưa được duyệt cho production. CI không thay bằng chứng writer toàn kho, offline/restore, hóa đơn B/LEGAl, kế toán hoặc ký Go-Live.
