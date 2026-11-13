@@ -49,3 +49,7 @@ Daily checkpoint có owner Warehouse, Finance, Ops, Product QA: kiểm kho/ba s�
 ## 5. Hồ sơ incident và dữ liệu nhạy cảm
 
 Mỗi case phải có caseId, tenant/mode/trip/source IDs, detection/occurredAt (claim vs trusted time), severity, actor, reviewer độc lập, firstEffectId nếu có, timeline, current state, delta/event snapshots, artifact URI+SHA256, classification/retention, các quyết định Stop/Resume và follow-up owner. Không đưa PII, khóa bảo mật hay tài khoản provider vào PR công khai. Support cross-tenant chỉ dùng grant hiện hành được kiểm toán, không đọc dữ liệu từ snapshot đã revoke.
+
+## 6. Hết hạn ngoại lệ P1 (F6)
+
+Mỗi `p1Exceptions[]` phải có owner, scope, `expiresAt`, remediation và compensating controls. Tại daily close/hypercare rà soát tính còn hiệu lực, rủi ro và quyết định dừng/tiếp tục theo mode. Ngoại lệ P1 được duyệt không xóa finding nguồn, không nâng `EVIDENCE_PENDING` thành PASS. Nếu có tác động P0 hoặc phá bất biến L0 thì STOP/NO-GO, không hạ severity để dùng ngoại lệ.

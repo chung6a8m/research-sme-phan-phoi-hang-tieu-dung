@@ -47,3 +47,10 @@ S5 dùng dossier/gap-control theo tenant để xác định người ký, source
 ## 5. Evidence CI structural — không phải nghiệm thu thật
 
 [GitHub Actions run 43399848506](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43399848506) **SUCCESS** trên `8a7049a0`: 30 OPS controls (22 P06/8 P08), 15 EV, 5 gate P0, **20 negative regression**, **17 JSON Schema negatives**. Báo cáo chi tiết [validation-results.vi.md](validation-results.vi.md). `realOperationalDrills:0`, `tenantSignoffs:0`; các giá trị GO/verification không thay đổi.
+
+## Hardening F3/F4/F6 — chuẩn bị bàn giao S5 (13/11/2026)
+
+- `TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL`: điền tenantId/profileVersion/createdAt và `discoveryGaps[]` ở S5 khi chưa có runtime/build thật. Runtime/signoffs/evidence/firstEffect null/empty; `admittedModes=[]`. Ví dụ `tenant-operations-discovery.example.json` chỉ là **SYNTHETIC_ONLY_NOT_NPP_01**, không phải NPP thật.
+- `p1Exceptions[]` có owner, mode scope, controlIds, expiry, mitigation, compensating controls, remediation, reviewer, approvalRef. `OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS` chỉ phản ánh hồ sơ ngoại lệ được kiểm chứng qua workflow riêng; không miễn P0, không biến EV thành PASS và không cấp Mode Admission.
+- JSON Schema và semantic checks: mỗi OPS-01..30 đúng một lần; sáu mode không trùng; fixed B-CASE/LEGAL-MEMO/INV-09; gap/exception IDs không trùng; P1 exception chỉ tham chiếu control P1 và có thời hạn. Hồ sơ NPP và chữ ký thật vẫn ở S6.
+- Workflow S4 theo dõi các thay đổi upstream S1/S2/S3, policy/SOP/RACI/EVQ. Kết quả CI chỉ là contract/synthetic.

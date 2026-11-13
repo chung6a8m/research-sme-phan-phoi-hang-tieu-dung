@@ -22,7 +22,14 @@ const mutations=[
  ["missing_threshold",d=>d.c.controls.find(c=>c.controlId==="OPS-21").requiredEvidence="Ready without evidence"],
  ["missing_privacy",d=>d.c.controls.find(c=>c.controlId==="OPS-30").evIds=[]],
  ["hidden_stock_scope",d=>d.d.scope.entireWarehouseStockScope=false],
- ["mutated_S4_runbook",d=>d.docs["backup-restore-and-recovery.vi.md"]="not a runbook"]
+ ["mutated_S4_runbook",d=>d.docs["backup-restore-and-recovery.vi.md"]="not a runbook"],
+ ["fake_runtime_in_discovery",d=>d.discovery.runtime.commitSha="a".repeat(40)],
+ ["fake_admission_in_discovery",d=>d.discovery.scope.admittedModes=["A"]],
+ ["fake_signoff_in_discovery",d=>d.discovery.signoffs.push({role:"Owner"})],
+ ["duplicate_discovery_control",d=>d.discovery.discoveryGaps[0].controlIds.push("OPS-25")],
+ ["fake_P1_exception_in_blank_template",d=>d.d.p1Exceptions=[{exceptionId:"FAKE"}]],
+ ["missing_upstream_policy",d=>d.upstream.policy="invalid"],
+ ["missing_upstream_RACI",d=>d.upstream.role="invalid"]
 ];
 for(const [name,mut] of mutations){
  const d=clone();mut(d);

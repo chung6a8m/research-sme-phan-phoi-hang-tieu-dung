@@ -4,6 +4,15 @@ on:
     paths:
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s4/**'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/data-dictionary.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
       - '.github/workflows/s4-operations-contract-validation.yml'
   push:
     branches:
@@ -11,6 +20,15 @@ on:
     paths:
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s4/**'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/data-dictionary.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
       - '.github/workflows/s4-operations-contract-validation.yml'
 permissions:
   contents: read

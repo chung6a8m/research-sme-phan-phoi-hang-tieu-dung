@@ -15,10 +15,11 @@ const DOCS=[
 ];
 export function load(){
  return {c:json("operational-controls.json"),d:json("tenant-operations-dossier.example.json"),
- schema:json("tenant-operations-dossier.schema.json"),
+ schema:json("tenant-operations-dossier.schema.json"),discovery:json("tenant-operations-discovery.example.json"),
  modes:json("../s3/mode-gates.json"),ac:json("../s3/acceptance-matrix.json"),
  ev:json("../s3/evidence-register.json"),fault:json("../s3/fault-injection-matrix.json"),
- docs:Object.fromEntries(DOCS.map(f=>[f,read(f)]))};
+ upstream:{policy:read("../product-policy-catalog.vi.md"),sop:read("../sop-a-b-mixed.vi.md"),role:read("../role-and-approval-matrix.vi.md"),evq:read("../evq-acceptance-gates.vi.md")},
+  docs:Object.fromEntries(DOCS.map(f=>[f,read(f)]))};
 }
 export function validate(x){
  const c=x.c.controls,d=x.d,g=x.modes.gates,E=x.ev.records,A=x.ac.cases,F=x.fault.faults;
@@ -78,6 +79,25 @@ export function validate(x){
  for(const a of d.assessments)check(a.status==="NOT_EVALUATED"&&a.evidenceRefs.length===0&&a.reviewer===null&&a.reviewedAt===null,"unexecuted dossier assessment "+a.controlId);
  check(sorted(d.deferredEvidence.map(z=>z.id))===sorted(["B-CASE-001","B-CASE-002","B-CASE-003","LEGAL-MEMO","INV-09"]),"deferred record set");
  for(const e of d.deferredEvidence)check(e.state===(e.id==="INV-09"?"NOT_RUN":"EVIDENCE_PENDING"),"deferred still pending "+e.id);
+
+  // F3/F4/F6 — keep discovery pre-runtime and never treat dossier as admission authority.
+  check(d.discoveryGaps.length===0 && d.p1Exceptions.length===0,"blank placeholder cannot contain gaps or exceptions");
+  const discovery=x.discovery;
+  check(discovery.recordKind==="TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL" &&
+    discovery.tenantId==="SYNTHETIC_ONLY_NOT_NPP_01" &&
+    discovery.runtime.commitSha===null && discovery.runtime.environment===null,"discovery cannot invent runtime");
+  check(discovery.scope.admittedModes.length===0 && discovery.signoffs.length===0 &&
+    discovery.evidenceIndex.length===0 && discovery.modeDecisions.every(z=>z.admissionRecordRef===null),"discovery cannot claim approval");
+  check(discovery.discoveryGaps.length===1 && discovery.discoveryGaps[0].status==="OPEN_UNVERIFIED" &&
+    discovery.discoveryGaps[0].controlIds.every(id=>c.some(z=>z.controlId===id)),"discovery gap trace/status");
+  check(discovery.p1Exceptions.length===0 && d.assessments.length===30,"no self-approved P1 exceptions");
+  check(x.schema.properties.recordKind.enum.includes("TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL") &&
+    x.schema.properties.discoveryGaps?.type==="array" && x.schema.properties.p1Exceptions?.type==="array","dossier gap/P1 schema");
+  // F5: follow upstream changes with path filters and assert essential policy links.
+  for(const token of ["POL-02","POL-17","UNSET"])check(x.upstream.policy.includes(token),"S4 policy drift "+token);
+  for(const token of ["SOP-03","SOP-09","SOP-11"])check(x.upstream.sop.includes(token),"S4 SOP drift "+token);
+  for(const token of ["AP-08","AP-09","maker"])check(x.upstream.role.includes(token),"S4 RACI drift "+token);
+  for(const token of ["EVQ-05","EVQ-07","B_ONLINE","B_NO_CHANNEL"])check(x.upstream.evq.includes(token),"S4 EVQ drift "+token);
  const needed={
   "tenant-onboarding-and-cutover.vi.md":["Kho-01","C0","C8","firstEffectId","AP-08","FORWARD_RECOVERY_ONLY","B_NO_CHANNEL"],
   "backup-restore-and-recovery.vi.md":["DR-01","DR-08","PrivacyActionLedger","UNKNOWN","F-22","UNSET"],

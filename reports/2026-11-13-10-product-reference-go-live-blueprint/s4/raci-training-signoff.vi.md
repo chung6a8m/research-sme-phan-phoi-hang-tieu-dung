@@ -55,3 +55,7 @@ Training register (chưa có dữ liệu thật): `tenantId, personRole, assignm
 5. Nếu incident/restore/later P0, dừng scope, AP-10 và mode re-admission phải có independent acceptance; **AP-08 không mặc nhiên chấp thuận AP-09**.
 
 **S5/S6 cần hoàn thiện:** danh sách tên/ủy quyền thật, consent, privacy/legal memo, RPO/RTO/SLO, vận hành provider, device matrix, incident contacts, nghĩa vụ pháp lý và chữ ký. Trên PR #2 không có các thông tin đó.
+
+## 5. Hồ sơ P1 exception có kiểm soát (F6)
+
+Với ngoại lệ P1 được đề xuất, ghi `exceptionId, severity=P1, controlIds, modeScope, owner, expiresAt, mitigation, compensatingControls[], remediation, reviewer, approvalRef, acceptedAt, evidenceRefs[]` trong `p1Exceptions`. `OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS` chỉ dùng sau khi S6 kiểm hồ sơ ký/hiệu lực thực, không tự đổi evidence sang PASS hoặc cấp mode. Discovery S5 chỉ dùng `PROPOSED/PENDING_REVIEW`; không đưa kiểm soát P0 vào ngoại lệ, không lách L0 hay B_NO_CHANNEL.
