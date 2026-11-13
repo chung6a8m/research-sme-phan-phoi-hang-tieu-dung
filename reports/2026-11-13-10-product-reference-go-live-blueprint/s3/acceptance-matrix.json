@@ -1,0 +1,736 @@
+{
+  "schemaVersion": "s3-v1",
+  "basis": "R009-AC-01..21",
+  "kind": "SYNTHETIC_TEST_CONTRACT",
+  "status": "NOT_RUN_PRODUCT",
+  "cases": [
+    {
+      "acId": "AC-01",
+      "title": "Tenant isolation và revoke",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-01",
+        "BR-17"
+      ],
+      "evidenceIds": [
+        "EV-01",
+        "EV-09"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "scenarioIds": [
+        "S3-AC01-P",
+        "S3-AC01-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-02",
+      "title": "Customer không cần Outlet và ShipTo snapshot",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-02",
+        "BR-03",
+        "BR-08"
+      ],
+      "evidenceIds": [
+        "EV-02"
+      ],
+      "modes": [
+        "A",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [],
+      "scenarioIds": [
+        "S3-AC02-P",
+        "S3-AC02-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-03",
+      "title": "Mixed A+B cân từng mốc T0–T6",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-03",
+        "BR-04",
+        "BR-07",
+        "BR-11",
+        "BR-12",
+        "BR-13"
+      ],
+      "evidenceIds": [
+        "EV-03",
+        "EV-04",
+        "EV-06",
+        "EV-07",
+        "EV-08",
+        "EV-11"
+      ],
+      "modes": [
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-03"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC03-P",
+        "S3-AC03-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-04",
+      "title": "Một writer kho toàn Kho-01",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-05",
+        "BR-21"
+      ],
+      "evidenceIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "PRODUCTION_CUTOVER"
+      ],
+      "fixtureRefs": [
+        "F1"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "scenarioIds": [
+        "S3-AC04-P",
+        "S3-AC04-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-05",
+      "title": "UoM FEFO lot và quarantine",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-06",
+        "BR-20"
+      ],
+      "evidenceIds": [
+        "EV-04",
+        "EV-05"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC05-P",
+        "S3-AC05-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-06",
+      "title": "Moving average và kỳ kế toán khóa",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-07",
+        "BR-20"
+      ],
+      "evidenceIds": [
+        "EV-07"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC06-P",
+        "S3-AC06-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-07",
+      "title": "Quà ròng và waiver được duyệt",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-09"
+      ],
+      "evidenceIds": [
+        "EV-05"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC07-P",
+        "S3-AC07-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-08",
+      "title": "Hạn nợ theo delivery snapshot",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-10"
+      ],
+      "evidenceIds": [
+        "EV-06"
+      ],
+      "modes": [
+        "A",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC08-P",
+        "S3-AC08-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-09",
+      "title": "SaleDeliveryReceipt atomic và grant",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-11",
+        "BR-12",
+        "BR-13",
+        "BR-15",
+        "BR-16"
+      ],
+      "evidenceIds": [
+        "EV-06",
+        "EV-08"
+      ],
+      "modes": [
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-03"
+      ],
+      "gateIds": [
+        "G-IDEMP",
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC09-P",
+        "S3-AC09-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-10",
+      "title": "Ba sổ và cashier handover",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-13",
+        "BR-14"
+      ],
+      "evidenceIds": [
+        "EV-06",
+        "EV-12"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC10-P",
+        "S3-AC10-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-11",
+      "title": "Durable ACK và dependency inbox",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-16"
+      ],
+      "evidenceIds": [
+        "EV-08"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "scenarioIds": [
+        "S3-AC11-P",
+        "S3-AC11-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-12",
+      "title": "Một writer trip và occurred event",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-15",
+        "BR-16"
+      ],
+      "evidenceIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "scenarioIds": [
+        "S3-AC12-P",
+        "S3-AC12-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-13",
+      "title": "Restore không hồi sinh authority hoặc invoice",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-17",
+        "BR-18"
+      ],
+      "evidenceIds": [
+        "EV-09",
+        "EV-10"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC13-P",
+        "S3-AC13-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-14",
+      "title": "Hóa đơn delivery A và B_ONLINE",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-18"
+      ],
+      "evidenceIds": [
+        "EV-10"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC14-P",
+        "S3-AC14-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-15",
+      "title": "Outbox accounting đối soát theo source",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-19"
+      ],
+      "evidenceIds": [
+        "EV-11"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC15-P",
+        "S3-AC15-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-16",
+      "title": "Cutover opening và Forward Recovery",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-21"
+      ],
+      "evidenceIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "PRODUCTION_CUTOVER"
+      ],
+      "fixtureRefs": [
+        "F1"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "scenarioIds": [
+        "S3-AC16-P",
+        "S3-AC16-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-17",
+      "title": "Visit không sinh order giả",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-22"
+      ],
+      "evidenceIds": [
+        "EV-13"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [],
+      "scenarioIds": [
+        "S3-AC17-P",
+        "S3-AC17-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-18",
+      "title": "Pilot readiness và coverage theo mode",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-05",
+        "BR-23",
+        "BR-24"
+      ],
+      "evidenceIds": [
+        "EV-14",
+        "EV-15"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F1"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC18-P",
+        "S3-AC18-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-19",
+      "title": "Pricing Decimal và partial return",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-08",
+        "BR-14",
+        "BR-20"
+      ],
+      "evidenceIds": [
+        "EV-05",
+        "EV-06",
+        "EV-10",
+        "EV-11"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-19"
+      ],
+      "gateIds": [
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC19-P",
+        "S3-AC19-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-20",
+      "title": "Advance settlement nhiều lần",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-13"
+      ],
+      "evidenceIds": [
+        "EV-06"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-20"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC20-P",
+        "S3-AC20-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    },
+    {
+      "acId": "AC-21",
+      "title": "Receipt allocation và CustomerCredit",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-13",
+        "BR-14"
+      ],
+      "evidenceIds": [
+        "EV-06"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-21"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC21-P",
+        "S3-AC21-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND"
+    }
+  ]
+}

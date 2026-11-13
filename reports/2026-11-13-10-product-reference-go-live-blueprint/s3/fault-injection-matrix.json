@@ -1,0 +1,467 @@
+{
+  "schemaVersion": "s3-v1",
+  "status": "NOT_RUN_PRODUCT",
+  "faults": [
+    {
+      "faultId": "F-01",
+      "sourceS2CaseId": "F-01",
+      "acIds": [
+        "AC-11",
+        "AC-03"
+      ],
+      "evIds": [
+        "EV-08",
+        "EV-03"
+      ],
+      "targets": [
+        "PWA",
+        "API",
+        "SQL"
+      ],
+      "injectionPoint": "Sau SQL COMMIT trước HTTP ACK",
+      "expectedInvariant": "Replay cùng commandId/hash; không thêm stock/AR/custody/outbox effect",
+      "requiredArtifacts": "Giữ SQL event log, ACK trace, ledger diff",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-02",
+      "sourceS2CaseId": "F-02",
+      "acIds": [
+        "AC-12"
+      ],
+      "evIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "targets": [
+        "PWA",
+        "API"
+      ],
+      "injectionPoint": "Hai installation xin writer cùng trip",
+      "expectedInvariant": "Một writer được grant, writer còn lại denied; occurred event vào case",
+      "requiredArtifacts": "Grant authority log + installation IDs",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-03",
+      "sourceS2CaseId": "F-03",
+      "acIds": [
+        "AC-09"
+      ],
+      "evIds": [
+        "EV-06",
+        "EV-08"
+      ],
+      "targets": [
+        "API",
+        "SQL"
+      ],
+      "injectionPoint": "Hai compound command P80 cùng tranh grant 100",
+      "expectedInvariant": "Một commit, một reject/case, remaining20 và AR80",
+      "requiredArtifacts": "Txn isolation and ledger balance snapshot",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-04",
+      "sourceS2CaseId": "F-04",
+      "acIds": [
+        "AC-14"
+      ],
+      "evIds": [
+        "EV-10"
+      ],
+      "targets": [
+        "PROVIDER",
+        "API"
+      ],
+      "injectionPoint": "Provider nhận request rồi timeout UNKNOWN",
+      "expectedInvariant": "Lookup same external reference; không create invoice mới",
+      "requiredArtifacts": "Sandbox request, lookup, effect registry",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-05",
+      "sourceS2CaseId": "F-05",
+      "acIds": [
+        "AC-10",
+        "AC-20"
+      ],
+      "evIds": [
+        "EV-06"
+      ],
+      "targets": [
+        "API",
+        "SQL"
+      ],
+      "injectionPoint": "Offer nộp quỹ/hoàn ứng chưa cashier accept",
+      "expectedInvariant": "Custody/advance không giảm tại offer",
+      "requiredArtifacts": "Actor log, cashier signature, ledger delta",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-06",
+      "sourceS2CaseId": "F-06",
+      "acIds": [
+        "AC-13",
+        "AC-01"
+      ],
+      "evIds": [
+        "EV-09",
+        "EV-01"
+      ],
+      "targets": [
+        "SQL",
+        "API"
+      ],
+      "injectionPoint": "Restore trước membership revoke",
+      "expectedInvariant": "Revoke authority ngoài DB còn hiệu lực; khóa tenant",
+      "requiredArtifacts": "Recovery generation, revoke token, audit",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-07",
+      "sourceS2CaseId": "F-07",
+      "acIds": [
+        "AC-04",
+        "AC-16"
+      ],
+      "evIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "targets": [
+        "LEGACY",
+        "SQL"
+      ],
+      "injectionPoint": "Legacy write sau cutover",
+      "expectedInvariant": "P0 FAIL khi bất kỳ old UI/API/job/offline path còn ghi",
+      "requiredArtifacts": "Full writer path inventory and blocked-write captures",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-08",
+      "sourceS2CaseId": "F-08",
+      "acIds": [
+        "AC-06"
+      ],
+      "evIds": [
+        "EV-07"
+      ],
+      "targets": [
+        "SQL",
+        "ACCOUNTING"
+      ],
+      "injectionPoint": "Return/cost adjustment sau kỳ khóa",
+      "expectedInvariant": "Chỉ correction source mới, không mutate kỳ trước",
+      "requiredArtifacts": "Period close and cost bridge diff",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-09",
+      "sourceS2CaseId": "F-09",
+      "acIds": [
+        "AC-21",
+        "AC-09"
+      ],
+      "evIds": [
+        "EV-06"
+      ],
+      "targets": [
+        "API",
+        "ACCOUNTING"
+      ],
+      "injectionPoint": "Receipt bank vẫn pending",
+      "expectedInvariant": "Không giảm AR hay tăng verified CustomerCredit",
+      "requiredArtifacts": "Bank verification and ledger audit",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-10",
+      "sourceS2CaseId": "F-10",
+      "acIds": [
+        "AC-11",
+        "AC-12"
+      ],
+      "evIds": [
+        "EV-08"
+      ],
+      "targets": [
+        "PWA",
+        "API"
+      ],
+      "injectionPoint": "Journal mất hoặc client không có durable copy",
+      "expectedInvariant": "Server durable ownership hoặc case và incident, không drop",
+      "requiredArtifacts": "Client/server journal durability diagnostic",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-11",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-03"
+      ],
+      "evIds": [
+        "EV-03",
+        "EV-06",
+        "EV-08"
+      ],
+      "targets": [
+        "SQL"
+      ],
+      "injectionPoint": "Crash trước transaction COMMIT của mixed B20",
+      "expectedInvariant": "T2 unchanged toàn bộ ledger và source; không partial sale",
+      "requiredArtifacts": "SQL transaction trace and per-step reconciliation",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-12",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-11"
+      ],
+      "evIds": [
+        "EV-08"
+      ],
+      "targets": [
+        "API",
+        "SQL"
+      ],
+      "injectionPoint": "Dependency command C nhận trước P rồi worker restart",
+      "expectedInvariant": "Durable awaiting_dependency; P xuất hiện thì C chạy đúng một lần",
+      "requiredArtifacts": "Inbox ownership, outbox and timeline",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-13",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-11"
+      ],
+      "evIds": [
+        "EV-08"
+      ],
+      "targets": [
+        "API",
+        "SQL"
+      ],
+      "injectionPoint": "Cùng commandId khác canonical payloadHash",
+      "expectedInvariant": "HTTP 409, không mutate bất kỳ ledger nào",
+      "requiredArtifacts": "Hash compare, response and DB before/after",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-14",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-12"
+      ],
+      "evIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "targets": [
+        "PWA",
+        "API"
+      ],
+      "injectionPoint": "Grant revoke/TTL sau physical event offline",
+      "expectedInvariant": "Không tự post; bền durable occurredEvent case/custody",
+      "requiredArtifacts": "Paper source, trip writer token and case registry",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-15",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-15"
+      ],
+      "evIds": [
+        "EV-11"
+      ],
+      "targets": [
+        "ACCOUNTING",
+        "API"
+      ],
+      "injectionPoint": "POSTED nhưng net/VAT/gross của sourceLine lệch",
+      "expectedInvariant": "RECONCILED_DIFF, correction ID mới; no auto-pass",
+      "requiredArtifacts": "Source-line diff, mappingVersion, Finance signature",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-16",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-16",
+        "AC-04"
+      ],
+      "evIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "targets": [
+        "LEGACY",
+        "SQL"
+      ],
+      "injectionPoint": "Late source arrival sau first production effect",
+      "expectedInvariant": "Forward-only correction, không revert snapshot",
+      "requiredArtifacts": "Opening manifest, first effect timestamp, correction trace",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-17",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-19"
+      ],
+      "evIds": [
+        "EV-05",
+        "EV-10",
+        "EV-11"
+      ],
+      "targets": [
+        "API",
+        "PROVIDER"
+      ],
+      "injectionPoint": "Đảo thứ tự P/Q và partial return sau thu đủ",
+      "expectedInvariant": "Stable largest remainder & refund only after disbursement; not invoice fixture",
+      "requiredArtifacts": "Line snapshots and provider/accounting readback",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-18",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-14"
+      ],
+      "evIds": [
+        "EV-10"
+      ],
+      "targets": [
+        "PWA",
+        "PROVIDER"
+      ],
+      "injectionPoint": "B mất toàn bộ kênh hóa đơn khi đang chuẩn bị giao",
+      "expectedInvariant": "B_NO_CHANNEL BLOCKED, giữ case nếu physical occurred, không backdate",
+      "requiredArtifacts": "Channel status, blocked gate, B-CASE/INV-09 pending",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-19",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-08",
+        "AC-09"
+      ],
+      "evIds": [
+        "EV-06"
+      ],
+      "targets": [
+        "API",
+        "SQL"
+      ],
+      "injectionPoint": "Credit terms/limit UNSET vs APPROVED zero",
+      "expectedInvariant": "UNSET fail-closed; approved zero có approvalRef, đều không cấp tín dụng mặc định",
+      "requiredArtifacts": "Policy version, approval ref and denied command",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-20",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-18"
+      ],
+      "evIds": [
+        "EV-14",
+        "EV-15"
+      ],
+      "targets": [
+        "PILOT",
+        "API"
+      ],
+      "injectionPoint": "Thiếu threshold ký trước pilot hoặc n/N đại diện",
+      "expectedInvariant": "Không kết luận PILOT_VERIFIED hoặc GO theo mode",
+      "requiredArtifacts": "Pilot register, signatures, coverage denominator",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-21",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-17"
+      ],
+      "evIds": [
+        "EV-13"
+      ],
+      "targets": [
+        "PWA",
+        "API"
+      ],
+      "injectionPoint": "No-order visit được retry khi offline ACK mất",
+      "expectedInvariant": "Một visit, không tạo order0 hoặc tồn/AR",
+      "requiredArtifacts": "Trip sourceId and visit aggregation",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    },
+    {
+      "faultId": "F-22",
+      "sourceS2CaseId": null,
+      "acIds": [
+        "AC-13"
+      ],
+      "evIds": [
+        "EV-09",
+        "EV-10"
+      ],
+      "targets": [
+        "SQL",
+        "PROVIDER"
+      ],
+      "injectionPoint": "Restore trước external issued invoice + privacy action",
+      "expectedInvariant": "Không revive revoke/delete action, không tái xuất hóa đơn",
+      "requiredArtifacts": "Authority anchor, privacy ledger, provider registry",
+      "executionStatus": "NOT_RUN_PRODUCT",
+      "runBoundary": "SANDBOX_OR_CONTROLLED_REAL_SYSTEM_ONLY",
+      "requiresApprovedSafetyPlan": true
+    }
+  ]
+}

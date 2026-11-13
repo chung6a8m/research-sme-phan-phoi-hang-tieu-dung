@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "s3-v1",
+  "decisionAuthority": "OWNER_ACCEPTANCE_SEPARATE_FROM_TEST_ARTIFACT",
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "evidenceThresholds": "UNSET",
+  "gates": [
+    {
+      "mode": "A",
+      "inMvp": true,
+      "decision": "NO_GO_PENDING",
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "requiredEvIds": [
+        "EV-01",
+        "EV-02",
+        "EV-04",
+        "EV-05",
+        "EV-06",
+        "EV-07",
+        "EV-10",
+        "EV-11",
+        "EV-12",
+        "EV-14"
+      ],
+      "independentInvoiceChannelRequired": true
+    },
+    {
+      "mode": "B_ONLINE",
+      "inMvp": true,
+      "decision": "NO_GO_PENDING",
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "requiredEvIds": [
+        "EV-01",
+        "EV-04",
+        "EV-05",
+        "EV-06",
+        "EV-07",
+        "EV-10",
+        "EV-11",
+        "EV-12",
+        "EV-14"
+      ],
+      "independentInvoiceChannelRequired": true
+    },
+    {
+      "mode": "MIXED",
+      "inMvp": true,
+      "decision": "NO_GO_PENDING",
+      "dependsOnModes": [
+        "A",
+        "B_ONLINE"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "requiredEvIds": [
+        "EV-03",
+        "EV-04",
+        "EV-06",
+        "EV-07",
+        "EV-08",
+        "EV-10",
+        "EV-11",
+        "EV-12",
+        "EV-14"
+      ],
+      "independentMixedE2ERequired": true
+    },
+    {
+      "mode": "OFFLINE_WRITE",
+      "inMvp": true,
+      "decision": "DISABLED_PENDING",
+      "appliesPer": [
+        "tenant",
+        "mode",
+        "trip",
+        "installation",
+        "grantVersion"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredEvIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "defaultEnabled": false,
+      "requiresRealDeviceE2E": true
+    },
+    {
+      "mode": "B_NO_CHANNEL",
+      "inMvp": false,
+      "decision": "BLOCKED",
+      "gateIds": [
+        "G-INV"
+      ],
+      "requiredEvIds": [
+        "EV-10"
+      ],
+      "deferredEvidence": [
+        "B-CASE-001",
+        "B-CASE-002",
+        "B-CASE-003",
+        "LEGAL-MEMO",
+        "INV-09"
+      ],
+      "alternativeChannelDeferred": true,
+      "defaultEnabled": false
+    },
+    {
+      "mode": "PRODUCTION_CUTOVER",
+      "inMvp": true,
+      "decision": "DISABLED_PENDING",
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "requiredEvIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "entireWarehouseWriterLockRequired": true,
+      "defaultEnabled": false
+    }
+  ],
+  "nonWaivableP0": [
+    "G-STOCK",
+    "G-CUT",
+    "G-IDEMP",
+    "G-LEDGER",
+    "G-INV"
+  ]
+}
