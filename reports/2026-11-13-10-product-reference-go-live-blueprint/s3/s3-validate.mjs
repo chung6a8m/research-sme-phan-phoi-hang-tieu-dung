@@ -1,0 +1,119 @@
+import fs from "node:fs";
+import path from "node:path";
+import {fileURLToPath} from "node:url";
+
+const DIR=path.dirname(fileURLToPath(import.meta.url));
+const read=p=>fs.readFileSync(path.join(DIR,p),"utf8");
+const json=p=>JSON.parse(read(p));
+const ids=(p,n)=>Array.from({length:n},(_,i)=>p+"-"+String(i+1).padStart(2,"0"));
+const sorted=xs=>[...xs].sort().join("|");
+const check=(condition,description)=>{if(!condition)throw Error("S3_CONTRACT_ERROR "+description);};
+
+export function loadContract(){
+  const feat=path.join(DIR,"features");
+  return {
+    acceptance:json("acceptance-matrix.json"),
+    evidence:json("evidence-register.json"),
+    fault:json("fault-injection-matrix.json"),
+    gates:json("mode-gates.json"),
+    schema:json("evidence-run.schema.json"),
+    example:json("evidence-run.example.json"),
+    features:fs.readdirSync(feat).filter(n=>n.endsWith(".feature")).sort().map(n=>({name:n,text:fs.readFileSync(path.join(feat,n),"utf8")})),
+    r009:read("../../2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md"),
+    oracle:json("../s2/golden-oracles.json"),
+    s2Faults:read("../s2/fault-case-catalog.csv")
+  };
+}
+export function validateContract(d){
+  const A=d.acceptance.cases, E=d.evidence.records, F=d.fault.faults, M=d.gates.gates;
+  for(const x of [d.acceptance,d.evidence,d.fault,d.gates])check(x.schemaVersion==="s3-v1","version mismatch");
+  check(d.acceptance.status==="NOT_RUN_PRODUCT" && d.fault.status==="NOT_RUN_PRODUCT","runtime falsely passed");
+  check(d.evidence.status==="NO_REAL_EVIDENCE_COLLECTED","real evidence falsely claimed");
+  check(sorted(A.map(x=>x.acId))===sorted(ids("AC",21)),"AC-01..21 required");
+  check(sorted(E.map(x=>x.evId))===sorted(ids("EV",15)),"EV-01..15 required");
+  check(sorted(F.map(x=>x.faultId))===sorted(ids("F",22)),"F-01..22 required");
+  const sourceAC=d.r009.split("### 1.1.")[0].split("\n").filter(x=>x.startsWith("| AC-"));
+  const sourceBR=d.r009.split("### 1.3.")[1].split("### 1.4.")[0].split("\n").filter(x=>x.startsWith("| AC-"));
+  const sourceEV=d.r009.split("## 2. Evidence Register")[1].split("## 3.")[0].split("\n").filter(x=>x.startsWith("| EV-"));
+  check(sourceAC.length===21 && sourceBR.length===21 && sourceEV.length===15,"R009 source must have 21 AC, 15 EV and direct BR links");
+  for(const ac of A){
+    check(ac.productExecutionStatus==="NOT_RUN" && ac.implementationStatus==="STEPS_UNBOUND","unbound product test must be NOT_RUN "+ac.acId);
+    check(sorted(ac.scenarioIds)===sorted(["S3-"+ac.acId.replace("-","")+"-P","S3-"+ac.acId.replace("-","")+"-N"]),"P/N scenarios "+ac.acId);
+    check(ac.modes.length>0 && ac.fixtureRefs.length>0 && ac.evidenceIds.length>0,"incomplete AC "+ac.acId);
+    check(ac.gateIds.every(x=>d.gates.nonWaivableP0.includes(x)),"unknown P0 gate "+ac.acId);
+    const line=sourceAC.find(x=>x.startsWith("| "+ac.acId+" —"));
+    const brLine=sourceBR.find(x=>x.startsWith("| "+ac.acId+" |"));
+    check(!!line && !!brLine,"AC missing in R009 "+ac.acId);
+    check(sorted(ac.evidenceIds)===sorted([...new Set(line.match(/EV-\d\d/g)||[])]),"EV mismatch with R009 "+ac.acId);
+    check(sorted(ac.businessRules)===sorted([...new Set(brLine.match(/BR-\d\d/g)||[])]),"BR mismatch with R009 "+ac.acId);
+    check(ac.evidenceIds.every(ev=>E.some(e=>e.evId===ev)),"orphan EV "+ac.acId);
+  }
+  for(const ev of E){
+    check(sourceEV.some(x=>x.startsWith("| "+ev.evId+" |")),"source evidence missing "+ev.evId);
+    const historical=["EV-05","EV-06","EV-07","EV-08","EV-09"].includes(ev.evId)?"MODEL_ONLY":"EVIDENCE_PENDING";
+    check(ev.researchStatus===historical,"research status changed "+ev.evId);
+    check(ev.realExecutionStatus==="NOT_RUN" && ev.realVerification==="EVIDENCE_PENDING","runtime evidence falsely promoted "+ev.evId);
+    check(sorted(ev.acIds)===sorted(A.filter(x=>x.evidenceIds.includes(ev.evId)).map(x=>x.acId)),"inverse AC/EV mapping "+ev.evId);
+    check(ev.requiredRoles.length>0 && ev.requiredRecords.includes("testRunId"),"EV lacks reviewer/run contract "+ev.evId);
+  }
+  const scenarios=[];
+  for(const feat of d.features){
+    check(feat.text.startsWith("# S3 CONTRACT ONLY"),"contract-only disclaimer missing "+feat.name);
+    const blocks=feat.text.split(/\n(?=  @ac_\d\d\b)/).slice(1);
+    for(const b of blocks){
+      const tag=b.split("\n")[0], id=(tag.match(/@ac_(\d\d)/)||[])[1];
+      const sid=(b.match(/^\s*Scenario:\s*(S3-AC\d\d-[PN])/m)||[])[1];
+      const positive=tag.includes("@positive"),negative=tag.includes("@negative");
+      check(!!id && !!sid && positive!==negative && tag.includes("@not_run_product"),"invalid scenario tags "+feat.name);
+      check(sid==="S3-AC"+id+"-"+(positive?"P":"N"),"scenario ID mismatch "+sid);
+      check(/^\s*Given \S/m.test(b) && /^\s*When \S/m.test(b) && /^\s*Then \S/m.test(b),"missing Gherkin steps "+sid);
+      const ac=A.find(a=>a.acId==="AC-"+id);
+      check(!!ac,"orphan scenario "+sid);
+      const tags=[...tag.matchAll(/@ev_(\d\d)/g)].map(x=>"EV-"+x[1]);
+      check(sorted(tags)===sorted(ac.evidenceIds),"scenario EV tags incorrect "+sid);
+      scenarios.push(sid);
+    }
+  }
+  check(new Set(scenarios).size===42 && scenarios.length===42 && sorted(scenarios)===sorted(A.flatMap(a=>a.scenarioIds)),"42 unique P/N Gherkin scenarios required");
+  const s2=d.s2Faults.trim().split("\n").slice(1);
+  check(s2.length===10,"S2 fault catalog 10 cases required");
+  const s2map=new Map(s2.map(line=>{const a=line.split(",");return [a[0],{ac:a[3],ev:a[4]}]}));
+  for(const f of F){
+    check(f.executionStatus==="NOT_RUN_PRODUCT" && f.requiresApprovedSafetyPlan===true,"fault not safely pending "+f.faultId);
+    check(f.acIds.length>0 && f.evIds.length>0 && f.targets.length>0 && !!f.requiredArtifacts,"incomplete fault "+f.faultId);
+    check(f.acIds.every(x=>A.some(a=>a.acId===x)) && f.evIds.every(x=>E.some(e=>e.evId===x)),"orphan fault "+f.faultId);
+    const origin=s2map.get(f.faultId);
+    if(origin)check(f.sourceS2CaseId===f.faultId && f.acIds.includes(origin.ac) && f.evIds.includes(origin.ev),"S2 fault trace "+f.faultId);
+    else check(f.sourceS2CaseId===null,"new fault must not claim S2 source "+f.faultId);
+  }
+  for(const id of ["AC-03","AC-19","AC-20","AC-21"]){
+    check(d.oracle[id]?.status==="MODEL_ONLY","S2 oracle cannot be promoted "+id);
+    check(A.find(a=>a.acId===id).fixtureRefs.includes("S2:"+id),"S2 oracle missing trace "+id);
+  }
+  check(sorted(M.map(x=>x.mode))===sorted(["A","B_ONLINE","MIXED","OFFLINE_WRITE","B_NO_CHANNEL","PRODUCTION_CUTOVER"]),"mode list");
+  for(const m of M){
+    check(m.requiredEvIds?.every(x=>E.some(e=>e.evId===x)),"mode dangling EV "+m.mode);
+    check(!["GO","VERIFIED","ACCEPTED"].includes(m.decision),"mode falsely accepted "+m.mode);
+  }
+  const mode=id=>M.find(x=>x.mode===id);
+  check(mode("B_NO_CHANNEL").decision==="BLOCKED" && mode("B_NO_CHANNEL").inMvp===false && mode("B_NO_CHANNEL").defaultEnabled===false,"B no-channel forbidden");
+  check(sorted(mode("B_NO_CHANNEL").deferredEvidence)===sorted(["B-CASE-001","B-CASE-002","B-CASE-003","LEGAL-MEMO","INV-09"]),"B-CASE/legal/INV09 must remain pending");
+  check(mode("OFFLINE_WRITE").decision==="DISABLED_PENDING" && mode("OFFLINE_WRITE").defaultEnabled===false && sorted(mode("OFFLINE_WRITE").requiredEvIds)===sorted(["EV-08","EV-09"]),"offline default is disabled");
+  check(mode("PRODUCTION_CUTOVER").decision==="DISABLED_PENDING" && mode("PRODUCTION_CUTOVER").entireWarehouseWriterLockRequired===true,"full-warehouse cutover gate");
+  check(sorted(mode("MIXED").dependsOnModes)===sorted(["A","B_ONLINE"]) && mode("MIXED").independentMixedE2ERequired===true,"Mixed admission cannot inherit A alone");
+  check(["A","B_ONLINE","MIXED"].every(n=>mode(n).decision==="NO_GO_PENDING"),"MVP production requires evidence");
+  check(d.gates.evidenceThresholds==="UNSET" && d.gates.productVerification==="PENDING" && d.gates.tenantGoLiveAcceptance==="PENDING","unapproved thresholds/verification");
+  check(d.schema.$schema==="https://json-schema.org/draft/2020-12/schema","schema draft");
+  const e=d.example;
+  check(e.runKind==="PLACEHOLDER" && e.executionStatus==="NOT_RUN" && e.testRunId===null && e.actual===null && e.artifacts.length===0 && e.review.state==="NOT_SUBMITTED","example must remain placeholder");
+  check(A.some(a=>a.acId===e.acId && a.scenarioIds.includes(e.scenarioId) && sorted(a.evidenceIds)===sorted(e.evIds)),"sample AC/EV/scenario mismatch");
+  return {status:"S3_CONTRACT_VALIDATED_NOT_PRODUCT_TEST",acCount:A.length,evCount:E.length,gherkinCount:scenarios.length,faultCount:F.length,modes:M.length,realE2eRuns:0,ownerVerification:"PENDING"};
+}
+if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+  try {
+    const result=validateContract(loadContract());
+    if(process.argv[2]==="--report" && process.argv[3])fs.writeFileSync(process.argv[3],JSON.stringify(result,null,2)+"\n");
+    console.log("PASS_S3_CONTRACT_ONLY "+JSON.stringify(result));
+  }catch(err){console.error(err.stack);process.exitCode=1;}
+}
+
