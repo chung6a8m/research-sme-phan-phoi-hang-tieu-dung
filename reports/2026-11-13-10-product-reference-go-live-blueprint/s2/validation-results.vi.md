@@ -18,7 +18,7 @@
 | Excel template (trong cuộc trò chuyện) | Workbook 15 sheets đã tạo với artifact_tool; ZIP integrity và 14 sheet headers có kiểm tra | Local artifact build; **binary chưa commit trong PR** |
 | Excel generator trong repo | \`s2-create-xlsx.py\` có mã tạo Workbook từ dictionary | Đã commit script; **không có bằng chứng đã chạy script này trong CI** |
 
-**CI run:** https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43359259490
+**CI run:** https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43359872306
 
 ## 2. What passed vs what has not
 

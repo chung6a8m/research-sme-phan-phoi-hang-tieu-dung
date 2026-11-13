@@ -138,7 +138,7 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 | P04 Expected & scenarios | [AC-03/19/20/21](s2/golden-oracles.json), [343 chuyến độc lập](s2/trip-scenarios.json), [fault catalogue](s2/fault-case-catalog.csv) | Mỗi trip dùng opening snapshot độc lập; không tạo sổ kho cộng dồn |
 | Quality | [Data Quality](s2/data-quality-and-reconciliation.vi.md), [validation results](s2/validation-results.vi.md), [GitHub workflow](../../.github/workflows/s2-synthetic-validation.yml) | GitHub Actions Node synthetic success; thiếu test PWA/API/SQL và bằng chứng NPP |
 
-**CI:** https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43359259490 (**success** tại lần kiểm). Không dùng \`MODEL_ONLY\` hoặc \`SYNTHETIC_CI_VERIFIED\` làm \`PRODUCT_VERIFIED\`, \`PILOT_VERIFIED\` hay ký \`GO\`.
+**CI:** https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43359872306 (**success** tại lần kiểm). Không dùng \`MODEL_ONLY\` hoặc \`SYNTHETIC_CI_VERIFIED\` làm \`PRODUCT_VERIFIED\`, \`PILOT_VERIFIED\` hay ký \`GO\`.
 
 **Handoff S3:** bổ sung acceptance BDD, seeded concurrency/fault injection trên code thật, R009 AC-01–21/EV-01–15, actual ledger diff và trạng thái mode-specific. **S1 PADR-01–09 vẫn \`PROPOSED_FOR_OWNER_REVIEW\`**; tất cả cổng P0 NPP/hóa đơn/writer/cutover giữ nguyên.
 

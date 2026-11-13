@@ -16,7 +16,7 @@
 | P04 | [trip-scenarios.json](trip-scenarios.json) | 343 trường hợp chuyến độc lập liên kết SKU, trip, Customer, tồn/cost, AR/custody |
 | P04 | [fixture-manifest.json](fixture-manifest.json) | Seed và SHA-256 của các file fixture/source trong gói; không phải chữ ký/evidence pháp lý |
 | P04 | [s2-data-tool.mjs](s2-data-tool.mjs), [s2-trip-scenarios.mjs](s2-trip-scenarios.mjs) | Công cụ Node.js để tái lập/kiểm dữ liệu và các mô hình trước–sau |
-| QA | [.github/workflows/s2-synthetic-validation.yml](../../../../.github/workflows/s2-synthetic-validation.yml) | GitHub Actions chạy Node validation/CSV dry-run và lưu báo cáo kỹ thuật |
+| QA | [.github/workflows/s2-synthetic-validation.yml](../../../.github/workflows/s2-synthetic-validation.yml) | GitHub Actions chạy Node validation/CSV dry-run và lưu báo cáo kỹ thuật |
 
 Đọc [hướng dẫn nhập liệu](import-template-guide.vi.md), [quy tắc chất lượng/đối soát](data-quality-and-reconciliation.vi.md), [kịch bản giả lập](reference-scenarios.vi.md) và [kết quả kiểm chứng](validation-results.vi.md). Các ví dụ chỉ mô phỏng, không có người ký xác nhận NPP.
 
