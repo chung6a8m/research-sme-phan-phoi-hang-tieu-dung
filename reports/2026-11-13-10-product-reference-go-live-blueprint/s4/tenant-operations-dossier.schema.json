@@ -19,7 +19,9 @@
     "deferredEvidence",
     "signoffs",
     "evidenceIndex",
-    "openCases"
+    "openCases",
+    "discoveryGaps",
+    "p1Exceptions"
   ],
   "properties": {
     "schemaVersion": {
@@ -28,6 +30,7 @@
     "recordKind": {
       "enum": [
         "UNEXECUTED_TEMPLATE_NOT_GATE_APPROVAL",
+        "TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL",
         "TENANT_EVIDENCE_COLLECTION_NOT_GATE_APPROVAL"
       ]
     },
@@ -737,6 +740,290 @@
           }
         }
       }
+    },
+    "discoveryGaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gapId",
+          "controlIds",
+          "modeScope",
+          "classification",
+          "summary",
+          "status",
+          "owner",
+          "nextAction",
+          "sourceRefs"
+        ],
+        "properties": {
+          "gapId": {
+            "type": "string",
+            "minLength": 3
+          },
+          "controlIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^OPS-(0[1-9]|[12][0-9]|30)$"
+            }
+          },
+          "modeScope": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "A",
+                "B_ONLINE",
+                "MIXED",
+                "OFFLINE_WRITE",
+                "PRODUCTION_CUTOVER"
+              ]
+            }
+          },
+          "classification": {
+            "enum": [
+              "L0_STANDARD",
+              "L1_CONFIGURATION",
+              "L2_EXTENSION_CANDIDATE",
+              "BLOCKED"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 8
+          },
+          "status": {
+            "enum": [
+              "OPEN_UNVERIFIED",
+              "REVIEW_PENDING",
+              "BLOCKED_UNVERIFIED"
+            ]
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nextAction": {
+            "type": "string",
+            "minLength": 8
+          },
+          "sourceRefs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "p1Exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "exceptionId",
+          "severity",
+          "controlIds",
+          "modeScope",
+          "state",
+          "owner",
+          "expiresAt",
+          "mitigation",
+          "compensatingControls",
+          "remediation",
+          "reviewer",
+          "approvalRef",
+          "acceptedAt",
+          "evidenceRefs"
+        ],
+        "properties": {
+          "exceptionId": {
+            "type": "string",
+            "minLength": 3
+          },
+          "severity": {
+            "const": "P1"
+          },
+          "controlIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^OPS-(0[1-9]|[12][0-9]|30)$"
+            }
+          },
+          "modeScope": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "A",
+                "B_ONLINE",
+                "MIXED",
+                "OFFLINE_WRITE"
+              ]
+            }
+          },
+          "state": {
+            "enum": [
+              "PROPOSED",
+              "PENDING_REVIEW",
+              "OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS",
+              "EXPIRED"
+            ]
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expiresAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mitigation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "compensatingControls": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 4
+            }
+          },
+          "remediation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approvalRef": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "acceptedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "enum": [
+                    "PROPOSED",
+                    "PENDING_REVIEW"
+                  ]
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "reviewer": {
+                  "type": "null"
+                },
+                "approvalRef": {
+                  "type": "null"
+                },
+                "acceptedAt": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS"
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "owner": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "minLength": 10
+                },
+                "mitigation": {
+                  "type": "string",
+                  "minLength": 8
+                },
+                "compensatingControls": {
+                  "minItems": 1
+                },
+                "remediation": {
+                  "type": "string",
+                  "minLength": 8
+                },
+                "reviewer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "approvalRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "acceptedAt": {
+                  "type": "string",
+                  "minLength": 10
+                },
+                "evidenceRefs": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      }
     }
   },
   "allOf": [
@@ -845,6 +1132,141 @@
               },
               "actualRunsRef": {
                 "type": "null"
+              }
+            }
+          },
+          "discoveryGaps": {
+            "maxItems": 0
+          },
+          "p1Exceptions": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordKind": {
+            "const": "TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL"
+          }
+        },
+        "required": [
+          "recordKind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "profileVersion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "properties": {
+              "admittedModes": {
+                "maxItems": 0
+              }
+            }
+          },
+          "runtime": {
+            "properties": {
+              "commitSha": {
+                "type": "null"
+              },
+              "environment": {
+                "type": "null"
+              }
+            }
+          },
+          "cutover": {
+            "properties": {
+              "stage": {
+                "const": "NOT_STARTED"
+              },
+              "firstEffectId": {
+                "type": "null"
+              },
+              "sourceManifestSha256": {
+                "type": "null"
+              },
+              "openingApprovalRef": {
+                "type": "null"
+              },
+              "backupRehearsalRef": {
+                "type": "null"
+              }
+            }
+          },
+          "assessments": {
+            "items": {
+              "properties": {
+                "status": {
+                  "const": "NOT_EVALUATED"
+                },
+                "evidenceRefs": {
+                  "maxItems": 0
+                },
+                "reviewer": {
+                  "type": "null"
+                },
+                "reviewedAt": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "readiness": {
+            "properties": {
+              "state": {
+                "const": "NOT_RUN"
+              },
+              "thresholdApprovalRef": {
+                "type": "null"
+              },
+              "denominatorPlanRef": {
+                "type": "null"
+              }
+            }
+          },
+          "pilot": {
+            "properties": {
+              "state": {
+                "const": "NOT_RUN"
+              },
+              "observedDays": {
+                "type": "null"
+              },
+              "actualRunsRef": {
+                "type": "null"
+              }
+            }
+          },
+          "signoffs": {
+            "maxItems": 0
+          },
+          "evidenceIndex": {
+            "maxItems": 0
+          },
+          "openCases": {
+            "maxItems": 0
+          },
+          "p1Exceptions": {
+            "items": {
+              "properties": {
+                "state": {
+                  "enum": [
+                    "PROPOSED",
+                    "PENDING_REVIEW"
+                  ]
+                }
               }
             }
           }

@@ -340,5 +340,7 @@
   ],
   "signoffs": [],
   "evidenceIndex": [],
-  "openCases": []
+  "openCases": [],
+  "discoveryGaps": [],
+  "p1Exceptions": []
 }
