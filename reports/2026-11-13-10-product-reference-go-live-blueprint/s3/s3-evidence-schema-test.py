@@ -2,6 +2,7 @@
 """Synthetic-only schema and cross-contract regression for S3 execution records."""
 import copy
 import json
+import sys
 from pathlib import Path
 from jsonschema import Draft202012Validator
 
@@ -40,6 +41,19 @@ def semantic_errors(record):
 
 def valid(record):
     return not list(validator.iter_errors(record)) and not semantic_errors(record)
+
+# Read-only intake: validating a record shape never grants Product/Tenant approval.
+if len(sys.argv) > 1:
+    if len(sys.argv) != 3 or sys.argv[1] != "--record":
+        raise SystemExit("Usage: python s3-evidence-schema-test.py --record /secure/path/observation.json")
+    record = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+    errors = [e.message for e in validator.iter_errors(record)] + semantic_errors(record)
+    if errors:
+        for message in errors:
+            print("S3_RECORD_INVALID: " + message)
+        raise SystemExit(2)
+    print("S3_RECORD_CONTRACT_VALID_NOT_PRODUCT_VERIFIED")
+    raise SystemExit(0)
 
 assert valid(sample), "placeholder"
 blocker = copy.deepcopy(sample)

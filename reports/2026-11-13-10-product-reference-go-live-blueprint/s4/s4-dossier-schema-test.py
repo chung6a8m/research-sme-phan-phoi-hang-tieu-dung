@@ -1,6 +1,7 @@
 """Validate draft operations dossier schema. Synthetic contract only, no operational evidence."""
 import copy
 import json
+import sys
 from pathlib import Path
 from jsonschema import Draft202012Validator
 
@@ -89,6 +90,19 @@ def semantic_issues(d):
 
 def valid_complete(d):
     return not list(validator.iter_errors(d)) and not semantic_issues(d)
+
+# Read-only intake: no mode admission, no external signature verification.
+if len(sys.argv) > 1:
+    if len(sys.argv) != 3 or sys.argv[1] != "--dossier":
+        raise SystemExit("Usage: python s4-dossier-schema-test.py --dossier /secure/path/dossier.json")
+    record = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+    errors = [e.message for e in validator.iter_errors(record)] + semantic_issues(record)
+    if errors:
+        for message in errors:
+            print("S4_DOSSIER_INVALID: " + message)
+        raise SystemExit(2)
+    print("S4_DOSSIER_CONTRACT_VALID_NOT_TENANT_ACCEPTED")
+    raise SystemExit(0)
 
 assert valid_complete(example), "blank dossier must be valid"
 assert valid_complete(discovery), "S5 synthetic-only discovery must be valid"

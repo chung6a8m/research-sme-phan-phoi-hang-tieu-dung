@@ -54,3 +54,7 @@ S5 dùng dossier/gap-control theo tenant để xác định người ký, source
 - `p1Exceptions[]` có owner, mode scope, controlIds, expiry, mitigation, compensating controls, remediation, reviewer, approvalRef. `OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS` chỉ phản ánh hồ sơ ngoại lệ được kiểm chứng qua workflow riêng; không miễn P0, không biến EV thành PASS và không cấp Mode Admission.
 - JSON Schema và semantic checks: mỗi OPS-01..30 đúng một lần; sáu mode không trùng; fixed B-CASE/LEGAL-MEMO/INV-09; gap/exception IDs không trùng; P1 exception chỉ tham chiếu control P1 và có thời hạn. Hồ sơ NPP và chữ ký thật vẫn ở S6.
 - Workflow S4 theo dõi các thay đổi upstream S1/S2/S3, policy/SOP/RACI/EVQ. Kết quả CI chỉ là contract/synthetic.
+
+### Read-only dossier intake (schema + semantic)
+
+Chạy `python s4/s4-dossier-schema-test.py --dossier /secure/path/dossier.json` để kiểm hồ sơ tenant thực hoặc discovery (không đưa nội dung nhạy cảm lên GitHub). Validator đối chiếu đúng 30 OPS, 6 mode, gap/exception uniqueness, P1-only control và thời hạn có cấu trúc. Thành công chỉ in `S4_DOSSIER_CONTRACT_VALID_NOT_TENANT_ACCEPTED`, không chứng thực người ký, hiệu lực legal/provider hoặc thẩm quyền mở mode.

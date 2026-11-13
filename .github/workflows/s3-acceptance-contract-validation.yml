@@ -57,6 +57,7 @@ jobs:
           set -euo pipefail
           python -m pip install 'jsonschema>=4.20,<5'
           python reports/2026-11-13-10-product-reference-go-live-blueprint/s3/s3-evidence-schema-test.py
+          python reports/2026-11-13-10-product-reference-go-live-blueprint/s3/s3-evidence-schema-test.py --record reports/2026-11-13-10-product-reference-go-live-blueprint/s3/evidence-run.example.json
       - name: Upload contract report (NOT runtime evidence)
         if: success()
         uses: actions/upload-artifact@v4

@@ -52,3 +52,7 @@ Nguồn: [R009 AC/EV](../../2026-11-13-09-mvp-specification-baseline/acceptance-
 - `pilotStartRequiredEvIds` của A/B_ONLINE/MIXED bắt buộc EV-14 (readiness trước Pilot); `productionGoLiveRequiredEvIds` thêm EV-15 (kết quả sau Pilot). `requiredEvIds` là alias legacy của pha PILOT_START, **không dùng để kết luận Go-Live**. B_ONLINE có EV-02, MIXED kế thừa A/B_ONLINE và EV-03; OFFLINE_WRITE cần EV-08/09 riêng theo mode/device/trip.
 - Evidence schema hỗ trợ `PRE_EXECUTION_BLOCKER` khi chưa chạy test: `BLOCKED`, testRunId và thời gian thực thi null, lý do blocker bắt buộc. Khi `REAL_SYSTEM/FAILED` phải có actual và artifact. CI schema/semantic chỉ tạo synthetic fixtures trong bộ test, không tạo evidence thật.
 - Semantic validator ngoài JSON Schema đối chiếu AC ↔ scenario/EV/mode/fixture/fault; CI trigger khi upstream EVQ/SOP/POL/RACI thay đổi. S6 cần thực thi tương đương ở evidence intake.
+
+### Read-only evidence intake (schema + semantic)
+
+Trên máy có `jsonschema>=4.20,<5`, có thể chạy `python s3/s3-evidence-schema-test.py --record /secure/path/observation.json` để kiểm các quan hệ AC/scenario/EV/mode/fixture/fault của một file mới. Thành công chỉ in `S3_RECORD_CONTRACT_VALID_NOT_PRODUCT_VERIFIED`, không xác minh artifact tồn tại hoặc người ký/issuer.
