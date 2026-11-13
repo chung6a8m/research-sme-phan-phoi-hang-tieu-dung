@@ -122,4 +122,6 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 3. Nếu approved, tạo decision record có version, scope, approver và acceptedAt thật; không sửa lịch sử R009.
 4. Bàn giao S2 template T01–T14 và fixtures F0/F1/F2 từ catalog/schema; S3 nối AC/evidence nhưng không dùng checker tài liệu thay system test.
 
+**Kết quả kiểm cấu trúc:** [R010-S1-VAL](s1-validation-results.vi.md) ghi 15 D/24 BR/24 POL/12 SOP/9 PADR được kiểm trace và 140 liên kết nội bộ không lỗi trên HEAD `e2de94e` bằng đọc GitHub. **Chưa chạy trực tiếp script Python hoặc CI**, không suy đã qua product/legal/pilot tests.
+
 **Đánh dấu checklist §8:** P01/P02 **đã có tài liệu ứng viên**, chưa đạt điều kiện **Owner Product Baseline acceptance**. P03–P08 tiếp tục chưa triển khai. Ghi nhận kết quả chạy kiểm tra thực tế riêng sau khi kiểm.
