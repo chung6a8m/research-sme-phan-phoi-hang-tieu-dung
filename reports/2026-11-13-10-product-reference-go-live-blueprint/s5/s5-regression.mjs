@@ -7,6 +7,11 @@ const failures=[
  ["duplicate_question",d=>d.questionnaire.questions[1].questionId=d.questionnaire.questions[0].questionId],
  ["missing_policy",d=>d.questionnaire.questions[0].policyIds=[]],
  ["missing_configuration",d=>d.questionnaire.questions[0].configurationIds=[]],
+ ["Q01_wrong_CfgSeller",d=>d.questionnaire.questions[0].configurationIds=["CFG-01"]],
+ ["swap_CfgPrivacy_and_Pilot",d=>{d.questionnaire.questions[16].configurationIds=["CFG-22"];d.questionnaire.questions[23].configurationIds=["CFG-24"];}],
+ ["swap_CfgSeller_and_A",d=>{d.questionnaire.questions[0].configurationIds=["CFG-04"];d.questionnaire.questions[2].configurationIds=["CFG-03"];}],
+ ["misassigned_CfgCredit",d=>{d.questionnaire.questions[9].configurationIds=["CFG-02","CFG-05","CFG-23"];d.questionnaire.questions[11].configurationIds=["CFG-06"];}],
+
  ["orphan_ops",d=>d.questionnaire.questions[0].controlIds=["OPS-99"]],
  ["missing_control_coverage",d=>d.questionnaire.questions.forEach(q=>q.controlIds=q.controlIds.filter(x=>x!=="OPS-30"))],
  ["fake_tenant_answer",d=>d.answers.answers[0].answer="invented fact"],

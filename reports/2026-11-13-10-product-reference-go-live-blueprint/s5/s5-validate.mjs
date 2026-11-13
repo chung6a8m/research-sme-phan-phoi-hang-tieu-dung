@@ -40,6 +40,11 @@ export function validate(d){
  check(qs.length===24&&same(qs.map(x=>x.questionId),seq("Q",24)),"24 unique questions");
  check(same(qs.flatMap(x=>x.policyIds),seq("POL",24)),"24 POL coverage exactly once");
  check(same(qs.flatMap(x=>x.configurationIds),seq("CFG",24)),"24 CFG coverage exactly once");
+ // A POL's numeric ID tracks BR, whereas CFG numbering follows configuration domains.
+ // A one-to-one Qn→CFGn mapping is semantically wrong; pin domain-specific assignments.
+ const expectedCfgByQ={"Q-01":["CFG-03"],"Q-02":[],"Q-03":["CFG-04"],"Q-04":["CFG-07"],"Q-05":[],"Q-06":["CFG-08","CFG-09"],"Q-07":["CFG-10"],"Q-08":["CFG-01","CFG-12"],"Q-09":["CFG-11"],"Q-10":["CFG-02","CFG-05","CFG-06"],"Q-11":[],"Q-12":["CFG-23"],"Q-13":["CFG-13","CFG-14","CFG-15"],"Q-14":[],"Q-15":["CFG-17"],"Q-16":["CFG-16"],"Q-17":["CFG-24"],"Q-18":["CFG-18"],"Q-19":["CFG-19"],"Q-20":[],"Q-21":["CFG-21"],"Q-22":[],"Q-23":["CFG-20"],"Q-24":["CFG-22"]};
+ for(const q of qs)check(same(q.configurationIds,expectedCfgByQ[q.questionId]||[]),"semantic CFG-to-question mapping "+q.questionId);
+
  check(same([...new Set(qs.flatMap(x=>x.controlIds))],seq("OPS",30)),"all 30 OPS controlled by questionnaire");
  for(const item of qs){
   check(item.answerState==="NOT_COLLECTED"&&item.prompt.length>35&&item.requestedRoles.length>0&&item.controlIds.length>0,"question must not claim collected "+item.questionId);

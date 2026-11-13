@@ -17,7 +17,7 @@
         "POL-01"
       ],
       "configurationIds": [
-        "CFG-01"
+        "CFG-03"
       ],
       "controlIds": [
         "OPS-01",
@@ -38,9 +38,7 @@
       "policyIds": [
         "POL-02"
       ],
-      "configurationIds": [
-        "CFG-02"
-      ],
+      "configurationIds": [],
       "controlIds": [
         "OPS-01",
         "OPS-03"
@@ -61,7 +59,7 @@
         "POL-03"
       ],
       "configurationIds": [
-        "CFG-03"
+        "CFG-04"
       ],
       "controlIds": [
         "OPS-08"
@@ -82,7 +80,7 @@
         "POL-04"
       ],
       "configurationIds": [
-        "CFG-04"
+        "CFG-07"
       ],
       "controlIds": [
         "OPS-04",
@@ -103,9 +101,7 @@
       "policyIds": [
         "POL-05"
       ],
-      "configurationIds": [
-        "CFG-05"
-      ],
+      "configurationIds": [],
       "controlIds": [
         "OPS-05",
         "OPS-13"
@@ -126,7 +122,8 @@
         "POL-06"
       ],
       "configurationIds": [
-        "CFG-06"
+        "CFG-08",
+        "CFG-09"
       ],
       "controlIds": [
         "OPS-07"
@@ -147,7 +144,7 @@
         "POL-07"
       ],
       "configurationIds": [
-        "CFG-07"
+        "CFG-10"
       ],
       "controlIds": [
         "OPS-28"
@@ -159,7 +156,7 @@
     {
       "questionId": "Q-08",
       "domain": "Price/rounding/tax",
-      "prompt": "Có chính sách giá hữu hạn, ưu tiên, rounding theo line ID, thuế theo SKU và snapshot phiên bản đã duyệt?",
+      "prompt": "Giá theo VND, bảng giá theo phiên bản, snapshot thuế/UoM và Decimal line-stable rounding được xác nhận từ nguồn nào?",
       "requestedRoles": [
         "Sales",
         "Finance",
@@ -169,7 +166,8 @@
         "POL-08"
       ],
       "configurationIds": [
-        "CFG-08"
+        "CFG-01",
+        "CFG-12"
       ],
       "controlIds": [
         "OPS-24"
@@ -181,7 +179,7 @@
     {
       "questionId": "Q-09",
       "domain": "Gift/discount",
-      "prompt": "Khuyến mại, quà theo mua ròng, đổi trả/quà miễn thu hồi có duyệt và bù quà không trùng như thế nào?",
+      "prompt": "Năm nhóm pricing rules hữu hạn, chiết khấu, quà theo mua ròng và waiver có duyệt được ưu tiên/kiểm soát thế nào?",
       "requestedRoles": [
         "Sales",
         "Finance"
@@ -190,7 +188,7 @@
         "POL-09"
       ],
       "configurationIds": [
-        "CFG-09"
+        "CFG-11"
       ],
       "controlIds": [
         "OPS-24"
@@ -202,7 +200,7 @@
     {
       "questionId": "Q-10",
       "domain": "Credit terms",
-      "prompt": "Điều khoản N ngày theo từng delivery, approval credit UNSET so với APPROVED=0 và các open AR items ra sao?",
+      "prompt": "Timezone/ngày nghiệp vụ và thời hạn theo từng delivery, credit terms UNSET khác APPROVED=0 và open AR items ra sao?",
       "requestedRoles": [
         "Finance",
         "Sales"
@@ -211,7 +209,9 @@
         "POL-10"
       ],
       "configurationIds": [
-        "CFG-10"
+        "CFG-02",
+        "CFG-05",
+        "CFG-06"
       ],
       "controlIds": [
         "OPS-02",
@@ -233,9 +233,7 @@
       "policyIds": [
         "POL-11"
       ],
-      "configurationIds": [
-        "CFG-11"
-      ],
+      "configurationIds": [],
       "controlIds": [
         "OPS-08",
         "OPS-25"
@@ -256,7 +254,7 @@
         "POL-12"
       ],
       "configurationIds": [
-        "CFG-12"
+        "CFG-23"
       ],
       "controlIds": [
         "OPS-02",
@@ -269,7 +267,7 @@
     {
       "questionId": "Q-13",
       "domain": "Three ledgers",
-      "prompt": "AR, custody, advance và Cashier acceptance có nguồn giao nhận/đếm tiền, checker độc lập và cách tránh netting?",
+      "prompt": "Bank VERIFIED khác ảnh chuyển khoản, AR/custody/advance, Cashier acceptance độc lập và hoàn ứng nhiều lần được kiểm ra sao?",
       "requestedRoles": [
         "Cashier",
         "Finance"
@@ -278,7 +276,9 @@
         "POL-13"
       ],
       "configurationIds": [
-        "CFG-13"
+        "CFG-13",
+        "CFG-14",
+        "CFG-15"
       ],
       "controlIds": [
         "OPS-09"
@@ -298,9 +298,7 @@
       "policyIds": [
         "POL-14"
       ],
-      "configurationIds": [
-        "CFG-14"
-      ],
+      "configurationIds": [],
       "controlIds": [
         "OPS-09"
       ],
@@ -320,7 +318,7 @@
         "POL-15"
       ],
       "configurationIds": [
-        "CFG-15"
+        "CFG-17"
       ],
       "controlIds": [
         "OPS-04"
@@ -332,7 +330,7 @@
     {
       "questionId": "Q-16",
       "domain": "Offline journal",
-      "prompt": "Có thiết bị/PWA, journal bền, ACK sau commit, replay cùng ID/hash, paper recovery và revoke restore để kiểm E2E chưa?",
+      "prompt": "PWA offline grant có được yêu cầu theo mode/thiết bị, đã qua E2E chưa; journal/ACK/idempotency/revoke kiểm thế nào?",
       "requestedRoles": [
         "IT",
         "QA"
@@ -353,7 +351,7 @@
     {
       "questionId": "Q-17",
       "domain": "Privacy/restore",
-      "prompt": "Dữ liệu cá nhân, quyền xử lý, retention, PrivacyActionLedger và external authority ngoài rollback do ai quản lý?",
+      "prompt": "Retention/privacy theo cơ sở xử lý nào, ai xác nhận PrivacyActionLedger, quyền hiện hành và external authority ngoài rollback?",
       "requestedRoles": [
         "Legal",
         "Security",
@@ -363,7 +361,7 @@
         "POL-17"
       ],
       "configurationIds": [
-        "CFG-17"
+        "CFG-24"
       ],
       "controlIds": [
         "OPS-16",
@@ -433,9 +431,7 @@
       "policyIds": [
         "POL-20"
       ],
-      "configurationIds": [
-        "CFG-20"
-      ],
+      "configurationIds": [],
       "controlIds": [
         "OPS-07"
       ],
@@ -487,9 +483,7 @@
       "policyIds": [
         "POL-22"
       ],
-      "configurationIds": [
-        "CFG-22"
-      ],
+      "configurationIds": [],
       "controlIds": [
         "OPS-20"
       ],
@@ -509,7 +503,7 @@
         "POL-23"
       ],
       "configurationIds": [
-        "CFG-23"
+        "CFG-20"
       ],
       "controlIds": [
         "OPS-19"
@@ -532,7 +526,7 @@
         "POL-24"
       ],
       "configurationIds": [
-        "CFG-24"
+        "CFG-22"
       ],
       "controlIds": [
         "OPS-20",

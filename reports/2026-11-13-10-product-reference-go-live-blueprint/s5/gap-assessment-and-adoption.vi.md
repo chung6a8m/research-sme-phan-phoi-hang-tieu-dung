@@ -23,3 +23,7 @@ Seller/tax/provider contract, dữ liệu T01..T14 có nguồn, sơ đồ UI/API
 ## Bảo mật
 
 Lưu hồ sơ NPP thật trong kênh kiểm soát truy cập riêng; repo nghiên cứu chỉ chứa schema/tài liệu và ví dụ được gắn `SYNTHETIC`. Không có yêu cầu NPP-01 đã được phỏng vấn hoặc signed trong PR #2.
+
+## S5 review correction — ngữ nghĩa CFG không trùng số POL
+
+`Q-01..24` bám theo `POL-01..24` (BR logic) nhưng **CFG-01..24 có thứ tự theo nhóm cấu hình khác với POL**, vì thế không ghép số Q/CFG máy móc. Các câu hỏi được ánh xạ theo domain: seller CFG-03 ở Q-01, giao A CFG-04 ở Q-03, giá/vòng làm tròn CFG-01/12 ở Q-08, giá/quà CFG-11 ở Q-09, tín dụng CFG-02/05/06 ở Q-10, quyền cấp duyệt CFG-23 ở Q-12, cash CFG-13/14/15 ở Q-13, offline CFG-16/17 ở Q-15/16, retention CFG-24 ở Q-17, provider CFG-18 ở Q-18, accounting CFG-19 ở Q-19, cutover CFG-21 ở Q-21, reporting CFG-20 ở Q-23 và pilot CFG-22 ở Q-24. Validator S5 cố định mapping này để bắt drift ngay cả khi tổng số CFG đủ 24.
