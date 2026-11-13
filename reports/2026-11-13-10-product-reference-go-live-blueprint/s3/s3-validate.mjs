@@ -20,6 +20,7 @@ export function loadContract(){
     example:json("evidence-run.example.json"),
     features:fs.readdirSync(feat).filter(n=>n.endsWith(".feature")).sort().map(n=>({name:n,text:fs.readFileSync(path.join(feat,n),"utf8")})),
     r009:read("../../2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md"),
+    s1Trace:read("../s1-traceability.vi.md"),
     oracle:json("../s2/golden-oracles.json"),
     s2Faults:read("../s2/fault-case-catalog.csv")
   };
@@ -36,6 +37,35 @@ export function validateContract(d){
   const sourceBR=d.r009.split("### 1.3.")[1].split("### 1.4.")[0].split("\n").filter(x=>x.startsWith("| AC-"));
   const sourceEV=d.r009.split("## 2. Evidence Register")[1].split("## 3.")[0].split("\n").filter(x=>x.startsWith("| EV-"));
   check(sourceAC.length===21 && sourceBR.length===21 && sourceEV.length===15,"R009 source must have 21 AC, 15 EV and direct BR links");
+
+  const s1BR=d.s1Trace.split("\n").filter(l=>l.startsWith("| BR-"));
+  const s1D=d.s1Trace.split("\n").filter(l=>l.startsWith("| D-"));
+  check(s1BR.length===24 && s1D.length===15,"S1 trace BR24/D15");
+  const tokens=(s,re)=>[...new Set(s.match(re)||[])].sort();
+  const brRef=new Map(s1BR.map(line=>{
+    const c=line.split("|").map(x=>x.trim());
+    return [c[1],{pol:tokens(c[2],/POL-\d{2}/g),sop:tokens(c[3],/SOP-\d{2}/g),dc:tokens(c[4],/DC-\d{2}/g),api:tokens(c[5],/API-\d{2}/g),sm:tokens(c[5],/SM-\d{2}/g)}];
+  }));
+  const decisionRefs=s1D.map(line=>{
+    const c=line.split("|").map(x=>x.trim());
+    return {id:c[1],pol:tokens(c[2],/POL-\d{2}/g),padrs:tokens(c[4],/PADR-\d{2}/g)};
+  });
+  const union=values=>[...new Set(values)].sort();
+  const expectedS1=ac=>{
+    const refs=ac.businessRules.map(br=>brRef.get(br));
+    check(refs.every(Boolean),"orphan BR in S1 "+ac.acId);
+    const policies=union(refs.flatMap(x=>x.pol));
+    const decisions=decisionRefs.filter(d=>d.pol.some(p=>policies.includes(p)));
+    return {
+      derivation:"VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+      policyIds:policies,sopIds:union(refs.flatMap(x=>x.sop)),
+      dataContractIds:union(refs.flatMap(x=>x.dc)),apiIds:union(refs.flatMap(x=>x.api)),
+      stateMachineIds:union(refs.flatMap(x=>x.sm)),
+      decisionIdsViaPolicy:union(decisions.map(x=>x.id)),
+      productAdrIdsViaPolicy:union(decisions.flatMap(x=>x.padrs))
+    };
+  };
+
   for(const ac of A){
     check(ac.productExecutionStatus==="NOT_RUN" && ac.implementationStatus==="STEPS_UNBOUND","unbound product test must be NOT_RUN "+ac.acId);
     check(sorted(ac.scenarioIds)===sorted(["S3-"+ac.acId.replace("-","")+"-P","S3-"+ac.acId.replace("-","")+"-N"]),"P/N scenarios "+ac.acId);
@@ -47,6 +77,7 @@ export function validateContract(d){
     check(sorted(ac.evidenceIds)===sorted([...new Set((line.split("|").at(-2)||"").match(/EV-\d\d/g)||[])]),"EV mismatch with R009 "+ac.acId);
     check(sorted(ac.businessRules)===sorted([...new Set(brLine.match(/BR-\d\d/g)||[])]),"BR mismatch with R009 "+ac.acId);
     check(ac.evidenceIds.every(ev=>E.some(e=>e.evId===ev)),"orphan EV "+ac.acId);
+    check(JSON.stringify(ac.s1Trace)===JSON.stringify(expectedS1(ac)),"S1 D/POL/SOP/DC/API/SM/PADR trace "+ac.acId);
   }
   for(const ev of E){
     check(sourceEV.some(x=>x.startsWith("| "+ev.evId+" |")),"source evidence missing "+ev.evId);

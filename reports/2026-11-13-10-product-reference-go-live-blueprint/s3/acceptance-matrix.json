@@ -36,7 +36,41 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-01",
+          "POL-17"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-01",
+          "DC-17"
+        ],
+        "apiIds": [
+          "API-01",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-01",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-02",
@@ -67,7 +101,43 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-02",
+          "POL-03",
+          "POL-08"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-02",
+          "SOP-04",
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-02",
+          "DC-05",
+          "DC-08"
+        ],
+        "apiIds": [
+          "API-02"
+        ],
+        "stateMachineIds": [
+          "SM-01"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-02",
+          "D-03",
+          "D-05"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-03",
+          "PADR-04",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-03",
@@ -111,7 +181,68 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-03",
+          "POL-04",
+          "POL-07",
+          "POL-11",
+          "POL-12",
+          "POL-13"
+        ],
+        "sopIds": [
+          "SOP-02",
+          "SOP-03",
+          "SOP-04",
+          "SOP-05",
+          "SOP-06",
+          "SOP-07",
+          "SOP-08",
+          "SOP-09"
+        ],
+        "dataContractIds": [
+          "DC-04",
+          "DC-05",
+          "DC-06",
+          "DC-07",
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-02",
+          "API-03",
+          "API-04",
+          "API-05",
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-01",
+          "SM-02",
+          "SM-03",
+          "SM-04",
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-03",
+          "D-04",
+          "D-06",
+          "D-07",
+          "D-11",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-02",
+          "PADR-03",
+          "PADR-04",
+          "PADR-05",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-04",
@@ -147,7 +278,37 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-05",
+          "POL-21"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-03",
+          "DC-16"
+        ],
+        "apiIds": [
+          "API-09"
+        ],
+        "stateMachineIds": [
+          "SM-08"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-10",
+          "D-11",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-05",
@@ -182,7 +343,39 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-06",
+          "POL-20"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-03",
+          "DC-12"
+        ],
+        "apiIds": [
+          "API-03",
+          "API-05"
+        ],
+        "stateMachineIds": [
+          "SM-04"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-04",
+          "D-05",
+          "D-11"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-04",
+          "PADR-05",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-06",
@@ -215,7 +408,37 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-07",
+          "POL-20"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-07",
+          "DC-12"
+        ],
+        "apiIds": [
+          "API-03",
+          "API-05"
+        ],
+        "stateMachineIds": [
+          "SM-04"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-04",
+          "D-05"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-04",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-07",
@@ -247,7 +470,32 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-09"
+        ],
+        "sopIds": [
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-08"
+        ],
+        "apiIds": [
+          "API-05"
+        ],
+        "stateMachineIds": [
+          "SM-04"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-05"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-04",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-08",
@@ -278,7 +526,33 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-10"
+        ],
+        "sopIds": [
+          "SOP-02",
+          "SOP-07"
+        ],
+        "dataContractIds": [
+          "DC-09"
+        ],
+        "apiIds": [
+          "API-02"
+        ],
+        "stateMachineIds": [
+          "SM-01"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-09",
@@ -317,7 +591,60 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-11",
+          "POL-12",
+          "POL-13",
+          "POL-15",
+          "POL-16"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-04",
+          "SOP-07",
+          "SOP-08",
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-04",
+          "DC-06",
+          "DC-09",
+          "DC-10",
+          "DC-11",
+          "DC-13"
+        ],
+        "apiIds": [
+          "API-04",
+          "API-06",
+          "API-10",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-03",
+          "SM-05",
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-03",
+          "D-06",
+          "D-07",
+          "D-09",
+          "D-12",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-02",
+          "PADR-03",
+          "PADR-05",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-10",
@@ -351,7 +678,39 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-13",
+          "POL-14"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-06",
+          "SOP-07",
+          "SOP-08"
+        ],
+        "dataContractIds": [
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-11",
@@ -384,7 +743,37 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-16"
+        ],
+        "sopIds": [
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-13"
+        ],
+        "apiIds": [
+          "API-10",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-07",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-12",
@@ -419,7 +808,43 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-15",
+          "POL-16"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-04",
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-04",
+          "DC-13"
+        ],
+        "apiIds": [
+          "API-04",
+          "API-10",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-03",
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-07",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-13",
@@ -455,7 +880,47 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-17",
+          "POL-18"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-02",
+          "SOP-03",
+          "SOP-09",
+          "SOP-10",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-14",
+          "DC-17"
+        ],
+        "apiIds": [
+          "API-01",
+          "API-07",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-06",
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-01",
+          "D-08",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-14",
@@ -487,7 +952,35 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-18"
+        ],
+        "sopIds": [
+          "SOP-02",
+          "SOP-03",
+          "SOP-09",
+          "SOP-10"
+        ],
+        "dataContractIds": [
+          "DC-14"
+        ],
+        "apiIds": [
+          "API-07"
+        ],
+        "stateMachineIds": [
+          "SM-06"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-08"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-03",
+          "PADR-07"
+        ]
+      }
     },
     {
       "acId": "AC-15",
@@ -519,7 +1012,31 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-19"
+        ],
+        "sopIds": [
+          "SOP-10"
+        ],
+        "dataContractIds": [
+          "DC-15"
+        ],
+        "apiIds": [
+          "API-08"
+        ],
+        "stateMachineIds": [
+          "SM-07"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-13"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-06"
+        ]
+      }
     },
     {
       "acId": "AC-16",
@@ -554,7 +1071,34 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-21"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-16"
+        ],
+        "apiIds": [
+          "API-09"
+        ],
+        "stateMachineIds": [
+          "SM-08"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-10",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
     },
     {
       "acId": "AC-17",
@@ -585,7 +1129,31 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-22"
+        ],
+        "sopIds": [
+          "SOP-12"
+        ],
+        "dataContractIds": [
+          "DC-18"
+        ],
+        "apiIds": [
+          "API-12"
+        ],
+        "stateMachineIds": [
+          "SM-10"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-15"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-09"
+        ]
+      }
     },
     {
       "acId": "AC-18",
@@ -624,7 +1192,43 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-05",
+          "POL-23",
+          "POL-24"
+        ],
+        "sopIds": [
+          "SOP-04",
+          "SOP-05",
+          "SOP-08",
+          "SOP-11",
+          "SOP-12"
+        ],
+        "dataContractIds": [
+          "DC-03",
+          "DC-16",
+          "DC-18"
+        ],
+        "apiIds": [
+          "API-09",
+          "API-12"
+        ],
+        "stateMachineIds": [
+          "SM-08",
+          "SM-10"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-11",
+          "D-15"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-08",
+          "PADR-09"
+        ]
+      }
     },
     {
       "acId": "AC-19",
@@ -663,7 +1267,48 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-08",
+          "POL-14",
+          "POL-20"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-02",
+          "SOP-05",
+          "SOP-06",
+          "SOP-07"
+        ],
+        "dataContractIds": [
+          "DC-08",
+          "DC-09",
+          "DC-12"
+        ],
+        "apiIds": [
+          "API-02",
+          "API-05",
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-01",
+          "SM-04",
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-04",
+          "D-05",
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-04",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-20",
@@ -696,7 +1341,37 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-13"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-07",
+          "SOP-08"
+        ],
+        "dataContractIds": [
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
     },
     {
       "acId": "AC-21",
@@ -730,7 +1405,39 @@
         "REAL_E2E_REQUIRED"
       ],
       "productExecutionStatus": "NOT_RUN",
-      "implementationStatus": "STEPS_UNBOUND"
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-13",
+          "POL-14"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-06",
+          "SOP-07",
+          "SOP-08"
+        ],
+        "dataContractIds": [
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
     }
   ]
 }
