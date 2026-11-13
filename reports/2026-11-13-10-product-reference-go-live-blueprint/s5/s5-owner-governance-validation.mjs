@@ -8,6 +8,7 @@ const read=p=>fs.readFileSync(path.resolve(DIR,p),"utf8");
 const check=(ok,why)=>{if(!ok)throw new Error("S5_OWNER_GOVERNANCE_CONTRACT_ERROR: "+why);};
 const seq=(prefix,n)=>Array.from({length:n},(_,i)=>prefix+"-"+String(i+1).padStart(2,"0"));
 const idsEqual=(actual,expected)=>Array.isArray(actual)&&actual.length===expected.length&&new Set(actual).size===actual.length&&[...actual].sort().join("|")===[...expected].sort().join("|");
+const ownerQ=Array.from({length:20},(_,i)=>"Q"+String(i+1).padStart(2,"0"));
 const p0=["G-STOCK","G-CUT","G-IDEMP","G-LEDGER","G-INV"];
 const modes={A:"NO_GO_PENDING",B_ONLINE:"NO_GO_PENDING",MIXED:"NO_GO_PENDING",OFFLINE_WRITE:"DISABLED_PENDING",B_NO_CHANNEL:"BLOCKED",PRODUCTION_CUTOVER:"DISABLED_PENDING"};
 const requiredSources=["owner-baseline-review-decisions.json","owner-baseline-review-decisions.vi.md","product-governance.vi.md","baseline-review-matrix.json","baseline-review-matrix.vi.md","outstanding-register.json","product-baseline-acceptance.schema.json","product-baseline-acceptance.example.json","product-extension-backlog-template.json","s5-owner-governance-validation.mjs","s5-owner-governance-regression.mjs","s5-owner-acceptance-schema-tests.py"];
@@ -33,7 +34,7 @@ export function validateOwnerGovernance(d){
  check(q.schemaVersion==="s5-owner-review-v1"&&q.recordKind==="OWNER_REVIEW_DECISIONS_IN_CHAT_NOT_BASELINE_APPROVAL","Q record not a signed approval");
  check(q.reviewDate==="2026-11-13"&&q.sourceType==="OWNER_INTERVIEW_CHAT"&&q.formalOwnerGitHubSignoff==="PENDING"&&q.signedBaselineCommitSha===null&&q.ownerApprovalRef===null,"Q interview not a GitHub signature");
  check(q.baselineTarget===f.baselineId,"Q target must equal freeze candidate");
- check(idsEqual(q.decisions.map(x=>x.decisionId),seq("Q",20)),"20 unique Owner review decisions");
+ check(idsEqual(q.decisions.map(x=>x.decisionId),ownerQ),"20 unique Owner review decisions");
  for(const x of q.decisions){
   check(x.selectedOption===1&&x.decisionStatus==="OWNER_DECIDED_IN_CHAT"&&x.decisionDate==="2026-11-13"&&x.githubApprovalRef===null,"Owner chat decision status "+x.decisionId);
   check(x.rule.length>=35&&x.title.length>15&&x.affectedRefs.length>0&&x.rule.includes(expectedSemantics[x.decisionId]),"semantic decision trace "+x.decisionId);
@@ -74,7 +75,7 @@ export function validateOwnerGovernance(d){
  check(a.snapshotCommitSha===null&&a.qualityGateRef===null&&a.ownerApproval.githubCommentUrl===null&&a.ownerApproval.githubLogin===null&&a.ownerApproval.githubCreatedAt===null&&a.ownerApproval.approvedSnapshotSha===null,"no fake C/SHA/comment/time");
  check(a.baselineId==="PRODUCT_BASELINE_V1"&&a.upstreamPrNumber===1&&a.sourcePrNumber===2&&a.scope==="PRODUCT_POLICY_AND_CONTRACT_ONLY","scope/stacking");
  check(a.reviewMatrixRef==="baseline-review-matrix.json"&&a.outstandingRegisterRef==="outstanding-register.json","separate registers");
- check(idsEqual(a.decisionRefs.ownerReview,seq("Q",20))&&idsEqual(a.decisionRefs.padr,seq("PADR",9))&&idsEqual(a.decisionRefs.evq,seq("EVQ",7)),"acceptance trace 20+16");
+ check(idsEqual(a.decisionRefs.ownerReview,ownerQ)&&idsEqual(a.decisionRefs.padr,seq("PADR",9))&&idsEqual(a.decisionRefs.evq,seq("EVQ",7)),"acceptance trace 20+16");
  check(a.productVerification==="PENDING"&&a.tenantGoLiveAcceptance==="PENDING"&&JSON.stringify(a.modeState)===JSON.stringify(modes),"no unsigned mode/tenant GO");
  check(l.recordKind==="PRODUCT_EXTENSION_BACKLOG_TEMPLATE_NOT_APPROVAL"&&l.sourceDecisionId==="Q20"&&l.defaultDisposition==="DEFER"&&l.entries.length===0,"L2 default backlog");
  check(idsEqual(l.allowedDispositions,["DEFER","PRODUCT_EXTENSION_REVIEW","REJECT_BLOCKED"])&&l.requireProductAdrForDevelopment&&!l.allowTenantFork&&!l.allowProductionFromBacklog&&l.requireOwnerApprovalForProductExtension,"no tenant fork or L2 autoGO");
