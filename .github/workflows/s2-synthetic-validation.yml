@@ -2,13 +2,15 @@ name: Research S2 synthetic data validation
 on:
   pull_request:
     paths:
-      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/**'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/**'
       - '.github/workflows/s2-synthetic-validation.yml'
   push:
     branches:
       - 'research/2026-11-13-product-reference-go-live-blueprint'
     paths:
-      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/**'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/**'
       - '.github/workflows/s2-synthetic-validation.yml'
 permissions:
   contents: read
@@ -21,6 +23,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate S1 policies and JSON Schema draft 2020-12
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install 'jsonschema>=4.20,<5'
+          python reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py
       - name: Validate bundled source/manifest and synthetic scenarios
         shell: bash
         run: |
@@ -29,6 +40,7 @@ jobs:
           node "$S2/s2-data-tool.mjs" validate "$S2"
           node "$S2/s2-trip-scenarios.mjs" validate "$S2"
           node "$S2/s2-import-dry-run.mjs" --self-test
+          node "$S2/s2-regression-tests.mjs"
       - name: Regenerate CSV and run non-writing import preview
         shell: bash
         run: |
