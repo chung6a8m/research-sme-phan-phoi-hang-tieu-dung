@@ -323,11 +323,11 @@
       "dependsOn": [
         "S6-A",
         "S6-B",
-        "S6-C",
-        "S6-D"
+        "S6-C"
       ],
       "status": "PLANNED_NOT_EXECUTED",
       "tadrIds": [
+        "TADR-04",
         "TADR-05"
       ],
       "acIds": [
@@ -360,16 +360,19 @@
         "C0..C8 opening manifest across MAIN/TRIP/lot/hold/quota/AR/custody/advance/invoices",
         "Inventory and block legacy UI/API/job/import/direct SQL/device queues across ENTIRE Kho-01 including off-wave",
         "Multi-party approved opening, generation/firstEffectId fencing",
-        "Rehearsed forward-only recovery and DR external registry reconciliation"
+        "Rehearsed forward-only recovery and DR external registry reconciliation",
+        "Inventory and fence legacy offline devices, stale grants and pending queues, even when OFFLINE_WRITE remains disabled"
       ],
       "entryConditions": [
         "Reviewed TADR-05",
         "Authorized multi-party cutover rehearsal scope",
-        "P0 safeguards independent of pilot trip count"
+        "P0 safeguards independent of pilot trip count",
+        "TADR-04 authority/revocation/restore scope must be reviewed for cutover, independent of completing optional Offline A feature"
       ],
       "exitCriteria": [
         "EV-04/12 and per-mode cutover evidence reviewed; P0 failures stay NO_GO",
-        "Do not rollback business effects after firstEffectId"
+        "Do not rollback business effects after firstEffectId",
+        "Online-only A/B_ONLINE/MIXED cutover shall not require full S6-D optional Offline A E2E, while EV-09 restore/revocation evidence still applies"
       ],
       "realSystemEvidenceRequired": true
     },

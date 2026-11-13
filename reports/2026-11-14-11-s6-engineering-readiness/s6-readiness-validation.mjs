@@ -35,6 +35,8 @@ export function validate(plan,acceptance,outstanding,acMatrix,evRegister){
    for(const id of row.acIds)fail(acSet.has(id),"unknown AC "+id);
    for(const id of row.gateIds)fail(p0.includes(id),"unknown P0 "+id);
  }
+ const cut=plan.phases.find(x=>x.id==="S6-E");
+ fail(!!cut&&!cut.dependsOn.includes("S6-D")&&cut.tadrIds.includes("TADR-04")&&cut.tadrIds.includes("TADR-05"),"online MVP cutover must not depend on optional full offline implementation, while DR design remains mandatory");
  fail(plan.phases[0].realSystemEvidenceRequired===false&&plan.phases.slice(1).every(x=>x.realSystemEvidenceRequired===true),"source evidence boundary weakened");
  fail(plan.backlogControls.some(x=>x.id==="S6-P2-ACCEPTANCE-AUTHENTICITY"&&x.severity==="P2"&&x.status==="FOLLOW_UP"),"signed R validation follow-up missing");
  fail(plan.artifacts.actualEvidence==="NOT_COLLECTED"&&plan.artifacts.externalApprovals==="NOT_COLLECTED","fabricated evidence");
@@ -51,7 +53,8 @@ if(process.argv.includes("--self-test")){
   ["ev14_ev15_inverted",p=>p.pilot.ev14BeforeEv15=false],
   ["fake_tadr_accepted",p=>p.tadrStates["TADR-01"]="APPROVED"],
   ["bad_accepted_sha",p=>p.upstream.ownerAcceptedSnapshotSha="a".repeat(40)],
-  ["fake_source_selected",p=>p.sourceRepository="some-imaginary-repo"]
+  ["fake_source_selected",p=>p.sourceRepository="some-imaginary-repo"],
+  ["cutover_falsely_requires_offline_feature",p=>p.phases.find(x=>x.id==="S6-E").dependsOn.push("S6-D")]
  ];
  for(const [id,edit] of cases){const copy=structuredClone(plan);edit(copy);let rejected=false;try{validate(copy,acceptance,outstanding,acMatrix,evRegister);}catch{rejected=true;}fail(rejected,"negative case not rejected "+id);}
  console.log("PASS_S6_PLAN_NEGATIVES "+cases.length);

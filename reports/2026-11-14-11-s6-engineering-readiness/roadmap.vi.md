@@ -19,10 +19,10 @@
 | **S6-B A Online** | Order Confirm giá thương mại khóa, multiple partial delivery, terms/due theo lần giao; return/quarantine/gift, moving average SKU×location; invoice/accounting | AC-02/04/05/06/07/08/19; EV-02/04/05/06/07/10/11 | Kiểm từng source document và Finance review, không tự coi invoice fixture là pháp lý |
 | **S6-C B_ONLINE + MIXED** | B sale/delivery/receipt atomic, BQuota/credit, provider channel verified, UNKNOWN lookup; accounting POSTED vs RECONCILED; Mixed E2E độc lập | TADR-03; AC-03/09/14/15/19/20/21; EV-03/05/06/10/11 | A hold không dùng thay BQuota, B_NO_CHANNEL BLOCKED |
 | **S6-D Offline A** | Per-mode/device/trip grant TTL/epoch, durable PWA journal, loss/replay/revoke/restore/PrivacyActionLedger; F-01..22 scoped | TADR-02/04; AC-01/11/12/13/17; EV-08/09 | Real-device E2E riêng; Offline Write vẫn DISABLED cho đến mode admission |
-| **S6-E Cutover** | C0..C8, opening manifest/signer, legacy writer lock toàn Kho-01 bao gồm off-wave/UI/API/job/import/DB/offline, Forward Recovery | TADR-05; AC-04/10/13/16; EV-04/09/10/11/12 | Multi-party approval và rehearsal; no rollback sau firstEffectId |
+| **S6-E Cutover** | C0..C8, opening manifest/signer, legacy writer lock toàn Kho-01 bao gồm off-wave/UI/API/job/import/DB/offline, Forward Recovery | TADR-04 (DR/authority scope) + TADR-05; AC-04/10/13/16; EV-04/09/10/11/12 | Multi-party approval và rehearsal; no rollback sau firstEffectId |
 | **S6-F Pilot** | TADR-06 UX-01..08, approved SLO/coverage n/N, EV-14 trước Pilot, EV-15 sau 5+ ngày với 3A/3B_ONLINE/2MIXED/ngày | AC-17/18; EV-13/14/15 | Go/No-Go theo mode độc lập Product Verification/Tenant Acceptance |
 
-**Dependencies:** A sau S6-0; B sau A; C sau A+B; D sau A (có thể song song B/C); E sau A+B+C+D và TADR-05; F sau B+C+E và EV-14 đã đủ scope. B alternative channel khi PWA mất mạng DEFERRED. G-STOCK, G-CUT, G-IDEMP, G-LEDGER, G-INV nonwaivable.
+**Dependencies:** A sau S6-0; B sau A; C sau A+B; D sau A (có thể song song B/C); E sau A+B+C, TADR-04 (recovery/authority scope) và TADR-05, **không phụ thuộc hoàn thành Offline A S6-D**; E vẫn kiểm kê/khóa mọi legacy offline device, queue và grant trên toàn Kho-01, có EV-09 restore/revoke cần thiết. F sau B+C+E và EV-14 đã đủ scope. B alternative channel khi PWA mất mạng DEFERRED. G-STOCK, G-CUT, G-IDEMP, G-LEDGER, G-INV nonwaivable.
 
 ## 2. Definition of Ready cho source PR
 
