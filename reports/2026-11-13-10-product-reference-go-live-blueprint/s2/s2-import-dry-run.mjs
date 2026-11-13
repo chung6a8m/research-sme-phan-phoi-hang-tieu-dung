@@ -21,6 +21,12 @@ function importPreview(tables,dict,digest){
   const entries=tables[spec.id]||[];counts[spec.id]=entries.length;refs[spec.id]={};
   for(const [i,r] of entries.entries()){
    const number=i+2;
+   for(const key of dict.commonFields){
+     const val=String(r[key]??"");
+     if(!val)error("REQUIRED_META",spec.id,number,key,"Missing provenance field");
+     if(key==="sourceHash"&&val&&!/^[a-f0-9]{64}$/.test(val))error("SOURCE_HASH_FORMAT",spec.id,number,key,"Expected 64 hex");
+     if(key==="schemaVersion"&&val!==dict.schemaVersion)error("SCHEMA_VERSION",spec.id,number,key,"Unknown schema");
+   }
    for(const f of spec.fields){
     const value=String(r[f.name]??"");
     if(f.required&&!value)error("REQUIRED",spec.id,number,f.name,"Missing required input");
@@ -48,12 +54,21 @@ function importPreview(tables,dict,digest){
  }
  for(const spec of dict.tables)for(const [i,r] of (tables[spec.id]||[]).entries()){
   const n=i+2;
+  const owningTenant=(tables.T01||[]).some(t=>t.tenantCode===r.tenantCode);
+  if(!owningTenant)error("TENANT_ORPHAN",spec.id,n,"tenantCode","Missing tenant profile");
+  const naturalKey={T02:"customerCode",T03:"outletCode",T04:"skuCode",T05:"sourceDocumentId",T06:"ruleId",T07:"openItemId",T08:"creditSourceId",T09:"custodySourceId",T10:"advanceId",T11:"tripCode",T12:"legacyId",T13:"adapterCode",T14:"mode"}[spec.id];
+  if(naturalKey){
+    const duplicates=(tables[spec.id]||[]).filter(x=>x.tenantCode===r.tenantCode&&x[naturalKey]===r[naturalKey]);
+    if(duplicates.length>1)error("DUPLICATE_BUSINESS_KEY",spec.id,n,naturalKey,String(r[naturalKey]||""));
+  }
+  if(spec.id==="T05"&&+r.qtyBase===0&&+r.totalCost!==0)error("STOCK_BALANCE",spec.id,n,"totalCost","Zero quantity with nonzero value");
   for(const f of spec.fields)if(f.ref){const [other,key]=f.ref.split(".");if(!refs[other]?.[key]?.has((r.tenantCode||"")+"|"+String(r[f.name]??"")))error("FK_ORPHAN",spec.id,n,f.name,f.ref);}
   if(spec.id==="T04"&&(+r.conversionNumerator<=0||+r.conversionDenominator<=0||+r.quantityStep<=0))error("UOM_CONVERSION",spec.id,n,"conversionDenominator","Must be >0");
   if(spec.id==="T07"&&(+r.openAmount>+r.originalGross||r.dueDate<r.deliveryDate))error("AR_BALANCE",spec.id,n,"openAmount","Open AR > original or due before delivery");
   if(spec.id==="T09"&&+r.acceptedToFund>+r.amountHeld)error("CUSTODY_BALANCE",spec.id,n,"acceptedToFund","Fund acceptance > held");
   if(spec.id==="T10"&&+r.outstanding!==+r.issued-(+r.approvedExpenses)-(+r.cashierAcceptedReturns))error("ADVANCE_BALANCE",spec.id,n,"outstanding","Issued - expenses - accepted returns must equal outstanding");
   if(spec.id==="T11"&&(r.mode==="B_NO_CHANNEL"||r.mode==="A"&&!r.aReservationRef||r.mode!=="A"&&!r.bQuotaRef))error("TRIP_MODE",spec.id,n,"mode","Invalid mode/grant allocation");
+  if(spec.id==="T11"&&(tables.T11||[]).filter(t=>t.tenantCode===r.tenantCode&&t.writerInstallationId===r.writerInstallationId).length>1)error("SECOND_WRITER",spec.id,n,"writerInstallationId","Installation reused across active trip rows");
   if(spec.id==="T13"&&r.evidenceStatus==="VERIFIED_EXTERNALLY")warn("PROVIDER_CLAIM_NEEDS_HUMAN_EVIDENCE",spec.id,n,"evidenceStatus","Not verified by dry run");
   if(spec.id==="T14"&&(r.decision==="GO"||r.status==="VERIFIED"))warn("GO_LIVE_CLAIM_NEEDS_SIGNED_EVIDENCE",spec.id,n,"decision","Not verified by dry run");
  }
