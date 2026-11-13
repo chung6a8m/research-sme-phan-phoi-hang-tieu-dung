@@ -222,3 +222,20 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 
 **Đề xuất chặng tiếp:** Owner review Product Baseline v1 candidate trong phiên bản nguồn được cố định; S6 triển khai source (TADR-01..06), E2E/fault/provider/accounting, cutover/DR và EV-14/EV-15 theo mode. `DOC_READY_CANDIDATE != OWNER_BASELINE_ACCEPTED != PRODUCT_VERIFIED != TENANT_GO_LIVE_ACCEPTED`.
 
+
+## 16. Owner Review Q01–Q20 — Decision Consolidation (13/11/2026)
+
+**Phạm vi mới của PR #2:** ghi nhận 20 câu Owner Review đã được trả lời, tất cả chọn phương án 1. Đây là `OWNER_DECIDED_IN_CHAT`, **không phải GitHub acceptance record đã ký**. [Decision records](s5/owner-baseline-review-decisions.vi.md) và [JSON](s5/owner-baseline-review-decisions.json) ghi đủ Q01..20, phương án, hệ quả, nguồn chat và refs.
+
+| Nhóm | Quyết định áp dụng | Artifact |
+|---|---|---|
+| Q01–Q03, Q06–Q09, Q12 | Baseline policy/contract; freeze full-tree theo commit C; Owner tự comment GitHub; commit R record, merge PR tài liệu độc lập S6 nhưng sau PR #1 | [Review matrix](s5/baseline-review-matrix.vi.md), [Acceptance schema unsigned](s5/product-baseline-acceptance.schema.json) |
+| Q04–Q05, Q13–Q15 | Outstanding và Evidence Registry độc lập; S6 slice/TADR riêng; public metadata an toàn, artifact gốc phân quyền; reverification theo scope | [Outstanding register](s5/outstanding-register.json), [Governance](s5/product-governance.vi.md) |
+| Q10–Q11, Q16 | Tenant Adoption theo NPP; UAT/sandbox từng mode không tính EV-15; threshold Product/Tenant được ký trước EV-14; Pilot D-15 không thay đổi | [S5 Pilot Contract](s5/product-pilot-contract.json), [Governance](s5/product-governance.vi.md) |
+| Q17–Q20 | Suspend/re-admit theo nguy cơ; hotfix vs contract change; tenant-by-tenant migration; L2 mặc định backlog, chỉ Product Extension có ADR/Owner approval | [Governance](s5/product-governance.vi.md), [L2 backlog template](s5/product-extension-backlog-template.json) |
+
+**Quality Gate bổ sung:** [S5 Owner Governance validator](s5/s5-owner-governance-validation.mjs), [negative regression](s5/s5-owner-governance-regression.mjs), [acceptance Draft 2020-12 tests](s5/s5-owner-acceptance-schema-tests.py) chạy theo CI S5. Kết quả CI trên commit mới cần được thu sau push; không báo PASS trước khi chạy.
+
+**Các bước vẫn còn:** (B) merge PR #1; (C) retarget PR #2 rồi kiểm tra lại S1–S5 + reviewer chuyên môn; (D) tạo **commit C**, Owner tự ký GitHub; (E) tạo **commit R** với `approvalRef`, `acceptedAt`, `acceptedBy` thật; (F) review và merge PR #2 thủ công. Không làm các bước B–F trong commit consolidation này.
+
+**Ranh giới:** Q01–20 không chuyển TADR thành APPROVED, không chuyển EV thực sang PASS, không tạo Finance/Legal/provider/tenant signatures. P0 không miễn trừ, B_NO_CHANNEL BLOCKED, A/B_ONLINE/MIXED vẫn NO_GO_PENDING; OFFLINE_WRITE và PRODUCTION_CUTOVER DISABLED_PENDING.

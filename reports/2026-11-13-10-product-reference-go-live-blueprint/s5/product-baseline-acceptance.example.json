@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "PRODUCT_BASELINE_ACCEPTANCE_TEMPLATE_NOT_SIGNED",
+  "baselineId": "PRODUCT_BASELINE_V1",
+  "state": "PENDING_OWNER_SIGNATURE",
+  "scope": "PRODUCT_POLICY_AND_CONTRACT_ONLY",
+  "upstreamPrNumber": 1,
+  "sourcePrNumber": 2,
+  "snapshotCommitSha": null,
+  "ownerApproval": {
+    "githubCommentUrl": null,
+    "githubLogin": null,
+    "githubCreatedAt": null,
+    "approvedSnapshotSha": null
+  },
+  "reviewMatrixRef": "baseline-review-matrix.json",
+  "qualityGateRef": null,
+  "outstandingRegisterRef": "outstanding-register.json",
+  "decisionRefs": {
+    "ownerReview": [
+      "Q-01",
+      "Q-02",
+      "Q-03",
+      "Q-04",
+      "Q-05",
+      "Q-06",
+      "Q-07",
+      "Q-08",
+      "Q-09",
+      "Q-10",
+      "Q-11",
+      "Q-12",
+      "Q-13",
+      "Q-14",
+      "Q-15",
+      "Q-16",
+      "Q-17",
+      "Q-18",
+      "Q-19",
+      "Q-20"
+    ],
+    "padr": [
+      "PADR-01",
+      "PADR-02",
+      "PADR-03",
+      "PADR-04",
+      "PADR-05",
+      "PADR-06",
+      "PADR-07",
+      "PADR-08",
+      "PADR-09"
+    ],
+    "evq": [
+      "EVQ-01",
+      "EVQ-02",
+      "EVQ-03",
+      "EVQ-04",
+      "EVQ-05",
+      "EVQ-06",
+      "EVQ-07"
+    ]
+  },
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "modeState": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "notes": "Chỉ là template PRE-SIGNOFF. Không có commit C, URL GitHub hoặc thời điểm ký được xác minh."
+}

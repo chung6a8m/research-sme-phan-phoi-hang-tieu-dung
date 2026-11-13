@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "BASELINE_REVIEW_MATRIX_PRE_SIGNOFF",
+  "targetBaseline": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "status": "REVIEW_NOT_COMPLETE",
+  "reviewedCommitSha": null,
+  "ownerAcceptanceRef": null,
+  "requiredRoleCodes": [
+    "PRODUCT_BA",
+    "TECHNICAL",
+    "QA"
+  ],
+  "reviewers": [
+    {
+      "roleCode": "PRODUCT_BA",
+      "roleName": "Product/BA",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "S1/PADR/EVQ Q01..Q20, 24 POL/CFG, 12 SOP, D→BR→DC/API/SM→AC/EV; tenant-adoption and pilot boundaries",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+    },
+    {
+      "roleCode": "TECHNICAL",
+      "roleName": "Technical",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "Schema/CSV/validators, transaction boundaries pending TADR, source anchor consistency, read-only S3/S4, mode and cutover policies",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+    },
+    {
+      "roleCode": "QA",
+      "roleName": "QA",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "S1-S5 synthetic CI on final HEAD, negative regression, 14 reviewed blobs, S5 whole-tree snapshot plan, outstanding vs evidence semantics",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+    },
+    {
+      "roleCode": "FINANCE",
+      "roleName": "Finance",
+      "participation": "CONDITIONAL_SCOPE_REVIEW",
+      "scope": "Credit UNSET/approved-zero, accounting, ledger, cost bridge; actual tenant accounting signoff independent",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+    },
+    {
+      "roleCode": "LEGAL",
+      "roleName": "Legal/Tax",
+      "participation": "CONDITIONAL_SCOPE_REVIEW",
+      "scope": "Seller/provider/legal invoice channel, privacy; B-CASE and LEGAL-MEMO remain PENDING",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+    },
+    {
+      "roleCode": "OPERATIONS",
+      "roleName": "Operations/Security",
+      "participation": "CONDITIONAL_SCOPE_REVIEW",
+      "scope": "Warehouse writer/DR/offline thresholds/incident/cutover/pilot; real rehearsal and tenant signatures pending",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Phân công người có thẩm quyền, ghi reviewRef thực và đánh giá trên commit C sau khi PR #1 merge"
+    }
+  ],
+  "qualityGate": {
+    "state": "NOT_EXECUTED_ON_FINAL_SNAPSHOT",
+    "candidateCommitSha": null,
+    "checkedCommitSha": null,
+    "ciRefs": [],
+    "findingsDispositionRefs": [],
+    "baselineSnapshotRef": null
+  },
+  "comment": "Không có chữ ký hoặc reviewer đã được xác minh trong PR. CONDITIONAL_SCOPE_REVIEW không miễn trừ signoff Finance/Legal/Operations tại EV/tenant gates."
+}

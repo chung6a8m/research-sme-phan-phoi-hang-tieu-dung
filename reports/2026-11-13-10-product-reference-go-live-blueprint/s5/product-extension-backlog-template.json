@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "PRODUCT_EXTENSION_BACKLOG_TEMPLATE_NOT_APPROVAL",
+  "baselineRef": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "sourceDecisionId": "Q20",
+  "defaultDisposition": "DEFER",
+  "allowedDispositions": [
+    "DEFER",
+    "PRODUCT_EXTENSION_REVIEW",
+    "REJECT_BLOCKED"
+  ],
+  "requireProductAdrForDevelopment": true,
+  "requireOwnerApprovalForProductExtension": true,
+  "allowTenantFork": false,
+  "allowProductionFromBacklog": false,
+  "entries": [],
+  "entryFields": [
+    "extensionId",
+    "sourceTenantRefSafe",
+    "sourceGapId",
+    "needAndAlternatives",
+    "multiTenantEvidenceRefs",
+    "reuseCase",
+    "L0L1Assessment",
+    "affectedD_BR_POL_CFG_SOP_DC_API_SM_AC_EV",
+    "riskCostAndImpact",
+    "proposedDisposition",
+    "productAdrRef",
+    "ownerDecisionRef",
+    "productVersion",
+    "reviewStatus"
+  ]
+}

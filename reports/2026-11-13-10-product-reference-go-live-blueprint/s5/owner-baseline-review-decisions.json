@@ -1,0 +1,288 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "OWNER_REVIEW_DECISIONS_IN_CHAT_NOT_BASELINE_APPROVAL",
+  "baselineTarget": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "reviewDate": "2026-11-13",
+  "sourceType": "OWNER_INTERVIEW_CHAT",
+  "formalOwnerGitHubSignoff": "PENDING",
+  "signedBaselineCommitSha": null,
+  "ownerApprovalRef": null,
+  "decisions": [
+    {
+      "decisionId": "Q01",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Chấp nhận Product Baseline v1 ở cấp chính sách và contract",
+      "rule": "Không tuyên bố PRODUCT_VERIFIED hay TENANT_GO_LIVE_ACCEPTED; TADR-01..06 vẫn DESIGN_CANDIDATE.",
+      "affectedRefs": [
+        "PADR-01",
+        "EVQ-01",
+        "TADR-01..06"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q02",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Đóng băng toàn bộ Product Baseline theo commit",
+      "rule": "Snapshot commit C bất biến. Policy/contract thay đổi cần impact assessment, regression, Owner review phiên bản mới; biên tập thuần túy qua technical review.",
+      "affectedRefs": [
+        "S1–S5",
+        "PRODUCT_BASELINE_V1_CANDIDATE"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q03",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Owner xác nhận trực tiếp trên GitHub PR #2",
+      "rule": "Chỉ GitHub comment do Owner thực sự đăng với SHA rõ ràng mới là approvalRef; không ký thay hoặc tự đặt timestamp.",
+      "affectedRefs": [
+        "PR-2",
+        "OWNER_ACCEPTANCE"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q04",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Outstanding Register vận hành độc lập",
+      "rule": "P0 không miễn trừ; giữ đúng trạng thái TADR/EV/B-CASE/LEGAL/INV-09, có role owner, exit criteria, evidence và milestone S6.",
+      "affectedRefs": [
+        "EV-01..15",
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q05",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "S6 triển khai theo từng vertical slice, TADR độc lập",
+      "rule": "TADR liên quan phải review trước khi coi là chốt; triển khai/code/test không mặc nhiên đạt product verification.",
+      "affectedRefs": [
+        "TADR-01..06",
+        "S6-A..F"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q06",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Quality Gate nghiêm ngặt trước Owner sign-off",
+      "rule": "Đối chiếu S1–S5, hashes, trace, non-waivable contracts và CI synthetic trên commit C; không cần giả lập bằng chứng runtime.",
+      "affectedRefs": [
+        "S1–S5",
+        "S5-CI",
+        "BASELINE_REVIEW_MATRIX"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q07",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Merge PR tài liệu độc lập với S6",
+      "rule": "Chỉ merge thủ công sau Owner sign-off, PR review/CI/stacking đạt; không cần chờ toàn bộ E2E thật.",
+      "affectedRefs": [
+        "PR-2",
+        "S6"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q08",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Hai commit: C snapshot và R acceptance record",
+      "rule": "Owner ký rõ commit C; commit R chỉ ghi record/comment thực, không sửa nội dung contract đã duyệt.",
+      "affectedRefs": [
+        "BASELINE_SNAPSHOT_C",
+        "ACCEPTANCE_RECORD_R"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q09",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Review chuyên môn trước Owner sign-off",
+      "rule": "Product/BA, Technical, QA kiểm tài liệu/contract; Finance/Legal/Ops đúng phần có thẩm quyền, không bịa người ký/review.",
+      "affectedRefs": [
+        "S1–S5",
+        "BASELINE_REVIEW_MATRIX"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q10",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Product Baseline độc lập với Tenant Adoption",
+      "rule": "S5 khảo sát 24 câu và 30 OPS theo từng NPP; gap L0/L1/L2/BLOCKED; không lấy synthetic làm field evidence.",
+      "affectedRefs": [
+        "S5",
+        "OPS-01..30",
+        "PADR-01"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q11",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Thử nghiệm từng mode sớm, giữ Pilot NPP-01 D-15",
+      "rule": "Sandbox/UAT không tính EV-15; Pilot chính thức NPP-01 giữ 3 A + 3 B_ONLINE + 2 MIXED/ngày >=5 ngày; quyền kho toàn Kho-01.",
+      "affectedRefs": [
+        "R009-D-15",
+        "EV-14",
+        "EV-15",
+        "G-STOCK"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q12",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Hoàn tất PR #1 trước khi freeze PR #2",
+      "rule": "Merge PR #1 theo quy trình riêng, retarget PR #2 về main, xem lại diff/trace/CI rồi mới tạo C.",
+      "affectedRefs": [
+        "PR-1",
+        "PR-2"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q13",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Baseline bất biến, evidence và outstanding living registers",
+      "rule": "EV/TADR hoàn thành không làm baseline tự đổi; thay đổi ngữ nghĩa contract phải qua change control.",
+      "affectedRefs": [
+        "OUTSTANDING_REGISTER",
+        "EVIDENCE_REGISTER"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q14",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Evidence metadata an toàn trong repo, artifact gốc lưu riêng",
+      "rule": "Chỉ metadata không nhạy cảm có thể công khai; log/hóa đơn/sổ/PII/credentials vào secure artifact store phân quyền, hash và audit/retention phù hợp.",
+      "affectedRefs": [
+        "EV-01..15",
+        "SECURE_ARTIFACT_STORE"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q15",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Reverification theo thay đổi và phạm vi evidence",
+      "rule": "Evidence gắn build/tenant/profile/mode/device/provider khi có; impact assessment AC/EV; không tự kế thừa PASS hay admission.",
+      "affectedRefs": [
+        "EVQ-01",
+        "EVQ-04",
+        "PADR-03"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q16",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Quản trị ngưỡng hai cấp Product/Tenant",
+      "rule": "Product duyệt định nghĩa/giới hạn, QA/Engineering/Ops đo đề xuất, Tenant Owner duyệt ngưỡng pilot trong phạm vi; ghi n/N/SLO trước EV-14.",
+      "affectedRefs": [
+        "EV-14",
+        "EV-15",
+        "TADR-06"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q17",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Đình chỉ theo phạm vi rủi ro và Re-admission",
+      "rule": "P0 hoặc evidence không hợp lệ phải chặn quyền ghi trong phạm vi rủi ro; phục hồi cần test/evidence và approval mới, offline grant không thu hồi tức thì khi mất mạng.",
+      "affectedRefs": [
+        "PADR-03",
+        "G-IDEMP",
+        "EV-08",
+        "EV-09"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q18",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Emergency Change có kiểm soát",
+      "rule": "Hotfix không đổi contract qua review/test/release/re-admission; sửa Product Contract phải có Owner decision và version mới, không miễn P0.",
+      "affectedRefs": [
+        "INCIDENT",
+        "CHANGE_CONTROL",
+        "EVQ-02"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q19",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "Nâng cấp per-tenant với compatibility/migration kiểm soát",
+      "rule": "Version API/schema/CSV, dry-run, canary, đối soát, forward recovery; không suy credit APPROVED=0 từ dữ liệu cũ chưa có approval.",
+      "affectedRefs": [
+        "PADR-02",
+        "S2",
+        "TADR-05"
+      ],
+      "githubApprovalRef": null
+    },
+    {
+      "decisionId": "Q20",
+      "selectedOption": 1,
+      "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+      "decisionDate": "2026-11-13",
+      "title": "L2 vào backlog trước, Product Extension cần phê duyệt",
+      "rule": "Không fork lõi; cần nhu cầu có nguồn, tái sử dụng, impact analysis, Product ADR/AC/EV, Owner approval và version mới để phát triển.",
+      "affectedRefs": [
+        "PADR-01",
+        "GAP_DISPOSITION",
+        "EXTENSION_BACKLOG"
+      ],
+      "githubApprovalRef": null
+    }
+  ]
+}

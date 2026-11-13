@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product Baseline Acceptance Record schema. Schema validity does not verify GitHub authorship or CI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "baselineId",
+    "state",
+    "scope",
+    "upstreamPrNumber",
+    "sourcePrNumber",
+    "snapshotCommitSha",
+    "ownerApproval",
+    "reviewMatrixRef",
+    "qualityGateRef",
+    "outstandingRegisterRef",
+    "decisionRefs",
+    "productVerification",
+    "tenantGoLiveAcceptance",
+    "modeState",
+    "notes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s5-owner-review-v1"
+    },
+    "recordKind": {
+      "enum": [
+        "PRODUCT_BASELINE_ACCEPTANCE_TEMPLATE_NOT_SIGNED",
+        "PRODUCT_BASELINE_ACCEPTANCE_RECORD"
+      ]
+    },
+    "baselineId": {
+      "const": "PRODUCT_BASELINE_V1"
+    },
+    "state": {
+      "enum": [
+        "PENDING_OWNER_SIGNATURE",
+        "OWNER_BASELINE_ACCEPTED"
+      ]
+    },
+    "scope": {
+      "const": "PRODUCT_POLICY_AND_CONTRACT_ONLY"
+    },
+    "upstreamPrNumber": {
+      "const": 1
+    },
+    "sourcePrNumber": {
+      "const": 2
+    },
+    "snapshotCommitSha": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ownerApproval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "githubCommentUrl",
+        "githubLogin",
+        "githubCreatedAt",
+        "approvedSnapshotSha"
+      ],
+      "properties": {
+        "githubCommentUrl": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://github\\.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-[0-9]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "githubLogin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "githubCreatedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "approvedSnapshotSha": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "reviewMatrixRef": {
+      "const": "baseline-review-matrix.json"
+    },
+    "qualityGateRef": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "outstandingRegisterRef": {
+      "const": "outstanding-register.json"
+    },
+    "decisionRefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ownerReview",
+        "padr",
+        "evq"
+      ],
+      "properties": {
+        "ownerReview": {
+          "type": "array",
+          "minItems": 20,
+          "maxItems": 20,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^Q(0[1-9]|1[0-9]|20)$"
+          }
+        },
+        "padr": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^PADR-0[1-9]$"
+          }
+        },
+        "evq": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^EVQ-0[1-7]$"
+          }
+        }
+      }
+    },
+    "productVerification": {
+      "const": "PENDING"
+    },
+    "tenantGoLiveAcceptance": {
+      "const": "PENDING"
+    },
+    "modeState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE",
+        "B_NO_CHANNEL",
+        "PRODUCTION_CUTOVER"
+      ],
+      "properties": {
+        "A": {
+          "const": "NO_GO_PENDING"
+        },
+        "B_ONLINE": {
+          "const": "NO_GO_PENDING"
+        },
+        "MIXED": {
+          "const": "NO_GO_PENDING"
+        },
+        "OFFLINE_WRITE": {
+          "const": "DISABLED_PENDING"
+        },
+        "B_NO_CHANNEL": {
+          "const": "BLOCKED"
+        },
+        "PRODUCTION_CUTOVER": {
+          "const": "DISABLED_PENDING"
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 10
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "PENDING_OWNER_SIGNATURE"
+          }
+        },
+        "required": [
+          "state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "recordKind": {
+            "const": "PRODUCT_BASELINE_ACCEPTANCE_TEMPLATE_NOT_SIGNED"
+          },
+          "snapshotCommitSha": {
+            "type": "null"
+          },
+          "qualityGateRef": {
+            "type": "null"
+          },
+          "ownerApproval": {
+            "properties": {
+              "githubCommentUrl": {
+                "type": "null"
+              },
+              "githubLogin": {
+                "type": "null"
+              },
+              "githubCreatedAt": {
+                "type": "null"
+              },
+              "approvedSnapshotSha": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "OWNER_BASELINE_ACCEPTED"
+          }
+        },
+        "required": [
+          "state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "recordKind": {
+            "const": "PRODUCT_BASELINE_ACCEPTANCE_RECORD"
+          },
+          "snapshotCommitSha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "qualityGateRef": {
+            "type": "string",
+            "minLength": 5
+          },
+          "ownerApproval": {
+            "properties": {
+              "githubCommentUrl": {
+                "type": "string",
+                "pattern": "^https://github\\.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-[0-9]+$"
+              },
+              "githubLogin": {
+                "type": "string",
+                "minLength": 1
+              },
+              "githubCreatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "approvedSnapshotSha": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -24,3 +24,15 @@ TADR-01..06 hiện `DESIGN_CANDIDATE`; các ngưỡng RPO/RTO, latency/UX, reten
 ## Reviewed-source anchors (hợp đồng chống sửa âm thầm)
 
 Manifest baseline ứng viên lưu **14 Git blob SHA** cho các đầu vào R009/S1/S2/S3/S4 trọng yếu đã review, gắn `parentReviewedHead=967e7b9`. CI tính lại Git blob ID từ nội dung byte hiện hành và phải thất bại nếu khác; nếu upstream thay đổi, cần đánh giá tác động, cập nhật manifest/trace/acceptance và tạo đề nghị review Owner mới, **không tự cho rằng đã phê duyệt phiên bản mới**. Git blob SHA là định danh nội dung, không phải chữ ký số hay bằng chứng legal/provider.
+
+## Owner Review Q01–Q20 — chuẩn bị hồ sơ, chưa tạo commit C/R
+
+- [Owner Decision Consolidation](owner-baseline-review-decisions.vi.md): đủ Q01..20 đều chọn phương án 1; `OWNER_DECIDED_IN_CHAT` chỉ là nguồn chọn chính sách.
+- [Product Governance](product-governance.vi.md): Q13..20 quy định living evidence, artifact store, impact-based reverification, suspend/re-admit, emergency change, migration per tenant, L2 backlog.
+- [Review Matrix](baseline-review-matrix.vi.md): Product/BA, Technical, QA reviewer thật + Finance/Legal/Ops theo scope; hiện tất cả pending, không giả source signoff.
+- [Outstanding Register](outstanding-register.json): snapshot pending gồm TADR/EV/P0/Legal/B/threshold; review cho S6 thực hiện theo milestone và evidence độc lập.
+- [Unsigned acceptance schema/example](product-baseline-acceptance.schema.json): chỉ chuẩn bị hợp đồng, không được điền approvalRef/timestamp/SHA trước GitHub Owner comment.
+
+**Dependency Q12:** PR #1 phải hoàn tất merge trước, PR #2 retarget về main và đánh giá lại diff/upstream hash. Trên HEAD thực, S1–S5 quality gate phải được review rồi mới chốt snapshot **C** toàn bộ cây. Owner ký C bằng comment GitHub trực tiếp; commit **R** ghi nguồn thật, không thay đổi hợp đồng đã ký. Git commit R không tự nhúng chính SHA R vào nội dung.
+
+**Bảo vệ trạng thái:** snapshot candidate chưa được ký, Product Verification/Tenant Go-Live vẫn PENDING, TADR-01..06 DESIGN_CANDIDATE, EV-01..15 real pending, B_NO_CHANNEL BLOCKED. Test governance chỉ chạy contract/synthetic; không mở mode.

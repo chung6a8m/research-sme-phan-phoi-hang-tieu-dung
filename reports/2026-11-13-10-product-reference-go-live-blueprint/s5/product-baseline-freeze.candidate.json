@@ -93,7 +93,19 @@
     "gap-assessment-and-adoption.vi.md",
     "baseline-freeze-and-s6-handoff.vi.md",
     "../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md",
-    "gap-assessment-template.csv"
+    "gap-assessment-template.csv",
+    "owner-baseline-review-decisions.json",
+    "owner-baseline-review-decisions.vi.md",
+    "product-governance.vi.md",
+    "baseline-review-matrix.json",
+    "baseline-review-matrix.vi.md",
+    "outstanding-register.json",
+    "product-baseline-acceptance.schema.json",
+    "product-baseline-acceptance.example.json",
+    "product-extension-backlog-template.json",
+    "s5-owner-governance-validation.mjs",
+    "s5-owner-governance-regression.mjs",
+    "s5-owner-acceptance-schema-tests.py"
   ],
   "unresolved": {
     "evidenceIds": [

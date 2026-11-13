@@ -17,6 +17,24 @@ S5 dùng **Product-First**: L0 bất biến, L1 cấu hình hữu hạn, L2 cầ
 | `gap-assessment-and-adoption.vi.md` | Phương pháp phỏng vấn, phân loại, trace và escalations |
 | `baseline-freeze-and-s6-handoff.vi.md` | Checklist chốt baseline ứng viên và bàn giao development S6 |
 
+## Owner Review Q01–Q20 — Consolidation chuẩn bị, KHÔNG phải sign-off
+
+Owner đã chọn phương án 1 cho cả Q01–Q20 trong hội thoại ngày 13/11/2026. Quyết định mức chính sách: `OWNER_DECIDED_IN_CHAT`; **GitHub baseline acceptance vẫn PENDING**. Chỉ tạo hồ sơ/synthetic checks, không sinh commit C/R, không gán reviewer hoặc timestamp giả.
+
+| Artifact | Mục đích |
+|---|---|
+| [owner-baseline-review-decisions.vi.md](owner-baseline-review-decisions.vi.md), [records JSON](owner-baseline-review-decisions.json) | 20 quyết định, nguồn, lựa chọn, tác động và trace Q01–Q20 |
+| [product-governance.vi.md](product-governance.vi.md) | Freeze/change control, evidence, re-admission, emergency, per-tenant migration, threshold và L2 |
+| [baseline-review-matrix.vi.md](baseline-review-matrix.vi.md), [matrix JSON](baseline-review-matrix.json) | Product/BA, Technical, QA bắt buộc trước Owner sign-off; Finance/Legal/Ops theo phạm vi; mọi review PENDING |
+| [outstanding-register.json](outstanding-register.json) | TADR-01..06, EV-01..15, năm gate P0, B-CASE/LEGAL/INV-09, threshold UNSET; không chứng nhận PASS |
+| [product-baseline-acceptance.schema.json](product-baseline-acceptance.schema.json), [unsigned example](product-baseline-acceptance.example.json) | Contract cho hồ sơ ký ở commit R sau Owner comment; schema **không chứng minh tác giả GitHub hay tính xác thực** |
+| [product-extension-backlog-template.json](product-extension-backlog-template.json) | Q20: L2 mặc định DEFER, không fork tenant hoặc tự mở mode |
+| [owner governance validator](s5-owner-governance-validation.mjs), [negative regression](s5-owner-governance-regression.mjs), [acceptance schema tests](s5-owner-acceptance-schema-tests.py) | Chặn fake approval/CI/reviewer/EV/P0/threshold/L2 bằng synthetic tests |
+
+**Trình tự theo Q12/Q08:** review và merge PR #1 → retarget PR #2 vào main → kiểm S1–S5/final reviewers và tạo commit C toàn-tree → Owner tự đăng GitHub comment xác nhận C → commit R chỉ lưu acceptance record thật → review/merge riêng. Bất kỳ thay đổi contract sau C cần review lại. C/R **chưa tồn tại**.
+
+**Q11:** Cho phép sandbox/UAT từng mode; không tính là EV-15. Pilot NPP-01 vẫn 3A+3B_ONLINE+2MIXED/ngày × ≥5 ngày; writer độc quyền toàn Kho-01 khi cutover. Các mode production vẫn NO_GO/PENDING.
+
 **Nguồn gap thực** là `../s4/tenant-operations-dossier.schema.json` với `TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL`; `discoveryGaps[]` được lưu ở S4, không tạo bản sao song song. S5 `gapDecisions[]` chỉ tham chiếu `gapId` đó để đề xuất disposition.
 
 **Không suy diễn:** requestedModes ≠ admittedModes; EV-14 trước Pilot ≠ EV-15 sau Pilot; Pilot của NPP-01 không thành template toàn ngành; P0 không waive; B_NO_CHANNEL luôn BLOCKED; offline A yêu cầu E2E riêng; toàn Kho-01 phải độc quyền ghi sau cutover.

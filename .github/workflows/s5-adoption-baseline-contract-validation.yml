@@ -16,6 +16,7 @@ on:
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
       - 'reports/2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md'
       - '.github/workflows/s5-adoption-baseline-contract-validation.yml'
   push:
     branches:
@@ -35,6 +36,7 @@ on:
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
       - 'reports/2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md'
       - '.github/workflows/s5-adoption-baseline-contract-validation.yml'
 permissions:
   contents: read
@@ -57,6 +59,8 @@ jobs:
           S5=reports/2026-11-13-10-product-reference-go-live-blueprint/s5
           node "$S5/s5-validate.mjs" --report s5-contract-report.json
           node "$S5/s5-regression.mjs"
+          node "$S5/s5-owner-governance-validation.mjs"
+          node "$S5/s5-owner-governance-regression.mjs"
       - name: JSON Schema + semantic negative tests (synthetic only)
         shell: bash
         run: |
@@ -64,6 +68,8 @@ jobs:
           python -m pip install 'jsonschema>=4.20,<5'
           S5=reports/2026-11-13-10-product-reference-go-live-blueprint/s5
           python "$S5/s5-schema-tests.py"
+          python "$S5/s5-owner-acceptance-schema-tests.py"
+          python "$S5/s5-owner-acceptance-schema-tests.py" --acceptance "$S5/product-baseline-acceptance.example.json"
           python "$S5/s5-schema-tests.py" --adoption "$S5/tenant-adoption-profile.example.json" --dossier reports/2026-11-13-10-product-reference-go-live-blueprint/s4/tenant-operations-discovery.example.json --answers "$S5/questionnaire-responses.example.json"
           python "$S5/s5-schema-tests.py" --pilot "$S5/npp-01-pilot-blueprint.example.json" --freeze "$S5/product-baseline-freeze.candidate.json"
       - name: Upload contract-only report
