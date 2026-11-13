@@ -145,7 +145,35 @@ if schema_path.is_file() and example_path.is_file():
     else:
         try:
             Draft202012Validator.check_schema(schema)
-            Draft202012Validator(schema).validate(example)
+            validator = Draft202012Validator(schema)
+            validator.validate(example)
+            # Owner PADR-02: an explicit approved zero has a different meaning from UNSET.
+            from copy import deepcopy
+            approved_zero = deepcopy(example)
+            approved_zero["customerPolicy"] = {
+                "creditPolicyStatus": "APPROVED",
+                "defaultPaymentTermsDays": 0,
+                "defaultCreditLimitVnd": 0,
+                "creditApprovalPolicyRef": "SYNTHETIC-REF-NOT-REAL-APPROVAL",
+            }
+            validator.validate(approved_zero)  # schema only; NOT Finance sign-off
+            def must_fail(instance: dict, reason: str) -> None:
+                if validator.is_valid(instance):
+                    raise AssertionError("Schema allowed unsafe credit/offline state: " + reason)
+            invalid_unset_zero = deepcopy(example)
+            invalid_unset_zero["customerPolicy"]["defaultCreditLimitVnd"] = 0
+            must_fail(invalid_unset_zero, "UNSET with silently approved zero")
+            invalid_approved_missing_signature = deepcopy(approved_zero)
+            invalid_approved_missing_signature["customerPolicy"]["creditApprovalPolicyRef"] = None
+            must_fail(invalid_approved_missing_signature, "APPROVED without reference")
+            invalid_approved_missing_terms = deepcopy(approved_zero)
+            invalid_approved_missing_terms["customerPolicy"]["defaultPaymentTermsDays"] = None
+            must_fail(invalid_approved_missing_terms, "APPROVED without terms")
+            invalid_offline_without_ttl = deepcopy(example)
+            invalid_offline_without_ttl["offline"]["requested"] = True
+            invalid_offline_without_ttl["offline"]["requestedModes"] = ["A"]
+            must_fail(invalid_offline_without_ttl, "Offline enabled without TTL/cap")
+            print("PASS_SCHEMA_NEGATIVE_OWNER_POLICY 4; approved zero SYNTHETIC_ONLY")
             print("JSON_SCHEMA_VALIDATED: Draft 2020-12 schema and synthetic example")
         except Exception as exc:
             ISSUES.append(f"JSON Schema validation failed: {exc}")

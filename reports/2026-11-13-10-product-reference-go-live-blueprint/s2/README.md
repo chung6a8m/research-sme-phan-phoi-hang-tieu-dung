@@ -84,3 +84,7 @@ Dedupe source dùng namespace \`tenant + sourceSystem + recordType(Txx) + source
 ## S2 v2 — contract đồng bộ sau Owner approvals (13/11/2026)
 Data foundation version s2-v2: T02 UNSET khác APPROVED=0 có synthetic approvalRef; T13 nhận MANUAL_REGISTER như một phương án candidate. F0/F1/F2, source hashes và manifest phải tái tạo cùng phiên bản này. Test engine phải reject lẫn s2-v1/v2; không tự gán zero cho thiếu nguồn.
 R009 EV-01..15 vẫn MODEL_ONLY/EVIDENCE_PENDING trên hệ thống thật, INV-09 NOT_RUN. S2 CSV/model chỉ là synthetic; never Tenant Go-Live.
+
+### Evidence CI sau migration s2-v2
+
+Trên commit `d4843a8bce2c`, [GitHub Actions run 43390753870](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43390753870) báo SUCCESS: 343 scenarios MODEL_ONLY và 32 CSV regression MODEL_ONLY, JSON Schema valid, import dry-run non-writing. Kết quả này không chứng minh runtime/Go-Live. Không áp lại thông tin 26 ca S2-v1 trong các đoạn lịch sử cho schema v2.

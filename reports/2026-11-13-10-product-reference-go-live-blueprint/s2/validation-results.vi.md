@@ -44,3 +44,9 @@ Các lỗi mở được xử lý trong contract kiểm thử: source namespace 
 ## S2 v2 candidate — Owner PADR-02/EVQ-05/06 (13/11/2026)
 Đã cập nhật generator/schema/validator cho T02 UNSET vs APPROVED=0, bổ sung MANUAL_REGISTER và các regression. Kết quả CI #10/#12 là của bản trước s2-v2; chưa được suy PASS cho HEAD mới cho tới khi chạy CI tương ứng.
 Fixture/manifest s2-v2 và E2E sản phẩm thực cần xác minh độc lập. EV-01..15, B-CASE/LEGAL-MEMO và INV-09 không thay đổi evidence.
+
+## Validation trên HEAD s2-v2, ngày 13/11/2026
+
+- GitHub Actions #13/HEAD `d4843a8bce2c` (run [43390753870](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43390753870)): job validate-s2 **SUCCESS** (quan sát log của run).
+- `JSON_SCHEMA_VALIDATED`, `PASS S1_DOC_STRUCTURE` (15D/24BR/24POL/12SOP/9PADR), `PASS_S2_MODEL_ONLY`, `PASS_SCENARIOS_MODEL_ONLY 343`, `PASS_S2_REGRESSION_MODEL_ONLY 32`, `SYNTHETIC_GENERATED 73`, import dry-run thành công.
+- Đây **chỉ là SYNTHETIC_CI_VERIFIED/MODEL_ONLY** trên phiên bản s2-v2. Chưa có ProductVerification PWA/API/SQL/provider, tài liệu pháp lý Finance ký hoặc Tenant Go-Live. Các ca âm tính bổ sung ở JSON Schema cần CI kiểm riêng trên HEAD sau commit này.
