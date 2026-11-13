@@ -41,6 +41,8 @@ TenantDB snapshot **không** chứa toàn bộ sự thật hiện hành. Cần c
 | Journal trước khi durable ACK bị mất | Case/reconstruct từ server durable và giấy/device nguồn; không drop effect thật | F-10/14, EV-08/09 |
 | Hoàn/điều chỉnh kỳ đã khóa | Correction có nguồn/kỳ đúng; không sửa historical ledger hoặc backdate | F-08, EV-07 |
 
+**Kiểm tra bắt buộc F-22 —** restore snapshot trước hóa đơn provider đã tạo và trước PrivacyActionLedger/revocation hiện hành: phải truy vấn external registry và current authority độc lập; thiếu nguồn thì giữ QUARANTINED, không phát lại hóa đơn hoặc hồi sinh quyền.
+
 ## 5. Hồ sơ kết quả drill bắt buộc
 
 Ghi `testRunId`, environment, build/DB schema, source snapshot SHA256, backup/restore IDs, timestamps & timezone, measured RPO/RTO (không tự chốt target), wallet/key custody reviewer theo policy bảo mật, **bảng diff trước/sau từng sổ**, pending journal/UNKNOWN, external read-back, roles & signingRefs. Đính bằng chứng dạng sanitized + hash/retention theo [S3 evidence-run](../s3/evidence-run.schema.json). Phân biệt `EXECUTED_UNREVIEWED` với QA và Tenant Owner acceptance.

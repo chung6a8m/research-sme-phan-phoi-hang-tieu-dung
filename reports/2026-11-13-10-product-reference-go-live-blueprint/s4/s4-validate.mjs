@@ -46,6 +46,7 @@ export function validate(x){
  for(const id of evIds)check(c.some(o=>o.evIds.includes(id)),"missing EV trace "+id);
  const op=id=>c.find(o=>o.controlId===id);
  check(op("OPS-05").requiredEvidence.includes("UI/API/SQL/job/import/ETL/offline") && op("OPS-05").gateIds.includes("G-STOCK"),"whole warehouse path inventory");
+ check(op("OPS-08").evIds.includes("EV-03") && op("OPS-08").appliesToModes.includes("MIXED"),"mixed source ledger EV-03 trace");
  check(op("OPS-13").severity==="P0" && op("OPS-13").gateIds.includes("G-STOCK"),"legacy writer fence P0");
  check(op("OPS-14").failureAction.includes("Forward-only"),"first business effect must be irreversible");
  check(op("OPS-18").appliesToModes.includes("OFFLINE_WRITE") && op("OPS-18").evIds.includes("EV-08"),"offline real device gate");
