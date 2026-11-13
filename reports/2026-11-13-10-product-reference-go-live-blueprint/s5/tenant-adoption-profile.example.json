@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "TENANT_ADOPTION_CANDIDATE_NOT_APPROVAL",
+  "tenantId": "SYNTHETIC_ONLY_NOT_NPP_01",
+  "profileVersion": "SYNTHETIC_S5_CANDIDATE",
+  "baselineCandidateId": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "sourceRefs": {
+    "s4Dossier": "../s4/tenant-operations-discovery.example.json",
+    "questionnaire": "questionnaire-responses.example.json",
+    "tenantPolicy": null
+  },
+  "requestedModes": [
+    "A",
+    "B_ONLINE"
+  ],
+  "admittedModes": [],
+  "offlineWriteEnabled": false,
+  "gapDecisions": [
+    {
+      "gapId": "SYNTHETIC_GAP_001",
+      "action": "BLOCKED",
+      "relatedControlIds": [
+        "OPS-25"
+      ],
+      "relatedPolicyIds": [
+        "POL-18"
+      ],
+      "relatedCfgIds": [
+        "CFG-18"
+      ],
+      "sourceRefs": [],
+      "ownerReviewStatus": "PENDING_OWNER",
+      "ownerDecisionRef": null,
+      "nextAction": "Collect verified invoice provider readiness for B_ONLINE"
+    }
+  ],
+  "readiness": {
+    "seller": "EVIDENCE_PENDING",
+    "legal": "EVIDENCE_PENDING",
+    "provider": "EVIDENCE_PENDING",
+    "accounting": "EVIDENCE_PENDING",
+    "legacyWriterInventory": "NOT_COLLECTED",
+    "opening": "NOT_COLLECTED",
+    "privacy": "EVIDENCE_PENDING",
+    "ev14": "NOT_RUN",
+    "ev15": "NOT_RUN"
+  },
+  "ownerAcceptanceRef": null,
+  "productVerificationRef": null,
+  "tenantGoLiveAcceptanceRef": null,
+  "notes": "SYNTHETIC example only; not actual NPP-01 input."
+}

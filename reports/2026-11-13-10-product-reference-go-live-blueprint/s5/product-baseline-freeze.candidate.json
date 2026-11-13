@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "PRODUCT_BASELINE_FREEZE_CANDIDATE_NOT_OWNER_APPROVAL",
+  "baselineId": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "parentReviewedHead": "967e7b9239060c242c183cd1c6a1434467edf08b",
+  "baselineFreezeCommitSha": null,
+  "decisionStatus": "OWNER_DECIDED_IN_CHAT",
+  "status": "FREEZE_CANDIDATE_REVIEW_PENDING",
+  "productDocReadiness": "DOC_READY_CANDIDATE_ONLY",
+  "ownerAcceptance": {
+    "state": "PENDING",
+    "approvalRef": null,
+    "acceptedAt": null,
+    "acceptedBy": null
+  },
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "productDecisionIds": [
+    "PADR-01",
+    "PADR-02",
+    "PADR-03",
+    "PADR-04",
+    "PADR-05",
+    "PADR-06",
+    "PADR-07",
+    "PADR-08",
+    "PADR-09"
+  ],
+  "evidenceGateDecisionIds": [
+    "EVQ-01",
+    "EVQ-02",
+    "EVQ-03",
+    "EVQ-04",
+    "EVQ-05",
+    "EVQ-06",
+    "EVQ-07"
+  ],
+  "tadrStatus": [
+    {
+      "tadrId": "TADR-01",
+      "status": "DESIGN_CANDIDATE"
+    },
+    {
+      "tadrId": "TADR-02",
+      "status": "DESIGN_CANDIDATE"
+    },
+    {
+      "tadrId": "TADR-03",
+      "status": "DESIGN_CANDIDATE"
+    },
+    {
+      "tadrId": "TADR-04",
+      "status": "DESIGN_CANDIDATE"
+    },
+    {
+      "tadrId": "TADR-05",
+      "status": "DESIGN_CANDIDATE"
+    },
+    {
+      "tadrId": "TADR-06",
+      "status": "DESIGN_CANDIDATE"
+    }
+  ],
+  "sourceDocuments": [
+    "../product-policy-catalog.vi.md",
+    "../product-adrs.vi.md",
+    "../owner-decisions-and-evidence-gates.vi.md",
+    "../sop-a-b-mixed.vi.md",
+    "../role-and-approval-matrix.vi.md",
+    "../tenant-profile.schema.json",
+    "../s1-traceability.vi.md",
+    "../s2/data-dictionary.json",
+    "../s2/fixture-manifest.json",
+    "../s3/acceptance-matrix.json",
+    "../s3/evidence-register.json",
+    "../s3/mode-gates.json",
+    "../s4/operational-controls.json",
+    "../s4/tenant-operations-dossier.schema.json",
+    "../evq-acceptance-gates.vi.md",
+    "../report.vi.md",
+    "README.md"
+  ],
+  "unresolved": {
+    "evidenceIds": [
+      "EV-01",
+      "EV-02",
+      "EV-03",
+      "EV-04",
+      "EV-05",
+      "EV-06",
+      "EV-07",
+      "EV-08",
+      "EV-09",
+      "EV-10",
+      "EV-11",
+      "EV-12",
+      "EV-13",
+      "EV-14",
+      "EV-15"
+    ],
+    "bCases": [
+      "B-CASE-001",
+      "B-CASE-002",
+      "B-CASE-003"
+    ],
+    "legalMemo": "EVIDENCE_PENDING",
+    "inv09": "NOT_RUN",
+    "slothresholds": "UNSET",
+    "rpoRto": "UNSET"
+  },
+  "modeState": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "s6HandoffStatus": "PREPARED_NOT_EXECUTED"
+}
