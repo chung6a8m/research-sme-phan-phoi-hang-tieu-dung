@@ -1,0 +1,52 @@
+name: S3 P05 acceptance-contract checks (NOT E2E)
+on:
+  pull_request:
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/golden-oracles.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fault-case-catalog.csv'
+      - '.github/workflows/s3-acceptance-contract-validation.yml'
+  push:
+    branches:
+      - 'research/2026-11-13-product-reference-go-live-blueprint'
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/golden-oracles.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fault-case-catalog.csv'
+      - '.github/workflows/s3-acceptance-contract-validation.yml'
+permissions:
+  contents: read
+jobs:
+  validate-s3-contract-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate AC/EV/Gherkin/fault/mode trace (NOT runtime E2E)
+        shell: bash
+        run: |
+          set -euo pipefail
+          S3=reports/2026-11-13-10-product-reference-go-live-blueprint/s3
+          node "$S3/s3-validate.mjs" --report s3-contract-report.json
+          node "$S3/s3-regression.mjs"
+      - name: Schema and negative evidence claims
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install 'jsonschema>=4.20,<5'
+          python reports/2026-11-13-10-product-reference-go-live-blueprint/s3/s3-evidence-schema-test.py
+      - name: Upload contract report (NOT runtime evidence)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s3-contract-validation-not-runtime-evidence
+          path: s3-contract-report.json
+          retention-days: 7
