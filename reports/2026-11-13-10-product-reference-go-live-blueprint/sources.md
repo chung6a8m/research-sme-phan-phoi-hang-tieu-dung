@@ -17,3 +17,10 @@ Mọi bản phát hành tiếp theo cần giữ nhãn riêng cho OWNER_DECIDED, 
 Schema/example chỉ là `DESIGN_CANDIDATE` và `SYNTHETIC_FIXTURE`; thiếu seller profile, tax profile, provider thực là cố ý. Không dùng `tenant-profile.example.json` để phát hành hóa đơn/credit grant hoặc làm bằng chứng production. JSON Schema không tự kiểm được legal, role approval hay release admission.
 
 Xem [S1 structural check](s1-validation-results.vi.md) để biết những gì đã kiểm và những gì **chưa chạy**. B-CASE/LEGAL-MEMO, EV-01–15, release/pilot và Owner acceptance theo R009 vẫn cần chứng cứ độc lập.
+
+## Bổ sung phạm vi S2 (13/11/2026)
+
+Đã chuyển danh mục R010-F thành file CSV/JSON/script thực trong [S2](s2/README.md), dựa vào BR/DC/AC của R009 và Product Standard S1. Số liệu và nguồn đều \`SYNTHETIC_S2\`, không có dữ liệu khách hàng/tên/MST/địa chỉ thật. 343 trip scenario được tạo bằng opening snapshot riêng, không phải chuỗi giao dịch thực hay benchmark. Giá, hạn nợ, VAT và invoice eligibility không được suy từ model thành thiết lập cho một NPP.
+
+Kết quả GitHub Actions workflow S2 ngày 13/11/2026 ghi ở [validation results](s2/validation-results.vi.md); chỉ kiểm bộ mô hình và CSV, không có seller/legal provider, chứng từ kế toán thực hoặc Go-Live acceptance. S1 PADR vẫn chờ Owner. File workbook Excel mẫu sinh bằng artifact_tool ở phiên chat; repository chứa script tái lập, không lưu bản binary XLSX trong lần S2 này.
+

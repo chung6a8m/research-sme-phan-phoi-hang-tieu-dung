@@ -125,3 +125,20 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 **Kết quả kiểm cấu trúc:** [R010-S1-VAL](s1-validation-results.vi.md) ghi 15 D/24 BR/24 POL/12 SOP/9 PADR được kiểm trace và 140 liên kết nội bộ không lỗi trên HEAD `e2de94e` bằng đọc GitHub. **Chưa chạy trực tiếp script Python hoặc CI**, không suy đã qua product/legal/pilot tests.
 
 **Đánh dấu checklist §8:** P01/P02 **đã có tài liệu ứng viên**, chưa đạt điều kiện **Owner Product Baseline acceptance**. P03–P08 tiếp tục chưa triển khai. Ghi nhận kết quả chạy kiểm tra thực tế riêng sau khi kiểm.
+
+## 10. Triển khai S2 Data Foundation (13/11/2026)
+
+**Tình trạng:** \`S2_ARTIFACTS_IMPLEMENTED_SYNTHETIC_CI_VERIFIED / OWNER_REVIEW_PENDING\`. Các checklist S0/S1 ở phần trước là ghi nhận lịch sử tại thời điểm đó; gói P03/P04 sau đây **đã tạo file thực và qua mô hình/CI synthetic**, không được đánh đồng với \`DOC_READY\` được Owner chấp nhận.
+
+| Gói | Tài liệu/đầu ra đã commit | Ranh giới |
+|---|---|---|
+| P03 Data Templates | [S2 README](s2/README.md), [Data Dictionary](s2/data-dictionary.json), 14 CSV header \`s2/templates/blank/\`, [examples](s2/examples.json) | Mẫu giả, chưa có số liệu nhập NPP |
+| P03 Import/Dry-run | [CSV/Excel onboarding guide](s2/import-template-guide.vi.md), [non-writing validator](s2/s2-import-dry-run.mjs), [Excel builder](s2/s2-create-xlsx.py) | Chỉ parse/FK/hash/số học mẫu; không ghi DB; binary XLSX cung cấp trong cuộc trò chuyện, không commit |
+| P04 Fixtures | [F0/F1/F2](s2/fixtures/), [manifest](s2/fixture-manifest.json), [generator](s2/s2-data-tool.mjs) | Seed cố định, \`MODEL_ONLY\`, không có hiện thực kho/vận hành |
+| P04 Expected & scenarios | [AC-03/19/20/21](s2/golden-oracles.json), [343 chuyến độc lập](s2/trip-scenarios.json), [fault catalogue](s2/fault-case-catalog.csv) | Mỗi trip dùng opening snapshot độc lập; không tạo sổ kho cộng dồn |
+| Quality | [Data Quality](s2/data-quality-and-reconciliation.vi.md), [validation results](s2/validation-results.vi.md), [GitHub workflow](../../.github/workflows/s2-synthetic-validation.yml) | GitHub Actions Node synthetic success; thiếu test PWA/API/SQL và bằng chứng NPP |
+
+**CI:** https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43359259490 (**success** tại lần kiểm). Không dùng \`MODEL_ONLY\` hoặc \`SYNTHETIC_CI_VERIFIED\` làm \`PRODUCT_VERIFIED\`, \`PILOT_VERIFIED\` hay ký \`GO\`.
+
+**Handoff S3:** bổ sung acceptance BDD, seeded concurrency/fault injection trên code thật, R009 AC-01–21/EV-01–15, actual ledger diff và trạng thái mode-specific. **S1 PADR-01–09 vẫn \`PROPOSED_FOR_OWNER_REVIEW\`**; tất cả cổng P0 NPP/hóa đơn/writer/cutover giữ nguyên.
+

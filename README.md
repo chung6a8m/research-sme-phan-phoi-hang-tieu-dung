@@ -44,6 +44,11 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 | R010-S1-POL | [24 Product Policies + 24 key cấu hình](reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md) | Bám BR-01–24; các default mới là `PRODUCT_DEFAULT_PROPOSED`. |
 | R010-S1-TP | [Tenant Profile logical schema](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile-schema.vi.md), [JSON Schema](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json), [ví dụ synthetic](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.example.json) | Schema `DESIGN_CANDIDATE`, ví dụ DRAFT không dùng production. |
 | R010-S1-ADR | [9 Product ADR ứng viên](reports/2026-11-13-10-product-reference-go-live-blueprint/product-adrs.vi.md) | PADR-01–09 đang `PROPOSED_FOR_OWNER_REVIEW`, không thay quyết định R009. |
+| R010-S2 | [S2 — Data Foundation P03/P04](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md) | 14 CSV blank + dictionary/example + F0/F1/F2 + 343 trip model + Node checks; **synthetic CI success**, Owner pending. |
+| R010-S2-IMPORT | [Hướng dẫn nhập CSV/Excel và dry-run](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/import-template-guide.vi.md) | CSV + Excel generator và non-writing validator; không là import/cutover thật. |
+| R010-S2-QUALITY | [Kiểm chất lượng/đối soát](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/data-quality-and-reconciliation.vi.md) | Ràng buộc opening/kho–tiền–nợ; Go-Live blocker độc lập. |
+| R010-S2-SCENARIO | [Kịch bản F0/F1/F2 và oracle](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/reference-scenarios.vi.md) | Các ca và expected giả lập, không phải fault injection thật. |
+| R010-S2-VAL | [Báo cáo kiểm chứng S2](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/validation-results.vi.md) | Model checks và GitHub Actions success; chưa product/pilot verified. |
 | R010-S1-VAL | [Kết quả kiểm cấu trúc S1](reports/2026-11-13-10-product-reference-go-live-blueprint/s1-validation-results.vi.md) | Đã đối chiếu ID/truy vết/link/JSON qua GitHub; không phải kiểm chứng ứng dụng hoặc Owner approval. |
 | R010-S1-TR | [Truy vết S1](reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md) và [validator](reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py) | Cấu trúc D/BR→POL/SOP→AC/EV; không phải kiểm thử ứng dụng. |
 | R010-S | [Nguồn và giới hạn bằng chứng R010](reports/2026-11-13-10-product-reference-go-live-blueprint/sources.md) | Tách kế thừa R009 với giả định sản phẩm và chứng cứ thực chưa có. |
@@ -161,6 +166,8 @@ Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi
 **Blueprint sản phẩm ngày 13/11/2026:** [R010](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) đề xuất bộ chuẩn đa NPP và [catalog dữ liệu nhập/fixture](reports/2026-11-13-10-product-reference-go-live-blueprint/template-catalog-and-fixtures.vi.md). S0 mới là kế hoạch/đề bài, không khẳng định P01–P08, sản phẩm hay Go-Live đã xong. R009/NPP-01 giữ nguyên lịch sử.
 
 **Bổ sung S1/P01–P02 ngày 13/11/2026:** [R010 §9](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) đã có bộ SOP/roles/policies/schema/ADR và trace ứng viên trên PR #2. **S1 đã soạn tài liệu, chờ Owner review**; không coi default giả lập là chính sách đã duyệt, chưa tạo fixture/import S2 hoặc evidence Go-Live.
+
+**Bổ sung S2/P03–P04 ngày 13/11/2026:** [R010-S2](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md) hiện có các bộ template CSV, dictionary, F0/F1/F2, trip projections, import dry-run, script tạo Excel và CI mô hình. Đây là `S2_ARTIFACTS_IMPLEMENTED_SYNTHETIC_CI_VERIFIED` **chờ review**, không phải sản phẩm Go-Live. Workbook Excel mẫu được tạo trong phiên chat và script tái tạo đã vào PR; binary XLSX chưa commit. Các mệnh đề S0/S1 cũ phản ánh thời điểm tạo tương ứng.
 
 ## Quy tắc sử dụng kết quả
 

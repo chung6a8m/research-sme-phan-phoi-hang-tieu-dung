@@ -1,6 +1,8 @@
 # R010-F — Blueprint template nhập liệu & bộ fixture giả lập
 
-**Trạng thái:** TEMPLATE_CATALOG_PROPOSED. Đây là danh mục trường và kịch bản **để tạo** template/fixture sau; chưa có file XLSX/CSV, import validator hoặc bộ seed hoàn chỉnh.
+**Cập nhật 13/11/2026 (S2):** [Gói S2 thực tế](s2/README.md) đã có 14 CSV, dictionary, generator/validator, bộ F0/F1/F2 và oracle; CI dữ liệu giả lập đạt. Nội dung **TEMPLATE_CATALOG_PROPOSED** bên dưới mô tả đề xuất tại S0, không còn phản ánh trạng thái tạo file hiện tại. Workbook Excel được tạo riêng trong cuộc trò chuyện, còn PR có [script dựng lại](s2/s2-create-xlsx.py).
+
+**Trạng thái tại S0:** TEMPLATE_CATALOG_PROPOSED. Đây là danh mục trường và kịch bản **để tạo** template/fixture sau; chưa có file XLSX/CSV, import validator hoặc bộ seed hoàn chỉnh.
 
 **Ràng buộc:** [R009 logical Data Contracts](../2026-11-13-09-mvp-specification-baseline/glossary-and-data-contracts.vi.md) và [R009 acceptance oracle](../2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md). Tất cả dữ liệu mẫu đều là **giả lập** và không dùng MST, địa chỉ, PII hoặc chứng từ NPP thật.
 
