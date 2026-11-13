@@ -72,6 +72,12 @@ try{
  check("orphan Customer FK",d=>modify(d,"T03",0,{customerCode:"UNKNOWN-CUSTOMER"}),"FK_ORPHAN");
  check("advance arithmetic",d=>modify(d,"T10",0,{outstanding:"1"}),"ADVANCE_BALANCE");
  check("invalid UoM denominator",d=>modify(d,"T04",0,{conversionDenominator:"0"}),"UOM_CONVERSION");
+ check("T02 UNSET and approved zero synthetic baseline",()=>{});
+ check("UNSET terms cannot silently be zero",d=>modify(d,"T02",0,{creditTermsDays:"0"}),"CREDIT_UNSET_CONFLICT");
+ check("UNSET limit cannot silently be zero",d=>modify(d,"T02",0,{creditLimitVnd:"0"}),"CREDIT_UNSET_CONFLICT");
+ check("APPROVED zero requires approval ref",d=>modify(d,"T02",1,{creditApprovalRef:""}),"CREDIT_APPROVAL_REQUIRED");
+ check("APPROVED needs terms",d=>modify(d,"T02",1,{creditTermsDays:""}),"CREDIT_APPROVAL_REQUIRED");
+ check("manual adapter still non-posting",d=>modify(d,"T13",0,{adapterType:"MANUAL_REGISTER"}));
  check("quoted comma and double-quote",d=>modify(d,"T02",0,{customerLabel:'SYNTH, "QUOTE"'}));
  check("missing source hash",d=>modify(d,"T02",0,{sourceHash:""},false),"REQUIRED_META");
  check("orphan tenant",d=>modify(d,"T03",0,{tenantCode:"UNKNOWN-TENANT"}),"TENANT_ORPHAN");

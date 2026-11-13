@@ -74,3 +74,10 @@ python "$S2/s2-create-xlsx.py" /tmp/S2_NPP_Import_Templates.xlsx
 - **A/B:** A chỉ cho \`aReservationRef\`; B_ONLINE chỉ cho \`bQuotaRef\`; MIXED bắt buộc cả hai và B_NO_CHANNEL chưa được phép tạo chuyến giao dịch.
 
 **Hành động khi nâng bản mẫu:** loại bỏ file CSV/XLSX tạo trước lần sửa các header T05/T11/T14 hoặc chuyển đổi có kiểm soát theo [data dictionary](data-dictionary.json). Sinh lại template bằng các công cụ hiện tại; không tự suy \`sourceLineId\`, nhân viên lái xe hay quyết định Go-Live khi thiếu chứng từ.
+
+## Migration s2-v2 — Owner decisions 13/11/2026
+- T02 adds creditPolicyStatus (UNSET/APPROVED) and creditApprovalRef. UNSET requires blank terms/limit/ref; approved zero is separate and needs a Finance approval reference.
+- All 14 templates now use schemaVersion=s2-v2. Do not import s2-v1 as v2 without explicit migration, source rehash, review and approval. Never manufacture zero/approval from unknown v1 data.
+- T13 adds MANUAL_REGISTER as structural adapter type, not a product-posted method. Requires source IDs, maker/checker, actual read-back/POSTED and Finance reconciliation evidence.
+- B scope: A/B_ONLINE/MIXED with B online; B alternative invoice channel when PWA offline deferred; B_NO_CHANNEL BLOCKED. T01 requested != admitted, T14 is never an approval signature.
+- Synthetic approved-zero sample approvalRef is NOT real Finance evidence.

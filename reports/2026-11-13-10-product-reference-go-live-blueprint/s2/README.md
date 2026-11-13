@@ -80,3 +80,7 @@ Workbook này là form hỗ trợ nhập liệu và tra từ điển; **không t
 Dedupe source dùng namespace \`tenant + sourceSystem + recordType(Txx) + sourceRecordId\`: mã 001 của Customer và mã 001 của SKU không bị xung đột chỉ vì trùng ký tự. Trong **cùng loại**, source ID/hash xung đột phải chặn. A chỉ có AReservation, B_ONLINE chỉ có BQuota, MIXED có cả hai; B_NO_CHANNEL vẫn BLOCKED.
 
 **Tương thích template:** Các header T05/T11/T14 đã thay đổi; cần tái tạo CSV/Excel mới và remap các file nhập cũ trước dry-run. Đây vẫn là schema nghiên cứu \`s2-v1\` chưa được duyệt cho production. CI không thay bằng chứng writer toàn kho, offline/restore, hóa đơn B/LEGAl, kế toán hoặc ký Go-Live.
+
+## S2 v2 — contract đồng bộ sau Owner approvals (13/11/2026)
+Data foundation version s2-v2: T02 UNSET khác APPROVED=0 có synthetic approvalRef; T13 nhận MANUAL_REGISTER như một phương án candidate. F0/F1/F2, source hashes và manifest phải tái tạo cùng phiên bản này. Test engine phải reject lẫn s2-v1/v2; không tự gán zero cho thiếu nguồn.
+R009 EV-01..15 vẫn MODEL_ONLY/EVIDENCE_PENDING trên hệ thống thật, INV-09 NOT_RUN. S2 CSV/model chỉ là synthetic; never Tenant Go-Live.

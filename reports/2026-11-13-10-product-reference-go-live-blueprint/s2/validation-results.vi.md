@@ -40,3 +40,7 @@ S3 nên mở Gherkin/test matrix cho AC-01..21 và EV-01..15, dùng fixtures hi�
 Run #10 xác nhận **JSON_SCHEMA_VALIDATED**, **PASS S1_DOC_STRUCTURE** (D15/BR24/POL24/SOP12/PADR9), **PASS_SCENARIOS_MODEL_ONLY 343** và **PASS_S2_REGRESSION_MODEL_ONLY 26**. S2 generator/dry-run trên fixture tái tạo cũng thành công. Các test này kiểm mô hình/CSV/metadata, **không** kiểm SQL/PWA, provider/legal, tenant data approval, restore/cutover hoặc pilot.
 
 Các lỗi mở được xử lý trong contract kiểm thử: source namespace liên loại, T05 nhiều dòng một document, T14 nhiều evidence case/mode, ma trận A/B/MIXED, ràng buộc một writer/trip không cấm thiết bị tái sử dụng, T01 requestedModes đa giá trị, và tách delivery/driver trong T11. Trạng thái Product ADR vẫn đề nghị Owner review, không tự chuyển \`ACCEPTED\`.
+
+## S2 v2 candidate — Owner PADR-02/EVQ-05/06 (13/11/2026)
+Đã cập nhật generator/schema/validator cho T02 UNSET vs APPROVED=0, bổ sung MANUAL_REGISTER và các regression. Kết quả CI #10/#12 là của bản trước s2-v2; chưa được suy PASS cho HEAD mới cho tới khi chạy CI tương ứng.
+Fixture/manifest s2-v2 và E2E sản phẩm thực cần xác minh độc lập. EV-01..15, B-CASE/LEGAL-MEMO và INV-09 không thay đổi evidence.

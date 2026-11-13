@@ -74,3 +74,8 @@ Kiểm tra \`Trip\` theo đúng ma trận:
 Cùng installation có thể dùng nhiều chuyến tuần tự; hai installation **trong một chuyến** bị chặn, grantId không được tái sử dụng ở chuyến khác. Xe máy nhân viên giao và lái là cùng người; xe tải có thể phân vai. Các ràng buộc này là structural checks; tính độc quyền trong SQL/PWA và phân quyền theo thời điểm thuộc S3/S6.
 
 Đã có [26 ca regression](s2-regression-tests.mjs) gồm mã nguồn đa loại, source/line, multi-evidence, A/B/MIXED, writer reuse/concurrency giả lập, driver, thiếu metadata, FK, balance, CSV quoted/formula. Không coi chúng là fault injection hoặc E2E trên hệ thống thật.
+
+## S2-v2 Credit Policy & Accounting Manual Gate
+- T02 UNSET phải có terms/limit/approvalRef trống, không tự cấp tín dụng; APPROVED gồm cả hạn mức 0 phải có ref (và Finance record thực trước production).
+- MANUAL_REGISTER chỉ là adapter candidate: không thể tự coi RECEIVED=POSTED=RECONCILED, cần immutable source/lookup-read-back và Finance sign-off.
+- Các file s2-v1 cần migration có nguồn và phải rehash; T14 GO/VERIFIED CSV bị cấm như trước.

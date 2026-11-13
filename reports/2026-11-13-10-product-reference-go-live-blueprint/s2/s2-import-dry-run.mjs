@@ -62,6 +62,7 @@ function importPreview(tables,dict,digest){
     const cols=naturalKey.split("|");const duplicates=(tables[spec.id]||[]).filter(x=>x.tenantCode===r.tenantCode&&cols.every(k=>x[k]===r[k]));
     if(duplicates.length>1)error("DUPLICATE_BUSINESS_KEY",spec.id,n,naturalKey,String(r[naturalKey]||""));
   }
+  if(spec.id==="T02"){if(r.creditPolicyStatus==="UNSET"&&(r.creditTermsDays!==""||r.creditLimitVnd!==""||r.creditApprovalRef!==""))error("CREDIT_UNSET_CONFLICT",spec.id,n,"creditPolicyStatus","UNSET forbids explicit values and approval");if(r.creditPolicyStatus==="APPROVED"&&(!/^\d+$/.test(r.creditTermsDays)||!/^\d+$/.test(r.creditLimitVnd)||!r.creditApprovalRef))error("CREDIT_APPROVAL_REQUIRED",spec.id,n,"creditApprovalRef","APPROVED requires terms/limit and approval ref");}
   if(spec.id==="T05"&&+r.qtyBase===0&&+r.totalCost!==0)error("STOCK_BALANCE",spec.id,n,"totalCost","Zero quantity with nonzero value");
   for(const f of spec.fields)if(f.ref){const [other,key]=f.ref.split(".");if(!refs[other]?.[key]?.has((r.tenantCode||"")+"|"+String(r[f.name]??"")))error("FK_ORPHAN",spec.id,n,f.name,f.ref);}
   if(spec.id==="T04"&&(+r.conversionNumerator<=0||+r.conversionDenominator<=0||+r.quantityStep<=0))error("UOM_CONVERSION",spec.id,n,"conversionDenominator","Must be >0");
