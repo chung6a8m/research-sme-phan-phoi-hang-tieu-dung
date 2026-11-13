@@ -17,7 +17,7 @@
     "T01": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T01-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -28,575 +28,655 @@
         "requestedModes": "A|B_ONLINE|MIXED",
         "profileVersion": "1",
         "evidenceStatus": "EVIDENCE_PENDING",
-        "sourceHash": "8a15c3a816e21e3d71d77f1c92fd659e53c4ced623cdbc12aadbe3e3ee32f9f4"
+        "sourceHash": "73d119264fab2806b55be74f12fcc31d6dd37db9ddd54c3392f8728172145cce"
       }
     ],
     "T02": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000001",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0001",
         "customerLabel": "SYNTH_CUSTOMER_1",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "438f0bb05b9731de86db5734f4939bc7279e56459b78baa911aa02a6815c2e79"
+        "sourceHash": "b8150ae79b2cbbc77eef2559ff15a235207347b68ebc65907695f947a5de7dc0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000002",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0002",
         "customerLabel": "SYNTH_CUSTOMER_2",
         "customerGroup": "GT-B",
+        "creditPolicyStatus": "APPROVED",
         "creditTermsDays": "0",
         "creditLimitVnd": "0",
+        "creditApprovalRef": "F1-DEMO-01-SYNTHETIC-APPROVAL-ONLY",
         "status": "ACTIVE",
-        "sourceHash": "07c6c4c276e1011b42f389acd9428c05b6ccd348c7b91f9229942250fecd0a24"
+        "sourceHash": "1684bc18e0b938037f84cca3982ea564e42008d4f19a55bd9b52e517ff29a960"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000003",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0003",
         "customerLabel": "SYNTH_CUSTOMER_3",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "391cdee0e1a5e899ba436bd354f248f8d040dfd3839612442e8fa470d6cdc74f"
+        "sourceHash": "adbc37541dd962e2b4d2f7866e8d2a7694a28ce0a2b225ad5abbfd7e83238f7f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000004",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0004",
         "customerLabel": "SYNTH_CUSTOMER_4",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "9b50aae20eb9f2c8cde285ae8f490d6eb90e1491d060e8b0d9b376840c1db01d"
+        "sourceHash": "411fae94c57fef043e0b87b33f575e1948c8903f7b339ef1fa308b776c45540d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000005",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0005",
         "customerLabel": "SYNTH_CUSTOMER_5",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "3dfea4d32d1c9e3af22f7fbcad6ad481771d030e1b4ee8340ea8311af9d28769"
+        "sourceHash": "40e06bad39f1ac4842fc6a3ee91f25346e2e82a225214600f2a5caa583fbcb0e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000006",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0006",
         "customerLabel": "SYNTH_CUSTOMER_6",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "a58f62f08ef3f6200f62336f2affdfe1ea4ceb4b3d250ebe4557604561b40954"
+        "sourceHash": "4f24eea0d387cb95acf6f130bde66c5f4559ba2e371f95356e22b54adc51b0be"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000007",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0007",
         "customerLabel": "SYNTH_CUSTOMER_7",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "aabb6f4e52ebf3cff9a69fcb7f6d26f2a461781415318ce4cd6e281ef6e6a769"
+        "sourceHash": "686e7c149e9a2dc78dc9cdfbd2adb6495b87993ec3f622649074cff737068b3b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000008",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0008",
         "customerLabel": "SYNTH_CUSTOMER_8",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "c38aa283fc4b3af888a8066a424f953a64c96468dbb40f85c210f65d760acaaf"
+        "sourceHash": "79cb6f285446fcd75b2ea6001a336846d6d224098d502a82f303c4899e1207ca"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000009",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0009",
         "customerLabel": "SYNTH_CUSTOMER_9",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "ed23f14d2c3e773c199175ecca2f4fefbfc746b28871164d668b48793137a346"
+        "sourceHash": "2e35250e9d1e3ecb652e7bbe5e3c180e0265dc9c633facc6e4a76751da3b2ff7"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000010",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0010",
         "customerLabel": "SYNTH_CUSTOMER_10",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "f6c8846a1aaf49a91e93c831db58c8fd0fd94938b790544837a10dde633595b0"
+        "sourceHash": "f5a726e87cd8fbb913dfb4dcab5b31d3fa1c6462c572774b58285fce4dec54ce"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000011",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0011",
         "customerLabel": "SYNTH_CUSTOMER_11",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "7d3abe43687dc27bf28ddcde378dd51ea264e9e9e0e4e3d548179dc5f547574d"
+        "sourceHash": "e1336e75e5165624fa2d1d913dc54ea316f6e65207459ec91b203a460641816b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000012",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0012",
         "customerLabel": "SYNTH_CUSTOMER_12",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "ebd159586a42d36b6bc2f65c955acd07358b83694f33a6a642a5ae543131222c"
+        "sourceHash": "d364ab9c5e198573b27a9768f8419487d8fd9e659b3a0c1d20834a2377c39bd3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000013",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0013",
         "customerLabel": "SYNTH_CUSTOMER_13",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "765f4ed5db790dbfe9c657cc6feeeea1cc22008edb5430864e094c21037d7e65"
+        "sourceHash": "be6eba0ff41d42e3b64ae5dd3ebaf83eadadb695c3cf1bf7afdbfeda2730426a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000014",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0014",
         "customerLabel": "SYNTH_CUSTOMER_14",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "01194d46e7f81f7ab062da16dfa0d2e580dcf806872003a9c928a83e58b31d82"
+        "sourceHash": "ab0a5de6b6d7f0664657af0585d4f037d79ddc929654dd5837043685b28bf67d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000015",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0015",
         "customerLabel": "SYNTH_CUSTOMER_15",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "022a203013281cb002f97cd84ff39accd4c1a5ad130e85e20cc1f42a9dd20334"
+        "sourceHash": "31a78070e5ce8bae73db4b5499885e2ea0c90e80009050867791b3752f3ba194"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000016",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0016",
         "customerLabel": "SYNTH_CUSTOMER_16",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "b169ad29b57e98c548042a36c60d9df70be664c5dd0c56b2059eb74e4cfd6c13"
+        "sourceHash": "015586e820e9bf0266edb48d31ce510836076bb298dd8cfc4333e05ecf5b655b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000017",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0017",
         "customerLabel": "SYNTH_CUSTOMER_17",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "03c79984b7edd256041f047045cdbf0c27aeef6b5359e2f9f460130695a3ed20"
+        "sourceHash": "f9a480fa80e126c627385d3f667e9e6864305807fff53038ebd8b347e4517b40"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000018",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0018",
         "customerLabel": "SYNTH_CUSTOMER_18",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "feb8a59703761c4c81dc8061514adc8523e46539d83ff2e13b858c587cc87b82"
+        "sourceHash": "d9fd8ee69923776aa4851d02bfcedf9cf878561410f21a847c49d33bd8f31700"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000019",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0019",
         "customerLabel": "SYNTH_CUSTOMER_19",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "a0fd21f380104591a12bf0f4450781ddce3bdbc934981ab26712a674a6aa8aa0"
+        "sourceHash": "7c15fc96172675494aef724267e7cfe268b066bcf3ffd63e60a101c33f6ad534"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000020",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0020",
         "customerLabel": "SYNTH_CUSTOMER_20",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "ab82faf1f489dac91693a7b63f06d9d872ef977386a97999a0c1e91974aed8b1"
+        "sourceHash": "da78e35502a229da685745eeea2451aa62ecedc488aa7592b8257192ed43e431"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000021",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0021",
         "customerLabel": "SYNTH_CUSTOMER_21",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "f81b5dc6de240647deb201d3b6b6da694ee962ba9a9ae1cd34162e3d880a0470"
+        "sourceHash": "56d2f9a3347da729c303fa2f3016f672e8cce2535cf4a1cf6fd1ab58e060c4e9"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000022",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0022",
         "customerLabel": "SYNTH_CUSTOMER_22",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "338984597e2af9dc0706a93848bea5e60f1830cfc043921ff829bf324a8a6bfd"
+        "sourceHash": "0f21d21a78a56ef3be3c60cff4a9f9b0e64ee605c29ad952b54abb61a0cc43eb"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000023",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0023",
         "customerLabel": "SYNTH_CUSTOMER_23",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "c964cdd6c68ceb7190f5405ac92507aa5e9d1889163a2bdf3b2793c63d36244a"
+        "sourceHash": "c660f7f30143c794f9844b7402b8771a4d5ecc84177ca4a6bc2acab31088df7d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000024",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0024",
         "customerLabel": "SYNTH_CUSTOMER_24",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "bc01fd9b77707588de8c2bd7b49b9253029385c90c52a4465d0de4b76680ec90"
+        "sourceHash": "0039e43e7c61165fa9e01ef8cb9f4ed37d2af71957cf618a86c2cc95557b12fc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000025",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0025",
         "customerLabel": "SYNTH_CUSTOMER_25",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "4f757afb8d150d0482b8f5c565c0e3686f8294009fc781bf4c72c90cea6f911b"
+        "sourceHash": "301ceabd662074db336b8ae67bbebbcece16effbaca8074825acf0eeb5c1e953"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000026",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0026",
         "customerLabel": "SYNTH_CUSTOMER_26",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "81bb794b938ccac1bc09d0d74373f0419d6ba5a86812d81d7286bb92000b5f68"
+        "sourceHash": "85630d1576e2d8a6c205bec38ed8e903d782f101686db3b866a719866dc26182"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000027",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0027",
         "customerLabel": "SYNTH_CUSTOMER_27",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "ce145b8b2c194eca54243367505721423d4e86c878473dd28b0a3f2fddf5bf1d"
+        "sourceHash": "43db56a05bd5b075ce983c84321d9a5153991caea054c78e6cf899df3380b280"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000028",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0028",
         "customerLabel": "SYNTH_CUSTOMER_28",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "51f5d64e4c9748ae23d7c6639503abc09b551a3d6dab695a14dc2e86247c81a7"
+        "sourceHash": "4066c994f89682ad466222ff4b0805f837b3cfae088652d6b1b31936706a6a2c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000029",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0029",
         "customerLabel": "SYNTH_CUSTOMER_29",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "0fe5db684ada32306ec2a4fe4b963773cb0a8f7a232c0f4f3975fe7ff917ce93"
+        "sourceHash": "0db26009259fb5cd504642be0f58202199806bdb428dd99a9d6ac59f3cff808d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000030",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0030",
         "customerLabel": "SYNTH_CUSTOMER_30",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "e2eaa7e99f2d549bea5a676cb754065a275ef5bf76d5a3ff5938e6576c47818f"
+        "sourceHash": "04f13d052c02f92b3640a4dc76be4b9be217949c3981cba828192e23d3d9b25b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000031",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0031",
         "customerLabel": "SYNTH_CUSTOMER_31",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "4cada1fc3635ad6eb182fc003a7579a9ee49d5ae44a3919243fa38f9282dbaf2"
+        "sourceHash": "9b0825feb35de3edabdd73d30f98446f297306fec1932dc3310499de9e542321"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000032",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0032",
         "customerLabel": "SYNTH_CUSTOMER_32",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "e2ac9dfc816ae0bf9595f1e7103b2a54a1fe2a952300196c7dbf006066bf33b0"
+        "sourceHash": "bd5ac65751efe2e577e04fe3c5f7abffb0e74a765c00ad5b769869f3524e2666"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000033",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0033",
         "customerLabel": "SYNTH_CUSTOMER_33",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "917037c6e4a8f11bf684a27bc3fc941c622e401fba9eabcd4571925effe97edd"
+        "sourceHash": "bf8569272c8a6de5934306457d2915ed25bf1e83491fd724a1e62f8f918d227c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000034",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0034",
         "customerLabel": "SYNTH_CUSTOMER_34",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "32cbae7dae6b1729dfa0bcf51cc51cabea09bcdf1e2efdf93b69ea62b3847634"
+        "sourceHash": "c9d2317e60fb10c2a45ab37c2aca81dcc5c6efe0520b6f83480b37efa3686a04"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000035",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0035",
         "customerLabel": "SYNTH_CUSTOMER_35",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "d8963c216067f4f64fa5ddeee4a5752be4be0025449dfa60d7c53db4a55ecd9c"
+        "sourceHash": "96a7719a65a7fc3fda04d2b33b39e1a58ff21489580ba212d387b164a1b24724"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000036",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0036",
         "customerLabel": "SYNTH_CUSTOMER_36",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "1d14e266983ef4072e22ba8be760372cf1487ed36a86d3eaebb39ba74d8341ab"
+        "sourceHash": "035861b1ccf960b4b80ff397ef04e909376ce986d1ea19eb9292a56ade3528d3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000037",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0037",
         "customerLabel": "SYNTH_CUSTOMER_37",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "4130f5e99661ad76fb0269fe3a62cd4e0073b1217e6656f832a47a095de310e4"
+        "sourceHash": "22de8eb4c63582837e72d8fa4dca7a095c2fbf1aac3f519456e94bb9b8bc0b6c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000038",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0038",
         "customerLabel": "SYNTH_CUSTOMER_38",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "37b12fd0b0b92946d5b4838038b97e4cd620442afe79910212a02f9db10bc0e3"
+        "sourceHash": "814c79e492ec8a63d298f5bddff36ef0972c1f69946b91859036f4f033a5e5f9"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000039",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0039",
         "customerLabel": "SYNTH_CUSTOMER_39",
         "customerGroup": "GT-B",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "3fcb44135228dd33a5ba2f70eed3ef3c2582ac50034713c6b00260013f93b2f1"
+        "sourceHash": "1c0a52b6829b87043189da13c7e85b43e828a41af23b8d6b1a89c940c0df5ea3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T02-000040",
         "importBatchId": "S2-F1-DEMO-01",
         "customerCode": "F1-DEMO-01-C0040",
         "customerLabel": "SYNTH_CUSTOMER_40",
         "customerGroup": "GT-A",
-        "creditTermsDays": "0",
-        "creditLimitVnd": "0",
+        "creditPolicyStatus": "UNSET",
+        "creditTermsDays": "",
+        "creditLimitVnd": "",
+        "creditApprovalRef": "",
         "status": "ACTIVE",
-        "sourceHash": "d7641b54f06529e2973ea49d6cb772d7af0221ea208a25128291cf497bd69f46"
+        "sourceHash": "f253a8d1392ec53eef5c592c6ca3666432ec3038293df58d1a7392e35219ab8a"
       }
     ],
     "T03": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -606,11 +686,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "9b9df278462d0fb73e25f68fdfad2b880e238461f4b17cc6dc463a3a9f2695e4"
+        "sourceHash": "8d2729d9687acf6b72cc019f35ae4743859e1db53afc5a669a4bdef8e6ab4623"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -620,11 +700,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "f9b6f4c0de5ffcdfb70c74b1e28fb102e59f8ed059bd47ac00c1eb659e5684f8"
+        "sourceHash": "5098344064d9215b216bc733f5379e1f119be424e9e89c99d9f4f81220f50f3c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -634,11 +714,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "0fad073a23959377ed195e00f5bd50315ec04731ed23e9d773818652ea8215be"
+        "sourceHash": "0741d3410baeb0e162674e4a349a1c9e3c93cca81075bfc07372994ec89b2c9d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -648,11 +728,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "9626efd0d33e203cfde8b1f645366588fb1d69cf90a9efc311d1f7128429e904"
+        "sourceHash": "ac136a973f1464a19e66c653af13b0c93df7a0819f135bfdd65488d6cc906aac"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -662,11 +742,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "6e98dfba545c34f4479ab14c255ad77f11a13b748c1f2f53c7f5456bab225301"
+        "sourceHash": "408a0d8eff837e9c68ffaf48b4846853474291af6a71cd9c81fc811e484a0d3e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000006",
         "importBatchId": "S2-F1-DEMO-01",
@@ -676,11 +756,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "c62c784bdb60873b11717e38b48665be98a06adee1de8b7552b6f6a3303e8929"
+        "sourceHash": "689150271a1f7ba2ef5d0b590c9eb4baa397014bcb7967987c35f319edd68418"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000007",
         "importBatchId": "S2-F1-DEMO-01",
@@ -690,11 +770,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "f30a5c95627dda57c1069093c61a0ed2916853ad20084dc141ad05ebfc18d858"
+        "sourceHash": "5a79a8a0992f45674198b1dd6761e61da0ff9c70bf1f6009ab4fd8430266b82e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000008",
         "importBatchId": "S2-F1-DEMO-01",
@@ -704,11 +784,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "5c3c69d28411129b92b5dad0032d56a3c78a0c4d6b6e89d7e1add533c9b7c2e8"
+        "sourceHash": "78da532c70ed57f658f9008cfd18a18d65cfd3899c8b80ec19f6ce22c9023566"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000009",
         "importBatchId": "S2-F1-DEMO-01",
@@ -718,11 +798,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "60e9dcc8abd51207d547f3c1711ebd7da1390a1c0cf10dc8b8cb67570d149b8a"
+        "sourceHash": "9fdaf39ad1359ae30265deaba6ef9207e2ed44472743ed156b831a144a941257"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000010",
         "importBatchId": "S2-F1-DEMO-01",
@@ -732,11 +812,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "70441019bba5233fa0c0cb04f16cda977470c26e3295b44bc93dd4a61ebe9775"
+        "sourceHash": "9d02248841e6faa2f0de4800cf19ae8597928b23be392c7864488540658ef6c1"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000011",
         "importBatchId": "S2-F1-DEMO-01",
@@ -746,11 +826,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "0a105f491cb0fc13d5bfa25e1738e86269f4ef717169e5a1164c3a3a387c726c"
+        "sourceHash": "03dff0387df767159d4bfd2c5f5addf473d7cf4c97b77f32a2b0193b127cdb6c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000012",
         "importBatchId": "S2-F1-DEMO-01",
@@ -760,11 +840,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "e8aebafbf87e8fdc831b99ad9ac23bc316c07a6a9cd8dd9f0cc5704ef89ac378"
+        "sourceHash": "be818e79366e6838c5425cacd80b09d9f22c1ce318b07d89d91a12c1ade08f4f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000013",
         "importBatchId": "S2-F1-DEMO-01",
@@ -774,11 +854,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "294b462a7e34283747a060a544f8f3d5763d5c19257895cd15a1240719f0b4af"
+        "sourceHash": "3730043ed2314f135eacf0007d0978dc52064633c82a2b52baaf1740b9cc56d6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000014",
         "importBatchId": "S2-F1-DEMO-01",
@@ -788,11 +868,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "472f102309480c2913769332461f30b340fa35973ad9eef939fb45813580a1a6"
+        "sourceHash": "09e9cd03d50391dd0896dd08f46ad695d89c9d4c36b6b6bf255e38d69ef441a2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000015",
         "importBatchId": "S2-F1-DEMO-01",
@@ -802,11 +882,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "1dd754924a55d074d566f4a3cbb4d363edcd304af0aafb768cb6d9e489998b63"
+        "sourceHash": "e8602bf88ed2fa2d77084245405f3a5fc478319f192628db83c8838b092f2ea5"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000016",
         "importBatchId": "S2-F1-DEMO-01",
@@ -816,11 +896,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "947f8643a4510808781b9b21abd1b98f49cca919e967089fe3d2ec3412d69642"
+        "sourceHash": "f21c3b664eb10928740b95ed855563ace3a2dd2440586dd831ded14a18d9ed6e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000017",
         "importBatchId": "S2-F1-DEMO-01",
@@ -830,11 +910,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "151792546e36f60e8c1c972c23d29730a52b67d2c1b2cbdf673d8030df53195c"
+        "sourceHash": "c38afa4d4ef4293726598bdbac4f420ae797216d356cf93207bc6fb7c0cf83ce"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000018",
         "importBatchId": "S2-F1-DEMO-01",
@@ -844,11 +924,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "7080ead582f61289765f41e398f0aab6d768caf877e2f30ed022bc4d1b9e148b"
+        "sourceHash": "487e7cba91e0fe8de05720453a34e52b9bc6e74b2d810d92dd5d7ad13e224c56"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000019",
         "importBatchId": "S2-F1-DEMO-01",
@@ -858,11 +938,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "9a42ea7bd39a924f6175b39d6152cc33a6b3c672e5646ffa3f89a74f4ae91254"
+        "sourceHash": "7aa06ce87b75aca71b051e2473682ea724c763f3c8b0f4082163682ce49c5b92"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000020",
         "importBatchId": "S2-F1-DEMO-01",
@@ -872,11 +952,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "e3212e6ffab5fe370644bda22b56510df1862e6f1f54ffdf26513bca6b59d52d"
+        "sourceHash": "9a116b5f083783a9689112eeb78bf768906ed96de96abefb40bb452e379f3e51"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000021",
         "importBatchId": "S2-F1-DEMO-01",
@@ -886,11 +966,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "a982bc9e4635f9ef8a25ba5035be5068da020f43dc97d1609838b8d74554fbda"
+        "sourceHash": "418f6a6801f304099dc8c5cf723fe285832ce7d42e0c6d85fc68e36dfa139faf"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000022",
         "importBatchId": "S2-F1-DEMO-01",
@@ -900,11 +980,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "73f2e77ffb8d46d6674654297e0e5db101b05a1a4f00f2bb807ddedc5607cd22"
+        "sourceHash": "b80be65a357234f046780abca60a08392930016a8c1be2e479dd9b0da9d5986e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000023",
         "importBatchId": "S2-F1-DEMO-01",
@@ -914,11 +994,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "d9deddc2d17de484dd05e5f55cf210266696ccaf76f13d46b1835f41ca52df22"
+        "sourceHash": "4f5d88f49c8bdd68dd5834584d0e2174d7f8597bf02f256977d1cfbb41e47910"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000024",
         "importBatchId": "S2-F1-DEMO-01",
@@ -928,11 +1008,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "cd449f51f2b93e37acc61536effef43c83838d09b33b0b54c08f37c831d4e06a"
+        "sourceHash": "5f279287c4d937d3b4198be2e3256d724668754844442ec351931f297c214658"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000025",
         "importBatchId": "S2-F1-DEMO-01",
@@ -942,11 +1022,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "52256a13d69f2feb91db9eb03b384bec8711298483664f51d023d4b65879ae02"
+        "sourceHash": "71ece028476c4a89d2eb1face8057c722bfab8a0a372ea4b87bbed54bcd323ae"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000026",
         "importBatchId": "S2-F1-DEMO-01",
@@ -956,11 +1036,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "a60bc9bf357dde321bac38d586f370eb6d1f26916a336d901911da7ffdbb8c3a"
+        "sourceHash": "7688f71e65a7617086c1702c6cb11d7bcc9772e2b7a866f11f2741911e9d65aa"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000027",
         "importBatchId": "S2-F1-DEMO-01",
@@ -970,11 +1050,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "f34c8666b75d86da69d81c52ed04501686b492d7a07c58652ff8e84058ab8f8f"
+        "sourceHash": "ea1b4488484c6567a6178c4835e9a8ce9db0d943774375ba0f179a338d425dd7"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000028",
         "importBatchId": "S2-F1-DEMO-01",
@@ -984,11 +1064,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "93619b7519a13e9b21e760aef14de787a5b2fa44f93ae64b368e770e3ed8de11"
+        "sourceHash": "0087a748ef4c213d547bf408d43c7af3dcac937b32c53744453fd610e7da9aa4"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000029",
         "importBatchId": "S2-F1-DEMO-01",
@@ -998,11 +1078,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "7e1d47422427ecf5a3dbd3e6f5c386da4b3899d8f38785749c700facdd563f73"
+        "sourceHash": "6cc073de1054ca206eb9838cd0d45a9c44dcf8598b1fb4d8f994fc15e20053cc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000030",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1012,11 +1092,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "fbd8ea01f1facc47298bdd7481d211cef7c5c817005ed19e43bd25e94a35ec64"
+        "sourceHash": "d2fea85166b71cfab681c8b2befb5a621ca3fe1ce81a4220869a8b3a81e64866"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000031",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1026,11 +1106,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "a30687db767f530371004aaa75c98cbb1db04c97ae481cf0717f6ad7814b61c9"
+        "sourceHash": "4d0a9ddca3605d66d00d8d7b879f66ff10c2d18794a6c46f2dfb82eaf55389de"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000032",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1040,11 +1120,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "2f7a27b536ff70bc341f6791d03455898236b4f4bfe2c9996477a7718cdc4741"
+        "sourceHash": "d3f5f9cf7fe116816a0e9dbcf583ac08a331dd4d0ce8be3f2694777b35bb1aa7"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000033",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1054,11 +1134,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "4dadae96486c9f47f1f5dfe9ef7ae764c0b0ec70f20d5fa6565d13f2534ec4d2"
+        "sourceHash": "8739cbfb14e90651e931978e7b5f6debbea37e9689c0c4034c7d6c4f0a35756a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000034",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1068,11 +1148,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "ae5a76c6ad7dd41c9b3d4f2307b1fdea1c3d4dfd0c89545cadefa53baf356a94"
+        "sourceHash": "be7e995bdeeaa205ee40dd35cb6c03cd89d5ec6cd1ffa42c8762d046e2376d87"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000035",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1082,11 +1162,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "57ba860ba1e64ed95742434ee09438c2282edacd93f3049be35bc128e1877d79"
+        "sourceHash": "b4e2e4935b80da7de4d63e95eedd117735c40433d86d0b3ba05a3e88643b8fcc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000036",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1096,11 +1176,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "328d4f658579df8286d5134f9e9a86b36a935a3a810d05ea300c85115b737f00"
+        "sourceHash": "7a0cfd7bbdf8c370f6be33b0d79e5684a5f21ebb45eaa5cbd6aed9107ac2c9dd"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000037",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1110,11 +1190,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "6e8e41705c1969c92f4a1b0aecf96e8c559b8e18f3056b5882dbe9a2cedf629f"
+        "sourceHash": "cae3e6a1745a4e0eea1020bb59e4384a94a9602164d9f3a8043271b57ab2a9a0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000038",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1124,11 +1204,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "bd8d4d25d6767b3f628593a1959377ce08515353be08726b0e8c92e4185d138a"
+        "sourceHash": "7956984eb167f0264eac8eb5c9b684d3e9c218beb4ce4c41d97668a4f8d7b27c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000039",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1138,11 +1218,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "64ebac760a81c5282a868aa19d974edc696b6f7f954aae7e2471791008c5f97d"
+        "sourceHash": "826ec55f342a907959b5870b73e8937247d4cf70d6269c4468b9edba2813268c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000040",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1152,11 +1232,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "ccaa4656f2496b086ba83e96642dd95feaa27d3d682c88a12ee596120df356d2"
+        "sourceHash": "965c1cb7e79a2d866fb17f555cf008dddde537a07d1d0111c6d10f45ff2f6666"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000041",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1166,11 +1246,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "43702448a786e46fc84ea293c8e3759f724c4e3c3a81562f19968f6bd9b0edcd"
+        "sourceHash": "51e735f141655c441104cb7c0f3adba1ca404356b563551e2eec71dc5b7eea73"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000042",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1180,11 +1260,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "380af2cf02874a63ca771646c93f7aefd39ae4000cf13b3a65752180c1c320af"
+        "sourceHash": "ec520e364a0dd6faad23908474c313541ed22769793cadefe7df00455012d83a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000043",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1194,11 +1274,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "6593aba92e4e20f90a8b034bd40f992b0c13c17bb1a67c818bee70c878e62172"
+        "sourceHash": "4402de9cb96de8df91a4c3a9e9f039ce53a440bb3bd1159dffe885352e5f9116"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000044",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1208,11 +1288,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "95b3e721547282ebacd8b078d38c1606a2f448f8e9384f05e629f14b39658b67"
+        "sourceHash": "4c684d9ccae6c1ca2893125d20d2e235aaf4fb6174e442216124cf7b3e3ed919"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000045",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1222,11 +1302,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "7337b949c28e313caadefff7b7587b8bf4300055156e6b8b9d15adc6cf1093d3"
+        "sourceHash": "c1aa45d479103bd8a90a1dea5e9565bc32ece5cf2f867fcc6520608681bd3d30"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000046",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1236,11 +1316,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "97dba77daca07cf8875dd9b5114bce27365d1c2f6c63bab1ee5d988abc126d15"
+        "sourceHash": "281754fb1642cae813f7d472c07476cab68d6966f3de28a7c4a8d96bae309085"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000047",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1250,11 +1330,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "c5bcfcc2893a8dd6134db3751873b06a62d4e9d80206f3ac805ddc72541837f1"
+        "sourceHash": "d21bcdff129b74528df8d690c3e067bfef26c093d849d13c9da3ee40ec0bd1dc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000048",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1264,11 +1344,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "23c880eff7b3e97e8d1dc619ee2a46736f4ba05b6cded57dd00e0f22410b2b5c"
+        "sourceHash": "ad79675e8ea8c215b99dfa778d6b4d08b4da714f362846f370984bc6339fec7b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000049",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1278,11 +1358,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "eb59bcbb9b49043bcd733ae5a4a99f7f25c1606da2ad69d826d82fe9105b2f3f"
+        "sourceHash": "a6a646b8c7fa9ed16a9f1e122fd21396d1e61fe305f4965dd4d64ff1538fa445"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000050",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1292,11 +1372,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "a0aaa5878ff61929f7117f2fb6fea5f93a8d8fd340501b273d5712080657ffb0"
+        "sourceHash": "8657a961732aecd7cee6fbecdeb075ba88e7e96eb53ca216e8276200fb994636"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000051",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1306,11 +1386,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "88f1789a7aabbaa018975405a762be6e61be475610ce6b5ff2112b6c8ea896cc"
+        "sourceHash": "77df3b552988c3e522f9b55d7d503178ad96d8bd01b0d0b0b127bf1c842d9962"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000052",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1320,11 +1400,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "e47cf5fa5ebd2b6964ce0a334df3c258c4acaeb75290566a3f3938a5e7786fde"
+        "sourceHash": "1dd23cf16a4682f2c4cfadde058dd40d9d72749e8a266a0aad6a11f5ebfe4515"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000053",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1334,11 +1414,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "c25647054b5937977a0e372badd76207c49fd9a3361c8accc7e7fbd3e261e0eb"
+        "sourceHash": "69ae81a2b0669d847d453284e3e2235516ddbbad6b9151ff6e74fc5b060b0d27"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000054",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1348,11 +1428,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "4965d7394cfa520f0354efc3efa07307bf46fe24b2cff166308246282dc9a084"
+        "sourceHash": "6182a2cdf6e231b30756c7265fd3ba79cd60c4d485b6392b6844befd1f5e541f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T03-000055",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1362,13 +1442,13 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "status": "ACTIVE",
-        "sourceHash": "b2b3bdea25c0764f16da3b2f8c2fa74d8f437cd38fad064e86bf772de8c3c7bf"
+        "sourceHash": "156f39f152b75069e7241e447021da0d623b6e3ce0d68208ec182260ac2adfcb"
       }
     ],
     "T04": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1380,11 +1460,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "aab46110a514a482ff02f929cfaa59c6d0a30723c529dda032100c12fa8789a8"
+        "sourceHash": "c9e65b23080e91cb3653396dcacc00b002e88da579b47a6390b58f219c9f939e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1396,11 +1476,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "fe83935735c1129763985f3968440e84d62a5ee5c1bd2bd2f3892901f4c1757b"
+        "sourceHash": "dcd5e647ed7698a45fd9776624fccde4a948ebc5532b4bb16332e286cf52f49d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1412,11 +1492,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "6c072e4397571f390a04d8f2751ad235304e697a209ca54a429752ccf4c649d6"
+        "sourceHash": "14ba44b25743470482f4200dcb700c64ee144ae4863b3b3d649d95e965c8c963"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1428,11 +1508,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "b2e3857dff52eddc01bdb7fcd3a38dad183ca079bdab09841d37bbd06236b385"
+        "sourceHash": "60bb956bde02df682eb60a3d756a8537c36fe48afa669dd026c2a82e99d17bfe"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1444,11 +1524,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "0954139a4d48e3076b2464ccdeeff5f11fe30b6ecf68336767e178eb8a0c9dff"
+        "sourceHash": "2c963093caf93cfb22dd29aa7478d7ec0adcd05859f2f10cf4e7d5d46980f4fa"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000006",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1460,11 +1540,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "673bf8beb0c1fdf9f18e92e442228b0da4cae1a7954038fdf5140b45832f13ec"
+        "sourceHash": "a4aea11ffe003e76e34a22b76a89c73d227a22b750ca711bf223d3ef7fc648bc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000007",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1476,11 +1556,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "1307bc6fb2890f7a1363402345876ae91ea4f3ac0a6d8cd499824b6334419efd"
+        "sourceHash": "5aa87de74411062783bdfe9c0e067e1acb04861817f14233a138a1414b8985af"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000008",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1492,11 +1572,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "a0b983a61dd3ada202f37d9c82d0db13c6908c3cfd74bbe7d87968f0b30d0dfa"
+        "sourceHash": "056baf5d0037ed5d9c49a87f5863f8bed53b7a61ac1fdc8208f9e515212d5baf"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000009",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1508,11 +1588,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "3f1dd429ad120b39c221e77d8fde9b4f7c10ed69bb635031643ed934e64ba1e4"
+        "sourceHash": "1f999c9a9885e6d495989bdca7091154a98147136688037512846d9f54c61643"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000010",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1524,11 +1604,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "07dd67d6142ad2816a795c18f9332141dc44c5c8b34b550911de7e733c834680"
+        "sourceHash": "f497efa055abe9ef85bc6e844d1f291b9bdfcd51b8a92f8c0e35075cb8d7834e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000011",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1540,11 +1620,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "49929025eacdb0963d45ec6a25e3cfb49210d1679caa914fa09781b1028c4d4c"
+        "sourceHash": "f2cc388f6fcd903c40185b99ad3e3a4e5e38891597c1cbfa6b00bae010b91a26"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000012",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1556,11 +1636,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "0e8f7fea41a749d1ee4ec43127279e60ad48c12c6c9b7108c61ea74ad307f848"
+        "sourceHash": "bcb8ca4122c08fbb0ba6827db01c743868dd9c4d7a612f3df3bb51eb6967ca84"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000013",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1572,11 +1652,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "a94b5bbc03460ef6f40d097dda2a889cc6710282bfd723f888d4037136bc3b23"
+        "sourceHash": "ecb5c8badc668fc787041006182e9c237c55072658555f64864629d6d8fbda71"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000014",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1588,11 +1668,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "0667b2cbbbad4dbb653fe5455719c50ca4695d44b9257346e6c553f6e5656732"
+        "sourceHash": "0dedd59cd57d72b88d9a3df5316b5902b1dcff4bb5d9bc01da5e77811f213db2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000015",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1604,11 +1684,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "ce6601935f6913a9c8be8ae4eb49950cd14c4e3b138b6b588b8686a5296d76ef"
+        "sourceHash": "9b7baf110edca75478f24357098688c158d9e7f7643595f67da880831e6d6fc1"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000016",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1620,11 +1700,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "ded74ad952d6fb4b2cedc0482a2a3b31b52abfd9db2b53fb1febac8670c7c74b"
+        "sourceHash": "4b3f058e483177b98a156b6a826f7a4db6a3f53e217c729ab49b48c5d916a28e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000017",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1636,11 +1716,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "abea8be73322c5f35aab0ada08f7fc7c3fae7fa49055274facd17547290f7a97"
+        "sourceHash": "bd0f813310ec50d5de3ef50fb786582316e8e67181c32abe66a9655ccfd57af1"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000018",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1652,11 +1732,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "9c122f5c88abefe8141c86421a805ecb671bfeb63c6d6ea44c4f6db7373abf71"
+        "sourceHash": "2e5c92ca22743bcf7e12648925f95683ec42063a49c50d825c53d155f948b9e3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000019",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1668,11 +1748,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "0525176dbef5c34cabc31aad2482ccbae8ef6fa29798311682f7cc52096d7297"
+        "sourceHash": "e5b1d658f8325607eab3f5af039ee0fa6c1aaebec74bd227a8f0507ca4d7a61a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000020",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1684,11 +1764,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "193c4206f63451dfa94791d7b750a406ad5b60e500eade0f012d94724f129a68"
+        "sourceHash": "9afda1943dfafbe8725a8aab2db1b55e2e42b2c550422a86b60f1d3526d3cf38"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000021",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1700,11 +1780,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "48bec2f7b09439491c2fe67911767ebabbe3dfc1a25d5ec210c3b335630c6c28"
+        "sourceHash": "2485a22187cf7a8c94d09f24e17674b7921afd5ac125c45494b1a7c186ee067d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000022",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1716,11 +1796,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "778a75032e0aad51ae171b5a3cca48db8879450df108aec25fac56cc6e03dc0f"
+        "sourceHash": "11c21ef2ef2ea8481999054e43e7728afc9e4785bee8afda041a1d4afe96b4b0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000023",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1732,11 +1812,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "f1ba7a4b9587ed06c1c44c56df5e4f02f774e7df5d392aab6c8bcf76495331b5"
+        "sourceHash": "b9e85039fa45211b2ee7d09e63c45eee26aa6a9db00f6860940140dbf4fe2228"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000024",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1748,11 +1828,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "52abe04c1c16ff94e11da2157be15ddcd2338bbdabb4a851519a829d47097606"
+        "sourceHash": "7555e2a12a332461c913b32bb304889ab1d7b7d1925cd93f5c81e3cdcc7fb6e2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000025",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1764,11 +1844,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "579ba62bc89bf6fdf37cbd0789117eae5e9b358d173c4392ca2d99f6fbcc9f86"
+        "sourceHash": "45d4a11f9aee2943679320a5f77b02c61e96e79fd61e234f0bac2ce46b5b2cd4"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000026",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1780,11 +1860,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "d6afba90d170f24e3410f757aa33db23c835382f5a45b4bcf548e09e9d53f36c"
+        "sourceHash": "e257b4848c4bd8f66c71c8830f180f56e26487eb639ece02f1d76361312b9308"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000027",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1796,11 +1876,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "3d1c9c8577728094d132fb388ebdaabf710565131844f1d1c8ce286f15ba1396"
+        "sourceHash": "a62b9f9ef192bc17a36176b7828d5ba7877c11d09c22430d4413eba71bf31fdb"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000028",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1812,11 +1892,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "aad6f42d1eec0ca8c4f90b506d51db3fa10cb130d6dc5fa707d79ae40bea5404"
+        "sourceHash": "65a966c6d5326f681796b29d9ae53a749b47edc98cb7b20b09f857188f8e27d3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000029",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1828,11 +1908,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "fb15f135fbf66a37dcc92c4593bf4b5d8f419e4b56c08d7f70ced174af4268d8"
+        "sourceHash": "9045f299b232653d3f15f675f56b6d531a621ed90c2266771661ce8381c714a1"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000030",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1844,11 +1924,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "7bcfb8328c6c2d9f48aefe8d2baed8d3942185e1532e19de3fdb34800f2de1f5"
+        "sourceHash": "2969a4b59009cce6d2e86abb5a5de65c28c5d34757eb54cbe88be6359a81373f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000031",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1860,11 +1940,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "3a3d8f27ff517627e6dc43b52cbce7678d494370222f7587d3ff41978a53ff0d"
+        "sourceHash": "4a64fc3b91d82d42b539528d5976d7377c210ef364c304225bbefddd26788746"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000032",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1876,11 +1956,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "1c16c39362fbf7fead2d7bffd1e4f8085014cca7e58e220543548f254509a8ed"
+        "sourceHash": "6897220ecd5eb124f26a185df125a1affab541c167dea4550c15b9c6a3ee8738"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000033",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1892,11 +1972,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "aa14524106c8240df797082a70d64355dbe66ffe40cb3434c76c4014961d1294"
+        "sourceHash": "5e0bdb0d95ca1aefb763e49d72a60ab89de914e4eb795847157f938e72973cd0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000034",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1908,11 +1988,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "6c54fa9d0d05f880d8413f1ae4412eb711e0cf2e79a1319950a51e55a2927967"
+        "sourceHash": "e747a5298af7b634f6819b646c61e235410946bdef09db933e92b3dc4d1a2512"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000035",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1924,11 +2004,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "5a1f86274f8a584265e2c77d9f7ba1038f82109c0998aee53aa7ca0198e29509"
+        "sourceHash": "05b8545f38efd3bc8c320628595915b572bd80361117cd176b19e1b3605293d5"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000036",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1940,11 +2020,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "520e8e972645861127f3926a0b2da1fe0cce1e23d84a41c3c5872e1057769573"
+        "sourceHash": "a5fadc6a257ee267a7c1a3f4d034b0b41bf3ee912f894f4fd0bdd0cb8e6c0418"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000037",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1956,11 +2036,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "19e314b8ab7e574eb223cdf83efa549105d8516d21affa09f00a72bfb81ad1f3"
+        "sourceHash": "51f948477c78d159dc8641885a4d510fd562bfb6a28b10d14268d15e8ea4c67a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000038",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1972,11 +2052,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "d6761ce119790b88c4202d662df75ed044acc51e7859ce5b6a4315827b31b583"
+        "sourceHash": "ba0cc66c34d3261073ba3da838dd80bd5298909d2fe6c569d23c34f23fcb40d3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000039",
         "importBatchId": "S2-F1-DEMO-01",
@@ -1988,11 +2068,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "19562486edc7e6d89971ab480701c353524f9264b9da3a5d748523f5b7af781b"
+        "sourceHash": "a9ce74aff5b6b48cad3081a02bb505cc5bfde3e16383e06a15148f6ddb83cb26"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000040",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2004,11 +2084,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "a785bfab5cdbf5230e25bb76f7d53010564a03b7a78909c6d45d5e204e6ab70f"
+        "sourceHash": "75755b49c29b590ec71b7729d022f466858481523073725b247c7ee69b3c8db6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000041",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2020,11 +2100,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "b78b247f2886c39be103533c756d89cc4bec49d73499224523478ee32f159239"
+        "sourceHash": "35b63c59b8ac1b8006c230bd931e80add01ed7b83279e15a1008a247cc90e563"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000042",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2036,11 +2116,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "9dafa5c1ed739e552d03a8ccf2283d9098ababc1a12565b6025dac8d3ce11332"
+        "sourceHash": "39709480c4c873a75990bee6562a3bc721c3343b5eed9d7a2a0f0270d5eb1d84"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000043",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2052,11 +2132,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "8c476fd4acb0edaa4a8697db09cabc6b36d3d1cb7aee002e77fe0adeacb51c1b"
+        "sourceHash": "2d4ba0ce3dcb4a8a7949d277dabb837ee927fdd7fa7fbc04683a07ef9013daf7"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000044",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2068,11 +2148,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "874bbaa737643df84a0db04b63c8403b250807eb9cda3cd1926e2efd7c094758"
+        "sourceHash": "197db33c5126040af10c002522917f7809e60403bfaab19af4cf6ff585d50002"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000045",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2084,11 +2164,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "426790573eaa8848e14f064b13e421f1c635ccb50ae5b48d94201a44a30950c0"
+        "sourceHash": "7b0dcdee84087da5c9e8a99f858143a56d46d01530519fcd71b9d8762285a3b8"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000046",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2100,11 +2180,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "7a28e1e967525abb7caa41241dad7c0ee5780c92a9b4c37a52a13c694786af8b"
+        "sourceHash": "fbfcebd6b5501265a2ee5854b03e92aa55face15fa817441b67790e607ae767f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000047",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2116,11 +2196,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "2ca451e50c2236260adbbf5f9a485ecad551149dbad8b2c478b5bb5e475ef2a2"
+        "sourceHash": "a8e14ca7918d82994b5e77dec72a83800ef8ecf1710aaaabf51265646b215607"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000048",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2132,11 +2212,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "79793e12399afd4348b6b8d7dd618810465d75f2492f4d6c23aac0f39690de84"
+        "sourceHash": "aac4aed6880e901bc907c60fe88046aafd6ca03f9545bc671c1d4f93ecef9967"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000049",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2148,11 +2228,11 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "192fe706200af73b3ecb781e40f8b022603cd66f66fe2ea03c4f129a40b0bced"
+        "sourceHash": "c98e34db2b104e364c635040464d97aabc646379265c967d0f9ee801fb2ada60"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T04-000050",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2164,13 +2244,13 @@
         "quantityStep": "1",
         "lotTracking": "Y",
         "expiryPolicy": "FEFO",
-        "sourceHash": "723ceb0c1fc96c9a51ec7be6ce4c7d1aa92f72d6460b800d1863ff2932a6eaa5"
+        "sourceHash": "5a9b60a3a6b714c42554ee2c3d30774cb67d58bda943b6866e2264802cdffabc"
       }
     ],
     "T05": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2183,11 +2263,11 @@
         "totalCost": "1000",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0001",
-        "sourceHash": "7dc0ee8bb0c7a2936fb77bf7acaffa512cd4ba0cc5b5aeb42fc5008405aa18fc"
+        "sourceHash": "4893c7ce146120036fd47bdd441b197347463193ca7b2b5228acc54e3ae7e466"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2200,11 +2280,11 @@
         "totalCost": "81081",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0002",
-        "sourceHash": "7fe76c78f2c3d60e0fa509754fad1c41264c97a6cb90ff24e7c2348722201c5d"
+        "sourceHash": "8b7dfe903f4ce7e1832883513c4f938b2c68e4e69dcbe919d2e7414f876cfdda"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2217,11 +2297,11 @@
         "totalCost": "124456",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0003",
-        "sourceHash": "af25c9b5b3e7db4b381631851cb0f295bb34ae285cdd55a4792eb185e9dd8c79"
+        "sourceHash": "3615ca49826c09a5258504d1877a287da1f4b1aa9abd9da08d865e712bf01e52"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2234,11 +2314,11 @@
         "totalCost": "322557",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0004",
-        "sourceHash": "70cae429440f16aff3ef5f19b7444ab1f578749a04bbdd704760b6bebad10841"
+        "sourceHash": "1678c68d1a4997ab50f2ff1ceb5e1c4bdfc8060807e3fd2587400722e6c6fcda"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2251,11 +2331,11 @@
         "totalCost": "234864",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0005",
-        "sourceHash": "ee8b6e12f44445c2c1da1eabc51e19ce7a1a8194f113479043fdb8711a479ebd"
+        "sourceHash": "c8b90c85a15b567ed69fe46d3738e99dd0bc3cb566d20981430533236d2aea5d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000006",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2268,11 +2348,11 @@
         "totalCost": "285565",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0006",
-        "sourceHash": "a0974248332270482c94d5d3e0c897c3603c71cd2775515d44d40f07b2fbfb78"
+        "sourceHash": "e36f8a7cc3f7d8ebb831d734db3ef68f77893d2f8c48c84213dcf2294a6322ae"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000007",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2285,11 +2365,11 @@
         "totalCost": "320896",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0007",
-        "sourceHash": "dec9a425aea33b8bb74d63e09fb725aa83cd546ed529247aa0173b97162aa972"
+        "sourceHash": "c70d933f677ed74069c6e00529bc0168a870be8501a14cdb06f2b89fe347589f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000008",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2302,11 +2382,11 @@
         "totalCost": "182589",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0008",
-        "sourceHash": "f4ad4c2de5b4cbce2c53dd5bbf288d4708cb0a82f2396e2a9d647f5a56807013"
+        "sourceHash": "60578faa58f62a2137f9000ddc31f36c1aae214d14acda1649dc10b9f6b06213"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000009",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2319,11 +2399,11 @@
         "totalCost": "86576",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0009",
-        "sourceHash": "134d6227f0e9d55499d17da9adc5cf23922a5f59e21ee5312922943858b238fb"
+        "sourceHash": "77d06846aa33f9a2099925bc117c0487683ec1ff436c4e10b0a8da2d2af691f5"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000010",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2336,11 +2416,11 @@
         "totalCost": "359341",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0010",
-        "sourceHash": "570fa69182ced93e90c9ad99d744c8a7372e80e230bbcc62d216606125594ad9"
+        "sourceHash": "d04964ece892fee6ea32f7fc31f7743897742c994eb4d257a4bbdc7067a29c95"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000011",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2353,11 +2433,11 @@
         "totalCost": "314280",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0011",
-        "sourceHash": "6e2dd5672887e6d7b34cade22573622380059b124a9ac922d65622cc85515be8"
+        "sourceHash": "9d3c9590c24c81b355668a30b054dcc712da2dbdb79cd40c523d9cc862f8c42f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000012",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2370,11 +2450,11 @@
         "totalCost": "293289",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0012",
-        "sourceHash": "eae37db71fa12a332b3c7ea6a0487ddbebce5eeaef389e52dececcfaff2f4559"
+        "sourceHash": "68a98f11e7dda3f5a673c4717c0674902fa304a7a1ea27f8069f7e7f0421daae"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000013",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2387,11 +2467,11 @@
         "totalCost": "365904",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0013",
-        "sourceHash": "2b829494aa6b00fb4b941a2dbf57acf7ef09adc70d7519b7b3cfeaa0a8bf3f37"
+        "sourceHash": "80ecc0ca98306622237aa4224583bf97ec7657baff115b2d77461b746ff24e85"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000014",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2404,11 +2484,11 @@
         "totalCost": "316773",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0014",
-        "sourceHash": "ab0005b9fe965d13a9243d5314f42388bd0cd70db9765bc0688139f68788d265"
+        "sourceHash": "6a4e588b7534c4d77b3d5538a296ee9c402c76e635af89cfdb71fe66e313ca15"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000015",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2421,11 +2501,11 @@
         "totalCost": "236912",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0015",
-        "sourceHash": "243ab6804e3e24431dbe44212a840682282a465a053b593d94cc2445b7bef981"
+        "sourceHash": "0b2c9e487358e00afec9058925c7ce088f5f8ed26b9ed5b8dd738b0aa1b8518f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000016",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2438,11 +2518,11 @@
         "totalCost": "146205",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0016",
-        "sourceHash": "6b3910739354df2710a720324dc787766fc22dd07a5d11383c8a93c81e475f64"
+        "sourceHash": "6dc3aa602fcce3c2afd8d36e35ed60047293190be0cdf1699468a4c4fd4c049d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000017",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2455,11 +2535,11 @@
         "totalCost": "368400",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0017",
-        "sourceHash": "9ff1851ef219326dc8645ad969f5259bfea12b1495edc45d35ebcca98b0a6345"
+        "sourceHash": "e658e5789c9e9584da59abc718dca288351e6f1e7010911d6fea3daf97a8d59a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000018",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2472,11 +2552,11 @@
         "totalCost": "456597",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0018",
-        "sourceHash": "9b5612b94e937e5232c31a5a41a0b340b7e7f82c7b7a7ba4c2e4719836649624"
+        "sourceHash": "94f2a2937b904d5bfbe9e84f7fca0e84e5279608d1371da2be162286c650ac63"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000019",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2489,11 +2569,11 @@
         "totalCost": "302728",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0019",
-        "sourceHash": "616296c72675081d3f921b17352695bea19643b3ca331c749d4479a7d0700ab1"
+        "sourceHash": "756417a2c9bbe4b78e266aa06b354eed4998c29006bf373afd7f337c0bff620c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000020",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2506,11 +2586,11 @@
         "totalCost": "322245",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0020",
-        "sourceHash": "3592bbd3b87cdec909a27249176527fd684844fb4454a3a18f8a959194da9217"
+        "sourceHash": "8ab1385e1cc3f19191e6750c37185a75c5b066daf7a2215ff744c52506959321"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000021",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2523,11 +2603,11 @@
         "totalCost": "151240",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0021",
-        "sourceHash": "850522596a4db712d53dbf490c433af56937c6f94574994e0721c49404717118"
+        "sourceHash": "29aa47cc7bae9124860c9de64d4155e0628b76c63907b7563aa16073babbb282"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000022",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2540,11 +2620,11 @@
         "totalCost": "119593",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0022",
-        "sourceHash": "633454854007b44b04bee9beaf97a21d80dd28526290cd52c8479a25e50ddad4"
+        "sourceHash": "36cf835466c7b181638dc04b1471e5615e44e5228e7fa5684b643917193c66b3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000023",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2557,11 +2637,11 @@
         "totalCost": "326112",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0023",
-        "sourceHash": "13b09fc4a3e1912fd40ba37fe4c948bb1e1c2622f87215603cc28ee7b7cd2944"
+        "sourceHash": "f167d79c8d61915c5355d8576161a85cf4fe01d41a164c42f7d596ee08e8779b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000024",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2574,11 +2654,11 @@
         "totalCost": "245817",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0024",
-        "sourceHash": "eb495a250315110230a837dc933946949bddc628f7c848456489a572b011698c"
+        "sourceHash": "32cdd62995dbc82036934d05e31a92ab5806248c90aa409f5d2228c1eb120cf0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000025",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2591,11 +2671,11 @@
         "totalCost": "504568",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0025",
-        "sourceHash": "0189bf8b68e36f3402613742654b93bc59e4e1937c24d3c3056db208f3768da3"
+        "sourceHash": "35cfe916ce9e1994cfcb606804ceee94b45ddba0a1d2b7f3b2448c7df2347c21"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000026",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2608,11 +2688,11 @@
         "totalCost": "354525",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0026",
-        "sourceHash": "69b8d857e6fdc7de26b4bd5f35ec8b948f7ac7df1ba8f41774abeb56df3da3d7"
+        "sourceHash": "df81230adc40cdd41da46726628a1dd6d09e87e9deb34487fe9d5905c8b3bb30"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000027",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2625,11 +2705,11 @@
         "totalCost": "526456",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0027",
-        "sourceHash": "ecb07597897c009164605f4ab4ce2ffad86c7f6ef7d22a1a0444ebd7a24a93f7"
+        "sourceHash": "7700a7c2c58d4e9b65525c84ba67f02d5f6ea4d874404d8aa96bcd6b8bfffe21"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000028",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2642,11 +2722,11 @@
         "totalCost": "74217",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0028",
-        "sourceHash": "85787a7b9c421f892f510dc108faaa6e2b702b4985e69b2e8d95323f0630c952"
+        "sourceHash": "c5badd6524eacb351eafacc1e9fe5f993a502894bd4140967669c40f48d44b7e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000029",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2659,11 +2739,11 @@
         "totalCost": "502920",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0029",
-        "sourceHash": "ee0625b2f3c184f8718d067cd9377270413648afe76d0e92e076abed3f84958b"
+        "sourceHash": "64db92bc6442ecf05ec8591d5bac87f52ce3395981c46c47e99f9b925cb24395"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000030",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2676,11 +2756,11 @@
         "totalCost": "127765",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0030",
-        "sourceHash": "3911bc412f3749d6e65c950eba694c5747ba2e867063c9ee98954e79597891dc"
+        "sourceHash": "429ee7d8dd65376e77dc28971e1930b201b1b21b8e676825564e1b7a4a1051d6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000031",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2693,11 +2773,11 @@
         "totalCost": "202960",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0031",
-        "sourceHash": "bd8ddd3d266251cca3a9c9eb2c813197cb8382915eb3affe16ce26e2001095a6"
+        "sourceHash": "d363a8cd450a23afb57c2433cc242f7930ea1e075b1a5c3872bd7d7f52d0aa1a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000032",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2710,11 +2790,11 @@
         "totalCost": "261273",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0032",
-        "sourceHash": "c881dc4cc1e84734f233f90aa1172a73d3e5c433bd7a6c1e18c9644a0dd21f79"
+        "sourceHash": "6dbed4782c405512ba4eac4c3e8d3cae3c1dfcee86d01a9c18a27a72c9d7e9c8"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000033",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2727,11 +2807,11 @@
         "totalCost": "136304",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0033",
-        "sourceHash": "beeaea92f1fef639261e635a64b6b10f03f20ea7e8574d98f1644041638f6889"
+        "sourceHash": "49da1c801f86516804c085ce0499401725d3fb74cfd8e3ca1ec3998e6e99ac2a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000034",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2744,11 +2824,11 @@
         "totalCost": "491729",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0034",
-        "sourceHash": "cf0b511a318944fbf514f85ec936038464e30fd024756c92ee56f59ea009bb00"
+        "sourceHash": "1eefa366b25ad5ac8c438cee8026228b0ba56b434e32c97ae3ad687c9c2eae4a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000035",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2761,11 +2841,11 @@
         "totalCost": "556776",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0035",
-        "sourceHash": "ebdf815afdcafb040ad45d8140cc2796b7f4138d61c312c3b455a89d8f342760"
+        "sourceHash": "19dce273a2bc09829f567f69b0249be75eead341b824e4e8a1ad4ce48094972f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000036",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2778,11 +2858,11 @@
         "totalCost": "592985",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0036",
-        "sourceHash": "4747b8d1db29b39089642385bfe03d4cdc9f1cf5e5cb1ba4d5daff9d7c237cd3"
+        "sourceHash": "8730b072cc30c52a7ce3938eaade493957ede470d4c18c13ca9cbd42d6bcb590"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000037",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2795,11 +2875,11 @@
         "totalCost": "568040",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0037",
-        "sourceHash": "136c536a857996577d6da158489cba685059749491e9e95bd94ad5f5d0c02c19"
+        "sourceHash": "28f18037db7cd82b6b7feb9e222b9498a8cc7cfdea84591eccc055d9ac7a6348"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000038",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2812,11 +2892,11 @@
         "totalCost": "353565",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0038",
-        "sourceHash": "ee65d4a535c47e9496e9cd59e58380a2a88c2188dc2558e74c63c34b12d67fe6"
+        "sourceHash": "75b5710b21d0f358ed88c104043884c4185c16ecd5070768135e08145ca21734"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000039",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2829,11 +2909,11 @@
         "totalCost": "387776",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0039",
-        "sourceHash": "5db4b01a547852d9e46f06cb9e38ad10ea0c1df8cab564bf4feee93aad24020c"
+        "sourceHash": "891cf3ffa4b2aa3b8a5618fc50e88eb4e8bdc9778fed930e46324e742523fb62"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000040",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2846,11 +2926,11 @@
         "totalCost": "616697",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0040",
-        "sourceHash": "f0adfa1f98ec44ac0661a4730a72c643e4a866f2cc7886c2617438b491338982"
+        "sourceHash": "1c5295505481fd76ff3b6d826a7cee9b04c3f9705919014f8256df7a602cf522"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000041",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2863,11 +2943,11 @@
         "totalCost": "611520",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0041",
-        "sourceHash": "87903c3e97c250a18725e7ac6e27309cb6ab104f8562ab0f867905c51759f205"
+        "sourceHash": "dc6acd84abd4a719552c2de3048109bae90290ce4bb30a1365d021a8b23f1d3b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000042",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2880,11 +2960,11 @@
         "totalCost": "506361",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0042",
-        "sourceHash": "3bceef9dfa383b9e6b224ed15cc629d371890fc4e45827dd30ae8f8bf5818642"
+        "sourceHash": "646ba6ce378f4e35bc1d02a515bcb111d30b60126fb7bb0b344b26eb353444d8"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000043",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2897,11 +2977,11 @@
         "totalCost": "330872",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0043",
-        "sourceHash": "525679442b1d8b1a16cf0703dcdf215e8812e7b8d30beffc1ee5b45120415d12"
+        "sourceHash": "e21983fe13db12aa0e1fb8c694df330758b0fb10456ace67e7d2f6bf46cff85a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000044",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2914,11 +2994,11 @@
         "totalCost": "707409",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0044",
-        "sourceHash": "3e306308f8d67afb7c2c36436de5541f1c4f7d2c90292ebe5e242407f1aab6c5"
+        "sourceHash": "6fb71fb9c4f1d3dd6a155a2997c397083abb3b7d2ca84648e39188d3648ed7cc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000045",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2931,11 +3011,11 @@
         "totalCost": "656184",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0045",
-        "sourceHash": "d876346cd3bd7d7bde9725f390da15065ea7b8249f05ca687199e4e77613bb39"
+        "sourceHash": "3cdadc4829ef530feee10517c1e16cbd65bc984012df34fd9c0cf1afce4a08bd"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000046",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2948,11 +3028,11 @@
         "totalCost": "183645",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0046",
-        "sourceHash": "e87788b0b60bdb339c6e0c02ec868ec863bb9e2dff6ed2751a747fcb963b4562"
+        "sourceHash": "bec7a41b584b41edc8d5f9f33b66500e091cb34940c832f4fb538d08e39a7e5b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000047",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2965,11 +3045,11 @@
         "totalCost": "549072",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0047",
-        "sourceHash": "3b0836cbbf9e3cd5ffcb8fe654778d02d5c5ca169e7850ed308cedc6f174f937"
+        "sourceHash": "23887a6aec16e6d4bd491d78c324d1c6c4a9ef2bc21272719afd48c075c13f83"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000048",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2982,11 +3062,11 @@
         "totalCost": "337757",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0048",
-        "sourceHash": "bd179dfc72723f62330bc36004d7584a969eca66151c63ebdde7b7f462c2f25a"
+        "sourceHash": "fa141a00070a43493bbebe231047a9271c98ef97823218b39cf1c42cce947262"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000049",
         "importBatchId": "S2-F1-DEMO-01",
@@ -2999,11 +3079,11 @@
         "totalCost": "411536",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0049",
-        "sourceHash": "c89382904114874d0fa75cc1a964f7d848bb0727007797bfe1e7919ffcf6c853"
+        "sourceHash": "29b2d0cc478bf86c83a88375e1a878bcca7608ac5bff88658f545c380ce59357"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T05-000050",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3016,13 +3096,13 @@
         "totalCost": "254229",
         "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
         "sourceLineId": "L0050",
-        "sourceHash": "817e1571c8c0098828e376fc4c1b796573f4ce51dee91aa3bfceabc2c3f966a3"
+        "sourceHash": "591ec68a464c32069c4548aab943384cb2a3af3167b9879d48cccf7755bb430b"
       }
     ],
     "T06": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3036,11 +3116,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "37396c00208004827600993fbc7eafd510bf292085a6be2e7c7340972d9fe3b8"
+        "sourceHash": "e7837735ad338bdbc581f812a160fe970467f3bd1889ba35e06de742f416e3f3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3054,11 +3134,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "3ade11e4213611f7566bf1521cd57942792d72855980383f0f1627be5dc56728"
+        "sourceHash": "d13af4c6fa64e352895f1914aab929833e6eacfd0f35811b1abe994043a209e4"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3072,11 +3152,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "59b76453072df5136ee3881310e3a8e34d8bdad1c5a32beffcffb358b16ae995"
+        "sourceHash": "6eb7c2c30634a71e03b03813c1ae48abdecd5cff75d36c3cf99e1e0d30de65d0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3090,11 +3170,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "d1c8c41c0c1fd6eb967a319d5223a628a9fa32a44172a82537bf6365a5d87324"
+        "sourceHash": "9ca78dabc9989de5847232871b6ae40a5fdf4fe63cdb1f7ec586d8b31a856b11"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3108,11 +3188,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "515212099e19b15c8fd011c294d5a286f76a1ec10e909432f7262bab9a090ad5"
+        "sourceHash": "01c2d89e2974bb8c37adf3d150d9e044fb8323eec2d893e0a795b5ae9f8583fc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000006",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3126,11 +3206,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "0f7f636535a02deb607432726a00b56a11f3c99e9acdab6464ff714947d4acd8"
+        "sourceHash": "ae16c47a7a6af39fd315611d9aadea0f8dc2aa5491db64d30dbbcc396a9d11f9"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000007",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3144,11 +3224,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "c22c68f56eeefc186f47688d8293e6dec2025b09897260f8dd781dbaf3294d61"
+        "sourceHash": "2d5efda225f60b8515137763388a55e6fb2c99b230a4e1996a05d24559cdef49"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000008",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3162,11 +3242,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "112089834d2738da5c850fa44546e90b0654ce42c9100dabe5e19b3420562d90"
+        "sourceHash": "5e05a5c305f32f7f757bcc9d252feda00dd00e289876642e4a1b7f58a8c4ec1d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000009",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3180,11 +3260,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "7eaaccc418d572dcb0b7c61db95e2c0a0c6bfa5d5c925b6b46e85150b79c9b2a"
+        "sourceHash": "b7cf4347cf0f33321b382f2c06bdfc3e357e950e08f82e25892bcc3b3f38a73a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000010",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3198,11 +3278,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "b98b083dfc1e378c9ff8f190affb03f78ac37980ac66e4c41ea2a422bc42eebb"
+        "sourceHash": "1f10e388f4f99ef166e27995e51268fae804e8a46a39189e02a183a7d07f671a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000011",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3216,11 +3296,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "70e82877a222c995747162f009616fc49521be69250a6b7190ad78ae8c4fb988"
+        "sourceHash": "d96cc6d75594cb83d7047ab6feb353662293aa3cafb7246c88501df790789766"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000012",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3234,11 +3314,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "c6abb5a6efcac9f71637fd8f81636b9737c47bf0035019d09df3231f5c114a7c"
+        "sourceHash": "a3e8280663a1bf9ea15dcb8f703b38df4be3d0120975b69895a810a02ce6b447"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000013",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3252,11 +3332,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "711dfbc1fdbd7c67fddf28e8605bd6f8cc4a56bdc201ad447402d95c6835106d"
+        "sourceHash": "aaa7096e7a4706c5c9dc65767e703e1a578e2fb78415ba49f0bf1a0a6eefa69d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000014",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3270,11 +3350,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "1b2894c2fd0e806681d64c8f6b4c0d15d24f1353c25379861d1fda9600446177"
+        "sourceHash": "2288a179f043cdc3e2a831b7640d0a751ece5e677598a1e7e44e283fe31b4d41"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000015",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3288,11 +3368,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "31f55f0960618c361679de232788e69156c3275bc422e7e20f0152e0c2b7e524"
+        "sourceHash": "b6e494d111cb05fa12c54e34f0dbf2dfc4f814a36ae8976b12a4d3e4fa55955e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000016",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3306,11 +3386,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "0454dd48655e95e61188b0ff7c82d2378c04a65af88336b6b3d1054bd1858e04"
+        "sourceHash": "f65b518d978be7fd6205b9eff68e31b49f92bc2b8d9ade3713351caa059dfce6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000017",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3324,11 +3404,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "54f6b3573143f9ed138da88cf9fa24f43cc661ad915e70b2927c16327ed628cb"
+        "sourceHash": "cd51a6461844281fc50d232fb1f7ed69dc982affd8af0afc3e8bb86e950932bc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000018",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3342,11 +3422,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "c6eba42184c14cd375a260eca6b1cd34de7d28f6d465a0af7903f3f7a567b76c"
+        "sourceHash": "1b4ea68b563dc54f390dcbf8409be2cb98a7daefed3ceb3a24408c20ed4ca7cb"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000019",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3360,11 +3440,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "defc62f1ad99171c1b97ac52f1b13c61314096e567faf696f79460b17a86d938"
+        "sourceHash": "4ee401c2add834459b14b5df68d7069fd60b2b39d1453fd95117df72e7cae5b3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000020",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3378,11 +3458,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "ff3aedab9fc4b2d9e46b0b878876eda8bcae6cba1682186fe0080955b621b7b4"
+        "sourceHash": "fc03e8b66078ebf630687cfc1738feae6009d71629f3ebee8598fe426e32814d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000021",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3396,11 +3476,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "96e12617aa96a5a10184e29fd83ddfb39c80d4e2f64d92b734bce48f4c02c669"
+        "sourceHash": "e033825331b355787a1bb1918f4281afa72d07a42304fd278c47915935b33c9c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000022",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3414,11 +3494,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "1492114e7afd1234dac3d184ab4b4bc91c94776362b1224a8a4f2c2b36b21869"
+        "sourceHash": "8747b25a6461377aa3bdeb33415decadfe3f441bd40d03d26cc777d8914ff297"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000023",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3432,11 +3512,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "5b8c5675fb82b906557a5369ec70aabe8b7f0e03433a479351e28bc23da47043"
+        "sourceHash": "01dc299412414f77f7deebdeb7b983b14398d6e0eb236feb7ff14a961edd245b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000024",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3450,11 +3530,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "5eff96e04b0caf838ac97381819b75a3abe22b49526695a5b50f76f806e5b23b"
+        "sourceHash": "ee6fb44d2bebedb73fc44a75af6fe63041ba1e80d26a82ac747c024f72bd9dd2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000025",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3468,11 +3548,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "0e45341c8c0a64a576044918e4875e2222ca7c585464df7515e32c5b26cb4c27"
+        "sourceHash": "a82068719b0d8d29657c1031a275c1ad8e5111925cadc01f443e1288b61f6d9b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000026",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3486,11 +3566,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "6e97110b20c8bd000a615e9947c0e72760fb0976f05bea2494eb461954a6ff35"
+        "sourceHash": "b4d31d51cd11149309b71b60502674f7124b8babc5fe0391c4aefb8daf7a2953"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000027",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3504,11 +3584,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "f86b4d969450dd32e6bba278846a29c3ea810b76d8a332df50d71a639847e220"
+        "sourceHash": "be7fd941e29a8469b9400611aea44088ee91f44c0fd073572dc7770b38bd9958"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000028",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3522,11 +3602,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "3772493db86bee1111c4ca610824f73f037177602bbff7395959fc41e4fe6614"
+        "sourceHash": "bb6ebc57a34c3c594c420a0363b1d3507d24cef517eeb9e58c3b05f38e3dbcb1"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000029",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3540,11 +3620,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "777cf756b4dddf0969945408aae05205a53e0569901eae8ae054a144254328b9"
+        "sourceHash": "a9c9eee30ab774223262ca9ac82c5b697cdecf8757b8bd5cb48cd27a91a30c95"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000030",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3558,11 +3638,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "ac9d6d2a8319d1e053001bef12fd92b8c4dfffd319367be46c2e3a340a6d534a"
+        "sourceHash": "83673ce62762b14f6d048357dbedabe2bee7e77561e994f891bf27b63daffb03"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000031",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3576,11 +3656,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "b160e5efb55e7b59842e9885b0548009a3840717def0d9123ee046a20bd05b00"
+        "sourceHash": "942cf17a11e58f31b423176df9f7338056b7c16fbc4d2596a1a4daae329c58cb"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000032",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3594,11 +3674,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "2a80d608853613746a67f45cee7402772eb9ef542ed302081d3e2ab3676cf749"
+        "sourceHash": "b8498723da32171236471849d4dc46fe7cbf845a7f82875397cc708c608ee240"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000033",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3612,11 +3692,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "48f8cf2090b5837b5a3050a2e9e28c5cc25210576f216a63db43f852fcb7bc31"
+        "sourceHash": "da688a82643c83e5ccd0c9b225593d89ac3867290d2b905f1bb358d0bc392b41"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000034",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3630,11 +3710,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "0dfdfbc06e33e44bfdfb28784848bff79d4b71f34872f24dcbd8c0eaf9a1cfa1"
+        "sourceHash": "46c6f9f65cdf5acf8a4ca05059878e4410bd6b1e74644744e4be6a77e918208b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000035",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3648,11 +3728,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "f8b45ffcb9a8a75bab879adb3dc58cd11313919e28914f093a1134fc4a50e485"
+        "sourceHash": "6de6736ae6546d8fc8d4560a00975b27cac90a9b371ff885c27d14ee1dc7d5f2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000036",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3666,11 +3746,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "d6023da771f365a8290f556f35fd310101d7b85d0573e28c14dcd2d485bbdb39"
+        "sourceHash": "5cfad17cb513ed807048df5328bff007536975f4d3031a356ffcafa4fbccc9a5"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000037",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3684,11 +3764,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "03fa6506c9a38633efdc99c80f0a437da031cb09f49a76e2f799d18d58fb1172"
+        "sourceHash": "8d1d0b83222d6fc9d1e9d4b3455b4e31d2d2dc1e4b66bf9ce76dcb4859cac774"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000038",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3702,11 +3782,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "58656cad8852d3f443144fe5e72151613f8fe0fe95c595b959ca4973b1a094ed"
+        "sourceHash": "dbd6a72316cc90393f637068810a27eda8016d9dfd4b2f9e0c63a03293d4dbc2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000039",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3720,11 +3800,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "48eb210fc87a32d1235b3ad6cab7eb77adc1e541ef551e7ec6f6829d2ed71fd7"
+        "sourceHash": "57df2de928237e4f2a802eb5341406d18f73d6d3c1efadbbec87560fe6d857c9"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000040",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3738,11 +3818,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "6569c0bfd73f65be5602bfe681886f435830fc9bf464c07c46bbd9880ca4463e"
+        "sourceHash": "66802170bd0ecf934b45d461f64f2c457a947cf38d6ed3343dbfe3df8b2f87f6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000041",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3756,11 +3836,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "36771ae485382238878d24fbe27032af57a06b10adc2b6082dfaec99f7d122d1"
+        "sourceHash": "bd720d3429f2149d51276b37702059be0bcc5de03fc346fa50c8d1b074eb9612"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000042",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3774,11 +3854,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "4385f0777053d0fb39100abd4391a13b09fd7a881ccb70f31f551a94d5a15a96"
+        "sourceHash": "6646f756c3630fc489ee933f169f5b6131bee67b8dd8dfb956a4d34e75e466c8"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000043",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3792,11 +3872,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "80bbcb62f3eedb66b6cc45b3afb4c7f195a5dd91acd7ad56ddb59d97d929c763"
+        "sourceHash": "fcfd6952cd51a0e015a8ed481e42a4f5abb718908bc04efb3c33cc1a21ac36e6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000044",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3810,11 +3890,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "c0362ff3eff3556710826a839b8393266d1acb884880e6b8accdd9c9ba26b84c"
+        "sourceHash": "2755d70a10a5ec1b7a08892b1160e12e04128066be99f3944d9640216c512785"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000045",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3828,11 +3908,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "ed23f4b38de8de535bc940f3709918d21eae5592a81410eae4c165ded050c437"
+        "sourceHash": "ca0a4920ceb0b7448a6e508c868ced499279a5d12bf331628074992083610c95"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000046",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3846,11 +3926,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "4037f265b96e1a798be44a7591e8fcb8f597d7d94d579df176f89c814ae30c9d"
+        "sourceHash": "5b32cb3e11f47b653e7ab7d3c265ac0bc13f799b41af79ddd1c0cff83f7cfd58"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000047",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3864,11 +3944,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "aaac7ac85eb6ae697db87b9b7d5db2330605529eb37c8bca43f471b815a289aa"
+        "sourceHash": "0be2b7cb4f08ea10df37ae231ec3d3e0933efddc71f8760627ae0dd375bda63b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000048",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3882,11 +3962,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "bd6a1f0495385485bfc0f5aa57140f93fa92751107cc77275a1285dfa1f79213"
+        "sourceHash": "126ddb722e67addd129b8d992acc8d45a99c659f180239a9fcea32ca1b7802dd"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000049",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3900,11 +3980,11 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "978be91458a7f03debd58742a7146c3b72133b787fd6793b6beabc53335e2123"
+        "sourceHash": "641eaa677f599f390262f16887485c337ddae4a05391b918a2f837f312bb6ef3"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T06-000050",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3918,13 +3998,13 @@
         "effectiveFrom": "2026-11-01",
         "effectiveTo": "",
         "giftThreshold": "0",
-        "sourceHash": "ca530340f962417d0cb29ca074abd7431822bd4dea5da681aedfe8d5bf3f9be1"
+        "sourceHash": "d0ff46a830cfdb39057cc88aa0dc9ad02403f07fd9f9236acf7d1a059cd39c1a"
       }
     ],
     "T07": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3935,11 +4015,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "140000",
         "openAmount": "140000",
-        "sourceHash": "782feb811bd76259213c1e34bf08639e913895c99d8d2049c7b7f0284ec4baa2"
+        "sourceHash": "3382a0ace36396ea2123bf5cb5637863e1bc9d69b0c6329261743605cd55cd8f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3950,11 +4030,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "267000",
         "openAmount": "217000",
-        "sourceHash": "97a8d23243bd10ac32ae0c18790225ead4d645a94ec0f23f680a10108f7f9266"
+        "sourceHash": "adaf66569a543008ee67bdc0ab1304097b6dae3be3eae1dabc472b7453735d16"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3965,11 +4045,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "284000",
         "openAmount": "284000",
-        "sourceHash": "415ddb95077b1251c973f2f02f056bc8e01a78c1f258f8b3e0b3a031175871e4"
+        "sourceHash": "e0c99b2d00837375a719a77c628925293acf599ddeb297b44ce5b858d4bd0888"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3980,11 +4060,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "301000",
         "openAmount": "251000",
-        "sourceHash": "0b3aa23cf4b14f5d468587109a390d212701d7489b75c5ad763397e4968f9a8f"
+        "sourceHash": "550ab2b9700dad300c340e588eb20b88aac4b605235f45dcb518bbb667aab0a2"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -3995,11 +4075,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "318000",
         "openAmount": "318000",
-        "sourceHash": "06861a346508644ff5eae4016705947441a268c8093f8addd53943da99007ec6"
+        "sourceHash": "4f3cdd99a09d03d787d1b4c471ac43315cc4c5bcfc89367dad3ee185891b5826"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000006",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4010,11 +4090,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "335000",
         "openAmount": "285000",
-        "sourceHash": "3b33059f5ca4a8266b403a0eac88d976f34395da723eedf0e0d3c86ab28ca2bf"
+        "sourceHash": "cfafd9cda9da3b25570ee533340c5c8f8ae999b5a4f068416d37596c628ec504"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000007",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4025,11 +4105,11 @@
         "dueDate": "2026-11-25",
         "originalGross": "352000",
         "openAmount": "352000",
-        "sourceHash": "a63686a8d961ccc259e0d94116b31275971e96e8ceda03ef283072d1be697f97"
+        "sourceHash": "92d4056b23a58180e5a2afb3cf626d232b075d1a124374111cd0ef1dbc8b1992"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T07-000008",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4040,13 +4120,13 @@
         "dueDate": "2026-11-25",
         "originalGross": "369000",
         "openAmount": "319000",
-        "sourceHash": "19ecdd8f2b65b83f63a847a82df5c5dae90e6a373ec993266617594d41fedb47"
+        "sourceHash": "5a9e1ce60380decc9b5366b35318cf4b541c19043ec136c2a9bffcfe4ec2e95e"
       }
     ],
     "T08": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T08-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4055,13 +4135,13 @@
         "verifiedReceiptSourceId": "F1-DEMO-01-LEGACY-RECEIPT-1",
         "availableAmount": "25000",
         "reservedAmount": "0",
-        "sourceHash": "49146e80bfabf70fcf97d1a2a9f75a2044c1fe9e2451ce6bf1cbb5d3ea0920ed"
+        "sourceHash": "51dcc5b6d99f2fec8180d3a3904c9d0e7a89f46c821156da6670242ad5a1aa65"
       }
     ],
     "T09": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T09-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4070,13 +4150,13 @@
         "amountHeld": "60000",
         "acceptedToFund": "0",
         "cutoffDate": "2026-11-12",
-        "sourceHash": "c90699806f6b6ca208e240f055e70baa653a4ee7a75d2cdd33fa44f72dd07304"
+        "sourceHash": "ab51ff1ee598141ebedfcdfb36967d5fc5a619a7e024cbcbd3ef671d09a235a4"
       }
     ],
     "T10": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T10-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4086,13 +4166,13 @@
         "approvedExpenses": "300000",
         "cashierAcceptedReturns": "0",
         "outstanding": "200000",
-        "sourceHash": "a4a99f65efb7f8f9f26d810dd1972a84353790d031e11e7abd4842a0e2899554"
+        "sourceHash": "15d8fe08093e82b771d7977f187df7f41d8a358ebdd8a21b3a459e86c5bd6562"
       }
     ],
     "T11": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4107,11 +4187,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-1",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "c427f1ccd2dcdcc8dc2fb863860c1da514fa2c80fd02f7ef393f282c38f998e1"
+        "sourceHash": "a16962c683101fa3c5e46b9ea8d13af1876a30a6a71d95f5c268ba1916c12cae"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4126,11 +4206,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-2",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "76260f43f972841ef9c9e2e23becd91e9c93526a27233cfe8823ba15fb9163e8"
+        "sourceHash": "573708ec03f5d219919f24046da86a4ed7a19c7625724e8e0a0ad2ca33c40047"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4145,11 +4225,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-3",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "f2f480fdf7cc88956a53976ee402b81a8bb883a842d91d8e2a1be8ce216ff231"
+        "sourceHash": "6f4c994ccbf29525e838a899f85f53ca2b7455759de805a2498b4373fe19ed03"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4164,11 +4244,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-4",
         "serviceDate": "2026-11-13",
-        "sourceHash": "7d6bef0a4ccc10d769377010933a746b96124c691930264f2be57cd963d60f93"
+        "sourceHash": "ab9d6c190d77ac4e123a22c7d1cbb763f6b4cb47674017fd84c40f07b0aa88ea"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4183,11 +4263,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-5",
         "serviceDate": "2026-11-13",
-        "sourceHash": "324544e4960b5fd37623dd8a339f89ffd44d7fa95e78e76e7d7416fa1bd4d078"
+        "sourceHash": "95df5024d8b100f49c71074ebfa295fabcc288bd20c20bc86a5f8ddacc071a02"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000006",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4202,11 +4282,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-6",
         "serviceDate": "2026-11-13",
-        "sourceHash": "2e211887f268f0baf60996d2e68f99f3fc06f45ab0c58d0d3c74109c70f00aaf"
+        "sourceHash": "63496eda50fdcb928e0cca5239cbd8ceee93cf8557b017182e4a43e166cfab70"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000007",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4221,11 +4301,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-7",
         "bQuotaRef": "F1-DEMO-01-BQ-7",
         "serviceDate": "2026-11-13",
-        "sourceHash": "c309f3338fa8e78f2d79a5079d890a72453520f13b5c608342afe5427c3dfef6"
+        "sourceHash": "58bbd070ea29c7275bfb46fd52eb0e15c3e3009ceb199841971539399ce5effc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000008",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4240,11 +4320,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-8",
         "bQuotaRef": "F1-DEMO-01-BQ-8",
         "serviceDate": "2026-11-13",
-        "sourceHash": "3d8bb0c6ba984300aab74c1e489f51f2a87226d4c0dd2e48710e0c531f62e0f9"
+        "sourceHash": "65fc4aea36d579995b8f28f51fbe63430d83716f909a2efbfcc703ed6c16f40c"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000009",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4259,11 +4339,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-9",
         "bQuotaRef": "",
         "serviceDate": "2026-11-14",
-        "sourceHash": "aa10a44a46a838ee07c375dcd451b6f87094ef7109aa6255f396327929fca5e7"
+        "sourceHash": "05703a83d51cb3fe433a3d6800a5c4d8e9b3ef14ded3651d7fdbc038d652f754"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000010",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4278,11 +4358,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-10",
         "bQuotaRef": "",
         "serviceDate": "2026-11-14",
-        "sourceHash": "8f7f0135e80ea8dc6f4fe08afdc9073bdd4fb11fcb04b56839e1184badb60f3e"
+        "sourceHash": "7dd948347b4089c28c536e32cec016f63abdf2eb1719872c871070c3bfae3d4b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000011",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4297,11 +4377,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-11",
         "bQuotaRef": "",
         "serviceDate": "2026-11-14",
-        "sourceHash": "32d0a057053849757bd411bfc2eb46122bea38f51a8d08eaa3d5697e32201645"
+        "sourceHash": "6bd674547a460f61867d19a8c6ed0c07d9086d58f3019e4d888fe364bf86456a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000012",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4316,11 +4396,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-12",
         "serviceDate": "2026-11-14",
-        "sourceHash": "8303db5c9d2c632a850a79b4b825a080064e9a1d77ebaf5ecb6a4ba52b4c3033"
+        "sourceHash": "d776a746cebdce024392f0135e2ce6c7400c9c629afde234402fab26b4c513ed"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000013",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4335,11 +4415,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-13",
         "serviceDate": "2026-11-14",
-        "sourceHash": "5d8a02da37f683aba5b39a5434e9482aa7312143cbfb1f0b1ae8a134ed8846ec"
+        "sourceHash": "6d409904c8e7a164aec15a097a1ab275827651fc13bdc419c636383f8f5b2e30"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000014",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4354,11 +4434,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-14",
         "serviceDate": "2026-11-14",
-        "sourceHash": "ac29511e311883768aa07eaabfb778b96474fbfe25e697fca16dd887abd4d9a4"
+        "sourceHash": "223894f8ecb92d40cb5d80ab6f37c9557431d4b8f45ae2ef2ac6f05dc6bc26b9"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000015",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4373,11 +4453,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-15",
         "bQuotaRef": "F1-DEMO-01-BQ-15",
         "serviceDate": "2026-11-14",
-        "sourceHash": "788677142cc7429b824b198c7deabb1289b89ed52bb21020622297bdad017be9"
+        "sourceHash": "63860873182def50c15164151a0ec299ce7811d58ba965b01b466120b2e91bc6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000016",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4392,11 +4472,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-16",
         "bQuotaRef": "F1-DEMO-01-BQ-16",
         "serviceDate": "2026-11-14",
-        "sourceHash": "ad49126fb32b160a4189f87b402b87ccf6bb966e8db4ea6d00ef9b6d69c65a7e"
+        "sourceHash": "0f9419a7ad644ab5ec7328b300843915db85babf6be6e89d8ed6e83006c0ad69"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000017",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4411,11 +4491,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-17",
         "bQuotaRef": "",
         "serviceDate": "2026-11-15",
-        "sourceHash": "dd85ea1a5d1a08f8200faa4af1291b06b4155b1318d399067deba620c513a4c5"
+        "sourceHash": "114f416529794f92aa0db221ac079e288be982b9bef1a8128b8596a03b592b6a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000018",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4430,11 +4510,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-18",
         "bQuotaRef": "",
         "serviceDate": "2026-11-15",
-        "sourceHash": "673b718d0e8c1d21a6bd565424c7e6d2f824248591813d861568e49049730c28"
+        "sourceHash": "aac81fb55e5f6f001e857e82f84f77ce2f92245734d37dd0b7738b81d69149f0"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000019",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4449,11 +4529,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-19",
         "bQuotaRef": "",
         "serviceDate": "2026-11-15",
-        "sourceHash": "dad7c12486b822d411b1ee8b2523d0ceaac9c10f4bb64f21a23483ce9febcfa0"
+        "sourceHash": "f88277eb6be81359d615d799e4149b61d362da205749c5ea7d38569927327377"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000020",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4468,11 +4548,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-20",
         "serviceDate": "2026-11-15",
-        "sourceHash": "5a88d2393fd1714abed9cdca17c9a49625615e64835f81b5ead40225659b3c86"
+        "sourceHash": "a6ad7a96c48aaca7887468e5d8b657e45ee1ef21354aa38de4f21bab57d39c59"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000021",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4487,11 +4567,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-21",
         "serviceDate": "2026-11-15",
-        "sourceHash": "46d7cbdd600e3d94cc9c0b648ec4a115083b51d2db08ad756cdf301d0852a554"
+        "sourceHash": "453e131054779d43d9bb778952456036f800ae2cc379b6f0f41b74f894245a9b"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000022",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4506,11 +4586,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-22",
         "serviceDate": "2026-11-15",
-        "sourceHash": "32554458575ce0eb7cbc3417eb6cb2487eb1c59236be3e2c68e99276e58bbce5"
+        "sourceHash": "fb1f3f9695ce1241ea30a4d95563ee50282c8718351fab5731ee576fb35aa59d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000023",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4525,11 +4605,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-23",
         "bQuotaRef": "F1-DEMO-01-BQ-23",
         "serviceDate": "2026-11-15",
-        "sourceHash": "79964772e984b7c183b08c931d2e8e65d58757205dd9265ebee95da7b7acda0e"
+        "sourceHash": "05c57ba98a25530a0cca62e9ccf9e7de97a97d290aa6788c4094bcc39e0a55eb"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000024",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4544,11 +4624,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-24",
         "bQuotaRef": "F1-DEMO-01-BQ-24",
         "serviceDate": "2026-11-15",
-        "sourceHash": "95e159b7394b6a3761ec446f92ecf4081ba987e884c1ac6787deee3f37618a4f"
+        "sourceHash": "3fc186f14e17ec7461c4413315e2e47d5e34045455c2c4bbd08fff545e0399fc"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000025",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4563,11 +4643,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-25",
         "bQuotaRef": "",
         "serviceDate": "2026-11-16",
-        "sourceHash": "485cf7a9fac42319a235b83a0fc0ebaf744e2c31d0d047dabe19a2ec22fb6180"
+        "sourceHash": "8b4e0867058086974323a09853a1780fc4bf03df940816e11b4e706d2b4ddb62"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000026",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4582,11 +4662,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-26",
         "bQuotaRef": "",
         "serviceDate": "2026-11-16",
-        "sourceHash": "a0e0ce34f9fa4ee25e7aeca173e49eafa33a29d4b59743a0cbae219c3f4203c8"
+        "sourceHash": "8e727b8c70934b159890a6b14ad40470101c31e62af24f56c6e1bd16ac7b8ef8"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000027",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4601,11 +4681,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-27",
         "bQuotaRef": "",
         "serviceDate": "2026-11-16",
-        "sourceHash": "e5b3863c91638dac03031109ecd562b53edc57abdb2e964a4a44783969e3198b"
+        "sourceHash": "5fe52534d5ff8471f29bf5f52ce8e41eb1c10a12a3d24dff4e62cb6f5a454f48"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000028",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4620,11 +4700,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-28",
         "serviceDate": "2026-11-16",
-        "sourceHash": "9cf7ba65e99224971b82254159bb58873540ea98c0d3a00b3041b37073961d4d"
+        "sourceHash": "d20f2ede3c937270dc2780432aa861af4034efa65b8819edb2d3ced32f2714eb"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000029",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4639,11 +4719,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-29",
         "serviceDate": "2026-11-16",
-        "sourceHash": "1a9eaf96c874d9db507f9c465440eccccb275d605f93e802600f224a710b47c7"
+        "sourceHash": "07162eb6599f5d14141c18a2f12afeca8740688295433239abf64cb6df014219"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000030",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4658,11 +4738,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-30",
         "serviceDate": "2026-11-16",
-        "sourceHash": "c1fa83beafa3aee6ddee2a93237227b3b59dcfaf06e278fefb158c407d23dd6e"
+        "sourceHash": "6e166511535c9acc74ac10a4cf2a3bf58604973e16754d1e6de9bc0319abe766"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000031",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4677,11 +4757,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-31",
         "bQuotaRef": "F1-DEMO-01-BQ-31",
         "serviceDate": "2026-11-16",
-        "sourceHash": "4698c3d337d668f498606766aeb9207de6126d1def789e5f8f181aab80a30224"
+        "sourceHash": "58380933f628f8c9e8bea9ff36836f2092d0f2934a9135cb24bf3ffa38c2a67d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000032",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4696,11 +4776,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-32",
         "bQuotaRef": "F1-DEMO-01-BQ-32",
         "serviceDate": "2026-11-16",
-        "sourceHash": "ec59edc70e11f5eb65265638b6cc10e4214730e5d4b2ad5a3372bc73d9a753ba"
+        "sourceHash": "4e896822b2aed27ec5c26fd8d7b8ae63f64e78e7c7180f1042de952804205a49"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000033",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4715,11 +4795,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-33",
         "bQuotaRef": "",
         "serviceDate": "2026-11-17",
-        "sourceHash": "b544e2e7c293748ec67c059987345b443e7b395941c0617f21e6b62776d6aa0a"
+        "sourceHash": "d3cb938e70505624ae5568257b2474288c5a7ee05f7dbb377b7bb7f18275aa08"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000034",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4734,11 +4814,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-34",
         "bQuotaRef": "",
         "serviceDate": "2026-11-17",
-        "sourceHash": "c497afd577a559215816bc9745d9ee14c2081e2548fa379275f82f1e9f7b0de0"
+        "sourceHash": "7998b38f095bd64ca7e03f3ea177a1e1632aa194fdd32358237bae2b25e5932f"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000035",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4753,11 +4833,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-35",
         "bQuotaRef": "",
         "serviceDate": "2026-11-17",
-        "sourceHash": "9e284dab5689be410ad530dccf59294ae2255bcc1d81af4f0565a08b7285f1e9"
+        "sourceHash": "8649b4cc9bba2cc7800b41e2e8e54b7dcec2a10d7119aee706330afb6f8e7411"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000036",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4772,11 +4852,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-36",
         "serviceDate": "2026-11-17",
-        "sourceHash": "69a7d4220ef7853112bea368e2660fa91ea7a6e484824ed54b8f69753f277a4b"
+        "sourceHash": "8549388ded9198e76bdf72120220d8edfd4b18d4ce27564ed4803520dc100382"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000037",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4791,11 +4871,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-37",
         "serviceDate": "2026-11-17",
-        "sourceHash": "21c711c604bc0a3b5ef7b8a04dc4df225361a74c9452e3a1b667f2aba753eee4"
+        "sourceHash": "eadf8afd2b98f48542f321bb0e304092a09711e4a8dc5696b641c08fc5ca0f7d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000038",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4810,11 +4890,11 @@
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-38",
         "serviceDate": "2026-11-17",
-        "sourceHash": "66aba7b521a0c08ed4daa50d61952e3fa8f9f696e27cea0ff820881c5763ce12"
+        "sourceHash": "1e9f1a7d8d5152354ceba4580a235621470085db18bed3c3bddbd4a4ea576ee6"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000039",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4829,11 +4909,11 @@
         "aReservationRef": "F1-DEMO-01-ARES-39",
         "bQuotaRef": "F1-DEMO-01-BQ-39",
         "serviceDate": "2026-11-17",
-        "sourceHash": "134722ec2cdef68b3e064cc628e650e2acb7ca3f6053e744970454d2134f7810"
+        "sourceHash": "b02447626783a9e39fb6452585b357b4c94571b3ba7991106c47593777f93094"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T11-000040",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4848,13 +4928,13 @@
         "aReservationRef": "F1-DEMO-01-ARES-40",
         "bQuotaRef": "F1-DEMO-01-BQ-40",
         "serviceDate": "2026-11-17",
-        "sourceHash": "974e83ee92e6ab19e126fbaaf324929ccf493f735ab6009d6d20e47c12c72320"
+        "sourceHash": "04b973337d2fdb328224055a14d8b0b638316892c84369bd3f7d37f06bc1e862"
       }
     ],
     "T12": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T12-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4866,11 +4946,11 @@
         "devicePendingJournal": "UNKNOWN",
         "status": "EVIDENCE_PENDING",
         "ownerRole": "OPS",
-        "sourceHash": "9682a103906a99c3009f77ffe861eb913bc2a6d32d6144d6370da359d43da6e7"
+        "sourceHash": "bc79715728169df7ab5b36f596caa744a06c45767fb126a724335734f58c764a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T12-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4882,13 +4962,13 @@
         "devicePendingJournal": "UNKNOWN",
         "status": "EVIDENCE_PENDING",
         "ownerRole": "OPS",
-        "sourceHash": "9e82e890282ca3a3233fdafcc2b2b2460870931f93969f5a5d691ae23d45e601"
+        "sourceHash": "12f778ae92c1c3ba1aac512e3adfe4988491aaaa2df668be545d1b03b36987c7"
       }
     ],
     "T13": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T13-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4901,13 +4981,13 @@
         "lookupMechanism": "NOT_CONFIGURED",
         "reconciliationMethod": "NOT_CONFIGURED",
         "evidenceStatus": "EVIDENCE_PENDING",
-        "sourceHash": "68dfc3c7f95e498c8ec17956e8c9cab6cd23cf26b7c00946eec531487c0de833"
+        "sourceHash": "032d638154343f7217fb9c9957ac0b56d663d6e75b55862a1a6e6e961ea230cc"
       }
     ],
     "T14": [
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000001",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4922,11 +5002,11 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "6fd7ac37c9f6028eb54f8d4ae73a16a1fa8c53def2ce8d8b84bbd651c89e6bcc"
+        "sourceHash": "ca702a6e9e2f89e1e68683b635e9e51c4f6e91b48c128e8a3752c055220c260e"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000002",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4941,11 +5021,11 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "d956c3555f1cdd96c70aec5bbf2c926f95c7db236dae001ffc8d400b49bc5549"
+        "sourceHash": "923222997e1a6401a94a266cff61025600c4915784c46c1d4332dd32576e064a"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000003",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4960,11 +5040,11 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "f0a0b0a15f616d835780f0d1c54ef4e0eb375d72aeb92d24e72652c21659deb9"
+        "sourceHash": "468e5478c22b5942447645f32333ce117f57c8ff4b12bd3451d008dbb47fd9a9"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000004",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4979,11 +5059,11 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "d188b7020255f9dd2e9573b5b40691a395f66492033a961fac21c2ab448b6f8d"
+        "sourceHash": "141f1f6242a29057da423cee3d8511673593865aceb49d3dab80a47b51a4730d"
       },
       {
         "tenantCode": "F1-DEMO-01",
-        "schemaVersion": "s2-v1",
+        "schemaVersion": "s2-v2",
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000005",
         "importBatchId": "S2-F1-DEMO-01",
@@ -4998,7 +5078,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "WAREHOUSE",
-        "sourceHash": "ee92cf2ceb91a1c06871aae66015a844c2e004f1509e0825072138b157afdf3a"
+        "sourceHash": "d97571e479aace98db07b8a2159f9229a978e6b5a944c33664949b9dc1a29576"
       }
     ]
   }
