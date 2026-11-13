@@ -29,6 +29,8 @@
     "templates/blank/T11-staff-vehicle-trips-grants.csv": "ba9df469a97b1848fd6fc825108be37ae67c5e99db73e3b25b8c69f24e029e0d",
     "templates/blank/T12-cutover-external-manifest.csv": "6ed8adff300b2bb0ea2107fd10781cd0bd4ac2546e2dc3fa8ea7765d811645df",
     "templates/blank/T13-accounting-provider-profile.csv": "77ce42b22f51b284578e02518727637a34f6883032e3c8e0f262ad4302e5e137",
-    "templates/blank/T14-go-live-evidence-cases.csv": "3f88072d68a306f45dce1c4dc8aa564d13caf2144bb0d6b889f3761966d41200"
+    "templates/blank/T14-go-live-evidence-cases.csv": "3f88072d68a306f45dce1c4dc8aa564d13caf2144bb0d6b889f3761966d41200",
+    "trip-scenarios.json": "07ab17aa734978f96e8be96c283d608e7904fb0caaae47c9fa7b51f2accaf666",
+    "s2-trip-scenarios.mjs": "3eee32bee1b636bc8af9e1814f517c1df5508308c65ea05404fb5d53e8937912"
   }
 }
