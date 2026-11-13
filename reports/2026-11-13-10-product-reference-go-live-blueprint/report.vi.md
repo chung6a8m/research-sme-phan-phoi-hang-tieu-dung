@@ -151,3 +151,21 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 - EVQ-01–07 giữ hai cổng chứng minh, P0 không miễn, P1 ngoại lệ có hạn, writer toàn kho/cutover E2E, offline theo device/mode, accounting source reconciliation và pilot UX/SLO/n/N ký trước EV-14.
 - Những dòng OWNER_REVIEW_PENDING hoặc S0/S1/S2 proposed trong phần trên là snapshot tại lúc soạn trước phỏng vấn; quyết định Owner bây giờ đã có, nhưng không suy rằng tài liệu đã DOC_READY hoặc ứng dụng đã PRODUCT_VERIFIED.
 - TADR-01..06 tiếp tục DESIGN_CANDIDATE. S3–S6, provider/Finance/legal, tenant data, EV-01..15 vẫn chưa có E2E/Go-Live evidence. PR giữ Draft, không tự merge hay mở gate.
+
+## 12. Triển khai S3/P05 Acceptance & Quality (13/11/2026)
+
+**Trạng thái:** `S3_CONTRACT_VALIDATED_SYNTHETIC_CI / NOT_RUN_PRODUCT`. P05 được soạn đầy đủ ở cấp **BDD/evidence/test contract** trong [R010-S3](s3/README.md), không phải nghiệm thu hệ thống thật. Các snapshot S0/S1/S2 ở các mục trước vẫn giữ nguyên để bảo toàn diễn tiến.
+
+| Đầu ra | File đã commit | Kết quả/ranh giới |
+|---|---|---|
+| AC/trace đầy đủ | [acceptance-matrix.json](s3/acceptance-matrix.json) | AC-01..21 nối R009 direct BR/EV và S1 D/POL/SOP/DC/API/SM/PADR qua policy; 21/21 không orphan |
+| BDD positive/negative | [Gherkin features](s3/features/) | 42 scenarios P/N, 2 mỗi AC; `STEPS_UNBOUND`, `NOT_RUN_PRODUCT` |
+| Fault injection | [fault-injection-matrix.json](s3/fault-injection-matrix.json) | F-01..22; F-01..10 kế thừa S2; crash/ACK/race/restore/legacy/cutover/provider/accounting/pilot đều **chưa chạy runtime** |
+| EV và Go/No-Go | [evidence-register.json](s3/evidence-register.json), [mode-gates.json](s3/mode-gates.json) | EV-01..15 real pending; EV-05..09 historical `MODEL_ONLY`; A/B_ONLINE/MIXED NO_GO_PENDING; OFFLINE_WRITE/cutover DISABLED_PENDING; B_NO_CHANNEL BLOCKED |
+| Evidence contract | [JSON Schema](s3/evidence-run.schema.json), [NOT_RUN sample](s3/evidence-run.example.json), [handoff](s3/test-execution-and-handoff.vi.md) | Quan sát `EXECUTED_UNREVIEWED` không tự cấp Product Verification, tenant GO hoặc chữ ký; P0 không miễn trừ |
+| Quality gate | [validator](s3/s3-validate.mjs), [negative regression](s3/s3-regression.mjs), [schema negative](s3/s3-evidence-schema-test.py), [workflow](../../.github/workflows/s3-acceptance-contract-validation.yml) | Structural/contract validation, không chạy PWA/API/SQL/provider/actual fault |
+
+**CI evidence:** [GitHub Actions S3 run 43396658093](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43396658093) báo SUCCESS trên commit `b8e0acd7216c`; log gồm `PASS_S3_CONTRACT_ONLY` (21 AC, 15 EV, 42 Gherkin, 22 fault, 6 mode), `PASS_S3_NEGATIVE_REGRESSION 20`, `PASS_S3_SCHEMA_DRAFT202012_NEGATIVES 10`, `realE2eRuns:0`. [S3 validation log](s3/validation-results.vi.md) lưu nguồn kiểm. S2 synthetic CI trên cùng HEAD cũng SUCCESS; không tổng hợp hai kết quả thành product/runtime PASS.
+
+**Bàn giao S4/S5/S6:** S4 viết onboarding/cutover/DR/legal/privacy/provider/accounting preflight từ matrix, S5 tenant gap/adoption và profile có người ký, S6 tạo step bindings thực trong source repo và chạy PWA/API/SQL/browser/provider/accounting, full Kho-01 writer lock, fault drills, actual ledger diff, EV-14 readiness trước EV-15 pilot. Chưa có Product Verification, Tenant Go-Live Acceptance, B-CASE/LEGAL-MEMO/INV-09 hoặc SLO thresholds được ký. TADR-01..06 vẫn `DESIGN_CANDIDATE`; PR #2 giữ Draft.
+

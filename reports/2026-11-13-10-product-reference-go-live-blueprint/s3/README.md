@@ -8,7 +8,7 @@ S3 hoàn thành **thiết kế kịch bản và hợp đồng evidence**. Không
 
 | File | Ý nghĩa |
 |---|---|
-| [acceptance-matrix.json](acceptance-matrix.json) | Đủ AC-01..21; BR/EV, mode, S2 fixture/oracle, gate, positive/negative scenario |
+| [acceptance-matrix.json](acceptance-matrix.json) | Đủ AC-01..21; D/BR/POL/SOP/DC/API/SM/PADR/EV, mode, S2 fixture/oracle, gate, positive/negative scenario |
 | [features/](features/) | 42 Gherkin scenarios (P/N cho mỗi AC) dưới dạng **contract unbound** |
 | [fault-injection-matrix.json](fault-injection-matrix.json) | 22 điểm fault; F-01..10 nối S2 fault catalog, F-11..22 bổ sung SQL race, replay, restore, B_NO_CHANNEL, pilot |
 | [evidence-register.json](evidence-register.json) | EV-01..15, riêng researchStatus `MODEL_ONLY` và runtime `NOT_RUN`; vai trò ký/thu bằng chứng |
@@ -42,3 +42,7 @@ Kết quả PASS nếu có chỉ là `S3_CONTRACT_VALIDATED`, **không** `PRODUC
 Implementation bindings, testRunId, actual per-event ledger, browser/device, DB concurrency, provider/accounting sandbox, privacy/revoke/restore drills, full-warehouse legacy lock và chữ ký NPP là **S6/tenant evidence pending**. S4 sử dụng schema/runbook này để viết preflight/cutover, S5 dùng mode/gap contract; không kích hoạt production từ tài liệu hoặc CSV T14.
 
 Nguồn: [R009 AC/EV](../../2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md), [R010 EVQ](../evq-acceptance-gates.vi.md), [S2 oracles](../s2/golden-oracles.json) và [S2 faults](../s2/fault-case-catalog.csv).
+
+## CI synthetic S3 — 13/11/2026
+
+[S3 workflow run 43396658093](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43396658093) trên HEAD `b8e0acd7216c`: **SUCCESS** cho trace 21 AC/15 EV/42 BDD/22 faults/6 mode, 20 negative regression và 10 JSON Schema negatives. `realE2eRuns=0`, `NOT_RUN_PRODUCT`. Xem [validation results](validation-results.vi.md); không dùng kết quả CI này làm EV thực hoặc GO.

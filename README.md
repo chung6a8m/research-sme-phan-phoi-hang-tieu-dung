@@ -176,6 +176,8 @@ Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi
 
 **Bổ sung S2/P03–P04 ngày 13/11/2026:** [R010-S2](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md) hiện có các bộ template CSV, dictionary, F0/F1/F2, trip projections, import dry-run, script tạo Excel và CI mô hình. Đây là `S2_ARTIFACTS_IMPLEMENTED_SYNTHETIC_CI_VERIFIED` **chờ review**, không phải sản phẩm Go-Live. Workbook Excel mẫu được tạo trong phiên chat và script tái tạo đã vào PR; binary XLSX chưa commit. Các mệnh đề S0/S1 cũ phản ánh thời điểm tạo tương ứng.
 
+**Bổ sung S3/P05 ngày 13/11/2026:** [R010-S3 Acceptance & Quality](reports/2026-11-13-10-product-reference-go-live-blueprint/s3/README.md) đã có 21 AC liên kết D/BR/POL/SOP/DC/API/SM/PADR/EV, 42 Gherkin positive/negative, 22 fault-injection cases, 15 hồ sơ EV, evidence-run schema và CI kiểm trace/negative. [CI S3](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43396658093) PASS trên HEAD `b8e0acd7` theo phạm vi **contract-only**. Gherkin chưa có step definitions/product runtime; `realE2eRuns=0`, tất cả EV thực pending; **không** đồng nghĩa `PRODUCT_VERIFIED` hoặc tenant Go-Live.
+
 ## Quy tắc sử dụng kết quả
 
 Phân biệt dữ liệu có nguồn, tuyên bố của nhà cung cấp, suy luận, giả định và lựa chọn đã được chủ dự án xác nhận. Việc lưu báo cáo không đồng nghĩa với kiểm chứng toàn bộ nội dung hoặc phê duyệt mọi đề xuất. Các thông tin thị trường, giá, pháp lý và khả năng công nghệ phải được ghi rõ ngày và mức độ xác minh khi nghiên cứu mới.
