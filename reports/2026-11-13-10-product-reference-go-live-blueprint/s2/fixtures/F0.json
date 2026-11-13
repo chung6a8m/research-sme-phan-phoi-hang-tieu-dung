@@ -25,10 +25,10 @@
         "legalSellerRef": "",
         "currency": "VND",
         "timezone": "Asia/Ho_Chi_Minh",
-        "requestedModes": "A",
+        "requestedModes": "A|B_ONLINE|MIXED",
         "profileVersion": "1",
         "evidenceStatus": "EVIDENCE_PENDING",
-        "sourceHash": "08491c2cd424d2af6d421ec1185ca1b08615b6a401931d2263ad9a9ca5bd1926"
+        "sourceHash": "edb07682ddeb1b02dd1aa9d8850dabf3c17f0bb16d813eaf169e8d39fe9f26cf"
       }
     ],
     "T02": [
@@ -383,8 +383,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "100",
         "totalCost": "1000",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-1",
-        "sourceHash": "f9dafc8f0f240789ff8653b6bd492a332d8aef3b107426ea296ae50c0b57436b"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0001",
+        "sourceHash": "787bd29d275d1aee2395b82e9d92af3ad0da95af3d81339d7c2bbef8b1657418"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -399,8 +400,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "218",
         "totalCost": "280566",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-2",
-        "sourceHash": "4b7203dc8e3227236ab36ce26993df284b0c4a2ece01129ba40b63fb8c1120d7"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0002",
+        "sourceHash": "aca01b39158c5a07c5002e6a4108d4e6f0cf68126a63c752d6a7dadc777e6db3"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -415,8 +417,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "213",
         "totalCost": "282012",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-3",
-        "sourceHash": "57a025b60a0880510dcb0e11c463fd6aac01d15fbf45a58fd227e0058dc4238b"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0003",
+        "sourceHash": "777a2f1e6373674c2cc104834939a0f023f824e44dfd30fe3589e72d7220bb7a"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -431,8 +434,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "120",
         "totalCost": "163320",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-4",
-        "sourceHash": "ca27ef876d64b6b1c88ffae10bb115b5530cd65b8b4fb8eac08583cbd75ccf7b"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0004",
+        "sourceHash": "2a5f353209d2c0776e519e2fe6e03c2602aafd847c1dcb1e93778af6ee277772"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -447,8 +451,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "211",
         "totalCost": "294978",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-5",
-        "sourceHash": "1ad7bb0f0b9a3ab87c71793e9dc4855cb25730cc4872e2ff447624f8ab19f701"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0005",
+        "sourceHash": "60713ab6601a2c08f3f03e984e8fe0f39ce4d1abe2cdb41e1a1a620a344950e3"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -463,8 +468,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "146",
         "totalCost": "209510",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-6",
-        "sourceHash": "314d1f353ac2a92313100f0b456d1e59429cf09473ec5e342256dfcc8eaef50c"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0006",
+        "sourceHash": "2a11b651baf2f3804ebcecc6c7dd1f91cc7c2461f707a855e581ab2de2ddac47"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -479,8 +485,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "117",
         "totalCost": "172224",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-7",
-        "sourceHash": "705b1e9b6c9824b8f0de96e38e22b94e7ba4f338ba95bf2a1030c9bc6193b3d7"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0007",
+        "sourceHash": "693dd2d53bb747c3263a66e60f2a9391fbf35bdfad4e026711a77777edc24b2c"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -495,8 +502,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "88",
         "totalCost": "132792",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-8",
-        "sourceHash": "31f9fb9cc4b6cb0a8fcbee84fe3c9ba8df5aac1f1e195c68cdeb9a5c8cbc98ea"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0008",
+        "sourceHash": "73e917df6c5a63cec1630d12ca27d1ddc5f74548d57cfe1873d50af9b399db23"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -511,8 +519,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "139",
         "totalCost": "214894",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-9",
-        "sourceHash": "ae319fab6016df78fd6cb0f3ba3719e5cc79a50b4e7cfb93ed8a3eeb40b4a0aa"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0009",
+        "sourceHash": "c836b10aadb43d192d813c9b29d013a30ecc69a59232bc5e8ff529aeb3d0b910"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -527,8 +536,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "78",
         "totalCost": "123474",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-10",
-        "sourceHash": "07a536ea708822291546c657b162df91a665cdbe89afe1986677160c993307b0"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0010",
+        "sourceHash": "fcacbf81e42b90c623557c547bc4a26514b3e4f308fb581cc5819cab25abf823"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -543,8 +553,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "149",
         "totalCost": "241380",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-11",
-        "sourceHash": "3f646315ad654f9ffd9f1f3b96b5040e0d2c61ce28d6b4ab8e9e125c01356164"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0011",
+        "sourceHash": "9777b232e4dbb8e6b049c39ee2ec160ba104108acddb77b624e2fda7e28cf844"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -559,8 +570,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "112",
         "totalCost": "185584",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-12",
-        "sourceHash": "98957a38bcfa775e4c860292a01814f1594c5778c5e89465313a575fdf42423d"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0012",
+        "sourceHash": "f935732f474b3040ba9fa088f2d401e43806d6f14386461ac3f0c88c49d53067"
       }
     ],
     "T06": [
@@ -854,13 +866,15 @@
         "tripCode": "F0-DEMO-01-T0001",
         "mode": "A",
         "vehicleCode": "F0-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F0-DEMO-01-INST0001",
         "grantId": "F0-DEMO-01-GRANT0001",
-        "employeeCode": "F0-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F0-DEMO-01-EMP01",
+        "driverEmployeeCode": "F0-DEMO-01-EMP01",
         "aReservationRef": "F0-DEMO-01-ARES-1",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "8f94754b05372b17f2a9260c5ba785777527138524c797f9fed74ad3833b36f8"
+        "sourceHash": "f16e03b7c475c865139e82799a0b6d82ed219bdaa121540a915a109ac00fda4a"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -871,13 +885,15 @@
         "tripCode": "F0-DEMO-01-T0002",
         "mode": "B_ONLINE",
         "vehicleCode": "F0-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F0-DEMO-01-INST0002",
         "grantId": "F0-DEMO-01-GRANT0002",
-        "employeeCode": "F0-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F0-DEMO-01-EMP01",
+        "driverEmployeeCode": "F0-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F0-DEMO-01-BQ-2",
         "serviceDate": "2026-11-13",
-        "sourceHash": "ca5b74cdbaf586fd30710abf3cee4f79cc5371ddc10b4df501873b7aa0860be0"
+        "sourceHash": "efca87cdc8a3e99ff84ec0a5a0372046a9513685c8d92f373ba4dd4c2ec0f7c1"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -888,13 +904,15 @@
         "tripCode": "F0-DEMO-01-T0003",
         "mode": "MIXED",
         "vehicleCode": "F0-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F0-DEMO-01-INST0003",
         "grantId": "F0-DEMO-01-GRANT0003",
-        "employeeCode": "F0-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F0-DEMO-01-EMP01",
+        "driverEmployeeCode": "F0-DEMO-01-EMP01",
         "aReservationRef": "F0-DEMO-01-ARES-3",
         "bQuotaRef": "F0-DEMO-01-BQ-3",
         "serviceDate": "2026-11-13",
-        "sourceHash": "9063791f60d9c88750b4fbba7e5e8c19265409896f21f77951b583bb1777f29a"
+        "sourceHash": "5e9b1304753a250c679b8e3151c057518035191696f890b76955c9d198d30f29"
       }
     ],
     "T12": [
@@ -957,6 +975,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F0-DEMO-01-T14-000001",
         "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-A",
         "mode": "A",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -967,7 +986,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "55f9311dbebaa4bb2bbd0eb118772c123a293bb285685f8318ff9533e1d7ecca"
+        "sourceHash": "6c159ef12ac272fa2f7ddf5c730f0dd0bb2e01bc361024ba99a9a9f8b9924156"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -975,6 +994,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F0-DEMO-01-T14-000002",
         "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-B_ONLINE",
         "mode": "B_ONLINE",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -985,7 +1005,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "968d28cf11f9dc73c3894b7aeefc4202c9db279c95b3d403fcb147b860526982"
+        "sourceHash": "b743648786b3b3eaf97d93c82e4cb698c6aa06b521d7c74a5b75a2a04b888b05"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -993,6 +1013,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F0-DEMO-01-T14-000003",
         "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-MIXED",
         "mode": "MIXED",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -1003,7 +1024,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "c62b5b35e6d400e0367d68eed93d294a61f0ce214dcc3035981a09ca6308d903"
+        "sourceHash": "f2bc0701a52871184570091044fbcdce5cbb20fab146d08fb0004a9448b0c65f"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -1011,6 +1032,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F0-DEMO-01-T14-000004",
         "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-B_NO_CHANNEL",
         "mode": "B_NO_CHANNEL",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -1021,7 +1043,26 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "53dd8b648ce30230e5176dafcf9cdb4c716de53695bbef3cb5f90591ffa302a6"
+        "sourceHash": "84ba6ab9aa65e78b308a4023fb26fbfdb228237c0b71cbffa0404884ba8fa0b6"
+      },
+      {
+        "tenantCode": "F0-DEMO-01",
+        "schemaVersion": "s2-v1",
+        "sourceSystem": "SYNTHETIC_S2",
+        "sourceRecordId": "F0-DEMO-01-T14-000005",
+        "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-A-STOCK",
+        "mode": "A",
+        "gateId": "G-STOCK",
+        "acId": "AC-04",
+        "evId": "EV-04",
+        "buildSha": "",
+        "testRunId": "",
+        "decision": "NO_GO",
+        "status": "NOT_RUN",
+        "reviewer": "",
+        "caseOwner": "WAREHOUSE",
+        "sourceHash": "cfda0c06b70607bf61cefebd1d2a45c78926c36dfc33cf2c277893ca16e8fcf7"
       }
     ]
   }

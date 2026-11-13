@@ -37,12 +37,13 @@ function importPreview(tables,dict,digest){
     if(f.type==="date"&&(!/^\d{4}-\d{2}-\d{2}$/.test(value)||Number.isNaN(Date.parse(value))||new Date(value).toISOString().slice(0,10)!==value))error("DATE",spec.id,number,f.name,value);
     if(f.type==="sha256"&&!/^[0-9a-f]{64}$/.test(value))error("SHA256",spec.id,number,f.name,"Not 64 hex");
     if(f.type==="code"&&!/^[\p{L}\p{N}_.-]+$/u.test(value))error("CODE",spec.id,number,f.name,"Unexpected characters");
+    if(f.type==="modes"){const a=value.split("|");if(new Set(a).size!==a.length||a.some(x=>!["A","B_ONLINE","MIXED","B_NO_CHANNEL"].includes(x)))error("MODE_SET_INVALID",spec.id,number,f.name,"Modes must be unique allowed tokens joined by |");}
     if(/^[=+@\t\r]/.test(value))error("FORMULA_INJECTION",spec.id,number,f.name,"Unsafe spreadsheet input");
    }
    const business=spec.fields.filter(f=>!dict.commonFields.includes(f.name));
    const canonical=business.map(f=>String(r[f.name]??"")).concat(["tenantCode","schemaVersion","sourceSystem","sourceRecordId","importBatchId"].map(k=>String(r[k]??""))).join("|");
    if(r.sourceHash&&digest(canonical)!==r.sourceHash)error("SOURCE_HASH",spec.id,number,"sourceHash","Does not match canonical data");
-   const idKey=(r.tenantCode||"")+"|"+(r.sourceSystem||"")+"|"+(r.sourceRecordId||"");
+   const idKey=(r.tenantCode||"")+"|"+(r.sourceSystem||"")+"|"+spec.id+"|"+(r.sourceRecordId||"");
    if(ids.has(idKey))error(ids.get(idKey)===r.sourceHash?"DUPLICATE_REPLAY_IN_BATCH":"SOURCE_ID_CONFLICT",spec.id,number,"sourceRecordId",idKey);
    else ids.set(idKey,r.sourceHash);
    for(const f of spec.fields){
@@ -56,9 +57,9 @@ function importPreview(tables,dict,digest){
   const n=i+2;
   const owningTenant=(tables.T01||[]).some(t=>t.tenantCode===r.tenantCode);
   if(!owningTenant)error("TENANT_ORPHAN",spec.id,n,"tenantCode","Missing tenant profile");
-  const naturalKey={T02:"customerCode",T03:"outletCode",T04:"skuCode",T05:"sourceDocumentId",T06:"ruleId",T07:"openItemId",T08:"creditSourceId",T09:"custodySourceId",T10:"advanceId",T11:"tripCode",T12:"legacyId",T13:"adapterCode",T14:"mode"}[spec.id];
+  const naturalKey={T02:"customerCode",T03:"outletCode",T04:"skuCode",T05:"sourceSystem|sourceDocumentId|sourceLineId",T06:"ruleId",T07:"openItemId",T08:"creditSourceId",T09:"custodySourceId",T10:"advanceId",T11:"tripCode",T12:"legacyId",T13:"adapterCode",T14:"caseId"}[spec.id];
   if(naturalKey){
-    const duplicates=(tables[spec.id]||[]).filter(x=>x.tenantCode===r.tenantCode&&x[naturalKey]===r[naturalKey]);
+    const cols=naturalKey.split("|");const duplicates=(tables[spec.id]||[]).filter(x=>x.tenantCode===r.tenantCode&&cols.every(k=>x[k]===r[k]));
     if(duplicates.length>1)error("DUPLICATE_BUSINESS_KEY",spec.id,n,naturalKey,String(r[naturalKey]||""));
   }
   if(spec.id==="T05"&&+r.qtyBase===0&&+r.totalCost!==0)error("STOCK_BALANCE",spec.id,n,"totalCost","Zero quantity with nonzero value");
@@ -67,10 +68,17 @@ function importPreview(tables,dict,digest){
   if(spec.id==="T07"&&(+r.openAmount>+r.originalGross||r.dueDate<r.deliveryDate))error("AR_BALANCE",spec.id,n,"openAmount","Open AR > original or due before delivery");
   if(spec.id==="T09"&&+r.acceptedToFund>+r.amountHeld)error("CUSTODY_BALANCE",spec.id,n,"acceptedToFund","Fund acceptance > held");
   if(spec.id==="T10"&&+r.outstanding!==+r.issued-(+r.approvedExpenses)-(+r.cashierAcceptedReturns))error("ADVANCE_BALANCE",spec.id,n,"outstanding","Issued - expenses - accepted returns must equal outstanding");
-  if(spec.id==="T11"&&(r.mode==="B_NO_CHANNEL"||r.mode==="A"&&!r.aReservationRef||r.mode!=="A"&&!r.bQuotaRef))error("TRIP_MODE",spec.id,n,"mode","Invalid mode/grant allocation");
-  if(spec.id==="T11"&&(tables.T11||[]).filter(t=>t.tenantCode===r.tenantCode&&t.writerInstallationId===r.writerInstallationId).length>1)error("SECOND_WRITER",spec.id,n,"writerInstallationId","Installation reused across active trip rows");
+  if(spec.id==="T11"){
+    const a=Boolean(r.aReservationRef),b=Boolean(r.bQuotaRef);
+    if(r.mode==="B_NO_CHANNEL"||(r.mode==="A"&&(!a||b))||(r.mode==="B_ONLINE"&&(a||!b))||(r.mode==="MIXED"&&(!a||!b)))error("TRIP_MODE",spec.id,n,"mode","A only AReservation; B only BQuota; mixed both; no-channel blocked");
+    const profile=(tables.T01||[]).find(t=>t.tenantCode===r.tenantCode);
+    if(profile&&!String(profile.requestedModes).split("|").includes(r.mode))error("MODE_NOT_REQUESTED",spec.id,n,"mode","Not requested in T01; admission is separate");
+    if((tables.T11||[]).some(t=>t!==r&&t.tenantCode===r.tenantCode&&t.tripCode===r.tripCode&&t.writerInstallationId!==r.writerInstallationId))error("SECOND_WRITER",spec.id,n,"writerInstallationId","Two installations on same trip");
+    if((tables.T11||[]).some(t=>t!==r&&t.tenantCode===r.tenantCode&&t.grantId===r.grantId))error("GRANT_REUSE",spec.id,n,"grantId","Grant reused on two trips");
+    if(r.vehicleKind==="MOTORBIKE"&&r.deliveryEmployeeCode!==r.driverEmployeeCode)error("DRIVER_ASSIGNMENT",spec.id,n,"driverEmployeeCode","Motorbike delivery and driver identical; truck may split");
+  }
   if(spec.id==="T13"&&r.evidenceStatus==="VERIFIED_EXTERNALLY")warn("PROVIDER_CLAIM_NEEDS_HUMAN_EVIDENCE",spec.id,n,"evidenceStatus","Not verified by dry run");
-  if(spec.id==="T14"&&(r.decision==="GO"||r.status==="VERIFIED"))warn("GO_LIVE_CLAIM_NEEDS_SIGNED_EVIDENCE",spec.id,n,"decision","Not verified by dry run");
+  if(spec.id==="T14"&&(r.decision==="GO"||r.status==="VERIFIED"))error("GO_LIVE_CLAIM_UNVERIFIED",spec.id,n,"decision","CSV cannot verify Go-Live; signed evidence workflow required");
  }
  for(const id of ["T01","T02","T04","T05"])if((counts[id]||0)===0)error("REQUIRED_DATA_EMPTY",id,0,"","Tenant bootstrap data missing");
  const blocked=["MANUAL_NPP_DATA_AUTHORIZATION","SELLER_TAX_AND_PROVIDER_LEGAL_PREFLIGHT","FULL_WAREHOUSE_WRITER_LOCK_AFTER_CUTOVER","PWA_API_SQL_RESTORE_E2E","AR_CUSTODY_ADVANCE_MULTI_PARTY_RECONCILIATION","MODE_SPECIFIC_OWNER_GO_NO_GO"];

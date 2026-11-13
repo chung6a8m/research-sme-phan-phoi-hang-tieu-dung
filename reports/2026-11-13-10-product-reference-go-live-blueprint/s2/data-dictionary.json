@@ -8,7 +8,9 @@
     "quantity": "base UoM Decimal",
     "sourceHash": "SHA256(ascii business columns + tenantCode/schemaVersion/sourceSystem/sourceRecordId/importBatchId, pipe separated)",
     "process": "upload -> validate -> FK/source/balance -> dry-run -> error/discrepancy review -> approval -> commit once",
-    "limitation": "All generated examples MODEL_ONLY, no production go-live/e-invoice evidence"
+    "limitation": "All generated examples MODEL_ONLY, no production go-live/e-invoice evidence",
+    "requestedModes": "Distinct | delimited tokens A|B_ONLINE|MIXED|B_NO_CHANNEL mapped to S1 requestedModes[]; request does not grant mode admission",
+    "openingStockLine": "sourceDocumentId is document header, sourceLineId identifies the opening-stock line"
   },
   "commonFields": [
     "tenantCode",
@@ -62,7 +64,7 @@
         },
         {
           "name": "requestedModes",
-          "type": "code",
+          "type": "modes",
           "required": true,
           "ref": null,
           "allowed": null,
@@ -353,6 +355,14 @@
           "ref": null,
           "allowed": null,
           "sample": "F0-DEMO-01-OPEN-STOCK-1"
+        },
+        {
+          "name": "sourceLineId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "L0001"
         }
       ]
     },
@@ -696,6 +706,17 @@
           "sample": "F0-DEMO-01-VEH01"
         },
         {
+          "name": "vehicleKind",
+          "type": "vehicleKind",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "MOTORBIKE",
+            "TRUCK"
+          ],
+          "sample": "MOTORBIKE"
+        },
+        {
           "name": "writerInstallationId",
           "type": "code",
           "required": true,
@@ -712,7 +733,15 @@
           "sample": "F0-DEMO-01-GRANT0001"
         },
         {
-          "name": "employeeCode",
+          "name": "deliveryEmployeeCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-EMP01"
+        },
+        {
+          "name": "driverEmployeeCode",
           "type": "code",
           "required": true,
           "ref": null,
@@ -917,6 +946,14 @@
       "name": "go-live-evidence-cases",
       "owner": "QA/Owner",
       "fields": [
+        {
+          "name": "caseId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-CASE-A"
+        },
         {
           "name": "mode",
           "type": "allModes",

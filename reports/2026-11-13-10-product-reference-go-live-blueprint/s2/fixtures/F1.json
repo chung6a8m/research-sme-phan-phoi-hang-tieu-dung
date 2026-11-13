@@ -25,10 +25,10 @@
         "legalSellerRef": "",
         "currency": "VND",
         "timezone": "Asia/Ho_Chi_Minh",
-        "requestedModes": "A",
+        "requestedModes": "A|B_ONLINE|MIXED",
         "profileVersion": "1",
         "evidenceStatus": "EVIDENCE_PENDING",
-        "sourceHash": "874b727a134333e5c2ba0c8e9627c07a58e8e55aca61d188a92b2cce1f6a45a0"
+        "sourceHash": "8a15c3a816e21e3d71d77f1c92fd659e53c4ced623cdbc12aadbe3e3ee32f9f4"
       }
     ],
     "T02": [
@@ -2181,8 +2181,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "100",
         "totalCost": "1000",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-1",
-        "sourceHash": "28d0419d7169d6fd3655d76de27ec079a947c9059ea01a7433e988dbdca23e32"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0001",
+        "sourceHash": "7dc0ee8bb0c7a2936fb77bf7acaffa512cd4ba0cc5b5aeb42fc5008405aa18fc"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2197,8 +2198,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "63",
         "totalCost": "81081",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-2",
-        "sourceHash": "556060dcf015ca316874021ab9bdc8356b4abc84644b2b1ef0688a79c98899f9"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0002",
+        "sourceHash": "7fe76c78f2c3d60e0fa509754fad1c41264c97a6cb90ff24e7c2348722201c5d"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2213,8 +2215,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "94",
         "totalCost": "124456",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-3",
-        "sourceHash": "c889bd4b5068f2765dee60a26d8fa6a837b3e16507ab9791a9726061064d9b2e"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0003",
+        "sourceHash": "af25c9b5b3e7db4b381631851cb0f295bb34ae285cdd55a4792eb185e9dd8c79"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2229,8 +2232,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "237",
         "totalCost": "322557",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-4",
-        "sourceHash": "ad09a95fc6d437d8934fe8d810618eb342657cbb765b0ff34a9333b0acf6637d"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0004",
+        "sourceHash": "70cae429440f16aff3ef5f19b7444ab1f578749a04bbdd704760b6bebad10841"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2245,8 +2249,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "168",
         "totalCost": "234864",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-5",
-        "sourceHash": "49de142f3ac82a1f5a4c27d1756ca503b2a742e7067a13f4755c21a73e608e66"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0005",
+        "sourceHash": "ee8b6e12f44445c2c1da1eabc51e19ce7a1a8194f113479043fdb8711a479ebd"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2261,8 +2266,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "199",
         "totalCost": "285565",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-6",
-        "sourceHash": "55584ebae0ca5bdbb4d3661e6251f006b7ebda92399404c552462b857cd11322"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0006",
+        "sourceHash": "a0974248332270482c94d5d3e0c897c3603c71cd2775515d44d40f07b2fbfb78"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2277,8 +2283,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "218",
         "totalCost": "320896",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-7",
-        "sourceHash": "635e584bcd6da6084a57968edf96b71c541eb345636513e282ce3a5e509bcca2"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0007",
+        "sourceHash": "dec9a425aea33b8bb74d63e09fb725aa83cd546ed529247aa0173b97162aa972"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2293,8 +2300,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "121",
         "totalCost": "182589",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-8",
-        "sourceHash": "9c121673729ac737bb1ed405ac445cd6c22da3e8720af71aa20214f174615ef4"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0008",
+        "sourceHash": "f4ad4c2de5b4cbce2c53dd5bbf288d4708cb0a82f2396e2a9d647f5a56807013"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2309,8 +2317,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "56",
         "totalCost": "86576",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-9",
-        "sourceHash": "87a82fc18a1229c9432813b5b0b46604a7aa1c80d750e8c1094447155ad4c04d"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0009",
+        "sourceHash": "134d6227f0e9d55499d17da9adc5cf23922a5f59e21ee5312922943858b238fb"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2325,8 +2334,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "227",
         "totalCost": "359341",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-10",
-        "sourceHash": "cb67e3c34136ac5a20dbb6268079ef641f786a3d3933e52f28935c31ce539db2"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0010",
+        "sourceHash": "570fa69182ced93e90c9ad99d744c8a7372e80e230bbcc62d216606125594ad9"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2341,8 +2351,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "194",
         "totalCost": "314280",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-11",
-        "sourceHash": "996a6909afab59120843ab7ed4445d0162ecf374c9653812afde2d9a95c5dcc9"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0011",
+        "sourceHash": "6e2dd5672887e6d7b34cade22573622380059b124a9ac922d65622cc85515be8"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2357,8 +2368,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "177",
         "totalCost": "293289",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-12",
-        "sourceHash": "80b2c8ca5726c7b962369557fdf3ad70d09325baf8cfffc0b0defa6a8baaf679"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0012",
+        "sourceHash": "eae37db71fa12a332b3c7ea6a0487ddbebce5eeaef389e52dececcfaff2f4559"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2373,8 +2385,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "216",
         "totalCost": "365904",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-13",
-        "sourceHash": "a657d82c2d6fe5c440fcd62558b71e9da7967973deff151d1897d157064e4e11"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0013",
+        "sourceHash": "2b829494aa6b00fb4b941a2dbf57acf7ef09adc70d7519b7b3cfeaa0a8bf3f37"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2389,8 +2402,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "183",
         "totalCost": "316773",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-14",
-        "sourceHash": "29ff3b0782f80d6fcda7e52cd4d49221f9ae39bc95ac78d2c135324308aa25df"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0014",
+        "sourceHash": "ab0005b9fe965d13a9243d5314f42388bd0cd70db9765bc0688139f68788d265"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2405,8 +2419,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "134",
         "totalCost": "236912",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-15",
-        "sourceHash": "8c042385f858a36bcc876b994e2778f7e8510d8cc864117f1c5296f6ebcb1e6a"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0015",
+        "sourceHash": "243ab6804e3e24431dbe44212a840682282a465a053b593d94cc2445b7bef981"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2421,8 +2436,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "81",
         "totalCost": "146205",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-16",
-        "sourceHash": "b1664a42ab5e96101ea2952ec500aa7341a8925355e810f0da2a7c2554a897a5"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0016",
+        "sourceHash": "6b3910739354df2710a720324dc787766fc22dd07a5d11383c8a93c81e475f64"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2437,8 +2453,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "200",
         "totalCost": "368400",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-17",
-        "sourceHash": "e42b9134dbabc5c89f02a36f2eaecc97225ef0f016b22385115e5b70f1e9a42d"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0017",
+        "sourceHash": "9ff1851ef219326dc8645ad969f5259bfea12b1495edc45d35ebcca98b0a6345"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2453,8 +2470,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "243",
         "totalCost": "456597",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-18",
-        "sourceHash": "108311f5b26d6786c853055221392ae16c170996591e77b85ddcd962dbf758a5"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0018",
+        "sourceHash": "9b5612b94e937e5232c31a5a41a0b340b7e7f82c7b7a7ba4c2e4719836649624"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2469,8 +2487,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "158",
         "totalCost": "302728",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-19",
-        "sourceHash": "6110407486eda862ce998fec7138142dfa40aad79c3f5a60eced23002cf1f07d"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0019",
+        "sourceHash": "616296c72675081d3f921b17352695bea19643b3ca331c749d4479a7d0700ab1"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2485,8 +2504,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "165",
         "totalCost": "322245",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-20",
-        "sourceHash": "6862fa46c65bcc37c49f8966d6b02bc2ed0d0df6c29d88af93a2edeacf73b807"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0020",
+        "sourceHash": "3592bbd3b87cdec909a27249176527fd684844fb4454a3a18f8a959194da9217"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2501,8 +2521,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "76",
         "totalCost": "151240",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-21",
-        "sourceHash": "f9fb92d12e0f9337a5245dd20ad5080f71417ecf8074d48254ae088edde5b2f6"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0021",
+        "sourceHash": "850522596a4db712d53dbf490c433af56937c6f94574994e0721c49404717118"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2517,8 +2538,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "59",
         "totalCost": "119593",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-22",
-        "sourceHash": "cad71e11b21163e0d90672702994854b5f88c659bdb782f4b8004e6d2af34ea4"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0022",
+        "sourceHash": "633454854007b44b04bee9beaf97a21d80dd28526290cd52c8479a25e50ddad4"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2533,8 +2555,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "158",
         "totalCost": "326112",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-23",
-        "sourceHash": "abf2a94cdc7e404c471585582944bb33b8f070ae27833577d9eefcd56b94d5f3"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0023",
+        "sourceHash": "13b09fc4a3e1912fd40ba37fe4c948bb1e1c2622f87215603cc28ee7b7cd2944"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2549,8 +2572,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "117",
         "totalCost": "245817",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-24",
-        "sourceHash": "6dfa409af7ab682beeeb77cbf3212328033337dad3c3eaecc7d2224960d7645d"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0024",
+        "sourceHash": "eb495a250315110230a837dc933946949bddc628f7c848456489a572b011698c"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2565,8 +2589,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "236",
         "totalCost": "504568",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-25",
-        "sourceHash": "4ba084f2bb639710a03ffb54d971d152c7418ed7d6d42f7b58990642b3ada2a8"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0025",
+        "sourceHash": "0189bf8b68e36f3402613742654b93bc59e4e1937c24d3c3056db208f3768da3"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2581,8 +2606,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "163",
         "totalCost": "354525",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-26",
-        "sourceHash": "24ae4c84c52e6f830d88c58d56091e3d5be9de4bdb35cee635571436255e1f3c"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0026",
+        "sourceHash": "69b8d857e6fdc7de26b4bd5f35ec8b948f7ac7df1ba8f41774abeb56df3da3d7"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2597,8 +2623,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "238",
         "totalCost": "526456",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-27",
-        "sourceHash": "a83b5e443ea778a0ac8e3b2130f183defe0e80b28039e8788b12f3aa06f73e5b"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0027",
+        "sourceHash": "ecb07597897c009164605f4ab4ce2ffad86c7f6ef7d22a1a0444ebd7a24a93f7"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2613,8 +2640,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "33",
         "totalCost": "74217",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-28",
-        "sourceHash": "40fbac50ffa618e3b08429f0f103f16e368e6ec18d4e47486bbe5eea7bedd847"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0028",
+        "sourceHash": "85787a7b9c421f892f510dc108faaa6e2b702b4985e69b2e8d95323f0630c952"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2629,8 +2657,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "220",
         "totalCost": "502920",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-29",
-        "sourceHash": "3a571cab17ce88d2e5c65d6af3cb020dac3f65fa3cd6d689fb319db79edea016"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0029",
+        "sourceHash": "ee0625b2f3c184f8718d067cd9377270413648afe76d0e92e076abed3f84958b"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2645,8 +2674,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "55",
         "totalCost": "127765",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-30",
-        "sourceHash": "1b0d777deed32c63e70d260693ba65cebb75aa937333456d38685c147e604271"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0030",
+        "sourceHash": "3911bc412f3749d6e65c950eba694c5747ba2e867063c9ee98954e79597891dc"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2661,8 +2691,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "86",
         "totalCost": "202960",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-31",
-        "sourceHash": "5366178a220bb2ea2bd53d063678e88a768b84594b61fe7585a721911db17f54"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0031",
+        "sourceHash": "bd8ddd3d266251cca3a9c9eb2c813197cb8382915eb3affe16ce26e2001095a6"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2677,8 +2708,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "109",
         "totalCost": "261273",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-32",
-        "sourceHash": "a036b779c0eb235ca9d7e0fcbfbd1fbf5d0cd2a3a1a9b29eb98d19aaed5ad9da"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0032",
+        "sourceHash": "c881dc4cc1e84734f233f90aa1172a73d3e5c433bd7a6c1e18c9644a0dd21f79"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2693,8 +2725,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "56",
         "totalCost": "136304",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-33",
-        "sourceHash": "d4e90566d6e3bda2e6669b6ebcf886424ebfe82e6fd59f037e23f663606855a6"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0033",
+        "sourceHash": "beeaea92f1fef639261e635a64b6b10f03f20ea7e8574d98f1644041638f6889"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2709,8 +2742,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "199",
         "totalCost": "491729",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-34",
-        "sourceHash": "e1c2b9a48e7103be2ffaeb0ac0ff2c3c8813e25294fee6489d7f8011d592434d"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0034",
+        "sourceHash": "cf0b511a318944fbf514f85ec936038464e30fd024756c92ee56f59ea009bb00"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2725,8 +2759,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "222",
         "totalCost": "556776",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-35",
-        "sourceHash": "60f253541c4c9a67a8ddf6f4cdc91a1f32bfab835da97868ba94c1ca9afe0a68"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0035",
+        "sourceHash": "ebdf815afdcafb040ad45d8140cc2796b7f4138d61c312c3b455a89d8f342760"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2741,8 +2776,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "233",
         "totalCost": "592985",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-36",
-        "sourceHash": "de28f6b21855f6e88e14e5b954d3799309eaf8fe322eca627fd8d3b23894c820"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0036",
+        "sourceHash": "4747b8d1db29b39089642385bfe03d4cdc9f1cf5e5cb1ba4d5daff9d7c237cd3"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2757,8 +2793,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "220",
         "totalCost": "568040",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-37",
-        "sourceHash": "24ff85116c03552361e0962db9bd33dcc6280bb20c111c7e1451efc85be00f45"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0037",
+        "sourceHash": "136c536a857996577d6da158489cba685059749491e9e95bd94ad5f5d0c02c19"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2773,8 +2810,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "135",
         "totalCost": "353565",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-38",
-        "sourceHash": "428bd177f4275de7aed76161c0263a4a2eb390ed7477de7ff39dcb3ceff76e11"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0038",
+        "sourceHash": "ee65d4a535c47e9496e9cd59e58380a2a88c2188dc2558e74c63c34b12d67fe6"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2789,8 +2827,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "146",
         "totalCost": "387776",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-39",
-        "sourceHash": "459a860cc5b2cfddb261d70c12e26990341a7276bb39cd1a7fa66e8265d7fcc2"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0039",
+        "sourceHash": "5db4b01a547852d9e46f06cb9e38ad10ea0c1df8cab564bf4feee93aad24020c"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2805,8 +2844,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "229",
         "totalCost": "616697",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-40",
-        "sourceHash": "e65b82156ea09554832cd47bc3fd37e48296d75f06c77f5798ff250b63746ac7"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0040",
+        "sourceHash": "f0adfa1f98ec44ac0661a4730a72c643e4a866f2cc7886c2617438b491338982"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2821,8 +2861,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "224",
         "totalCost": "611520",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-41",
-        "sourceHash": "f5efe46e3fed522c002f1cadb035c511f6b3a5fdcb2ff622ebe3b0c94a603aed"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0041",
+        "sourceHash": "87903c3e97c250a18725e7ac6e27309cb6ab104f8562ab0f867905c51759f205"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2837,8 +2878,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "183",
         "totalCost": "506361",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-42",
-        "sourceHash": "4dcc2ddce6b7a660acb7322e4171e94b465a8430436399a53a77af97514b20ae"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0042",
+        "sourceHash": "3bceef9dfa383b9e6b224ed15cc629d371890fc4e45827dd30ae8f8bf5818642"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2853,8 +2895,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "118",
         "totalCost": "330872",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-43",
-        "sourceHash": "e21d7b067b90ba8334e4c60518f56e43fce87e9c8668510321df91172c2156f9"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0043",
+        "sourceHash": "525679442b1d8b1a16cf0703dcdf215e8812e7b8d30beffc1ee5b45120415d12"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2869,8 +2912,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "249",
         "totalCost": "707409",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-44",
-        "sourceHash": "3a50f30d30cf1874c317564df8b30ce80e486772c3ede7089edc60c11bdef231"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0044",
+        "sourceHash": "3e306308f8d67afb7c2c36436de5541f1c4f7d2c90292ebe5e242407f1aab6c5"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2885,8 +2929,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "228",
         "totalCost": "656184",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-45",
-        "sourceHash": "0758a399ab97a4d1dd240139c1761b993289edc3166517b8b035c6696fd80f36"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0045",
+        "sourceHash": "d876346cd3bd7d7bde9725f390da15065ea7b8249f05ca687199e4e77613bb39"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2901,8 +2946,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "63",
         "totalCost": "183645",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-46",
-        "sourceHash": "87816f7a1c9326a4e729ffad3f6dbd0565e8099706c7a7883f89ad0b6107cd23"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0046",
+        "sourceHash": "e87788b0b60bdb339c6e0c02ec868ec863bb9e2dff6ed2751a747fcb963b4562"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2917,8 +2963,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "186",
         "totalCost": "549072",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-47",
-        "sourceHash": "1bb15cf365fd38458978305deb1592c5046bcac21e8a5491c6e9b3f77713f2e4"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0047",
+        "sourceHash": "3b0836cbbf9e3cd5ffcb8fe654778d02d5c5ca169e7850ed308cedc6f174f937"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2933,8 +2980,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "113",
         "totalCost": "337757",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-48",
-        "sourceHash": "b5c023875617c0ff20eb7263935faed315089eb93015a58a2234e6c7a1136f9a"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0048",
+        "sourceHash": "bd179dfc72723f62330bc36004d7584a969eca66151c63ebdde7b7f462c2f25a"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2949,8 +2997,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "136",
         "totalCost": "411536",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-49",
-        "sourceHash": "9bbe26fae985ef604b4424fcb4b79839f5bd8b432352f4d3f8c029a0582fa3a7"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0049",
+        "sourceHash": "c89382904114874d0fa75cc1a964f7d848bb0727007797bfe1e7919ffcf6c853"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -2965,8 +3014,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "83",
         "totalCost": "254229",
-        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-50",
-        "sourceHash": "20760b4052ea81da2d8cb296cba2deff2003800b66f2f4f2a2751eb2ba53b4a8"
+        "sourceDocumentId": "F1-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0050",
+        "sourceHash": "817e1571c8c0098828e376fc4c1b796573f4ce51dee91aa3bfceabc2c3f966a3"
       }
     ],
     "T06": [
@@ -4049,13 +4099,15 @@
         "tripCode": "F1-DEMO-01-T0001",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0001",
         "grantId": "F1-DEMO-01-GRANT0001",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-1",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "3801953a5e94928b72e720964697dfa370ff9956e7699a7110d1fbaebd4fe151"
+        "sourceHash": "c427f1ccd2dcdcc8dc2fb863860c1da514fa2c80fd02f7ef393f282c38f998e1"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4066,13 +4118,15 @@
         "tripCode": "F1-DEMO-01-T0002",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0002",
         "grantId": "F1-DEMO-01-GRANT0002",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-2",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "f418b0e37137b2cab7f68f727e8e19bd33653ddfaebbf065ce98ce781ad5ab61"
+        "sourceHash": "76260f43f972841ef9c9e2e23becd91e9c93526a27233cfe8823ba15fb9163e8"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4083,13 +4137,15 @@
         "tripCode": "F1-DEMO-01-T0003",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH03",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0003",
         "grantId": "F1-DEMO-01-GRANT0003",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-3",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "69e24c439357b1458c5ee45c1231994e780a16782c290abb811ed7aa034d0578"
+        "sourceHash": "f2f480fdf7cc88956a53976ee402b81a8bb883a842d91d8e2a1be8ce216ff231"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4100,13 +4156,15 @@
         "tripCode": "F1-DEMO-01-T0004",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH04",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0004",
         "grantId": "F1-DEMO-01-GRANT0004",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-4",
         "serviceDate": "2026-11-13",
-        "sourceHash": "c36990a4ca7e053250346d8b1fcd80c98e6e92fa23729b56e9b3d3ffeac1f58c"
+        "sourceHash": "7d6bef0a4ccc10d769377010933a746b96124c691930264f2be57cd963d60f93"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4117,13 +4175,15 @@
         "tripCode": "F1-DEMO-01-T0005",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH05",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0005",
         "grantId": "F1-DEMO-01-GRANT0005",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-5",
         "serviceDate": "2026-11-13",
-        "sourceHash": "fcf1af06feef08c9370a9447a6309d6f45e91cee0461e92fae8af5739e520d26"
+        "sourceHash": "324544e4960b5fd37623dd8a339f89ffd44d7fa95e78e76e7d7416fa1bd4d078"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4134,13 +4194,15 @@
         "tripCode": "F1-DEMO-01-T0006",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH06",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0006",
         "grantId": "F1-DEMO-01-GRANT0006",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-6",
         "serviceDate": "2026-11-13",
-        "sourceHash": "5a1321bebad715ba70d5891c6e0809cc8b188e74c0a873fb607f0a1bbca13483"
+        "sourceHash": "2e211887f268f0baf60996d2e68f99f3fc06f45ab0c58d0d3c74109c70f00aaf"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4151,13 +4213,15 @@
         "tripCode": "F1-DEMO-01-T0007",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH07",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0007",
         "grantId": "F1-DEMO-01-GRANT0007",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-7",
         "bQuotaRef": "F1-DEMO-01-BQ-7",
         "serviceDate": "2026-11-13",
-        "sourceHash": "8755d00e23fc9d534b2f1abbc520db458d029366efd4a164dd84830ec74849c3"
+        "sourceHash": "c309f3338fa8e78f2d79a5079d890a72453520f13b5c608342afe5427c3dfef6"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4168,13 +4232,15 @@
         "tripCode": "F1-DEMO-01-T0008",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH08",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0008",
         "grantId": "F1-DEMO-01-GRANT0008",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-8",
         "bQuotaRef": "F1-DEMO-01-BQ-8",
         "serviceDate": "2026-11-13",
-        "sourceHash": "225c836e5654f090db1ec4b900bdffa21337cd41799204a13404eb1218b39fc0"
+        "sourceHash": "3d8bb0c6ba984300aab74c1e489f51f2a87226d4c0dd2e48710e0c531f62e0f9"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4185,13 +4251,15 @@
         "tripCode": "F1-DEMO-01-T0009",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0009",
         "grantId": "F1-DEMO-01-GRANT0009",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-9",
         "bQuotaRef": "",
         "serviceDate": "2026-11-14",
-        "sourceHash": "cffca286c92b500994e14cf98ae37570d4aca4f86ad193d887335eda651e5195"
+        "sourceHash": "aa10a44a46a838ee07c375dcd451b6f87094ef7109aa6255f396327929fca5e7"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4202,13 +4270,15 @@
         "tripCode": "F1-DEMO-01-T0010",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0010",
         "grantId": "F1-DEMO-01-GRANT0010",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-10",
         "bQuotaRef": "",
         "serviceDate": "2026-11-14",
-        "sourceHash": "e51781c0b7ac5d0894a42258af1ffad527412631cdc07a2f00d46b7f8a69bb6a"
+        "sourceHash": "8f7f0135e80ea8dc6f4fe08afdc9073bdd4fb11fcb04b56839e1184badb60f3e"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4219,13 +4289,15 @@
         "tripCode": "F1-DEMO-01-T0011",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH03",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0011",
         "grantId": "F1-DEMO-01-GRANT0011",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-11",
         "bQuotaRef": "",
         "serviceDate": "2026-11-14",
-        "sourceHash": "c719e42e2e15e105bf1d7de765b2e128dd0780530c476de74d35ad1d079fa6d9"
+        "sourceHash": "32d0a057053849757bd411bfc2eb46122bea38f51a8d08eaa3d5697e32201645"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4236,13 +4308,15 @@
         "tripCode": "F1-DEMO-01-T0012",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH04",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0012",
         "grantId": "F1-DEMO-01-GRANT0012",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-12",
         "serviceDate": "2026-11-14",
-        "sourceHash": "1f6b058c8b49890a9388159b8a1131ff99f38012ae1b2b1a8866ea09f64f0b10"
+        "sourceHash": "8303db5c9d2c632a850a79b4b825a080064e9a1d77ebaf5ecb6a4ba52b4c3033"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4253,13 +4327,15 @@
         "tripCode": "F1-DEMO-01-T0013",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH05",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0013",
         "grantId": "F1-DEMO-01-GRANT0013",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-13",
         "serviceDate": "2026-11-14",
-        "sourceHash": "44aba8e188f7b4ea1c6bba41737ef002d882c28375e65c202992444bbb884b9c"
+        "sourceHash": "5d8a02da37f683aba5b39a5434e9482aa7312143cbfb1f0b1ae8a134ed8846ec"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4270,13 +4346,15 @@
         "tripCode": "F1-DEMO-01-T0014",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH06",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0014",
         "grantId": "F1-DEMO-01-GRANT0014",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-14",
         "serviceDate": "2026-11-14",
-        "sourceHash": "097c5aaa620e83fd33b6fac3a60640d988ce0516f26d821667f485e511c9c523"
+        "sourceHash": "ac29511e311883768aa07eaabfb778b96474fbfe25e697fca16dd887abd4d9a4"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4287,13 +4365,15 @@
         "tripCode": "F1-DEMO-01-T0015",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH07",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0015",
         "grantId": "F1-DEMO-01-GRANT0015",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-15",
         "bQuotaRef": "F1-DEMO-01-BQ-15",
         "serviceDate": "2026-11-14",
-        "sourceHash": "f66abf52c49a36670dc4f9b386a1b2664612d72796e1868afe8510c7cc0aba80"
+        "sourceHash": "788677142cc7429b824b198c7deabb1289b89ed52bb21020622297bdad017be9"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4304,13 +4384,15 @@
         "tripCode": "F1-DEMO-01-T0016",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH08",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0016",
         "grantId": "F1-DEMO-01-GRANT0016",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-16",
         "bQuotaRef": "F1-DEMO-01-BQ-16",
         "serviceDate": "2026-11-14",
-        "sourceHash": "89f27d2bd2bc68524089826876eaa447c3feea0168db11007a53f3ac47e9ff1e"
+        "sourceHash": "ad49126fb32b160a4189f87b402b87ccf6bb966e8db4ea6d00ef9b6d69c65a7e"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4321,13 +4403,15 @@
         "tripCode": "F1-DEMO-01-T0017",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0017",
         "grantId": "F1-DEMO-01-GRANT0017",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-17",
         "bQuotaRef": "",
         "serviceDate": "2026-11-15",
-        "sourceHash": "d8b56d3a1c07eaf0379ad51585ec3a96b8b3120c6d1f4e9e4e08e84ad7501a95"
+        "sourceHash": "dd85ea1a5d1a08f8200faa4af1291b06b4155b1318d399067deba620c513a4c5"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4338,13 +4422,15 @@
         "tripCode": "F1-DEMO-01-T0018",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0018",
         "grantId": "F1-DEMO-01-GRANT0018",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-18",
         "bQuotaRef": "",
         "serviceDate": "2026-11-15",
-        "sourceHash": "591966c8a4b2126e2411ef12dbaeecc9c0e94f3ad61e10c3a6bd2d4a9c2fe06a"
+        "sourceHash": "673b718d0e8c1d21a6bd565424c7e6d2f824248591813d861568e49049730c28"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4355,13 +4441,15 @@
         "tripCode": "F1-DEMO-01-T0019",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH03",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0019",
         "grantId": "F1-DEMO-01-GRANT0019",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-19",
         "bQuotaRef": "",
         "serviceDate": "2026-11-15",
-        "sourceHash": "98ab776f3292b4cf2909851a2100c45b492b883bda1d012cf029070d396fbd5f"
+        "sourceHash": "dad7c12486b822d411b1ee8b2523d0ceaac9c10f4bb64f21a23483ce9febcfa0"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4372,13 +4460,15 @@
         "tripCode": "F1-DEMO-01-T0020",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH04",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0020",
         "grantId": "F1-DEMO-01-GRANT0020",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-20",
         "serviceDate": "2026-11-15",
-        "sourceHash": "6580b2cef2089c37e28c909e698f1778ab083080b9a032c05103e9c7bdc35c7a"
+        "sourceHash": "5a88d2393fd1714abed9cdca17c9a49625615e64835f81b5ead40225659b3c86"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4389,13 +4479,15 @@
         "tripCode": "F1-DEMO-01-T0021",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH05",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0021",
         "grantId": "F1-DEMO-01-GRANT0021",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-21",
         "serviceDate": "2026-11-15",
-        "sourceHash": "1a6869f432cf7ce1ce7e3c2db4192d07615b292eaf932b0df402be9f3c5cfc0d"
+        "sourceHash": "46d7cbdd600e3d94cc9c0b648ec4a115083b51d2db08ad756cdf301d0852a554"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4406,13 +4498,15 @@
         "tripCode": "F1-DEMO-01-T0022",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH06",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0022",
         "grantId": "F1-DEMO-01-GRANT0022",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-22",
         "serviceDate": "2026-11-15",
-        "sourceHash": "2e696737c4df0994d27e84951db7fe2a48f960ec36ebfffcdf2be4767b5b3452"
+        "sourceHash": "32554458575ce0eb7cbc3417eb6cb2487eb1c59236be3e2c68e99276e58bbce5"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4423,13 +4517,15 @@
         "tripCode": "F1-DEMO-01-T0023",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH07",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0023",
         "grantId": "F1-DEMO-01-GRANT0023",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-23",
         "bQuotaRef": "F1-DEMO-01-BQ-23",
         "serviceDate": "2026-11-15",
-        "sourceHash": "a224d575b3179ed0e320ca34b6702d4385366c1a7c96a036564ca52841e18586"
+        "sourceHash": "79964772e984b7c183b08c931d2e8e65d58757205dd9265ebee95da7b7acda0e"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4440,13 +4536,15 @@
         "tripCode": "F1-DEMO-01-T0024",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH08",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0024",
         "grantId": "F1-DEMO-01-GRANT0024",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-24",
         "bQuotaRef": "F1-DEMO-01-BQ-24",
         "serviceDate": "2026-11-15",
-        "sourceHash": "352b3574d97d762f40be13ac0fa538475f6a593f2b88aaa66408625a9946ee31"
+        "sourceHash": "95e159b7394b6a3761ec446f92ecf4081ba987e884c1ac6787deee3f37618a4f"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4457,13 +4555,15 @@
         "tripCode": "F1-DEMO-01-T0025",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0025",
         "grantId": "F1-DEMO-01-GRANT0025",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-25",
         "bQuotaRef": "",
         "serviceDate": "2026-11-16",
-        "sourceHash": "4c87c297225451721ae9c48ddb28c5d7199a70dd85ff07f4d739ef1c4db88621"
+        "sourceHash": "485cf7a9fac42319a235b83a0fc0ebaf744e2c31d0d047dabe19a2ec22fb6180"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4474,13 +4574,15 @@
         "tripCode": "F1-DEMO-01-T0026",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0026",
         "grantId": "F1-DEMO-01-GRANT0026",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-26",
         "bQuotaRef": "",
         "serviceDate": "2026-11-16",
-        "sourceHash": "2e276cd35b140f8a51e03932cd402770b26dad6e5431dc4c118b824aa5e6cba8"
+        "sourceHash": "a0e0ce34f9fa4ee25e7aeca173e49eafa33a29d4b59743a0cbae219c3f4203c8"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4491,13 +4593,15 @@
         "tripCode": "F1-DEMO-01-T0027",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH03",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0027",
         "grantId": "F1-DEMO-01-GRANT0027",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-27",
         "bQuotaRef": "",
         "serviceDate": "2026-11-16",
-        "sourceHash": "0089be5a9999070c6dc3b3a076e40dd8ca70bfbacd0aaafd74759509c55ee401"
+        "sourceHash": "e5b3863c91638dac03031109ecd562b53edc57abdb2e964a4a44783969e3198b"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4508,13 +4612,15 @@
         "tripCode": "F1-DEMO-01-T0028",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH04",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0028",
         "grantId": "F1-DEMO-01-GRANT0028",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-28",
         "serviceDate": "2026-11-16",
-        "sourceHash": "9a771002611a757fa44a41963848517153b2763b9aa17cc0410b2ca0ce0f4c4b"
+        "sourceHash": "9cf7ba65e99224971b82254159bb58873540ea98c0d3a00b3041b37073961d4d"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4525,13 +4631,15 @@
         "tripCode": "F1-DEMO-01-T0029",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH05",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0029",
         "grantId": "F1-DEMO-01-GRANT0029",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-29",
         "serviceDate": "2026-11-16",
-        "sourceHash": "6161207b1eb10b63a3aff51181a5134e6c5165a10b4d039a0bbfa6983526fe1b"
+        "sourceHash": "1a9eaf96c874d9db507f9c465440eccccb275d605f93e802600f224a710b47c7"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4542,13 +4650,15 @@
         "tripCode": "F1-DEMO-01-T0030",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH06",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0030",
         "grantId": "F1-DEMO-01-GRANT0030",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-30",
         "serviceDate": "2026-11-16",
-        "sourceHash": "4d7285ded585b6e72c2cd0f16ca04a55351888b663c29a5d1ed352666e9a7d04"
+        "sourceHash": "c1fa83beafa3aee6ddee2a93237227b3b59dcfaf06e278fefb158c407d23dd6e"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4559,13 +4669,15 @@
         "tripCode": "F1-DEMO-01-T0031",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH07",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0031",
         "grantId": "F1-DEMO-01-GRANT0031",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-31",
         "bQuotaRef": "F1-DEMO-01-BQ-31",
         "serviceDate": "2026-11-16",
-        "sourceHash": "2e94d6202bcbfaa49e021c71dbb227dd005d4320c039c521bca699ebf89209d5"
+        "sourceHash": "4698c3d337d668f498606766aeb9207de6126d1def789e5f8f181aab80a30224"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4576,13 +4688,15 @@
         "tripCode": "F1-DEMO-01-T0032",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH08",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0032",
         "grantId": "F1-DEMO-01-GRANT0032",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-32",
         "bQuotaRef": "F1-DEMO-01-BQ-32",
         "serviceDate": "2026-11-16",
-        "sourceHash": "c9549abe74a19022bb32d9cbad77506f3c08461175366206f43d9afd28bb1d3c"
+        "sourceHash": "ec59edc70e11f5eb65265638b6cc10e4214730e5d4b2ad5a3372bc73d9a753ba"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4593,13 +4707,15 @@
         "tripCode": "F1-DEMO-01-T0033",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0033",
         "grantId": "F1-DEMO-01-GRANT0033",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-33",
         "bQuotaRef": "",
         "serviceDate": "2026-11-17",
-        "sourceHash": "6022420942f06b06ec12fe49f431b7bc369c6652350ef9633c5e61e28d22b436"
+        "sourceHash": "b544e2e7c293748ec67c059987345b443e7b395941c0617f21e6b62776d6aa0a"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4610,13 +4726,15 @@
         "tripCode": "F1-DEMO-01-T0034",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0034",
         "grantId": "F1-DEMO-01-GRANT0034",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-34",
         "bQuotaRef": "",
         "serviceDate": "2026-11-17",
-        "sourceHash": "c053a512041977b24d3d25892bfcf203f25e16648037e82f55a1a7c0e6f4241d"
+        "sourceHash": "c497afd577a559215816bc9745d9ee14c2081e2548fa379275f82f1e9f7b0de0"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4627,13 +4745,15 @@
         "tripCode": "F1-DEMO-01-T0035",
         "mode": "A",
         "vehicleCode": "F1-DEMO-01-VEH03",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0035",
         "grantId": "F1-DEMO-01-GRANT0035",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-35",
         "bQuotaRef": "",
         "serviceDate": "2026-11-17",
-        "sourceHash": "cb3becca7e16e6c0c2cdc3d8679d610ce1acf0d8b42f699baa66e0e85bde5a0f"
+        "sourceHash": "9e284dab5689be410ad530dccf59294ae2255bcc1d81af4f0565a08b7285f1e9"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4644,13 +4764,15 @@
         "tripCode": "F1-DEMO-01-T0036",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH04",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0036",
         "grantId": "F1-DEMO-01-GRANT0036",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-36",
         "serviceDate": "2026-11-17",
-        "sourceHash": "39f624e0fc3247d941251f63de7e8657afafabfefeb949821be1024c2bd998c6"
+        "sourceHash": "69a7d4220ef7853112bea368e2660fa91ea7a6e484824ed54b8f69753f277a4b"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4661,13 +4783,15 @@
         "tripCode": "F1-DEMO-01-T0037",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH05",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0037",
         "grantId": "F1-DEMO-01-GRANT0037",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-37",
         "serviceDate": "2026-11-17",
-        "sourceHash": "8062b43b567d9859a2bc5aa693315e80bd9c0753056c78fa4d64601c3f5b10f6"
+        "sourceHash": "21c711c604bc0a3b5ef7b8a04dc4df225361a74c9452e3a1b667f2aba753eee4"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4678,13 +4802,15 @@
         "tripCode": "F1-DEMO-01-T0038",
         "mode": "B_ONLINE",
         "vehicleCode": "F1-DEMO-01-VEH06",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0038",
         "grantId": "F1-DEMO-01-GRANT0038",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F1-DEMO-01-BQ-38",
         "serviceDate": "2026-11-17",
-        "sourceHash": "a11719120d21b3c6343290f1a6a68956ddaf38b3a60de0948a16886c97be3320"
+        "sourceHash": "66aba7b521a0c08ed4daa50d61952e3fa8f9f696e27cea0ff820881c5763ce12"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4695,13 +4821,15 @@
         "tripCode": "F1-DEMO-01-T0039",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH07",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F1-DEMO-01-INST0039",
         "grantId": "F1-DEMO-01-GRANT0039",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-EMP01",
         "aReservationRef": "F1-DEMO-01-ARES-39",
         "bQuotaRef": "F1-DEMO-01-BQ-39",
         "serviceDate": "2026-11-17",
-        "sourceHash": "a6880811634ba73addae05072374a1950921112d3cc268ce87a48d0d374a2fc3"
+        "sourceHash": "134722ec2cdef68b3e064cc628e650e2acb7ca3f6053e744970454d2134f7810"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4712,13 +4840,15 @@
         "tripCode": "F1-DEMO-01-T0040",
         "mode": "MIXED",
         "vehicleCode": "F1-DEMO-01-VEH08",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F1-DEMO-01-INST0040",
         "grantId": "F1-DEMO-01-GRANT0040",
-        "employeeCode": "F1-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F1-DEMO-01-EMP01",
+        "driverEmployeeCode": "F1-DEMO-01-DRIVER02",
         "aReservationRef": "F1-DEMO-01-ARES-40",
         "bQuotaRef": "F1-DEMO-01-BQ-40",
         "serviceDate": "2026-11-17",
-        "sourceHash": "7faf03a995a9c78d7c801c8c98fb9d74e3fc8d316e58f692151c9e7ae06a52a5"
+        "sourceHash": "974e83ee92e6ab19e126fbaaf324929ccf493f735ab6009d6d20e47c12c72320"
       }
     ],
     "T12": [
@@ -4781,6 +4911,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000001",
         "importBatchId": "S2-F1-DEMO-01",
+        "caseId": "F1-DEMO-01-CASE-A",
         "mode": "A",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -4791,7 +4922,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "4e23824e31d5430e16865d1aad0d4de04e57e994e68aa0635337ff492150e0e7"
+        "sourceHash": "6fd7ac37c9f6028eb54f8d4ae73a16a1fa8c53def2ce8d8b84bbd651c89e6bcc"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4799,6 +4930,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000002",
         "importBatchId": "S2-F1-DEMO-01",
+        "caseId": "F1-DEMO-01-CASE-B_ONLINE",
         "mode": "B_ONLINE",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -4809,7 +4941,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "329964c5124da109ee0477d7059593da0eed9498610567de6030da095c0a8135"
+        "sourceHash": "d956c3555f1cdd96c70aec5bbf2c926f95c7db236dae001ffc8d400b49bc5549"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4817,6 +4949,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000003",
         "importBatchId": "S2-F1-DEMO-01",
+        "caseId": "F1-DEMO-01-CASE-MIXED",
         "mode": "MIXED",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -4827,7 +4960,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "b737384be422e4ca5c7e791b8a0729b086b90c18042da5bb90afa45830950270"
+        "sourceHash": "f0a0b0a15f616d835780f0d1c54ef4e0eb375d72aeb92d24e72652c21659deb9"
       },
       {
         "tenantCode": "F1-DEMO-01",
@@ -4835,6 +4968,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F1-DEMO-01-T14-000004",
         "importBatchId": "S2-F1-DEMO-01",
+        "caseId": "F1-DEMO-01-CASE-B_NO_CHANNEL",
         "mode": "B_NO_CHANNEL",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -4845,7 +4979,26 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "b8873dcd2464fdeba1027c62f2d755dce9eac4983fa329a2f6e80a6ea17f30c7"
+        "sourceHash": "d188b7020255f9dd2e9573b5b40691a395f66492033a961fac21c2ab448b6f8d"
+      },
+      {
+        "tenantCode": "F1-DEMO-01",
+        "schemaVersion": "s2-v1",
+        "sourceSystem": "SYNTHETIC_S2",
+        "sourceRecordId": "F1-DEMO-01-T14-000005",
+        "importBatchId": "S2-F1-DEMO-01",
+        "caseId": "F1-DEMO-01-CASE-A-STOCK",
+        "mode": "A",
+        "gateId": "G-STOCK",
+        "acId": "AC-04",
+        "evId": "EV-04",
+        "buildSha": "",
+        "testRunId": "",
+        "decision": "NO_GO",
+        "status": "NOT_RUN",
+        "reviewer": "",
+        "caseOwner": "WAREHOUSE",
+        "sourceHash": "ee92cf2ceb91a1c06871aae66015a844c2e004f1509e0825072138b157afdf3a"
       }
     ]
   }

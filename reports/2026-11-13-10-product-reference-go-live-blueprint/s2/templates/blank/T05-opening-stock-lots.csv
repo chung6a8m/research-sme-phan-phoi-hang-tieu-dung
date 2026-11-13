@@ -1,1 +1,1 @@
-skuCode,locationCode,lotCode,expiryDate,stockStatus,qtyBase,totalCost,sourceDocumentId,tenantCode,schemaVersion,sourceSystem,sourceRecordId,sourceHash,importBatchId
+skuCode,locationCode,lotCode,expiryDate,stockStatus,qtyBase,totalCost,sourceDocumentId,sourceLineId,tenantCode,schemaVersion,sourceSystem,sourceRecordId,sourceHash,importBatchId

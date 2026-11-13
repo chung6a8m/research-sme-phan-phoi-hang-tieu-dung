@@ -13,10 +13,10 @@
         "legalSellerRef": "",
         "currency": "VND",
         "timezone": "Asia/Ho_Chi_Minh",
-        "requestedModes": "A",
+        "requestedModes": "A|B_ONLINE|MIXED",
         "profileVersion": "1",
         "evidenceStatus": "EVIDENCE_PENDING",
-        "sourceHash": "08491c2cd424d2af6d421ec1185ca1b08615b6a401931d2263ad9a9ca5bd1926"
+        "sourceHash": "edb07682ddeb1b02dd1aa9d8850dabf3c17f0bb16d813eaf169e8d39fe9f26cf"
       }
     ],
     "T02": [
@@ -127,8 +127,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "100",
         "totalCost": "1000",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-1",
-        "sourceHash": "f9dafc8f0f240789ff8653b6bd492a332d8aef3b107426ea296ae50c0b57436b"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0001",
+        "sourceHash": "787bd29d275d1aee2395b82e9d92af3ad0da95af3d81339d7c2bbef8b1657418"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -143,8 +144,9 @@
         "stockStatus": "AVAILABLE",
         "qtyBase": "218",
         "totalCost": "280566",
-        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-2",
-        "sourceHash": "4b7203dc8e3227236ab36ce26993df284b0c4a2ece01129ba40b63fb8c1120d7"
+        "sourceDocumentId": "F0-DEMO-01-OPEN-STOCK-DOC",
+        "sourceLineId": "L0002",
+        "sourceHash": "aca01b39158c5a07c5002e6a4108d4e6f0cf68126a63c752d6a7dadc777e6db3"
       }
     ],
     "T06": [
@@ -258,13 +260,15 @@
         "tripCode": "F0-DEMO-01-T0001",
         "mode": "A",
         "vehicleCode": "F0-DEMO-01-VEH01",
+        "vehicleKind": "MOTORBIKE",
         "writerInstallationId": "F0-DEMO-01-INST0001",
         "grantId": "F0-DEMO-01-GRANT0001",
-        "employeeCode": "F0-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F0-DEMO-01-EMP01",
+        "driverEmployeeCode": "F0-DEMO-01-EMP01",
         "aReservationRef": "F0-DEMO-01-ARES-1",
         "bQuotaRef": "",
         "serviceDate": "2026-11-13",
-        "sourceHash": "8f94754b05372b17f2a9260c5ba785777527138524c797f9fed74ad3833b36f8"
+        "sourceHash": "f16e03b7c475c865139e82799a0b6d82ed219bdaa121540a915a109ac00fda4a"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -275,13 +279,15 @@
         "tripCode": "F0-DEMO-01-T0002",
         "mode": "B_ONLINE",
         "vehicleCode": "F0-DEMO-01-VEH02",
+        "vehicleKind": "TRUCK",
         "writerInstallationId": "F0-DEMO-01-INST0002",
         "grantId": "F0-DEMO-01-GRANT0002",
-        "employeeCode": "F0-DEMO-01-EMP01",
+        "deliveryEmployeeCode": "F0-DEMO-01-EMP01",
+        "driverEmployeeCode": "F0-DEMO-01-DRIVER02",
         "aReservationRef": "",
         "bQuotaRef": "F0-DEMO-01-BQ-2",
         "serviceDate": "2026-11-13",
-        "sourceHash": "ca5b74cdbaf586fd30710abf3cee4f79cc5371ddc10b4df501873b7aa0860be0"
+        "sourceHash": "efca87cdc8a3e99ff84ec0a5a0372046a9513685c8d92f373ba4dd4c2ec0f7c1"
       }
     ],
     "T12": [
@@ -344,6 +350,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F0-DEMO-01-T14-000001",
         "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-A",
         "mode": "A",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -354,7 +361,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "55f9311dbebaa4bb2bbd0eb118772c123a293bb285685f8318ff9533e1d7ecca"
+        "sourceHash": "6c159ef12ac272fa2f7ddf5c730f0dd0bb2e01bc361024ba99a9a9f8b9924156"
       },
       {
         "tenantCode": "F0-DEMO-01",
@@ -362,6 +369,7 @@
         "sourceSystem": "SYNTHETIC_S2",
         "sourceRecordId": "F0-DEMO-01-T14-000002",
         "importBatchId": "S2-F0-DEMO-01",
+        "caseId": "F0-DEMO-01-CASE-B_ONLINE",
         "mode": "B_ONLINE",
         "gateId": "G-INV",
         "acId": "AC-14",
@@ -372,7 +380,7 @@
         "status": "NOT_RUN",
         "reviewer": "",
         "caseOwner": "OPS",
-        "sourceHash": "968d28cf11f9dc73c3894b7aeefc4202c9db279c95b3d403fcb147b860526982"
+        "sourceHash": "b743648786b3b3eaf97d93c82e4cb698c6aa06b521d7c74a5b75a2a04b888b05"
       }
     ]
   }

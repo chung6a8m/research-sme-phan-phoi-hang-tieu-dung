@@ -15,7 +15,7 @@ function scenariosFor(pack){
    const collectedCash=bSold?3*unitPrice:0;
    const mainQtyAfter=Number(stock.qtyBase)-deliveredQty,mainValueAfter=Number(stock.totalCost)-unitCost*deliveredQty;
    records.push({scenarioId:"S2-"+trip.tripCode,tenantCode:tenant,tripCode:trip.tripCode,mode:trip.mode,skuCode:stock.skuCode,customerCode:customers[k%customers.length].customerCode,serviceDate:trip.serviceDate,
-   modelState:"MODEL_ONLY",invoiceEligible:false,providerFact:"NOT_TESTED",sourceDocumentId:stock.sourceDocumentId,openingMainQty:Number(stock.qtyBase),openingMainValue:Number(stock.totalCost),movingAvgUnitCost:unitCost,unitPrice,
+   modelState:"MODEL_ONLY",invoiceEligible:false,providerFact:"NOT_TESTED",sourceDocumentId:stock.sourceDocumentId,sourceLineId:stock.sourceLineId,openingMainQty:Number(stock.qtyBase),openingMainValue:Number(stock.totalCost),movingAvgUnitCost:unitCost,unitPrice,
    aReservation,bQuota,loadedQty:loadQty,aDeliveredQty:aDelivered,bSoldQty:bSold,returnedA:aReservation-aDelivered,returnedB:bQuota-bSold,
    mainQtyAfter,mainValueAfter,tripQtyAfter:0,tripValueAfter:0,cogs:unitCost*deliveredQty,
    arA:aDelivered*unitPrice,arB:bSold*unitPrice-collectedCash,cashCustody:collectedCash,cashierFund:0,unallocatedAReservation:aReservation-aDelivered,
@@ -44,7 +44,7 @@ function validateScenarios(packs,all){
   if(x.invoiceEligible||x.providerFact!=="NOT_TESTED"||x.modelState!=="MODEL_ONLY")errors.push(x.scenarioId+": fake provider");
   if(x.mode==="A"&&(x.bQuota!==0||x.bSoldQty!==0)||x.mode==="B_ONLINE"&&(x.aReservation!==0||x.aDeliveredQty!==0))errors.push(x.scenarioId+": mode");
   if(x.cogs!==x.movingAvgUnitCost*(x.aDeliveredQty+x.bSoldQty))errors.push(x.scenarioId+": cogs");
-  if(x.tenantCode!==t?.tenantCode||x.sourceDocumentId!==stock?.sourceDocumentId)errors.push(x.scenarioId+": source");
+  if(x.tenantCode!==t?.tenantCode||x.sourceDocumentId!==stock?.sourceDocumentId||x.sourceLineId!==stock?.sourceLineId)errors.push(x.scenarioId+": source");
  }}
  return errors;
 }
