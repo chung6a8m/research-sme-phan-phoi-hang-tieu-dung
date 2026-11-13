@@ -4,6 +4,13 @@ Repository này là **nơi lưu kết quả nghiên cứu của dự án**, khô
 
 Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được phép ghi các báo cáo nghiên cứu vào repository và chủ động tổ chức thư mục, tên file phù hợp.
 
+## Quyết định Owner và các gate Go-Live — PR #2 (13/11/2026)
+
+- [9 PADR + 7 EVQ — Owner Decision Register](reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md): đã phê duyệt phương án trong phỏng vấn, không thay thế test results.
+- [EVQ Acceptance Gates](reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md): P0 không miễn; P1 có scope/timebox; EV-14 Pilot readiness khác EV-15 Pilot results.
+- **Hai thay đổi phạm vi:** Credit UNSET khác APPROVED=0 (PADR-02); MVP A/B_ONLINE/MIXED dùng B online, hoãn B cần kênh hóa đơn thay thế khi PWA mất mạng (EVQ-05). B_NO_CHANNEL tiếp tục BLOCKED.
+- **Bảo vệ evidence:** EV-01..15 EVIDENCE_PENDING hoặc MODEL_ONLY/real pending theo R009; B-CASE/LEGAL-MEMO pending, INV-09 NOT_RUN; synthetic CI không phải ProductVerification hoặc TenantGoLive.
+
 ## Mục lục
 
 | Mã | Tài liệu | Trạng thái |

@@ -99,3 +99,13 @@ Trong SME ít người, role có thể kiêm nhưng phải duy trì nguồn sự
 - Admin đổi policy cho giao dịch posted ⇒ không hồi tố, cần correction/version; AC-08/19, EV-05/06.
 
 **Status:** toàn bộ role/approval class là đề xuất S1, việc chạy test và cấu hình IAM thực thuộc S3/S6; các approval của Owner/NPP chưa được ghi nhận trong tài liệu này.
+
+## Bổ sung Owner PADR-05, EVQ-01/02/06 (13/11/2026)
+
+Owner đã chấp thuận **kiêm nhiệm theo action/assignment, nhưng maker–checker độc lập đối với approval class bắt buộc**. Không cho người nộp tự CASH_ACCEPT, người đề nghị tự duyệt waiver/refund hoặc quản trị viên vượt qua yêu cầu checker. Thiếu người có quyền khác ⇒ PENDING/CASE, không gán PASS. Delegation chỉ hợp lệ khi người được ủy quyền đủ thẩm quyền và không phải chính người tạo nghiệp vụ cần kiểm tra.
+
+Product QA/Engineering ký evidence test source; Tenant Owner/Kho/Cashier/Finance/Provider/Legal xác nhận theo đúng phần việc của từng người. P0 không được Owner miễn; P1 ngoại lệ theo EVQ-02 có scope, timebox, owner và compensating control, không làm thay kết quả FAILED/EVIDENCE_PENDING.
+
+Phương thức MANUAL_REGISTER chỉ được dùng khi có immutable source ID/hash, người thực hiện/kiểm và bằng chứng posting/reconciliation. Chưa có RBAC production thực hoặc danh sách người ký NPP đã được xác nhận.
+
+Chi tiết [Owner decisions](owner-decisions-and-evidence-gates.vi.md) / [EVQ gates](evq-acceptance-gates.vi.md).

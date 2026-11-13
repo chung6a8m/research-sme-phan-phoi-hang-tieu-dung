@@ -142,3 +142,12 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 
 **Handoff S3:** bổ sung acceptance BDD, seeded concurrency/fault injection trên code thật, R009 AC-01–21/EV-01–15, actual ledger diff và trạng thái mode-specific. **S1 PADR-01–09 vẫn \`PROPOSED_FOR_OWNER_REVIEW\`**; tất cả cổng P0 NPP/hóa đơn/writer/cutover giữ nguyên.
 
+
+## 11. Chủ dự án chốt 9 PADR + 7 EVQ ngày 13/11/2026
+
+- [Owner Decision Register](owner-decisions-and-evidence-gates.vi.md) có 16 lựa chọn rõ ràng và phạm vi của từng quyết định; [EVQ Acceptance Gates](evq-acceptance-gates.vi.md) có matrix P0/P1, bằng chứng và Go/No-Go.
+- PADR-02 dùng UNSET/fail-closed thay default 0/0; đã sửa Product Policy và Tenant Profile schema/example, mẫu/validator S2 cần đồng bộ theo version.
+- EVQ-05 chọn **phương án 2**: A/B_ONLINE/MIXED với B online cho MVP; nhánh B có kênh thay thế lúc PWA mất mạng deferred; B_NO_CHANNEL blocked, EV-10/B-CASE/LEGAL-MEMO/INV-09 vẫn pending.
+- EVQ-01–07 giữ hai cổng chứng minh, P0 không miễn, P1 ngoại lệ có hạn, writer toàn kho/cutover E2E, offline theo device/mode, accounting source reconciliation và pilot UX/SLO/n/N ký trước EV-14.
+- Những dòng OWNER_REVIEW_PENDING hoặc S0/S1/S2 proposed trong phần trên là snapshot tại lúc soạn trước phỏng vấn; quyết định Owner bây giờ đã có, nhưng không suy rằng tài liệu đã DOC_READY hoặc ứng dụng đã PRODUCT_VERIFIED.
+- TADR-01..06 tiếp tục DESIGN_CANDIDATE. S3–S6, provider/Finance/legal, tenant data, EV-01..15 vẫn chưa có E2E/Go-Live evidence. PR giữ Draft, không tự merge hay mở gate.

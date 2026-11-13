@@ -71,3 +71,17 @@
 ## 4. Kiểm cấu trúc và giới hạn
 
 [Validator S1](kiem-tra-s1.py) kiểm tra 15 Decision, 24 BR↔24 POL, 12 SOP, 9 PADR, liên kết file và tập ID tham chiếu; **không** chạy ứng dụng, JSON Schema validator ngoài, E2E hay ký quyết định. Kiểm tra phát triển/acceptance thực sẽ thực hiện tại S3/S6. Khi BR/POL thay đổi phải cập nhật trace, SOP, role matrix, schema, AC/EV và migration impact.
+
+## 5. Truy vết quyết định Owner PADR/EVQ (13/11/2026)
+
+| Quyết định | Contract thay đổi | AC/EV liên quan (trạng thái chưa nâng) |
+|---|---|---|
+| PADR-02 | CFG-05/06, POL-10/12, SOP-02/07, T02 và Tenant Profile Schema | AC-08/09, EV-06 |
+| PADR-01/03/07 + EVQ-04 | L0/L1/L2, CFG-07/16/17/18, SOP-01/09/10, ModeAdmission | AC-01/11/12/13/14, EV-01/08/09/10 |
+| PADR-04/05 + EVQ-06 | CFG-10/11/12/13/14/15/19, SOP-05/06/07/08/10, AP-01..10 | AC-06/07/09/10/15/19/20/21, EV-05/06/07/10/11 |
+| PADR-06/08 | POL-16/19/23, CFG-20, SOP-08/09/10/12 | AC-11/15/17/18, EV-08/11/13/14 |
+| EVQ-03 | CFG-21, POL-05/21, SOP-05/11, opening/T12 | AC-04/16, EV-04/12 |
+| **EVQ-05** | B_ONLINE/MIXED scope, CFG-07/16/18, SOP-03/04/09/10, T11/T14 | AC-14, EV-10, B-CASE/LEGAL-MEMO pending, INV-09 NOT_RUN |
+| PADR-09 + EVQ-07 | CFG-22, POL-24, SOP-12, UX/SLO Pilot Profile | AC-17/18, EV-13/14/15 |
+
+Đã ghi 16 lựa chọn trong [Owner Decision Register](owner-decisions-and-evidence-gates.vi.md); [EVQ Gate Contract](evq-acceptance-gates.vi.md) giữ tách Product Approval, Verification và Tenant Go-Live. Không sửa các D/BR/AC/EV lịch sử R009 hay suy model test thành product verified.

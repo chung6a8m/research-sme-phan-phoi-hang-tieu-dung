@@ -1,7 +1,7 @@
 # R010-S1-P01a — Phạm vi sản phẩm chuẩn, chân dung vai trò và luồng sử dụng
 
 - **Baseline:** R009 tại HEAD của PR #1; đợt S1/P01 trong PR #2.
-- **Trạng thái:** `S1_DOCUMENTED_REVIEW_PENDING`. Đây là **product design proposal**, không phải sản phẩm đã chạy, số liệu khảo sát hay chấp thuận mới của Owner.
+- **Trạng thái:** `OWNER_POLICY_DECIDED_IN_CHAT / IMPLEMENTATION_PENDING`: 9 PADR + 7 EVQ đã được Owner lựa chọn; đây không phải sản phẩm đã chạy, dữ liệu khảo sát thực hoặc Tenant Go-Live acceptance.
 - **Truy vết:** [R009-D](../2026-11-13-09-mvp-specification-baseline/decision-register-and-adr.vi.md), [R009-G](../2026-11-13-09-mvp-specification-baseline/glossary-and-data-contracts.vi.md), [R009-BR](../2026-11-13-09-mvp-specification-baseline/business-rules.vi.md), [R009-TR](../2026-11-13-09-mvp-specification-baseline/traceability.vi.md); [SOP](sop-a-b-mixed.vi.md), [policy](product-policy-catalog.vi.md).
 
 ## 1. Tuyên bố sản phẩm
@@ -10,7 +10,7 @@ DMS chuẩn cho nhà phân phối FMCG Việt Nam quy mô SME, **Product-First**
 
 **Vấn đề giải quyết:** một chuỗi hàng–đơn–giao/bán–tiền–nợ–hóa đơn–kế toán có nguồn và trạng thái đối soát; người vận hành thấy rõ pending, exception và độ mới dữ liệu thay vì coi chưa sync = 0.
 
-**Vùng sử dụng chính:** Module A đặt trước/giao sau (có giao từng phần); Module B bán theo xe (nhánh có kênh hóa đơn hợp lệ); Trip A+B với hàng AReservation và BQuota độc lập. Hàng trả, quà, hạn nợ, ba sổ, PWA offline có giới hạn, nhập tồn ngoài wave, cutover và outbox nằm trong MVP theo R009. B không có kênh lập hóa đơn khi mất liên lạc là **NO-GO cho giao dịch thật** cho đến khi EV-10/B-CASE/LEGAL-MEMO đạt; PWA ghi offline không tự hợp thức hóa hóa đơn.
+**Vùng sử dụng chính sau EVQ-05:** Module A đặt trước/giao sau (có giao từng phần); Module B_ONLINE bán theo xe khi kênh hóa đơn online hợp lệ đã được kiểm chứng; Trip MIXED A+B_ONLINE với AReservation và BQuota độc lập. Hàng trả, quà, hạn nợ, ba sổ, PWA offline có giới hạn **chỉ sau E2E và mode admission phù hợp** (B sử dụng kênh hóa đơn thay thế lúc PWA mất mạng hoãn khỏi MVP), nhập tồn ngoài wave, cutover và outbox nằm trong MVP theo R009. B không có kênh lập hóa đơn khi mất liên lạc là **NO-GO cho giao dịch thật** cho đến khi EV-10/B-CASE/LEGAL-MEMO đạt; PWA ghi offline không tự hợp thức hóa hóa đơn.
 
 ## 2. Archetype để thiết kế, không phải chân dung đã khảo sát
 
@@ -66,3 +66,11 @@ Không tự chốt chứng từ chưa đồng bộ bằng số 0, không tự x�
 ## 7. Cổng chấp nhận tài liệu
 
 Owner cần xem xét chính sách mới ở [Product ADR](product-adrs.vi.md) và từng `PRODUCT_DEFAULT_PROPOSED` trước khi chuyển sang `PRODUCT_DEFAULT_ACCEPTED`. S1 chỉ chứng minh tài liệu đã được biên soạn/đối chiếu, không chứng minh hành vi chạy thật. S2 thiết kế template dựa trên [tenant profile logical schema](tenant-profile-schema.vi.md) và phải giữ nguyên source/event identity.
+
+## Phạm vi Owner-approved ngày 13/11/2026
+
+- Tham chiếu [9 PADR + 7 EVQ](owner-decisions-and-evidence-gates.vi.md) và [EVQ gates](evq-acceptance-gates.vi.md); chính sách đã chốt không đồng nghĩa sản phẩm hoặc NPP đã Verified.
+- A, B_ONLINE, MIXED dùng B_ONLINE là **phạm vi được phát triển/kiểm chứng**, không phải các feature đã được bật. Admission từng mode/build/tenant với evidence mới cho phép giao dịch production.
+- B với kênh lập hóa đơn thay thế khi PWA mất mạng là DEFERRED; B_NO_CHANNEL vẫn BLOCKED. Offline A chỉ được mở trên tổ hợp thiết bị/mode đã qua EV-08/09.
+- NPP-01 giữ Pilot D-15 3A+3B_ONLINE+2MIXED/ngày × ít nhất 5 ngày khi mọi mode tương ứng đạt gate; khác phạm vi phải có decision mới có phiên bản.
+- Sổ kế toán có thể nhận API/FILE/MANUAL_REGISTER qua quy trình có chứng cứ, không tự coi import thành POSTED hoặc RECONCILED_OK.

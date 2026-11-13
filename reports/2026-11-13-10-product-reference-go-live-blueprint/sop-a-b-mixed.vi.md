@@ -101,3 +101,14 @@
 | Ops → Owner Go/No-Go | Evidence có `testRunId`, build, actor, cutoff, n/N và open cases | Giữ NO-GO cho phạm vi thiếu chứng cứ |
 
 **Tài liệu này hoàn thành phần thiết kế SOP S1, không tự xác nhận 12 SOP đã được thử với người dùng.** Trong S3/S6 cần biến từng bước thành acceptance scenarios và evidence thật theo [R009-AC](../2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md).
+
+## Addendum Owner 13/11/2026 — phạm vi MVP và các gate kiểm chứng
+
+- SOP-02/07: PADR-02 đặt credit policy mặc định UNSET/fail-closed; khác APPROVED=0 có Finance approval; snapshot terms cho A Confirm chỉ từ policy hợp lệ.
+- SOP-03/04: B trong MVP là B_ONLINE; MIXED A+B_ONLINE, AReservation/BQuota tách; B dùng kênh hóa đơn thay thế khi PWA mất mạng DEFERRED, B_NO_CHANNEL BLOCKED. Không biến dữ liệu PWA offline thành hóa đơn hợp lệ.
+- SOP-05/11: EVQ-03 G-STOCK/G-CUT P0 toàn Kho-01, legacy writers UI/API/import/job/offline bị khóa, opening ký và Forward Recovery diễn tập thực trước production.
+- SOP-06/07/08/10: EVQ-06 yêu cầu data/ledger source-level, giá/thuế/rounding snapshot, CustomerCredit, Custody/Advance độc lập; kế toán API/FILE/MANUAL_REGISTER có evidence tương đương và đối soát, POSTED chưa phải RECONCILED.
+- SOP-09: OFFLINE_WRITE mặc định DISABLED; một writer/trip, per-device/mode E2E, revoke/restore/recovery; B alternative-channel deferred. Đã thực giao nhưng lỗi quyền phải giữ occurredEvent/case, không tự post.
+- SOP-12: EVQ-07 phải có 8 bài UX, asOf, n/N, support/incident/case data; SLO/threshold định lượng do Owner/Finance/Ops ký trước EV-14, EV-15 là kết quả Pilot thật.
+
+[Owner Decision Register](owner-decisions-and-evidence-gates.vi.md) / [EVQ Acceptance Gates](evq-acceptance-gates.vi.md) là phần bổ sung theo version; SOP trước đây là ứng viên thiết kế, không phải hệ thống đã qua test.
