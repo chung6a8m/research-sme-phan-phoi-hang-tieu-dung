@@ -1,0 +1,59 @@
+name: R009 specification and R008 models (NOT product E2E)
+on:
+  pull_request:
+    paths:
+      - 'reports/2026-11-13-09-mvp-specification-baseline/**'
+      - 'reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/**'
+      - '.github/workflows/r009-specification-contract-validation.yml'
+  push:
+    branches:
+      - main
+      - research/2026-11-11-mvp-research-goals
+    paths:
+      - 'reports/2026-11-13-09-mvp-specification-baseline/**'
+      - 'reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/**'
+      - '.github/workflows/r009-specification-contract-validation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-research-contract-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: R009 source integrity and internal document links
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import unquote
+          import hashlib
+          import re
+
+          root = Path("reports/2026-11-13-09-mvp-specification-baseline")
+          original = root / "sources/npp-01-interview-summary-2026-11-12.original.txt"
+          expected = "3205b94dfbd0057b9dd11c9e309f7b40dfd496e25d218ebce927d8c0a7078038"
+          assert original.is_file() and hashlib.sha256(original.read_bytes()).hexdigest() == expected, "R009 original source hash mismatch"
+          paths = list(root.glob("*.md"))
+          count = 0
+          for doc in paths:
+              for link in re.findall(r"\]\(([^)]+)\)", doc.read_text(encoding="utf-8")):
+                  target = link.split("#", 1)[0].strip()
+                  if not target or target.startswith(("https://", "http://", "mailto:", "sandbox:", "page://", "data:")):
+                      continue
+                  target = unquote(target)
+                  assert (doc.parent / target).is_file(), f"R009 broken relative link: {doc} -> {link}"
+                  count += 1
+          print(f"R009_SOURCE_HASH_PASS; R009_RELATIVE_LINKS_PASS {count}; DOCUMENTS {len(paths)}; SYNTHETIC_ONLY")
+          PY
+      - name: R009 decision-rule-data-API-AC-EV trace
+        run: python reports/2026-11-13-09-mvp-specification-baseline/kiem-tra-truy-vet.py
+      - name: R008 reference model - protocol and idempotency
+        run: python reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/kiem-chung-giao-thuc.py --output "${RUNNER_TEMP}/r008-protocol.json"
+      - name: R008 reference model - pricing, ledger and cost
+        run: python reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/kiem-chung-so-lieu.py --output "${RUNNER_TEMP}/r008-arithmetic.json"
