@@ -1,0 +1,2203 @@
+{
+  "fixture_version": "R008-B-v1",
+  "evidence_status": "ARITHMETIC_MODEL_VERIFIED_ONLY",
+  "owner_approved": false,
+  "accountant_approved": false,
+  "provider_approved": false,
+  "product_tested": false,
+  "pilot_performed": false,
+  "tax_profile": {
+    "id": "SYNTHETIC-UNAPPROVED-v1",
+    "invoice_eligible": false,
+    "currency": "VND",
+    "amount_quantum": "1",
+    "rounding": "ROUND_HALF_UP",
+    "tax_rounding_scope": "line",
+    "rates_are_test_inputs_only": [
+      "0.08",
+      "0.10"
+    ],
+    "gift_tax_assumption": "SYNTHETIC_ZERO_BASE_GIFT_UNAPPROVED; numeric rate0.08, taxable base0; not a conclusion about real promotion VAT",
+    "purchase_cost_assumption": "costs exclude recoverable input VAT only as synthetic input; no supplier/AP ledger"
+  },
+  "gift_cases": {
+    "returned_gifts": [
+      {
+        "event": "deliver_20_plus_2",
+        "purchase_net": 20,
+        "entitled": 2,
+        "gift_net_held": 2,
+        "gift_returned": 0,
+        "waived_still_held": 0,
+        "deliver_due": 0,
+        "recover_due": 0
+      },
+      {
+        "event": "request_or_custody_only_return_11_plus_2_no_commercial_effect",
+        "purchase_net": 20,
+        "entitled": 2,
+        "gift_net_held": 2,
+        "gift_returned": 0,
+        "waived_still_held": 0,
+        "deliver_due": 0,
+        "recover_due": 0
+      },
+      {
+        "event": "accepted_return_11_plus_2",
+        "purchase_net": 9,
+        "entitled": 0,
+        "gift_net_held": 0,
+        "gift_returned": 2,
+        "waived_still_held": 0,
+        "deliver_due": 0,
+        "recover_due": 0
+      },
+      {
+        "event": "next_delivery_11_purchase",
+        "purchase_net": 20,
+        "entitled": 2,
+        "gift_net_held": 0,
+        "gift_returned": 2,
+        "waived_still_held": 0,
+        "deliver_due": 2,
+        "recover_due": 0
+      },
+      {
+        "event": "deliver_two_reearned_gifts",
+        "purchase_net": 20,
+        "entitled": 2,
+        "gift_net_held": 2,
+        "gift_returned": 2,
+        "waived_still_held": 0,
+        "deliver_due": 0,
+        "recover_due": 0
+      }
+    ],
+    "waived_gifts": [
+      {
+        "event": "accepted_purchase_return_only",
+        "purchase_net": 9,
+        "entitled": 0,
+        "gift_net_held": 2,
+        "gift_returned": 0,
+        "waived_still_held": 0,
+        "deliver_due": 0,
+        "recover_due": 2
+      },
+      {
+        "event": "waive_two_same_id_replayed",
+        "purchase_net": 9,
+        "entitled": 0,
+        "gift_net_held": 2,
+        "gift_returned": 0,
+        "waived_still_held": 2,
+        "deliver_due": 0,
+        "recover_due": 0
+      },
+      {
+        "event": "next_purchase_11_waived_gifts_still_held",
+        "purchase_net": 20,
+        "entitled": 2,
+        "gift_net_held": 2,
+        "gift_returned": 0,
+        "waived_still_held": 2,
+        "deliver_due": 0,
+        "recover_due": 0
+      },
+      {
+        "event": "customer_returns_one_waived_gift",
+        "purchase_net": 20,
+        "entitled": 2,
+        "gift_net_held": 1,
+        "gift_returned": 1,
+        "waived_still_held": 1,
+        "deliver_due": 1,
+        "recover_due": 0
+      },
+      {
+        "event": "new_nonwaived_gift_recovery_after_later_cycle",
+        "purchase_net": 10,
+        "entitled": 1,
+        "gift_net_held": 3,
+        "gift_returned": 1,
+        "waived_still_held": 1,
+        "deliver_due": 0,
+        "recover_due": 1
+      }
+    ]
+  },
+  "cost_cases": {
+    "initial_quantity": 3,
+    "initial_value": 10000,
+    "issue_quantity": 2,
+    "issue_cost": 6667,
+    "incorrect_independent_parts": [
+      3334,
+      3334
+    ],
+    "correct_parts": [
+      3334,
+      3333
+    ],
+    "adjusted_source": {
+      "version_1_cost": 6667,
+      "version_2_cost": 6768,
+      "source_adjustment": 101,
+      "first_return": 3334,
+      "adjustment_to_first_return": 50,
+      "adjustment_to_unreturned_cost": 51,
+      "final_return": 3384
+    },
+    "partitions": [
+      {
+        "cumulative_quantities": [
+          1,
+          2,
+          3,
+          7
+        ],
+        "cost_parts": [
+          1429,
+          1428,
+          1429,
+          5715
+        ],
+        "total": 10001
+      },
+      {
+        "cumulative_quantities": [
+          2,
+          5,
+          7
+        ],
+        "cost_parts": [
+          2857,
+          4287,
+          2857
+        ],
+        "total": 10001
+      },
+      {
+        "cumulative_quantities": [
+          7
+        ],
+        "cost_parts": [
+          10001
+        ],
+        "total": 10001
+      }
+    ]
+  },
+  "due_date_cases": {
+    "rows": [
+      {
+        "delivery_local_date": "2026-11-01",
+        "snapshot_version": "T7-v1",
+        "calendar_days": 7,
+        "due_date": "2026-11-08",
+        "days_past_due_at_2026_11_16": 8
+      },
+      {
+        "delivery_local_date": "2026-11-08",
+        "snapshot_version": "T7-v1",
+        "calendar_days": 7,
+        "due_date": "2026-11-15",
+        "days_past_due_at_2026_11_16": 1
+      },
+      {
+        "delivery_local_date": "2026-11-08",
+        "snapshot_version": "T14-v2-new-order",
+        "calendar_days": 14,
+        "due_date": "2026-11-22",
+        "days_past_due_at_2026_11_16": 0
+      },
+      {
+        "delivery_local_date": "2026-11-08",
+        "snapshot_version": "T10-explicit-amendment-alternative",
+        "calendar_days": 10,
+        "due_date": "2026-11-18",
+        "days_past_due_at_2026_11_16": 0
+      }
+    ],
+    "timezone_boundary": {
+      "occurred_at": "2026-11-01T18:30:00+00:00",
+      "local_date": "2026-11-02",
+      "due_date": "2026-11-09"
+    }
+  },
+  "money_tax_cases": {
+    "exclusive": {
+      "allocation": {
+        "L-P": 6667,
+        "L-Q": 3334
+      },
+      "lines": [
+        {
+          "net": 193333,
+          "vat": 15467,
+          "gross": 208800,
+          "discount": 6667,
+          "rate_input": "0.08",
+          "mode": "exclusive"
+        },
+        {
+          "net": 96666,
+          "vat": 9667,
+          "gross": 106333,
+          "discount": 3334,
+          "rate_input": "0.10",
+          "mode": "exclusive"
+        }
+      ]
+    },
+    "inclusive": {
+      "allocation": {
+        "L-P": 6626,
+        "L-Q": 3375
+      },
+      "lines": [
+        {
+          "net": 193865,
+          "vat": 15509,
+          "gross": 209374,
+          "discount": 6626,
+          "rate_input": "0.08",
+          "mode": "inclusive"
+        },
+        {
+          "net": 96932,
+          "vat": 9693,
+          "gross": 106625,
+          "discount": 3375,
+          "rate_input": "0.10",
+          "mode": "inclusive"
+        }
+      ]
+    },
+    "source_component_partial_returns": [
+      {
+        "quantity": 1,
+        "cumulative_quantity": 1,
+        "net": 64444,
+        "vat": 5156,
+        "gross": 69600
+      },
+      {
+        "quantity": 1,
+        "cumulative_quantity": 2,
+        "net": 64445,
+        "vat": 5155,
+        "gross": 69600
+      },
+      {
+        "quantity": 1,
+        "cumulative_quantity": 3,
+        "net": 64444,
+        "vat": 5156,
+        "gross": 69600
+      }
+    ],
+    "small_amount_rounding_edge": {
+      "source": {
+        "net": 1,
+        "vat": 1,
+        "gross": 2
+      },
+      "quantity": 2,
+      "first_return_gross": 2,
+      "second_return_gross": 0,
+      "note": "Synthetic edge only; provider/accountant must accept component allocation profile before use."
+    }
+  },
+  "compound_cases": {
+    "cases": [
+      {
+        "sale_gross": 100,
+        "confirmed_receipt": 100,
+        "receipt_applied_to_sale": 100,
+        "reserved_credit_applied": 0,
+        "credit_consumed": 0,
+        "new_customer_credit": 0
+      },
+      {
+        "sale_gross": 100,
+        "confirmed_receipt": 60,
+        "receipt_applied_to_sale": 60,
+        "reserved_credit_applied": 0,
+        "credit_consumed": 40,
+        "new_customer_credit": 0
+      },
+      {
+        "sale_gross": 100,
+        "confirmed_receipt": 0,
+        "receipt_applied_to_sale": 0,
+        "reserved_credit_applied": 0,
+        "credit_consumed": 100,
+        "new_customer_credit": 0
+      },
+      {
+        "sale_gross": 100,
+        "confirmed_receipt": 120,
+        "receipt_applied_to_sale": 100,
+        "reserved_credit_applied": 0,
+        "credit_consumed": 0,
+        "new_customer_credit": 20
+      },
+      {
+        "sale_gross": 100,
+        "confirmed_receipt": 60,
+        "receipt_applied_to_sale": 60,
+        "reserved_credit_applied": 40,
+        "credit_consumed": 0,
+        "new_customer_credit": 0
+      }
+    ],
+    "atomicity": "proposed_contract_not_exercised_against_server",
+    "offline_old_debt_receipt_recycles_credit": false
+  },
+  "multi_day": {
+    "sku_uom": {
+      "P": {
+        "base": "bottle",
+        "pack": 6,
+        "case": 12
+      },
+      "Q": {
+        "base": "packet",
+        "pack": 5,
+        "case": 10
+      }
+    },
+    "order_A": {
+      "P_quantity": 31,
+      "Q_quantity": 5,
+      "discount_total": 10001,
+      "discount_allocation": {
+        "ORDER-P": 7562,
+        "ORDER-Q": 2439
+      },
+      "P_discount_delivery_parts": [
+        4879,
+        2683
+      ]
+    },
+    "events": [
+      {
+        "id": "M01",
+        "posting_date": "2026-11-01",
+        "description": "Receive P: 5 cases x12; Q: 3 cases x10; values exclude recoverable purchase VAT by synthetic assumption",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 60,
+            "value": 600000
+          },
+          "MAIN/Q": {
+            "quantity": 30,
+            "value": 600000
+          }
+        },
+        "inventory_value": 1200000,
+        "expense": {
+          "sold": 0,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": 0,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 0,
+        "vat_net": 0,
+        "gross_sales_net": 0
+      },
+      {
+        "id": "M02",
+        "posting_date": "2026-11-01",
+        "description": "Load T1: P3 cases; Q2 packs x5; transfer creates no sale",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 36,
+            "value": 360000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 10,
+            "value": 200000
+          }
+        },
+        "inventory_value": 1200000,
+        "expense": {
+          "sold": 0,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": 0,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 0,
+        "vat_net": 0,
+        "gross_sales_net": 0
+      },
+      {
+        "id": "M03",
+        "posting_date": "2026-11-01",
+        "description": "A1 deliver P20+gift2, Q5; terms T7-v1; due 2026-11-08",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          }
+        },
+        "inventory_value": 880000,
+        "expense": {
+          "sold": 300000,
+          "gift": 20000,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": 481048,
+          "C-B": 0
+        },
+        "receivable": 481048,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 442682,
+        "vat_net": 38366,
+        "gross_sales_net": 481048,
+        "invoice_amounts": [
+          {
+            "net": 295121,
+            "vat": 23610,
+            "gross": 318731,
+            "discount": 4879,
+            "rate_input": "0.08",
+            "mode": "exclusive"
+          },
+          {
+            "net": 147561,
+            "vat": 14756,
+            "gross": 162317,
+            "discount": 2439,
+            "rate_input": "0.10",
+            "mode": "exclusive"
+          }
+        ]
+      },
+      {
+        "id": "M04",
+        "posting_date": "2026-11-01",
+        "description": "Receipt RC1 cash 500000; overpayment becomes customer credit",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          }
+        },
+        "inventory_value": 880000,
+        "expense": {
+          "sold": 300000,
+          "gift": 20000,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": -18952,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 18952,
+        "cash_custody": {
+          "employee_N1": 500000,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 442682,
+        "vat_net": 38366,
+        "gross_sales_net": 481048
+      },
+      {
+        "id": "M05",
+        "posting_date": "2026-11-01",
+        "description": "Custody-only return P11+gift2 pending review; memorandum quantity13, not owned stock or customer credit",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          }
+        },
+        "inventory_value": 880000,
+        "expense": {
+          "sold": 300000,
+          "gift": 20000,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": -18952,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 18952,
+        "cash_custody": {
+          "employee_N1": 500000,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 442682,
+        "vat_net": 38366,
+        "gross_sales_net": 481048,
+        "third_party_pending_return": {
+          "P": 13
+        }
+      },
+      {
+        "id": "M06",
+        "posting_date": "2026-11-01",
+        "description": "Accept return R1; P13 reclassified as owned quarantine; customer credit175303",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1010000,
+        "expense": {
+          "sold": 190000,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": -194255,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 194255,
+        "cash_custody": {
+          "employee_N1": 500000,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 280365,
+        "vat_net": 25380,
+        "gross_sales_net": 305745,
+        "return_amount": {
+          "quantity": 11,
+          "cumulative_quantity": 11,
+          "net": 162317,
+          "vat": 12986,
+          "gross": 175303
+        }
+      },
+      {
+        "id": "M07",
+        "posting_date": "2026-11-01",
+        "description": "Refund RF1 cash100000 from available credit194255; preserve original receipt",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1010000,
+        "expense": {
+          "sold": 190000,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 94255,
+        "cash_custody": {
+          "employee_N1": 400000,
+          "cashier": 0
+        },
+        "net_sales_before_vat": 280365,
+        "vat_net": 25380,
+        "gross_sales_net": 305745
+      },
+      {
+        "id": "M08",
+        "posting_date": "2026-11-01",
+        "description": "Cashier accepts350000; employee still holds50000; trip remains open",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1010000,
+        "expense": {
+          "sold": 190000,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 94255,
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 280365,
+        "vat_net": 25380,
+        "gross_sales_net": 305745
+      },
+      {
+        "id": "M09",
+        "posting_date": "2026-11-02",
+        "description": "Carry to next calendar day: no new stock, debt, sale, or receipt",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1010000,
+        "expense": {
+          "sold": 190000,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1200000,
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 94255,
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 280365,
+        "vat_net": 25380,
+        "gross_sales_net": 305745
+      },
+      {
+        "id": "M10",
+        "posting_date": "2026-11-02",
+        "description": "Receive P2 cases @12000/base; Q1 case @21000/base; T1 valuation unchanged",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 48,
+            "value": 528000
+          },
+          "MAIN/Q": {
+            "quantity": 30,
+            "value": 610000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1508000,
+        "expense": {
+          "sold": 190000,
+          "gift": 0,
+          "count_loss": 0
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 94255,
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 280365,
+        "vat_net": 25380,
+        "gross_sales_net": 305745
+      },
+      {
+        "id": "M11",
+        "posting_date": "2026-11-02",
+        "description": "Count MAIN scope fenced: P book48 actual47, Q30=30; approve loss11000; T1 open grants untouched",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 47,
+            "value": 517000
+          },
+          "MAIN/Q": {
+            "quantity": 30,
+            "value": 610000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1497000,
+        "expense": {
+          "sold": 190000,
+          "gift": 0,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "receivable": 0,
+        "customer_credit": 94255,
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 280365,
+        "vat_net": 25380,
+        "gross_sales_net": 305745,
+        "count": {
+          "scope": "MAIN",
+          "P_book": 48,
+          "P_counted": 47,
+          "P_difference": -1,
+          "loss_value": 11000,
+          "trip_grant_released": false
+        }
+      },
+      {
+        "id": "M12",
+        "posting_date": "2026-11-02",
+        "description": "A2 deliver remaining P11+gift2; net entitlement2; apply explicit customer credit94255; due 2026-11-09",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 47,
+            "value": 517000
+          },
+          "MAIN/Q": {
+            "quantity": 30,
+            "value": 610000
+          },
+          "TRIP-T1/P": {
+            "quantity": 1,
+            "value": 10000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1367000,
+        "expense": {
+          "sold": 300000,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": 81047,
+          "C-B": 0
+        },
+        "receivable": 81047,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 442682,
+        "vat_net": 38365,
+        "gross_sales_net": 481047,
+        "invoice_amounts": [
+          {
+            "net": 162317,
+            "vat": 12985,
+            "gross": 175302,
+            "discount": 2683,
+            "rate_input": "0.08",
+            "mode": "exclusive"
+          }
+        ],
+        "customer_credit_allocation": {
+          "id": "ALLOC-A2",
+          "amount": 94255
+        }
+      },
+      {
+        "id": "M13",
+        "posting_date": "2026-11-02",
+        "description": "B1 Q3 inclusive99000, cash60000 in compound; credit consumed39000; due 2026-11-02",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 47,
+            "value": 517000
+          },
+          "MAIN/Q": {
+            "quantity": 30,
+            "value": 610000
+          },
+          "TRIP-T1/P": {
+            "quantity": 1,
+            "value": 10000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 2,
+            "value": 40000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1307000,
+        "expense": {
+          "sold": 360000,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": 81047,
+          "C-B": 39000
+        },
+        "receivable": 120047,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 110000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 532682,
+        "vat_net": 47365,
+        "gross_sales_net": 580047,
+        "invoice_amounts": [
+          {
+            "net": 90000,
+            "vat": 9000,
+            "gross": 99000,
+            "discount": 0,
+            "rate_input": "0.10",
+            "mode": "inclusive"
+          }
+        ],
+        "compound_credit_consumed": 39000
+      },
+      {
+        "id": "M14",
+        "posting_date": "2026-11-02",
+        "description": "Return vehicle remainder P1 Q2 preserving values10000/40000; manifest acknowledged in scenario assumption",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 48,
+            "value": 527000
+          },
+          "MAIN/Q": {
+            "quantity": 32,
+            "value": 650000
+          },
+          "TRIP-T1/P": {
+            "quantity": 0,
+            "value": 0
+          },
+          "TRIP-T1/Q": {
+            "quantity": 0,
+            "value": 0
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1307000,
+        "expense": {
+          "sold": 360000,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": 81047,
+          "C-B": 39000
+        },
+        "receivable": 120047,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 110000,
+          "cashier": 350000
+        },
+        "net_sales_before_vat": 532682,
+        "vat_net": 47365,
+        "gross_sales_net": 580047
+      },
+      {
+        "id": "M15",
+        "posting_date": "2026-11-02",
+        "description": "Cashier accepts final110000; trip T1 closes; quarantine stays blocked",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 48,
+            "value": 527000
+          },
+          "MAIN/Q": {
+            "quantity": 32,
+            "value": 650000
+          },
+          "TRIP-T1/P": {
+            "quantity": 0,
+            "value": 0
+          },
+          "TRIP-T1/Q": {
+            "quantity": 0,
+            "value": 0
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1307000,
+        "expense": {
+          "sold": 360000,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": 81047,
+          "C-B": 39000
+        },
+        "receivable": 120047,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 460000
+        },
+        "net_sales_before_vat": 532682,
+        "vat_net": 47365,
+        "gross_sales_net": 580047
+      },
+      {
+        "id": "M16",
+        "posting_date": "2026-11-30",
+        "description": "November locked at these values; no additional transactions in synthetic intervening period",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 48,
+            "value": 527000
+          },
+          "MAIN/Q": {
+            "quantity": 32,
+            "value": 650000
+          },
+          "TRIP-T1/P": {
+            "quantity": 0,
+            "value": 0
+          },
+          "TRIP-T1/Q": {
+            "quantity": 0,
+            "value": 0
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1307000,
+        "expense": {
+          "sold": 360000,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1698000,
+        "customer_balances": {
+          "C-A": 81047,
+          "C-B": 39000
+        },
+        "receivable": 120047,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 460000
+        },
+        "net_sales_before_vat": 532682,
+        "vat_net": 47365,
+        "gross_sales_net": 580047
+      },
+      {
+        "id": "M17",
+        "posting_date": "2026-12-01",
+        "description": "Late cost LC1 for receipt M01 Q; post current open period; source A1-Q cost v2=101000; no November rewrite",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 48,
+            "value": 527000
+          },
+          "MAIN/Q": {
+            "quantity": 32,
+            "value": 654401
+          },
+          "TRIP-T1/P": {
+            "quantity": 0,
+            "value": 0
+          },
+          "TRIP-T1/Q": {
+            "quantity": 0,
+            "value": 0
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "inventory_value": 1311401,
+        "expense": {
+          "sold": 361600,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1704001,
+        "customer_balances": {
+          "C-A": 81047,
+          "C-B": 39000
+        },
+        "receivable": 120047,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 460000
+        },
+        "net_sales_before_vat": 532682,
+        "vat_net": 47365,
+        "gross_sales_net": 580047,
+        "late_cost_allocation": {
+          "MAIN-Q-original-held22": 4401,
+          "A1-Q-sold5": 1000,
+          "B1-Q-sold3": 600
+        },
+        "source_cost_version": {
+          "source": "A1-Q",
+          "version": 2,
+          "quantity": 5,
+          "total_cost": 101000
+        }
+      },
+      {
+        "id": "M18",
+        "posting_date": "2026-12-02",
+        "description": "Accept R2 Q2 from closed T1/source A1 and locked November; post December; credit64926 explicitly allocated to A2",
+        "stock": {
+          "MAIN/P": {
+            "quantity": 48,
+            "value": 527000
+          },
+          "MAIN/Q": {
+            "quantity": 32,
+            "value": 654401
+          },
+          "TRIP-T1/P": {
+            "quantity": 0,
+            "value": 0
+          },
+          "TRIP-T1/Q": {
+            "quantity": 0,
+            "value": 0
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          },
+          "QUARANTINE/Q": {
+            "quantity": 2,
+            "value": 40400
+          }
+        },
+        "inventory_value": 1351801,
+        "expense": {
+          "sold": 321200,
+          "gift": 20000,
+          "count_loss": 11000
+        },
+        "total_cost_input": 1704001,
+        "customer_balances": {
+          "C-A": 16121,
+          "C-B": 39000
+        },
+        "receivable": 55121,
+        "customer_credit": 0,
+        "cash_custody": {
+          "employee_N1": 0,
+          "cashier": 460000
+        },
+        "net_sales_before_vat": 473658,
+        "vat_net": 41463,
+        "gross_sales_net": 515121,
+        "return_amount": {
+          "quantity": 2,
+          "cumulative_quantity": 2,
+          "net": 59024,
+          "vat": 5902,
+          "gross": 64926
+        },
+        "return_cost": 40400,
+        "customer_credit_allocation": {
+          "id": "ALLOC-R2-A2",
+          "amount": 64926
+        }
+      }
+    ],
+    "locked_november_snapshot": {
+      "id": "M16",
+      "posting_date": "2026-11-30",
+      "description": "November locked at these values; no additional transactions in synthetic intervening period",
+      "stock": {
+        "MAIN/P": {
+          "quantity": 48,
+          "value": 527000
+        },
+        "MAIN/Q": {
+          "quantity": 32,
+          "value": 650000
+        },
+        "TRIP-T1/P": {
+          "quantity": 0,
+          "value": 0
+        },
+        "TRIP-T1/Q": {
+          "quantity": 0,
+          "value": 0
+        },
+        "QUARANTINE/P": {
+          "quantity": 13,
+          "value": 130000
+        }
+      },
+      "inventory_value": 1307000,
+      "expense": {
+        "sold": 360000,
+        "gift": 20000,
+        "count_loss": 11000
+      },
+      "total_cost_input": 1698000,
+      "customer_balances": {
+        "C-A": 81047,
+        "C-B": 39000
+      },
+      "receivable": 120047,
+      "customer_credit": 0,
+      "cash_custody": {
+        "employee_N1": 0,
+        "cashier": 460000
+      },
+      "net_sales_before_vat": 532682,
+      "vat_net": 47365,
+      "gross_sales_net": 580047
+    },
+    "provider_projection_candidate": {
+      "invoice_eligible": false,
+      "A1": {
+        "net": 442682,
+        "vat": 38366,
+        "gross": 481048
+      },
+      "R1_credit_components": {
+        "quantity": 11,
+        "cumulative_quantity": 11,
+        "net": 162317,
+        "vat": 12986,
+        "gross": 175303
+      },
+      "A2": {
+        "net": 162317,
+        "vat": 12985,
+        "gross": 175302,
+        "discount": 2683,
+        "rate_input": "0.08",
+        "mode": "exclusive"
+      },
+      "B1": {
+        "net": 90000,
+        "vat": 9000,
+        "gross": 99000,
+        "discount": 0,
+        "rate_input": "0.10",
+        "mode": "inclusive"
+      },
+      "R2_credit_components": {
+        "quantity": 2,
+        "cumulative_quantity": 2,
+        "net": 59024,
+        "vat": 5902,
+        "gross": 64926
+      },
+      "provider_round_trip_performed": false
+    }
+  },
+  "export_reference_case": {
+    "rows": [
+      {
+        "external_event_id": "TENANT-DEMO:INV-M03-P:1",
+        "document_id": "A1",
+        "line_id": "A1-P",
+        "type": "sale",
+        "net": 295121,
+        "vat": 23610,
+        "gross": 318731
+      },
+      {
+        "external_event_id": "TENANT-DEMO:INV-M03-Q:1",
+        "document_id": "A1",
+        "line_id": "A1-Q",
+        "type": "sale",
+        "net": 147561,
+        "vat": 14756,
+        "gross": 162317
+      },
+      {
+        "external_event_id": "TENANT-DEMO:RET-M06-P:1",
+        "document_id": "R1",
+        "line_id": "R1-P",
+        "type": "credit",
+        "source_line_id": "A1-P",
+        "net": -162317,
+        "vat": -12986,
+        "gross": -175303
+      }
+    ],
+    "import_receipts_in_memory_only": [
+      {
+        "id": "TENANT-DEMO:INV-M03-P:1",
+        "status": "accepted",
+        "hash": "c6eb16242b6b48b2fc4e97bbcf72e9ec7d19c923b02b7d2fc9015794a3b8b877"
+      },
+      {
+        "id": "TENANT-DEMO:INV-M03-Q:1",
+        "status": "accepted",
+        "hash": "8b40a74b273ad874035f3fdb463950c8364e0db660a03d4107535be229bdaef0"
+      },
+      {
+        "id": "TENANT-DEMO:RET-M06-P:1",
+        "status": "accepted",
+        "hash": "96c1d5299e7ce2eca0680c62b83a785b1b43bd41c60988aaa3166ea6f4131654"
+      },
+      {
+        "id": "TENANT-DEMO:INV-M03-P:1",
+        "status": "already_accepted"
+      },
+      {
+        "id": "TENANT-DEMO:INV-M03-Q:1",
+        "status": "already_accepted"
+      },
+      {
+        "id": "TENANT-DEMO:RET-M06-P:1",
+        "status": "already_accepted"
+      }
+    ],
+    "unique_count": 3,
+    "conflicting_row_result": "quarantine_no_update",
+    "external_system_import_performed": false
+  },
+  "checks": [
+    {
+      "id": "F02.next_delivery_gift_due",
+      "result": "pass",
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "F02.no_duplicate_gift_due",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "F02.before_waiver_recovery",
+      "result": "pass",
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "F02.waiver_not_recovered_twice",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "F02.waiver_idempotent_quantity",
+      "result": "pass",
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "F02.waived_gifts_count_as_held_when_entitlement_rises",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "F02.returned_waived_gift_reduces_G_and_W",
+      "result": "pass",
+      "actual": [
+        1,
+        1,
+        1
+      ],
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "F02.waiver_does_not_cover_all_future_gifts",
+      "result": "pass",
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "id": "F03.source_issue",
+      "result": "pass",
+      "actual": 6667,
+      "expected": 6667
+    },
+    {
+      "id": "F03.counterexample_naive_return",
+      "result": "pass",
+      "actual": 6668,
+      "expected": 6668
+    },
+    {
+      "id": "F03.cumulative_return_parts",
+      "result": "pass",
+      "actual": [
+        3334,
+        3333
+      ],
+      "expected": [
+        3334,
+        3333
+      ]
+    },
+    {
+      "id": "F03.inventory_full_reversal",
+      "result": "pass",
+      "actual": 10000,
+      "expected": 10000
+    },
+    {
+      "id": "F03.adjusted_return_already_received",
+      "result": "pass",
+      "actual": 50,
+      "expected": 50
+    },
+    {
+      "id": "F03.adjusted_source_final_return",
+      "result": "pass",
+      "actual": 3384,
+      "expected": 3384
+    },
+    {
+      "id": "F03.adjusted_source_full_reversal",
+      "result": "pass",
+      "actual": 6768,
+      "expected": 6768
+    },
+    {
+      "id": "F03.partition_1_2_3_7",
+      "result": "pass",
+      "actual": 10001,
+      "expected": 10001
+    },
+    {
+      "id": "F03.partition_2_5_7",
+      "result": "pass",
+      "actual": 10001,
+      "expected": 10001
+    },
+    {
+      "id": "F03.partition_7",
+      "result": "pass",
+      "actual": 10001,
+      "expected": 10001
+    },
+    {
+      "id": "DUE.split_delivery_snapshot",
+      "result": "pass",
+      "actual": [
+        "2026-11-08",
+        "2026-11-15",
+        "2026-11-22"
+      ],
+      "expected": [
+        "2026-11-08",
+        "2026-11-15",
+        "2026-11-22"
+      ]
+    },
+    {
+      "id": "DUE.aging",
+      "result": "pass",
+      "actual": [
+        8,
+        1,
+        0
+      ],
+      "expected": [
+        8,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "DUE.business_timezone_before_date_addition",
+      "result": "pass",
+      "actual": "2026-11-09",
+      "expected": "2026-11-09"
+    },
+    {
+      "id": "TAX.discount_largest_remainder",
+      "result": "pass",
+      "actual": {
+        "L-P": 6667,
+        "L-Q": 3334
+      },
+      "expected": {
+        "L-P": 6667,
+        "L-Q": 3334
+      }
+    },
+    {
+      "id": "TAX.discount_tie_break",
+      "result": "pass",
+      "actual": {
+        "B": 0,
+        "A": 1
+      },
+      "expected": {
+        "B": 0,
+        "A": 1
+      }
+    },
+    {
+      "id": "TAX.exclusive_totals",
+      "result": "pass",
+      "actual": [
+        289999,
+        25134,
+        315133
+      ],
+      "expected": [
+        289999,
+        25134,
+        315133
+      ]
+    },
+    {
+      "id": "TAX.inclusive_discount_conserved",
+      "result": "pass",
+      "actual": 10001,
+      "expected": 10001
+    },
+    {
+      "id": "TAX.inclusive_gross_after_discount",
+      "result": "pass",
+      "actual": 315999,
+      "expected": 315999
+    },
+    {
+      "id": "TAX.inclusive_line_0_identity",
+      "result": "pass",
+      "actual": 209374,
+      "expected": 209374
+    },
+    {
+      "id": "TAX.inclusive_line_1_identity",
+      "result": "pass",
+      "actual": 106625,
+      "expected": 106625
+    },
+    {
+      "id": "TAX.full_return_net",
+      "result": "pass",
+      "actual": 193333,
+      "expected": 193333
+    },
+    {
+      "id": "TAX.full_return_vat",
+      "result": "pass",
+      "actual": 15467,
+      "expected": 15467
+    },
+    {
+      "id": "TAX.full_return_gross",
+      "result": "pass",
+      "actual": 208800,
+      "expected": 208800
+    },
+    {
+      "id": "TAX.return_gross_is_sum_of_source_components",
+      "result": "pass",
+      "actual": 2,
+      "expected": 2
+    },
+    {
+      "id": "TAX.round_gross_independently_would_differ",
+      "result": "pass",
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "id": "COMPOUND.cash_sale_zero_credit",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "COMPOUND.partial_cash_credit",
+      "result": "pass",
+      "actual": 40,
+      "expected": 40
+    },
+    {
+      "id": "COMPOUND.unverified_bank_report_not_receipt",
+      "result": "pass",
+      "actual": 100,
+      "expected": 100
+    },
+    {
+      "id": "COMPOUND.overpayment",
+      "result": "pass",
+      "actual": [
+        0,
+        20
+      ],
+      "expected": [
+        0,
+        20
+      ]
+    },
+    {
+      "id": "COMPOUND.server_reserved_credit",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "MD.order_discount",
+      "result": "pass",
+      "actual": {
+        "ORDER-P": 7562,
+        "ORDER-Q": 2439
+      },
+      "expected": {
+        "ORDER-P": 7562,
+        "ORDER-Q": 2439
+      }
+    },
+    {
+      "id": "MD.A1.line_P",
+      "result": "pass",
+      "actual": [
+        295121,
+        23610,
+        318731
+      ],
+      "expected": [
+        295121,
+        23610,
+        318731
+      ]
+    },
+    {
+      "id": "MD.A1.line_Q",
+      "result": "pass",
+      "actual": [
+        147561,
+        14756,
+        162317
+      ],
+      "expected": [
+        147561,
+        14756,
+        162317
+      ]
+    },
+    {
+      "id": "MD.return_P_source_components",
+      "result": "pass",
+      "actual": [
+        162317,
+        12986,
+        175303
+      ],
+      "expected": [
+        162317,
+        12986,
+        175303
+      ]
+    },
+    {
+      "id": "MD.A2.line_P",
+      "result": "pass",
+      "actual": [
+        162317,
+        12985,
+        175302
+      ],
+      "expected": [
+        162317,
+        12985,
+        175302
+      ]
+    },
+    {
+      "id": "M01.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M01.sales_money_conservation",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "M02.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M02.sales_money_conservation",
+      "result": "pass",
+      "actual": 0,
+      "expected": 0
+    },
+    {
+      "id": "M03.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M03.sales_money_conservation",
+      "result": "pass",
+      "actual": 481048,
+      "expected": 481048
+    },
+    {
+      "id": "M04.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M04.sales_money_conservation",
+      "result": "pass",
+      "actual": 481048,
+      "expected": 481048
+    },
+    {
+      "id": "M05.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M05.sales_money_conservation",
+      "result": "pass",
+      "actual": 481048,
+      "expected": 481048
+    },
+    {
+      "id": "M06.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M06.sales_money_conservation",
+      "result": "pass",
+      "actual": 305745,
+      "expected": 305745
+    },
+    {
+      "id": "M07.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M07.sales_money_conservation",
+      "result": "pass",
+      "actual": 305745,
+      "expected": 305745
+    },
+    {
+      "id": "M08.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M08.sales_money_conservation",
+      "result": "pass",
+      "actual": 305745,
+      "expected": 305745
+    },
+    {
+      "id": "M09.inventory_conservation",
+      "result": "pass",
+      "actual": 1200000,
+      "expected": 1200000
+    },
+    {
+      "id": "M09.sales_money_conservation",
+      "result": "pass",
+      "actual": 305745,
+      "expected": 305745
+    },
+    {
+      "id": "MD.day_rollover_unchanged",
+      "result": "pass",
+      "actual": {
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        }
+      },
+      "expected": {
+        "stock": {
+          "MAIN/P": {
+            "quantity": 24,
+            "value": 240000
+          },
+          "MAIN/Q": {
+            "quantity": 20,
+            "value": 400000
+          },
+          "TRIP-T1/P": {
+            "quantity": 14,
+            "value": 140000
+          },
+          "TRIP-T1/Q": {
+            "quantity": 5,
+            "value": 100000
+          },
+          "QUARANTINE/P": {
+            "quantity": 13,
+            "value": 130000
+          }
+        },
+        "customer_balances": {
+          "C-A": -94255,
+          "C-B": 0
+        },
+        "cash_custody": {
+          "employee_N1": 50000,
+          "cashier": 350000
+        }
+      }
+    },
+    {
+      "id": "M10.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M10.sales_money_conservation",
+      "result": "pass",
+      "actual": 305745,
+      "expected": 305745
+    },
+    {
+      "id": "MD.replenishment_does_not_reprice_vehicle",
+      "result": "pass",
+      "actual": {
+        "quantity": 0,
+        "value": 0
+      },
+      "expected": {
+        "quantity": 14,
+        "value": 140000
+      }
+    },
+    {
+      "id": "M11.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M11.sales_money_conservation",
+      "result": "pass",
+      "actual": 305745,
+      "expected": 305745
+    },
+    {
+      "id": "M12.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M12.sales_money_conservation",
+      "result": "pass",
+      "actual": 481047,
+      "expected": 481047
+    },
+    {
+      "id": "M13.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M13.sales_money_conservation",
+      "result": "pass",
+      "actual": 580047,
+      "expected": 580047
+    },
+    {
+      "id": "M14.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M14.sales_money_conservation",
+      "result": "pass",
+      "actual": 580047,
+      "expected": 580047
+    },
+    {
+      "id": "M15.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M15.sales_money_conservation",
+      "result": "pass",
+      "actual": 580047,
+      "expected": 580047
+    },
+    {
+      "id": "MD.day2_final_inventory",
+      "result": "pass",
+      "actual": 1307000,
+      "expected": 1307000
+    },
+    {
+      "id": "MD.day2_final_money",
+      "result": "pass",
+      "actual": [
+        532682,
+        47365,
+        120047,
+        460000
+      ],
+      "expected": [
+        532682,
+        47365,
+        120047,
+        460000
+      ]
+    },
+    {
+      "id": "M16.inventory_conservation",
+      "result": "pass",
+      "actual": 1698000,
+      "expected": 1698000
+    },
+    {
+      "id": "M16.sales_money_conservation",
+      "result": "pass",
+      "actual": 580047,
+      "expected": 580047
+    },
+    {
+      "id": "MD.late_cost_allocation",
+      "result": "pass",
+      "actual": {
+        "MAIN-Q-original-held22": 4401,
+        "A1-Q-sold5": 1000,
+        "B1-Q-sold3": 600
+      },
+      "expected": {
+        "MAIN-Q-original-held22": 4401,
+        "A1-Q-sold5": 1000,
+        "B1-Q-sold3": 600
+      }
+    },
+    {
+      "id": "M17.inventory_conservation",
+      "result": "pass",
+      "actual": 1704001,
+      "expected": 1704001
+    },
+    {
+      "id": "M17.sales_money_conservation",
+      "result": "pass",
+      "actual": 580047,
+      "expected": 580047
+    },
+    {
+      "id": "MD.locked_snapshot_stable",
+      "result": "pass",
+      "actual": 1307000,
+      "expected": 1307000
+    },
+    {
+      "id": "MD.return_from_adjusted_closed_source_cost",
+      "result": "pass",
+      "actual": 40400,
+      "expected": 40400
+    },
+    {
+      "id": "MD.return_from_closed_source_money",
+      "result": "pass",
+      "actual": [
+        59024,
+        5902,
+        64926
+      ],
+      "expected": [
+        59024,
+        5902,
+        64926
+      ]
+    },
+    {
+      "id": "M18.inventory_conservation",
+      "result": "pass",
+      "actual": 1704001,
+      "expected": 1704001
+    },
+    {
+      "id": "M18.sales_money_conservation",
+      "result": "pass",
+      "actual": 515121,
+      "expected": 515121
+    },
+    {
+      "id": "MD.final_stock_and_expense",
+      "result": "pass",
+      "actual": [
+        1351801,
+        352200,
+        1704001
+      ],
+      "expected": [
+        1351801,
+        352200,
+        1704001
+      ]
+    },
+    {
+      "id": "MD.final_money",
+      "result": "pass",
+      "actual": [
+        473658,
+        41463,
+        55121,
+        460000
+      ],
+      "expected": [
+        473658,
+        41463,
+        55121,
+        460000
+      ]
+    },
+    {
+      "id": "EXPORT.repeat_unique_rows",
+      "result": "pass",
+      "actual": 3,
+      "expected": 3
+    },
+    {
+      "id": "EXPORT.changed_payload_detected",
+      "result": "pass",
+      "actual": true,
+      "expected": true
+    }
+  ],
+  "summary": {
+    "checks_passed": 91,
+    "checks_failed": 0,
+    "multi_day_events": 18,
+    "verification_scope": "Arithmetic and deterministic in-memory models only; no app, DB, concurrency, device, accountant, or provider validation."
+  }
+}

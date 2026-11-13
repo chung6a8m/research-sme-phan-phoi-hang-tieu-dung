@@ -1,0 +1,144 @@
+# Tổng hợp quyết định và đánh giá khoảng trống MVP — NPP-01
+
+<text color="secondary" size="sm">Ngày đánh giá: 12/11/2026 · Phạm vi: các quyết định nghiên cứu và phỏng vấn đến Mục 202 · Đối chiếu tài liệu R007–R008 tại <Link url="https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/1" title="PR #1"/></text>
+
+## 1. Kết luận tổng thể
+
+**NPP-01 đã có đủ các quyết định nền tảng để chuyển từ nghiên cứu mở sang đặc tả kỹ thuật và kế hoạch triển khai MVP. Tuy nhiên, chưa đủ bằng chứng để tuyên bố MVP sẵn sàng Go-Live.**
+
+Chúng ta đã xác định được mô hình kinh doanh, luồng A/B, nguyên tắc dữ liệu, kho–tiền–công nợ, offline, tích hợp kế toán, cutover và phương pháp nghiệm thu pilot.
+
+Điểm thiếu lớn nhất hiện nay **không phải thêm chức năng DMS**, mà là chuyển những quyết định đã thống nhất thành đặc tả được kiểm soát phiên bản, xây dựng sản phẩm, kiểm chứng bằng hệ thống thực và thu thập bằng chứng pháp lý/nghiệp vụ cần thiết.
+
+<box border radius="lg" padding={3} gap={2}>
+  <table>
+    <table-row>
+      <table-cell width="43%">Lớp sẵn sàng</table-cell>
+      <table-cell>Đánh giá</table-cell>
+    </table-row>
+    <table-row>
+      <table-cell>Chính sách sản phẩm</table-cell>
+      <table-cell>Đã có nhiều quyết định rõ ràng qua phỏng vấn; cần hợp nhất thành bản chính thức</table-cell>
+    </table-row>
+    <table-row>
+      <table-cell>Đặc tả nghiên cứu</table-cell>
+      <table-cell>R008 đã có bản ứng viên, mô hình và ca kiểm chứng</table-cell>
+    </table-row>
+    <table-row>
+      <table-cell>Đặc tả có thể giao triển khai</table-cell>
+      <table-cell>Cần cập nhật các quyết định mới, đặc biệt Mục 153–200</table-cell>
+    </table-row>
+    <table-row>
+      <table-cell>Kiểm chứng kỹ thuật</table-cell>
+      <table-cell>Chưa có bằng chứng nghiệm thu tích hợp MVP thực tế</table-cell>
+    </table-row>
+    <table-row>
+      <table-cell>Pilot NPP-01</table-cell>
+      <table-cell>Đã có kế hoạch và điều kiện nghiệm thu; chưa có số liệu vận hành đo thực tế</table-cell>
+    </table-row>
+    <table-row>
+      <table-cell>Go-Live toàn phạm vi A+B</table-cell>
+      <table-cell>**NO-GO tại thời điểm đánh giá**</table-cell>
+    </table-row>
+  </table>
+</box>
+
+Việc chưa Go-Live **không có nghĩa phải dừng phát triển MVP**. Phần lớn nghiệp vụ lõi có thể được đặc tả, xây dựng và kiểm thử ngay; chỉ những phạm vi chưa vượt qua điều kiện bắt buộc mới không được kích hoạt trên giao dịch thật.
+
+## 2. Những quyết định quan trọng đã được chốt
+
+| Nhóm | Quyết định hiện hành |
+|---|---|
+| **Mô hình kinh doanh** | Một người bán/tenant; phân biệt Customer, Outlet và ShipTo; hỗ trợ Module A, B và chuyến A+B |
+| **Kho và hàng hóa** | Quản lý SKU/UoM/lô/FEFO; hàng trả cách ly; MVP là nguồn ghi nhận kho chính, bao gồm hoạt động ngoài wave |
+| **Giá vốn** | MVP bình quân liên hoàn theo SKU × vị trí; kế toán hiện tại bình quân theo kỳ, là nguồn giá vốn kế toán chính thức |
+| **Tiền và công nợ** | Tách ba sổ: phải thu Customer, tiền nhân viên giữ hộ, tạm ứng; kiểm soát thu thừa, thu hộ và hoàn ứng |
+| **Offline** | Một writer/chuyến, quyền offline có thời hạn, nhật ký bền vững và phục hồi chứng từ giấy chống trùng |
+| **Tích hợp kế toán** | Durable Outbox, chống trùng, webhook + API tra cứu; tách tiếp nhận, ghi sổ và đối soát |
+| **Cutover** | Kiểm kê, snapshot, xác nhận nhiều bên; ưu tiên cutover sạch; không rollback sau sự kiện nghiệp vụ có hiệu lực đầu tiên |
+| **Pilot** | Wave 1 có 8 chuyến/ngày (3 A + 3 B + 2 A+B), quan sát tối thiểu 5 ngày, nghiệm thu theo mức rủi ro |
+
+Các chính sách này đã được lựa chọn trong cuộc trò chuyện. Đối với năng lực thực tế của phần mềm hiện tại và các quy trình NPP, vẫn cần xác minh bằng hồ sơ và kiểm thử.
+
+## 3. Các khoảng trống ưu tiên
+
+| Mức | Khoảng trống | Việc cần hoàn thành |
+|---|---|---|
+| **P0** | Hóa đơn B khi mất hoàn toàn liên lạc | Kiểm chứng phương án hợp lệ; hồ sơ B-CASE và đánh giá pháp lý vẫn `EVIDENCE PENDING` |
+| **P0** | Quyền ghi kho độc quyền | Kiểm thử khóa mọi đường ghi độc lập của hệ thống cũ, bao gồm hoạt động ngoài pilot và thiết bị offline |
+| **P0** | Offline, chống trùng và phục hồi | Chạy E2E trên ứng dụng, thiết bị, database và hạ tầng thật |
+| **P0** | Cutover và số dư đầu kỳ | Kiểm kê, import, đối soát kho–xe–tiền–nợ, diễn tập chuyển quyền và Forward Recovery |
+| **P0** | Tính toàn vẹn nghiệp vụ A+B | Kiểm chứng không mất/ghi trùng hàng, tiền, công nợ và chứng từ sau lỗi hoặc phục hồi |
+| **P1** | Đặc tả chính thức | Hợp nhất quyết định phỏng vấn với R008; tạo ADR, state machine, dữ liệu và acceptance criteria |
+| **P1** | Tích hợp kế toán thực tế | Kiểm thử Durable Outbox, `POSTED`, webhook, API lookup, ghi thủ công và đối soát |
+| **P1** | Chênh lệch hai phương pháp giá vốn | Xác lập contract đối soát và điều chỉnh cuối kỳ với kế toán |
+| **P1** | Dữ liệu, thiết bị và hỗ trợ pilot | Thu mẫu thật được phép sử dụng, đo tải, kiểm thử UX và diễn tập ứng cứu |
+| **P2** | Giá trị thương mại | Đo chi phí phục vụ mỗi tenant, hiệu quả thao tác và mức sẵn sàng trả phí |
+
+### Điểm cần đặc biệt chú ý
+
+**Phạm vi pilot người dùng không đồng nghĩa với phạm vi dữ liệu kho.** Dù Wave 1 chỉ có 8 chuyến/ngày trực tiếp sử dụng ứng dụng, toàn bộ biến động Kho-01 vẫn phải được ghi nhận trên MVP sau cutover. Đây là một trong những yêu cầu dễ bị bỏ sót nhất khi chuyển sang triển khai.
+
+Ngoài ra, hệ thống cũ ghi sổ thành công không mặc nhiên có nghĩa kết quả đã đối soát đúng. Cần giữ ba trạng thái độc lập: đã tiếp nhận, đã ghi sổ và đã đối soát đạt.
+
+## 4. Lộ trình công việc tôi đề xuất
+
+<box border radius="lg" padding={3} gap={3}>
+  <list marker="number" connector="solid" gap={3}>
+    <list-item>
+      **Đợt 1 — Chuẩn hóa đặc tả và đóng băng chính sách**
+
+      Tạo tài liệu bổ sung cho R008, sổ quyết định có phiên bản, ADR, glossary, ma trận nghiệp vụ và tiêu chí nghiệm thu. Đây là bước ưu tiên cao nhất trước khi giao triển khai các chức năng liên quan nhiều sổ.
+    </list-item>
+    <list-item>
+      **Đợt 2 — Kiểm chứng tích hợp và dữ liệu NPP-01**
+
+      Tập trung vào dữ liệu nguồn, API hệ thống cũ, phương pháp giá vốn, kho và quyền ghi. Những chứng cứ B-CASE đang tạm hoãn được giữ nguyên trạng thái, không đưa vào điều kiện hoàn thành đợt này.
+    </list-item>
+    <list-item>
+      **Đợt 3 — Xây dựng Vertical Slice A+B end-to-end**
+
+      Từ xuất hàng, giao/bán, thu tiền và công nợ đến đồng bộ kế toán, đối soát và xử lý ngoại lệ. Kiểm thử trên thành phần thật, không chỉ trên script nghiên cứu.
+    </list-item>
+    <list-item>
+      **Đợt 4 — Diễn tập cutover và Go/No-Go**
+
+      Diễn tập nhiều tầng, bảo đảm quyền ghi kho độc quyền, phục hồi dữ liệu, chống trùng và đủ bằng chứng nghiệm thu. Không kích hoạt phạm vi còn P0.
+    </list-item>
+    <list-item>
+      **Đợt 5 — Vận hành Wave 1 và đo hiệu quả**
+
+      Theo dõi 8 chuyến/ngày trong ít nhất 5 ngày có độ bao phủ đại diện. Đánh giá SLA, backlog, sai lệch, chi phí hỗ trợ và quyết định mở rộng.
+    </list-item>
+  </list>
+</box>
+
+## 5. Tài liệu tổng hợp đã chuẩn bị
+
+Tôi đã tạo một báo cáo Markdown chi tiết gồm bản đồ quyết định, 15 nhóm khoảng trống có mức ưu tiên, yêu cầu bằng chứng, các mâu thuẫn cần tránh và kế hoạch thực hiện.
+
+<row align="center" gap={3}>
+  <icon name="file-text" size="2xl" color="secondary"/>
+  <box flex="1" gap={1}>
+    **NPP-01 — Tổng hợp quyết định và khoảng trống MVP**
+
+    <text color="secondary" size="xs">Markdown · 12/11/2026 · Có thể sử dụng làm đầu vào cho PR tài liệu tiếp theo</text>
+    [Tải báo cáo chi tiết](sandbox:/mnt/data/NPP-01_tong-hop-quyet-dinh-va-khoang-trong-MVP_2026-11-12.vi.md)
+  </box>
+</row>
+
+Báo cáo hiện là bản làm việc trong cuộc trò chuyện, **chưa được commit vào PR #1** và chưa phải biên bản nghiệm thu của NPP.
+
+---
+
+## 6. Kết luận và hướng đi tiếp theo
+
+Tôi đề xuất **kết thúc giai đoạn phỏng vấn khám phá rộng tại đây**, chuyển sang công việc có đầu ra kiểm chứng được.
+
+Bước đầu tiên nên là xây một bản **MVP Specification Baseline v1** trên cơ sở R008 và các quyết định đã lựa chọn, với quan hệ truy vết:
+
+`Decision → Business Rule → Data Contract → API/State Machine → Acceptance Test → Evidence`
+
+Đây sẽ là tài liệu nguồn để giao phát triển, review PR và nghiệm thu từng phần.
+
+**Không cần mở thêm module trước khi xây dựng MVP.** Ưu tiên đóng các khoảng trống P0/P1, giữ nguyên các điều kiện chưa có bằng chứng và bắt đầu triển khai từ những quy tắc đã đủ rõ.
