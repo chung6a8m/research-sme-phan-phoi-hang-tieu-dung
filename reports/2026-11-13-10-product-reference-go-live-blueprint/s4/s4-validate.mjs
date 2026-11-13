@@ -89,7 +89,8 @@ export function validate(x){
   check(discovery.scope.admittedModes.length===0 && discovery.signoffs.length===0 &&
     discovery.evidenceIndex.length===0 && discovery.modeDecisions.every(z=>z.admissionRecordRef===null),"discovery cannot claim approval");
   check(discovery.discoveryGaps.length===1 && discovery.discoveryGaps[0].status==="OPEN_UNVERIFIED" &&
-    discovery.discoveryGaps[0].controlIds.every(id=>c.some(z=>z.controlId===id)),"discovery gap trace/status");
+    discovery.discoveryGaps[0].controlIds.every(id=>c.some(z=>z.controlId===id)) &&
+    new Set(discovery.discoveryGaps[0].controlIds).size===discovery.discoveryGaps[0].controlIds.length,"discovery gap trace/status/unique controls");
   check(discovery.p1Exceptions.length===0 && d.assessments.length===30,"no self-approved P1 exceptions");
   check(x.schema.properties.recordKind.enum.includes("TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL") &&
     x.schema.properties.discoveryGaps?.type==="array" && x.schema.properties.p1Exceptions?.type==="array","dossier gap/P1 schema");
