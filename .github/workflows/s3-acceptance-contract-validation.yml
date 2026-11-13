@@ -7,6 +7,12 @@ on:
       - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/golden-oracles.json'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fault-case-catalog.csv'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json'
       - '.github/workflows/s3-acceptance-contract-validation.yml'
   push:
     branches:
@@ -17,6 +23,12 @@ on:
       - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/golden-oracles.json'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fault-case-catalog.csv'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json'
       - '.github/workflows/s3-acceptance-contract-validation.yml'
 permissions:
   contents: read

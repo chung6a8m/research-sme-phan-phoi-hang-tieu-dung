@@ -40,6 +40,7 @@
     "runKind": {
       "enum": [
         "PLACEHOLDER",
+        "PRE_EXECUTION_BLOCKER",
         "REAL_SYSTEM"
       ]
     },
@@ -426,6 +427,72 @@
       "if": {
         "properties": {
           "runKind": {
+            "const": "PRE_EXECUTION_BLOCKER"
+          }
+        },
+        "required": [
+          "runKind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "executionStatus": {
+            "const": "BLOCKED"
+          },
+          "testRunId": {
+            "type": "null"
+          },
+          "startedAt": {
+            "type": "null"
+          },
+          "endedAt": {
+            "type": "null"
+          },
+          "actual": {
+            "type": "null"
+          },
+          "ledgerSnapshots": {
+            "maxItems": 0
+          },
+          "artifacts": {
+            "maxItems": 0
+          },
+          "blockers": {
+            "minItems": 1
+          },
+          "runtime": {
+            "properties": {
+              "commitSha": {
+                "type": "null"
+              },
+              "environment": {
+                "type": "null"
+              }
+            }
+          },
+          "review": {
+            "properties": {
+              "state": {
+                "const": "NOT_SUBMITTED"
+              },
+              "reviewer": {
+                "type": "null"
+              },
+              "at": {
+                "type": "null"
+              },
+              "signoffRef": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "runKind": {
             "const": "REAL_SYSTEM"
           }
         },
@@ -478,6 +545,43 @@
         "properties": {
           "executionStatus": {
             "const": "EXECUTED_UNREVIEWED"
+          }
+        },
+        "required": [
+          "executionStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actual": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifacts": {
+            "minItems": 1
+          },
+          "review": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "AWAITING_REVIEW",
+                  "REJECTED",
+                  "APPROVED"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "executionStatus": {
+            "enum": [
+              "FAILED",
+              "EXECUTED_UNREVIEWED"
+            ]
           }
         },
         "required": [

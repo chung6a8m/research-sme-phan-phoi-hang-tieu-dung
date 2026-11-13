@@ -49,3 +49,7 @@
 
 **S4** tiếp nhận fault/run matrix để soạn cutover/DR/support/legal preflight; **S5** dùng mode gates cho tenant gap assessment; **S6** tạo source bindings, chạy test thật và kiểm chứng TADR-01..06. Trên PR #2 không thay mã hệ thống, không nhập NPP thật, không tạo phê duyệt provider/legal và không merge hay bật production.
 
+
+## 5. Handoff sau contract hardening
+
+Tách hai thời điểm: `PILOT_START` yêu cầu EV-14 đã được duyệt trước Pilot, **không** đòi EV-15; `PRODUCTION_GO_LIVE` có EV-15 sau Pilot và hồ sơ tenant acceptance riêng. `PRE_EXECUTION_BLOCKER` giữ `BLOCKED` với nguyên nhân nhưng không bịa testRunId/timestamp. `REAL_SYSTEM/FAILED` có actual và hashed artifact. Khi nhận một record mới, kiểm thêm semantic join AC/scenario/EV/mode/fault bên cạnh JSON Schema; ký evidence không phải ký mode gate.

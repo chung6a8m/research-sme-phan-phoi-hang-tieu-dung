@@ -22,6 +22,9 @@ export function loadContract(){
     r009:read("../../2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md"),
     s1Trace:read("../s1-traceability.vi.md"),
     oracle:json("../s2/golden-oracles.json"),
+    policy:read("../product-policy-catalog.vi.md"),
+    sop:read("../sop-a-b-mixed.vi.md"),
+    evq:read("../evq-acceptance-gates.vi.md"),
     s2Faults:read("../s2/fault-case-catalog.csv")
   };
 }
@@ -134,6 +137,22 @@ export function validateContract(d){
   check(sorted(mode("MIXED").dependsOnModes)===sorted(["A","B_ONLINE"]) && mode("MIXED").independentMixedE2ERequired===true,"Mixed admission cannot inherit A alone");
   check(["A","B_ONLINE","MIXED"].every(n=>mode(n).decision==="NO_GO_PENDING"),"MVP production requires evidence");
   check(d.gates.evidenceThresholds==="UNSET" && d.gates.productVerification==="PENDING" && d.gates.tenantGoLiveAcceptance==="PENDING","unapproved thresholds/verification");
+
+  // F1: pilot readiness is not production Go-Live; do not lose inherited Mixed evidence.
+  const commonEv=["EV-01","EV-02","EV-04","EV-05","EV-06","EV-07","EV-09","EV-10","EV-11","EV-12","EV-13","EV-14"];
+  for(const id of ["A","B_ONLINE","MIXED"]){
+    const m=mode(id),pilot=id==="MIXED"?[...commonEv,"EV-03","EV-08"]:commonEv;
+    check(sorted(m.requiredEvIds||[])===sorted(pilot),"legacy requiredEvIds is only PILOT_START "+id);
+    check(sorted(m.pilotStartRequiredEvIds||[])===sorted(pilot),"PILOT_START completeness "+id);
+    check(sorted(m.productionGoLiveRequiredEvIds||[])===sorted([...pilot,"EV-15"]),"PRODUCTION_GO_LIVE requires EV-15 "+id);
+    check(!m.pilotStartRequiredEvIds.includes("EV-15") && m.productionGoLiveRequiredEvIds.includes("EV-14"),"EV14 before EV15 "+id);
+  }
+  check(sorted(d.gates.conditionalEvidenceWhenOfflineWrite?.requiredEvIds||[])===sorted(["EV-08","EV-09"])&&d.gates.conditionalEvidenceWhenOfflineWrite?.defaultDisabled===true,"offline requires distinct EV08/09");
+  check(d.gates.phasePolicy?.pilotStart?.includes("EV-14")&&d.gates.phasePolicy?.productionGoLive?.includes("EV-15"),"phase policy text missing");
+  // F5: CI watches S1/EVQ changes; contract also verifies upstream reference presence.
+  for(const id of new Set(A.flatMap(x=>x.s1Trace.policyIds)))check(d.policy.includes(id),"orphan policy in upstream "+id);
+  for(const id of new Set(A.flatMap(x=>x.s1Trace.sopIds)))check(d.sop.includes(id),"orphan SOP in upstream "+id);
+  for(const id of ["EVQ-05","B_ONLINE","B_NO_CHANNEL","EV-14","EV-15"])check(d.evq.includes(id),"upstream EVQ drift "+id);
   check(d.schema.$schema==="https://json-schema.org/draft/2020-12/schema","schema draft");
   const e=d.example;
   check(e.runKind==="PLACEHOLDER" && e.executionStatus==="NOT_RUN" && e.testRunId===null && e.actual===null && e.artifacts.length===0 && e.review.state==="NOT_SUBMITTED","example must remain placeholder");

@@ -22,7 +22,15 @@ const mutations=[
  ["example_false_test",d=>{d.example.runKind="REAL_SYSTEM";d.example.executionStatus="EXECUTED_UNREVIEWED"}],
  ["product_falsely_verified",d=>d.gates.productVerification="VERIFIED"],
  ["oracle_missing",d=>delete d.oracle["AC-19"]],
- ["B_CASE_missing",d=>d.gates.gates.find(x=>x.mode==="B_NO_CHANNEL").deferredEvidence.pop()]
+ ["B_CASE_missing",d=>d.gates.gates.find(x=>x.mode==="B_NO_CHANNEL").deferredEvidence.pop()],
+ ["B_pilot_missing_EV02",d=>d.gates.gates.find(x=>x.mode==="B_ONLINE").pilotStartRequiredEvIds=d.gates.gates.find(x=>x.mode==="B_ONLINE").pilotStartRequiredEvIds.filter(x=>x!=="EV-02")],
+ ["mixed_pilot_missing_EV01",d=>d.gates.gates.find(x=>x.mode==="MIXED").pilotStartRequiredEvIds=d.gates.gates.find(x=>x.mode==="MIXED").pilotStartRequiredEvIds.filter(x=>x!=="EV-01")],
+ ["A_go_live_missing_EV15",d=>d.gates.gates.find(x=>x.mode==="A").productionGoLiveRequiredEvIds.pop()],
+ ["A_pilot_premature_EV15",d=>d.gates.gates.find(x=>x.mode==="A").pilotStartRequiredEvIds.push("EV-15")],
+ ["B_go_live_missing_EV14",d=>d.gates.gates.find(x=>x.mode==="B_ONLINE").productionGoLiveRequiredEvIds=d.gates.gates.find(x=>x.mode==="B_ONLINE").productionGoLiveRequiredEvIds.filter(x=>x!=="EV-14")],
+ ["offline_requirement_lost",d=>d.gates.conditionalEvidenceWhenOfflineWrite.requiredEvIds=["EV-08"]],
+ ["upstream_policy_lost",d=>d.policy="invalid"],
+ ["upstream_EVQ_lost",d=>d.evq="invalid"]
 ];
 for(const [name,mutation] of mutations){
   const copy=structuredClone(source);

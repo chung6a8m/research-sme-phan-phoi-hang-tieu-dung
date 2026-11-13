@@ -46,3 +46,9 @@ Nguồn: [R009 AC/EV](../../2026-11-13-09-mvp-specification-baseline/acceptance-
 ## CI synthetic S3 — 13/11/2026
 
 [S3 workflow run 43396658093](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43396658093) trên HEAD `b8e0acd7216c`: **SUCCESS** cho trace 21 AC/15 EV/42 BDD/22 faults/6 mode, 20 negative regression và 10 JSON Schema negatives. `realE2eRuns=0`, `NOT_RUN_PRODUCT`. Xem [validation results](validation-results.vi.md); không dùng kết quả CI này làm EV thực hoặc GO.
+
+## Hardening S3 sau review F1/F2/F4
+
+- `pilotStartRequiredEvIds` của A/B_ONLINE/MIXED bắt buộc EV-14 (readiness trước Pilot); `productionGoLiveRequiredEvIds` thêm EV-15 (kết quả sau Pilot). `requiredEvIds` là alias legacy của pha PILOT_START, **không dùng để kết luận Go-Live**. B_ONLINE có EV-02, MIXED kế thừa A/B_ONLINE và EV-03; OFFLINE_WRITE cần EV-08/09 riêng theo mode/device/trip.
+- Evidence schema hỗ trợ `PRE_EXECUTION_BLOCKER` khi chưa chạy test: `BLOCKED`, testRunId và thời gian thực thi null, lý do blocker bắt buộc. Khi `REAL_SYSTEM/FAILED` phải có actual và artifact. CI schema/semantic chỉ tạo synthetic fixtures trong bộ test, không tạo evidence thật.
+- Semantic validator ngoài JSON Schema đối chiếu AC ↔ scenario/EV/mode/fixture/fault; CI trigger khi upstream EVQ/SOP/POL/RACI thay đổi. S6 cần thực thi tương đương ở evidence intake.
