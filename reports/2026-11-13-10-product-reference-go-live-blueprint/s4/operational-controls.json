@@ -1,0 +1,896 @@
+{
+  "schemaVersion": "s4-v1",
+  "kind": "OPERATIONS_CONTROL_CATALOG_NOT_A_GOLIVE_DECISION",
+  "status": "NOT_EVALUATED",
+  "source": "R010 S4 P06/P08 and R009/S1/S2/S3",
+  "nonWaivableP0": [
+    "G-STOCK",
+    "G-CUT",
+    "G-IDEMP",
+    "G-LEDGER",
+    "G-INV"
+  ],
+  "controls": [
+    {
+      "controlId": "OPS-01",
+      "phase": "ENROLLMENT",
+      "package": "P06",
+      "title": "Tenant identity/roles/SoD",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-01",
+        "EV-02"
+      ],
+      "acIds": [
+        "AC-01",
+        "AC-02"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Tenant Owner",
+        "Security"
+      ],
+      "requiredEvidence": "IAM current scope, assignment/version, independent checker",
+      "failureAction": "Deny tenant access/mode when isolation or authority unknown",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-02",
+      "phase": "ENROLLMENT",
+      "package": "P06",
+      "title": "Credit UNSET vs approved zero",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-06"
+      ],
+      "acIds": [
+        "AC-09",
+        "AC-20"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Finance",
+        "Sales"
+      ],
+      "requiredEvidence": "CreditPolicyStatus/approval and fail-closed tests",
+      "failureAction": "Deny unapproved credit",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-03",
+      "phase": "ENROLLMENT",
+      "package": "P06",
+      "title": "Customer/Outlet/ShipTo import source",
+      "severity": "P1",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-02"
+      ],
+      "acIds": [
+        "AC-02"
+      ],
+      "gateIds": [],
+      "requiredRoles": [
+        "Data Owner",
+        "Sales"
+      ],
+      "requiredEvidence": "T01-T04 sourceRecordId/hash and data quality",
+      "failureAction": "Quarantine bad master rows",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-04",
+      "phase": "ENROLLMENT",
+      "package": "P06",
+      "title": "Trip writer, driver/delivery, offline admission",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "evIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "acIds": [
+        "AC-12"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Operations",
+        "Security"
+      ],
+      "requiredEvidence": "T11 installation epoch/grant/role and one writer real test",
+      "failureAction": "Deny concurrent/revoked grant; retain physical occurredEvent case",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-05",
+      "phase": "PRE_FREEZE",
+      "package": "P06",
+      "title": "Full warehouse writer-path inventory including off-wave",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-04",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-STOCK"
+      ],
+      "requiredRoles": [
+        "Warehouse",
+        "IT"
+      ],
+      "requiredEvidence": "Old UI/API/SQL/job/import/ETL/offline inventory",
+      "failureAction": "NO_GO while any legacy writer unknown",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-06",
+      "phase": "PRE_FREEZE",
+      "package": "P06",
+      "title": "Cutoff snapshot, backup, timezone",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-09",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-13",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "IT",
+        "Tenant Owner"
+      ],
+      "requiredEvidence": "Cutoff with timezone, backup checksum, isolated restore proof",
+      "failureAction": "Stop without reproducible backup/source",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-07",
+      "phase": "OPENING",
+      "package": "P06",
+      "title": "Stock MAIN/TRIP/lot/UoM/quarantine and off-wave",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-04",
+        "AC-05",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "Warehouse",
+        "IT"
+      ],
+      "requiredEvidence": "T05 per-source opening and expiry/quarantine balances",
+      "failureAction": "No opening post with unresolved stock delta",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-08",
+      "phase": "OPENING",
+      "package": "P06",
+      "title": "A hold/B quota and AR/CustomerCredit opening",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-06",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-09",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT",
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Warehouse",
+        "Finance"
+      ],
+      "requiredEvidence": "T07/T08 item balances, reserved A/B quotas",
+      "failureAction": "No offsetting independent balances",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-09",
+      "phase": "OPENING",
+      "package": "P06",
+      "title": "Cash, custody and advance opening",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-06",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-10",
+        "AC-20",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT",
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Cashier",
+        "Finance"
+      ],
+      "requiredEvidence": "T09/T10 source and actual cashier count",
+      "failureAction": "No cash movement without independent cashier accept",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-10",
+      "phase": "OPENING",
+      "package": "P06",
+      "title": "Invoice/accounting external + pending device manifest",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-09",
+        "EV-10",
+        "EV-11",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-13",
+        "AC-14",
+        "AC-15",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT",
+        "G-IDEMP",
+        "G-INV"
+      ],
+      "requiredRoles": [
+        "IT",
+        "Finance",
+        "Provider"
+      ],
+      "requiredEvidence": "T12/T13 immutable refs, UNKNOWN, journal/epoch",
+      "failureAction": "Case unknown effect; never double-post",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-11",
+      "phase": "OPENING",
+      "package": "P06",
+      "title": "S2-v2 dry-run/version migration and source hashes",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "IT",
+        "Data Owner"
+      ],
+      "requiredEvidence": "Preview delta and manifest SHA256",
+      "failureAction": "Do not import production from unchecked CSV",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-12",
+      "phase": "OPENING",
+      "package": "P06",
+      "title": "AP-08 multi-party opening acceptance",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "Warehouse",
+        "Finance",
+        "Cashier",
+        "IT",
+        "Tenant Owner"
+      ],
+      "requiredEvidence": "Same cutoff/hash signed by authorized people",
+      "failureAction": "No switch with missing applicable signer",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-13",
+      "phase": "WRITER_SWITCH",
+      "package": "P06",
+      "title": "Fence legacy paths and real denied-write tests",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-04",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "IT",
+        "Warehouse",
+        "Security"
+      ],
+      "requiredEvidence": "UI/API/DB/job/import/offline denied across entire warehouse",
+      "failureAction": "P0 STOP when old writer still writable",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-14",
+      "phase": "FIRST_EFFECT",
+      "package": "P06",
+      "title": "Record firstEffectId and immutable boundary",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "IT",
+        "Tenant Owner"
+      ],
+      "requiredEvidence": "First commit/external effect/ref timestamp lookup",
+      "failureAction": "Forward-only after first effect",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-15",
+      "phase": "FIRST_EFFECT",
+      "package": "P06",
+      "title": "Late source and source-linked forward correction",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-09",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-13",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT",
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Warehouse",
+        "Finance",
+        "IT"
+      ],
+      "requiredEvidence": "Late device/legacy event case + correction source",
+      "failureAction": "Quarantine and correct forward, never erase event",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-16",
+      "phase": "RECOVERY",
+      "package": "P06",
+      "title": "Restore current authority/privacy/generation anchor",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER",
+        "OFFLINE_WRITE"
+      ],
+      "evIds": [
+        "EV-01",
+        "EV-09"
+      ],
+      "acIds": [
+        "AC-01",
+        "AC-13"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Security",
+        "Operations"
+      ],
+      "requiredEvidence": "Outside rollback revoke/privacy/epoch, F-06/F-22",
+      "failureAction": "Keep restore quarantined and reject stale authority",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-17",
+      "phase": "RECOVERY",
+      "package": "P06",
+      "title": "Backup restore and external read-back",
+      "severity": "P0",
+      "appliesToModes": [
+        "PRODUCTION_CUTOVER"
+      ],
+      "evIds": [
+        "EV-09",
+        "EV-12"
+      ],
+      "acIds": [
+        "AC-13",
+        "AC-16"
+      ],
+      "gateIds": [
+        "G-CUT"
+      ],
+      "requiredRoles": [
+        "IT",
+        "Finance"
+      ],
+      "requiredEvidence": "Restore testRunId/checksum and external registries",
+      "failureAction": "No reopen until per-source reconciliation",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-18",
+      "phase": "RECOVERY",
+      "package": "P06",
+      "title": "Durable ACK, journal, duplicate, offline recovery",
+      "severity": "P0",
+      "appliesToModes": [
+        "OFFLINE_WRITE"
+      ],
+      "evIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "acIds": [
+        "AC-11",
+        "AC-12",
+        "AC-13"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "QA",
+        "Engineering",
+        "Operations"
+      ],
+      "requiredEvidence": "Real device+SQL F-01/F-10/F-14 commands and hashes",
+      "failureAction": "OFFLINE_WRITE disabled until per-device proof",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-19",
+      "phase": "MONITORING",
+      "package": "P06",
+      "title": "AsOf, n/N completeness and open-case daily close",
+      "severity": "P1",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-06",
+        "EV-11",
+        "EV-14"
+      ],
+      "acIds": [
+        "AC-10",
+        "AC-15",
+        "AC-18"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Operations",
+        "Finance"
+      ],
+      "requiredEvidence": "Daily close sources, UNKNOWN/DIFF, owner/next action",
+      "failureAction": "CLOSED_WITH_OPEN_CASES not false reconciled",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-20",
+      "phase": "HYPERCARE",
+      "package": "P06",
+      "title": "Support roster, UX-01..08 and observed training",
+      "severity": "P1",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-13",
+        "EV-14"
+      ],
+      "acIds": [
+        "AC-17",
+        "AC-18"
+      ],
+      "gateIds": [],
+      "requiredRoles": [
+        "Operations",
+        "Sales",
+        "QA"
+      ],
+      "requiredEvidence": "Real device/role training, contact rota and metrics",
+      "failureAction": "No EV-14 for paper-only training",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-21",
+      "phase": "PILOT_READINESS",
+      "package": "P06",
+      "title": "EV-14 thresholds and denominators pre-approved",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-14"
+      ],
+      "acIds": [
+        "AC-18"
+      ],
+      "gateIds": [],
+      "requiredRoles": [
+        "Tenant Owner",
+        "Operations",
+        "Product QA"
+      ],
+      "requiredEvidence": "Signed SLO/UX thresholds, n/N and staff/device plan",
+      "failureAction": "NO_GO when thresholds UNSET",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-22",
+      "phase": "PILOT_OBSERVATION",
+      "package": "P06",
+      "title": "EV-15 actual pilot after EV-14",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-15"
+      ],
+      "acIds": [
+        "AC-18"
+      ],
+      "gateIds": [],
+      "requiredRoles": [
+        "Tenant Owner",
+        "Operations",
+        "Finance"
+      ],
+      "requiredEvidence": "NPP-01 >=5 representative days actual coverage and case ledger",
+      "failureAction": "Never claim pilot from synthetic F1",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-23",
+      "phase": "LEGAL_PREFLIGHT",
+      "package": "P08",
+      "title": "Seller identity/legal authority",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-10"
+      ],
+      "acIds": [
+        "AC-14"
+      ],
+      "gateIds": [
+        "G-INV"
+      ],
+      "requiredRoles": [
+        "Seller representative",
+        "Legal",
+        "Finance"
+      ],
+      "requiredEvidence": "Seller profile/version and authorized legal review",
+      "failureAction": "Block invoice without legal seller authority",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-24",
+      "phase": "LEGAL_PREFLIGHT",
+      "package": "P08",
+      "title": "Tax/SKU/price snapshot and invoice legal event",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-05",
+        "EV-10"
+      ],
+      "acIds": [
+        "AC-14",
+        "AC-19"
+      ],
+      "gateIds": [
+        "G-INV",
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Legal",
+        "Tax reviewer",
+        "Finance"
+      ],
+      "requiredEvidence": "Applicable law/effective date, SKU tax and provider map",
+      "failureAction": "No use of fixture VAT for production",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-25",
+      "phase": "PROVIDER_PREFLIGHT",
+      "package": "P08",
+      "title": "B_ONLINE channel valid; B_NO_CHANNEL blocked",
+      "severity": "P0",
+      "appliesToModes": [
+        "B_ONLINE",
+        "MIXED",
+        "B_NO_CHANNEL"
+      ],
+      "evIds": [
+        "EV-10"
+      ],
+      "acIds": [
+        "AC-14"
+      ],
+      "gateIds": [
+        "G-INV"
+      ],
+      "requiredRoles": [
+        "Provider",
+        "Legal",
+        "Operations"
+      ],
+      "requiredEvidence": "Real channel E2E and B-CASE/LEGAL-MEMO/INV-09 status",
+      "failureAction": "WAITING_INVOICE_CHANNEL; stop B physical delivery",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-26",
+      "phase": "PROVIDER_PREFLIGHT",
+      "package": "P08",
+      "title": "Invoice UNKNOWN lookup/idempotency and correction",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-10"
+      ],
+      "acIds": [
+        "AC-14"
+      ],
+      "gateIds": [
+        "G-INV",
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Provider",
+        "QA",
+        "Finance"
+      ],
+      "requiredEvidence": "External ref/hash lookup and correction link",
+      "failureAction": "Never retry with new invoice ID",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-27",
+      "phase": "ACCOUNTING_PREFLIGHT",
+      "package": "P08",
+      "title": "API/FILE/MANUAL_REGISTER controlled adapters",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-11"
+      ],
+      "acIds": [
+        "AC-15"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Accounting Adapter",
+        "Finance",
+        "IT"
+      ],
+      "requiredEvidence": "T13 mapping, source hash, independent manual checker",
+      "failureAction": "Never auto-enable from CSV/manual tick",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-28",
+      "phase": "ACCOUNTING_PREFLIGHT",
+      "package": "P08",
+      "title": "RECEIVED/POSTED/reconciled and cost bridge",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-06",
+        "EV-07",
+        "EV-11"
+      ],
+      "acIds": [
+        "AC-06",
+        "AC-15",
+        "AC-20"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "requiredRoles": [
+        "Cost Accountant",
+        "Finance"
+      ],
+      "requiredEvidence": "External read-back, source line and three-ledger/cost diff",
+      "failureAction": "POSTED not RECONCILED_OK",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-29",
+      "phase": "PRIVACY_PREFLIGHT",
+      "package": "P08",
+      "title": "Purpose/retention/privacy/tenant support grants",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "evIds": [
+        "EV-01",
+        "EV-09"
+      ],
+      "acIds": [
+        "AC-01",
+        "AC-13"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Legal",
+        "Data Owner",
+        "Security"
+      ],
+      "requiredEvidence": "Privacy assessment, retention/DSR, access and support approvals",
+      "failureAction": "Keep CFG-24 UNSET pending authorized review",
+      "assessmentStatus": "NOT_EVALUATED"
+    },
+    {
+      "controlId": "OPS-30",
+      "phase": "PRIVACY_PREFLIGHT",
+      "package": "P08",
+      "title": "Privacy/revoke external record and safe restore",
+      "severity": "P0",
+      "appliesToModes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "evIds": [
+        "EV-09"
+      ],
+      "acIds": [
+        "AC-13"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "requiredRoles": [
+        "Security",
+        "Operations",
+        "Legal"
+      ],
+      "requiredEvidence": "F-06/F-22 outside rollback action/generation proof",
+      "failureAction": "Do not resurrect revoked access/privacy action",
+      "assessmentStatus": "NOT_EVALUATED"
+    }
+  ]
+}

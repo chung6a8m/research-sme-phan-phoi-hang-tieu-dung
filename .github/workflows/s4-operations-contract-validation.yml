@@ -1,0 +1,48 @@
+name: S4 P06-P08 operations-contract checks (NOT production)
+on:
+  pull_request:
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s4/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - '.github/workflows/s4-operations-contract-validation.yml'
+  push:
+    branches:
+      - 'research/2026-11-13-product-reference-go-live-blueprint'
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s4/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - '.github/workflows/s4-operations-contract-validation.yml'
+permissions:
+  contents: read
+jobs:
+  validate-s4-contract-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Trace control-to-S3/EV and reject false approvals (NOT cutover drill)
+        shell: bash
+        run: |
+          set -euo pipefail
+          S4=reports/2026-11-13-10-product-reference-go-live-blueprint/s4
+          node "$S4/s4-validate.mjs" --report s4-contract-report.json
+          node "$S4/s4-regression.mjs"
+      - name: Draft dossier JSON Schema and negative mutation tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install 'jsonschema>=4.20,<5'
+          python reports/2026-11-13-10-product-reference-go-live-blueprint/s4/s4-dossier-schema-test.py
+      - name: Upload structural report - NOT real evidence
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s4-contract-validation-not-operational-evidence
+          path: s4-contract-report.json
+          retention-days: 7

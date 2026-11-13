@@ -169,3 +169,16 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 
 **Bàn giao S4/S5/S6:** S4 viết onboarding/cutover/DR/legal/privacy/provider/accounting preflight từ matrix, S5 tenant gap/adoption và profile có người ký, S6 tạo step bindings thực trong source repo và chạy PWA/API/SQL/browser/provider/accounting, full Kho-01 writer lock, fault drills, actual ledger diff, EV-14 readiness trước EV-15 pilot. Chưa có Product Verification, Tenant Go-Live Acceptance, B-CASE/LEGAL-MEMO/INV-09 hoặc SLO thresholds được ký. TADR-01..06 vẫn `DESIGN_CANDIDATE`; PR #2 giữ Draft.
 
+## 13. Triển khai S4/P06/P08 Operations & Preflight (13/11/2026)
+
+**Trạng thái tại thời điểm commit tài liệu:** `OPERATIONS_CONTRACT_PREPARED / NOT_EXECUTED`. S4 đáp ứng mục tiêu **soạn runbook, preflight và hồ sơ vận hành ứng viên**, chưa diễn tập hoặc được bên NPP/Legal/Finance ký. Không thay đổi S3 evidence hoặc trạng thái mode.
+
+| Gói | Artifact | Phạm vi triển khai |
+|---|---|---|
+| P06 | [S4 README](s4/README.md), [onboarding/cutover](s4/tenant-onboarding-and-cutover.vi.md) | Chuỗi C0–C8, opening/khóa writer **toàn Kho-01**, manifest T01–T14, nguồn ký AP-08, firstEffectId/forward-only; tách mode admission AP-09 |
+| P06 | [DR/restore](s4/backup-restore-and-recovery.vi.md), [monitoring/incident/hypercare](s4/monitoring-incident-hypercare.vi.md) | DR-01..08, external effects/authority/privacy sau restore, incident P0/P1, per-source ledger/UNKNOWN, asOf/n/N, EV-14 readiness vs EV-15 pilot |
+| P06+P08 | [RACI, training, mẫu ký](s4/raci-training-signoff.vi.md), [legal/provider/accounting/privacy preflight](s4/preflight-seller-provider-accounting-privacy.vi.md) | Role/SoD + AP-08/09/10, invoice A/B_ONLINE, B_NO_CHANNEL blocked, API/FILE/MANUAL_REGISTER, privacy/retention còn thiếu người ký |
+| Hợp đồng máy đọc | [30 operational controls](s4/operational-controls.json), [dossier schema](s4/tenant-operations-dossier.schema.json), [placeholder](s4/tenant-operations-dossier.example.json) | OPS-01..30 truy vết S3 AC/EV/gate/mode; không chứa hồ sơ Go-Live thật, signoff hoặc evidence thực |
+| Chất lượng | [validator](s4/s4-validate.mjs), [negative regression](s4/s4-regression.mjs), [JSON Schema negative tests](s4/s4-dossier-schema-test.py), [GitHub Actions](../../.github/workflows/s4-operations-contract-validation.yml) | Chỉ contract/trace/safety check; GitHub CI nếu PASS không là cutover rehearsal hay Product/Tenant acceptance |
+
+**Ranh giới:** NPP-01 vẫn chưa có opening/cutover/revoke/restore/seller/provider/accounting/UX E2E và chữ ký. EV-01..15 vẫn real pending; EV-05..09 MODEL_ONLY nghiên cứu; B-CASE/LEGAL-MEMO EVIDENCE_PENDING, INV-09 NOT_RUN. Không tự đặt RPO/RTO, SLO/threshold, retention, pháp lý/thuế, nhà cung cấp hoặc tên người ký. OFFLINE_WRITE và PRODUCTION_CUTOVER DISABLED_PENDING; A/B_ONLINE/MIXED NO_GO_PENDING; B_NO_CHANNEL BLOCKED. TADR-01..06 DESIGN_CANDIDATE. S5 nhận gap/dossier theo tenant; S6 mới thực thi DR/cutover, thu testRunId, product verification và mode Go/No-Go độc lập.

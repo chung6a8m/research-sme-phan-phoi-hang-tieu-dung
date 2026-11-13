@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "s4-v1",
+  "recordKind": "UNEXECUTED_TEMPLATE_NOT_GATE_APPROVAL",
+  "tenantId": null,
+  "profileVersion": null,
+  "createdAt": null,
+  "scope": {
+    "warehouseCode": null,
+    "entireWarehouseStockScope": true,
+    "requestedModes": [],
+    "admittedModes": []
+  },
+  "runtime": {
+    "repository": null,
+    "commitSha": null,
+    "buildVersion": null,
+    "environment": null,
+    "sellerProfileVersion": null,
+    "providerVersion": null,
+    "accountingMappingVersion": null,
+    "privacyPolicyVersion": null
+  },
+  "cutover": {
+    "stage": "NOT_STARTED",
+    "cutoffAt": null,
+    "sourceManifestSha256": null,
+    "writerInventoryRef": null,
+    "openingApprovalRef": null,
+    "backupRehearsalRef": null,
+    "firstEffectId": null,
+    "forwardRecoveryOnly": true
+  },
+  "assessments": [
+    {
+      "controlId": "OPS-01",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-02",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-03",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-04",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-05",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-06",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-07",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-08",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-09",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-10",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-11",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-12",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-13",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-14",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-15",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-16",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-17",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-18",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-19",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-20",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-21",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-22",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-23",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-24",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-25",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-26",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-27",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-28",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-29",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    },
+    {
+      "controlId": "OPS-30",
+      "status": "NOT_EVALUATED",
+      "evidenceRefs": [],
+      "reviewer": null,
+      "reviewedAt": null,
+      "caseId": null
+    }
+  ],
+  "modeDecisions": [
+    {
+      "mode": "A",
+      "decision": "NO_GO_PENDING",
+      "admissionRecordRef": null
+    },
+    {
+      "mode": "B_ONLINE",
+      "decision": "NO_GO_PENDING",
+      "admissionRecordRef": null
+    },
+    {
+      "mode": "MIXED",
+      "decision": "NO_GO_PENDING",
+      "admissionRecordRef": null
+    },
+    {
+      "mode": "OFFLINE_WRITE",
+      "decision": "DISABLED_PENDING",
+      "admissionRecordRef": null
+    },
+    {
+      "mode": "B_NO_CHANNEL",
+      "decision": "BLOCKED",
+      "admissionRecordRef": null
+    },
+    {
+      "mode": "PRODUCTION_CUTOVER",
+      "decision": "DISABLED_PENDING",
+      "admissionRecordRef": null
+    }
+  ],
+  "readiness": {
+    "evId": "EV-14",
+    "state": "NOT_RUN",
+    "thresholdApprovalRef": null,
+    "denominatorPlanRef": null
+  },
+  "pilot": {
+    "evId": "EV-15",
+    "state": "NOT_RUN",
+    "observedDays": null,
+    "actualRunsRef": null
+  },
+  "deferredEvidence": [
+    {
+      "id": "B-CASE-001",
+      "state": "EVIDENCE_PENDING"
+    },
+    {
+      "id": "B-CASE-002",
+      "state": "EVIDENCE_PENDING"
+    },
+    {
+      "id": "B-CASE-003",
+      "state": "EVIDENCE_PENDING"
+    },
+    {
+      "id": "LEGAL-MEMO",
+      "state": "EVIDENCE_PENDING"
+    },
+    {
+      "id": "INV-09",
+      "state": "NOT_RUN"
+    }
+  ],
+  "signoffs": [],
+  "evidenceIndex": [],
+  "openCases": []
+}
