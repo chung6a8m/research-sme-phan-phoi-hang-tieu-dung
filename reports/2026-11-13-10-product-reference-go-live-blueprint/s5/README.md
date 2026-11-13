@@ -8,6 +8,7 @@ S5 dùng **Product-First**: L0 bất biến, L1 cấu hình hữu hạn, L2 cầ
 |---|---|
 | `archetypes.json` | 4 archetype giả thuyết phục vụ khảo sát, **không** là kết luận đã nghiên cứu thực địa |
 | `questionnaire.json` và `questionnaire-responses.example.json` | 24 câu hỏi, ánh xạ POL/CFG-01..24, OPS-01..30, ví dụ hoàn toàn UNANSWERED |
+| `gap-assessment-template.csv` | Ma trận làm việc 30 OPS, tất cả UNASSESSED, không phải evidence hoặc điều kiện GO |
 | `gap-disposition-policy.json` | Quy tắc ADOPT_STANDARD / CONFIGURE_L1 / EXTENSION_CANDIDATE_L2 / BLOCKED |
 | `tenant-adoption-profile.schema.json` và `.example.json` | Tình trạng đánh giá tenant, tham chiếu gap ID và hồ sơ S4, không có gate/signer |
 | `product-pilot-contract.json` | Product Pilot Contract dùng chung: UX, EV-14 → EV-15, SLO, n/N, mode-level |

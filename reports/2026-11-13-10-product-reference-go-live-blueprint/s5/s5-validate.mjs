@@ -18,6 +18,7 @@ export function load(){
  return {
   questionnaire:json("questionnaire.json"),answers:json("questionnaire-responses.example.json"),
   archetypes:json("archetypes.json"),rules:json("gap-disposition-policy.json"),
+  gapCsv:read("gap-assessment-template.csv"),
   adoption:json("tenant-adoption-profile.example.json"),pilotContract:json("product-pilot-contract.json"),
   pilot:json("npp-01-pilot-blueprint.example.json"),freeze,
   s4:json("../s4/tenant-operations-discovery.example.json"),s4Controls:json("../s4/operational-controls.json"),
@@ -55,6 +56,17 @@ export function validate(d){
  check(answers.recordKind==="SYNTHETIC_UNANSWERED_QUESTIONNAIRE_NOT_EVIDENCE"&&answers.tenantId===s4.tenantId&&answers.profileVersion===s4.profileVersion,"synthetic responses tenant/profile match S4");
  check(answers.answers.length===24&&same(answers.answers.map(a=>a.questionId),qs.map(a=>a.questionId)),"24 answer IDs exactly once");
  for(const a of answers.answers)check(a.state==="UNANSWERED"&&a.answer===null&&a.sourceRefs.length===0&&a.respondentRole===null&&a.reviewerRef===null,"responses must not invent evidence");
+ // P07: one unassessed matrix row per S4 operational control; no collected tenant results.
+ const lines=d.gapCsv.trimEnd().split(/\r?\n/).map(x=>x.split(","));
+ check(lines.length===31&&lines[0].join(",")==="controlId,package,severity,modes,acIds,evIds,gateIds,requiredRoles,tenantAssessmentStatus,gapId,disposition,sourceRefs,reviewerRef,nextAction","30-row S5 gap work matrix required");
+ check(same(lines.slice(1).map(x=>x[0]),seq("OPS",30)),"gap CSV must contain each OPS once");
+ for(const cells of lines.slice(1)){
+  check(cells.length===14&&cells[8]==="UNASSESSED"&&cells.slice(9).every(v=>v===""),"gap template cannot assert tenant findings");
+  const o=ops.controls.find(x=>x.controlId===cells[0]);
+  check(!!o&&cells[1]===o.package&&cells[2]===o.severity,"gap source package/severity drift");
+  check(same(cells[3].split(";"),o.appliesToModes)&&same(cells[4].split(";"),o.acIds)&&same(cells[5].split(";"),o.evIds),"gap source mode/AC/EV drift");
+  check(same(cells[6]?cells[6].split(";"):[],o.gateIds)&&same(cells[7].split(";"),o.requiredRoles),"gap source P0/RACI drift");
+ }
  check(archetypes.recordKind==="PRODUCT_ARCHETYPES_FOR_DESIGN_ONLY"&&archetypes.status==="NOT_FIELD_VALIDATED"&&archetypes.archetypes.length===4,"archetypes are hypotheses");
  check(archetypes.archetypes.some(x=>x.id==="ARCH-MIXED"&&x.modes.includes("MIXED")),"Mixed archetype");
  check(rules.recordKind==="GAP_DISPOSITION_RULES_NOT_APPROVAL","dispositions not admission");
@@ -117,7 +129,7 @@ export function validate(d){
  check(s3Ev.status==="NO_REAL_EVIDENCE_COLLECTED"&&s3Ev.records.length===15&&s3Ev.records.every(x=>x.realExecutionStatus==="NOT_RUN"&&x.realVerification==="EVIDENCE_PENDING"),"S5 must not promote S3 evidence");
  for(const tok of ["PADR-09","EVQ-05","EVQ-07","UNSET","B_NO_CHANNEL"])check(d.decisions.includes(tok),"Owner decision source drift "+tok);
  for(const [p,s] of Object.entries(d.docs))check(s.length>800&&s.includes("S5")&&s.includes("S6"),"S5 doc missing handoff "+p);
- return {status:"S5_CONTRACT_VALIDATED_NOT_TENANT_EVIDENCE",questions:qs.length,policyCoverage:24,controlCoverage:30,archetypes:4,dispositions:4,linkedGaps:gapIds.length,productModes:3,pilotRunsPerDay:8,pilotMinimumDays:pilot.minimumRepresentativeDays,baselineSourceDocuments:f.sourceDocuments.length,realTenantAssessments:0,ownerBaselineAccepted:false,productVerified:false,tenantGoLiveAccepted:false};
+ return {status:"S5_CONTRACT_VALIDATED_NOT_TENANT_EVIDENCE",questions:qs.length,policyCoverage:24,controlCoverage:30,archetypes:4,dispositions:4,linkedGaps:gapIds.length,gapTemplateRows:30,productModes:3,pilotRunsPerDay:8,pilotMinimumDays:pilot.minimumRepresentativeDays,baselineSourceDocuments:f.sourceDocuments.length,realTenantAssessments:0,ownerBaselineAccepted:false,productVerified:false,tenantGoLiveAccepted:false};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  try{

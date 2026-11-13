@@ -15,6 +15,11 @@ const failures=[
  ["orphan_ops",d=>d.questionnaire.questions[0].controlIds=["OPS-99"]],
  ["missing_control_coverage",d=>d.questionnaire.questions.forEach(q=>q.controlIds=q.controlIds.filter(x=>x!=="OPS-30"))],
  ["fake_tenant_answer",d=>d.answers.answers[0].answer="invented fact"],
+ ["gap_csv_missing_control",d=>d.gapCsv=d.gapCsv.trimEnd().split("\n").slice(0,-1).join("\n")+"\n"],
+ ["gap_csv_false_assessed",d=>d.gapCsv=d.gapCsv.replace(",UNASSESSED,,,,,",",PASSED,,,,,")],
+ ["gap_csv_duplicate_ops",d=>d.gapCsv=d.gapCsv.replace("OPS-02,P06","OPS-01,P06")],
+ ["gap_csv_P0_downgraded",d=>d.gapCsv=d.gapCsv.replace("OPS-01,P06,P0","OPS-01,P06,P1")],
+
  ["duplicate_answer",d=>d.answers.answers[1].questionId=d.answers.answers[0].questionId],
  ["fake_questionnaire_collected",d=>d.questionnaire.questions[0].answerState="SOURCE_REVIEWED"],
  ["archetype_falsely_validated",d=>d.archetypes.status="FIELD_VERIFIED"],

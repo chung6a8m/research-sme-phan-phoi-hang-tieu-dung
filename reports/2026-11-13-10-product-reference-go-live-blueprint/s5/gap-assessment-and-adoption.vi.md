@@ -27,3 +27,7 @@ Lưu hồ sơ NPP thật trong kênh kiểm soát truy cập riêng; repo nghiê
 ## S5 review correction — ngữ nghĩa CFG không trùng số POL
 
 `Q-01..24` bám theo `POL-01..24` (BR logic) nhưng **CFG-01..24 có thứ tự theo nhóm cấu hình khác với POL**, vì thế không ghép số Q/CFG máy móc. Các câu hỏi được ánh xạ theo domain: seller CFG-03 ở Q-01, giao A CFG-04 ở Q-03, giá/vòng làm tròn CFG-01/12 ở Q-08, giá/quà CFG-11 ở Q-09, tín dụng CFG-02/05/06 ở Q-10, quyền cấp duyệt CFG-23 ở Q-12, cash CFG-13/14/15 ở Q-13, offline CFG-16/17 ở Q-15/16, retention CFG-24 ở Q-17, provider CFG-18 ở Q-18, accounting CFG-19 ở Q-19, cutover CFG-21 ở Q-21, reporting CFG-20 ở Q-23 và pilot CFG-22 ở Q-24. Validator S5 cố định mapping này để bắt drift ngay cả khi tổng số CFG đủ 24.
+
+## P07 working matrix (CSV)
+
+`gap-assessment-template.csv` chứa đủ **30 hàng OPS-01..30**, mang sẵn package/severity/mode/AC/EV/gate/role từ S4 để người khảo sát không bỏ sót kiểm soát; mọi hàng có `tenantAssessmentStatus=UNASSESSED` và `gapId/disposition/sourceRefs/reviewerRef/nextAction` rỗng. CSV chỉ là **bản thu thập ban đầu**, không chứa kết quả NPP hay quyết định PASS. Khi xác định gap, phải tạo `discoveryGaps[]` trong S4 dossier với source và owner; S5 adoption chỉ tham chiếu `gapId`. Không dùng CSV để tự chứng nhận GO.
