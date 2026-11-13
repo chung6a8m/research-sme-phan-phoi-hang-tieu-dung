@@ -219,9 +219,11 @@
       "title": "A hold/B quota and AR/CustomerCredit opening",
       "severity": "P0",
       "appliesToModes": [
-        "PRODUCTION_CUTOVER"
+        "PRODUCTION_CUTOVER",
+        "MIXED"
       ],
       "evIds": [
+        "EV-03",
         "EV-06",
         "EV-12"
       ],
@@ -238,7 +240,7 @@
         "Warehouse",
         "Finance"
       ],
-      "requiredEvidence": "T07/T08 item balances, reserved A/B quotas",
+      "requiredEvidence": "T07/T08 item balances, reserved A/B quotas, MIXED T0-T6 real per-step stock/AR/custody/cost source ledger",
       "failureAction": "No offsetting independent balances",
       "assessmentStatus": "NOT_EVALUATED"
     },
