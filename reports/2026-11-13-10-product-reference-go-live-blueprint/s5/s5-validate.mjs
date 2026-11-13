@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import {createHash} from "node:crypto";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 
@@ -26,7 +27,9 @@ export function load(){
   decisions:read("../owner-decisions-and-evidence-gates.vi.md"),
   r009Pilot:read("../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md"),
   docs:Object.fromEntries(["README.md","gap-assessment-and-adoption.vi.md","baseline-freeze-and-s6-handoff.vi.md"].map(x=>[x,read(x)])),
-  sources:Object.fromEntries(freeze.sourceDocuments.map(p=>[p,fs.existsSync(path.resolve(DIR,p))]))
+  sources:Object.fromEntries(freeze.sourceDocuments.map(p=>[p,fs.existsSync(path.resolve(DIR,p))])),
+  blobs:Object.fromEntries(freeze.reviewedInputBlobs.map(x=>{const data=fs.readFileSync(path.resolve(DIR,x.relativePath));
+   return [x.relativePath,createHash("sha1").update(Buffer.from("blob "+data.length+"\\0".replace("\\0","\0"))).update(data).digest("hex")];}))
  };
 }
 export function validate(d){
@@ -96,6 +99,13 @@ export function validate(d){
  check(f.tadrStatus.length===6&&same(f.tadrStatus.map(x=>x.tadrId),seq("TADR",6))&&f.tadrStatus.every(x=>x.status==="DESIGN_CANDIDATE"),"TADR-01..06 still design candidates");
  check(f.productVerification==="PENDING"&&f.tenantGoLiveAcceptance==="PENDING"&&f.s6HandoffStatus==="PREPARED_NOT_EXECUTED","no product/tenant verification");
  check(f.sourceDocuments.length>=15&&f.sourceDocuments.every(p=>d.sources[p]===true),"missing source manifest file");
+ const reviewed=["../owner-decisions-and-evidence-gates.vi.md","../product-policy-catalog.vi.md","../role-and-approval-matrix.vi.md","../s1-traceability.vi.md","../tenant-profile.schema.json","../s2/data-dictionary.json","../s2/fixture-manifest.json","../s3/acceptance-matrix.json","../s3/evidence-register.json","../s3/mode-gates.json","../s4/operational-controls.json","../s4/tenant-operations-dossier.schema.json","../evq-acceptance-gates.vi.md","../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md"];
+ check(f.reviewedInputBlobs.length===14&&same(f.reviewedInputBlobs.map(x=>x.relativePath),reviewed),"reviewed input anchor manifest incomplete");
+ for(const anchor of f.reviewedInputBlobs){
+   check(f.sourceDocuments.includes(anchor.relativePath),"reviewed blob missing in source documents");
+   check(d.blobs[anchor.relativePath]===anchor.gitBlobSha,"reviewed source changed without refreshed freeze proposal "+anchor.relativePath);
+ }
+
  check(same(f.unresolved.evidenceIds,seq("EV",15))&&same(f.unresolved.bCases,["B-CASE-001","B-CASE-002","B-CASE-003"])&&f.unresolved.legalMemo==="EVIDENCE_PENDING"&&f.unresolved.inv09==="NOT_RUN","unresolved evidence preserved");
  check(same(Object.keys(f.modeState),Object.keys(statusSet)),"six mode states");
  for(const [k,v] of Object.entries(statusSet))check(f.modeState[k]===v&&gate.gates.some(x=>x.mode===k&&x.decision===v),"frozen mode unauthorized "+k);

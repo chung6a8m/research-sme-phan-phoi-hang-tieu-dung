@@ -20,3 +20,7 @@
 TADR-01..06 hiện `DESIGN_CANDIDATE`; các ngưỡng RPO/RTO, latency/UX, retention, vendor/Finance/legal/tenant signatures còn `UNSET` hoặc `EVIDENCE_PENDING`. `B_NO_CHANNEL` BLOCKED, nhánh B alternative-channel khi PWA mất kết nối DEFERRED. P0 không được Owner waive, P1 chỉ exception có hạn và bù trừ kiểm soát.
 
 **Definition of Done S5/P07 tài liệu:** S5 artifacts/schema/test/trace CI đạt; dataset synthetic thể hiện `UNANSWERED`/no-admission; sourceRefs và gapId liên thông S4; freeze manifest là candidate, không giả signed. **Bàn giao S6 ≠ xác nhận software đã triển khai.**
+
+## Reviewed-source anchors (hợp đồng chống sửa âm thầm)
+
+Manifest baseline ứng viên lưu **14 Git blob SHA** cho các đầu vào R009/S1/S2/S3/S4 trọng yếu đã review, gắn `parentReviewedHead=967e7b9`. CI tính lại Git blob ID từ nội dung byte hiện hành và phải thất bại nếu khác; nếu upstream thay đổi, cần đánh giá tác động, cập nhật manifest/trace/acceptance và tạo đề nghị review Owner mới, **không tự cho rằng đã phê duyệt phiên bản mới**. Git blob SHA là định danh nội dung, không phải chữ ký số hay bằng chứng legal/provider.

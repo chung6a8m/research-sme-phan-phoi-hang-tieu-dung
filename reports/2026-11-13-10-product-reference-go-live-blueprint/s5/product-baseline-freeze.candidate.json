@@ -91,7 +91,8 @@
     "s5-regression.mjs",
     "s5-schema-tests.py",
     "gap-assessment-and-adoption.vi.md",
-    "baseline-freeze-and-s6-handoff.vi.md"
+    "baseline-freeze-and-s6-handoff.vi.md",
+    "../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md"
   ],
   "unresolved": {
     "evidenceIds": [
@@ -129,5 +130,63 @@
     "B_NO_CHANNEL": "BLOCKED",
     "PRODUCTION_CUTOVER": "DISABLED_PENDING"
   },
-  "s6HandoffStatus": "PREPARED_NOT_EXECUTED"
+  "s6HandoffStatus": "PREPARED_NOT_EXECUTED",
+  "reviewedInputBlobs": [
+    {
+      "relativePath": "../owner-decisions-and-evidence-gates.vi.md",
+      "gitBlobSha": "55d8e64ad9bf5c2e975a9f4233f59f6d13b805c0"
+    },
+    {
+      "relativePath": "../product-policy-catalog.vi.md",
+      "gitBlobSha": "a310e1b266d157872c64db3161e7b3c2ac9e0fdc"
+    },
+    {
+      "relativePath": "../role-and-approval-matrix.vi.md",
+      "gitBlobSha": "b9a6dbc536bcf2de7f3bc73d85c3277cbed95433"
+    },
+    {
+      "relativePath": "../s1-traceability.vi.md",
+      "gitBlobSha": "78dc70b8b683809bf81ac5ea58ef5f8e75e1b6f5"
+    },
+    {
+      "relativePath": "../tenant-profile.schema.json",
+      "gitBlobSha": "3f9db577d2a27a3aeccfa2da2ca08bb536bde1cb"
+    },
+    {
+      "relativePath": "../s2/data-dictionary.json",
+      "gitBlobSha": "60adfb48a1a0f0553cc253ef91900ab6dc781960"
+    },
+    {
+      "relativePath": "../s2/fixture-manifest.json",
+      "gitBlobSha": "3b52a2270c6c898d30063f074edcf725194c5b7e"
+    },
+    {
+      "relativePath": "../s3/acceptance-matrix.json",
+      "gitBlobSha": "627ce166c961e598b45583c934ff3a8a1a338e4f"
+    },
+    {
+      "relativePath": "../s3/evidence-register.json",
+      "gitBlobSha": "05964a181901e93bd64d0fdd64b562821b31fe58"
+    },
+    {
+      "relativePath": "../s3/mode-gates.json",
+      "gitBlobSha": "ab47e0b083d8fa8e49a0e361fae228de2eb3ecb5"
+    },
+    {
+      "relativePath": "../s4/operational-controls.json",
+      "gitBlobSha": "56dc69ca1d402a6468b66d59842e04a60f5be358"
+    },
+    {
+      "relativePath": "../s4/tenant-operations-dossier.schema.json",
+      "gitBlobSha": "82e8c408245cad813d0d65d09286eeab2ed06147"
+    },
+    {
+      "relativePath": "../evq-acceptance-gates.vi.md",
+      "gitBlobSha": "342acb17e34ed6631e63aaf5027eb7a918e4ea64"
+    },
+    {
+      "relativePath": "../../2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md",
+      "gitBlobSha": "20099f3e8996ad2300af2559ff183d4d40ed7612"
+    }
+  ]
 }

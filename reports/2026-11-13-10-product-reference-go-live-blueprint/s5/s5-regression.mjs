@@ -41,6 +41,10 @@ const failures=[
  ["baseline_fake_B_go",d=>d.freeze.modeState.B_NO_CHANNEL="GO"],
  ["manifest_missing_source",d=>d.sources[d.freeze.sourceDocuments[0]]=false],
  ["source_decisions_missing",d=>d.decisions="NOTHING"],
+ ["freeze_blob_drift",d=>d.freeze.reviewedInputBlobs[0].gitBlobSha="a".repeat(40)],
+ ["freeze_blob_missing",d=>d.freeze.reviewedInputBlobs.pop()],
+ ["freeze_blob_not_source",d=>d.freeze.sourceDocuments=d.freeze.sourceDocuments.filter(x=>x!==d.freeze.reviewedInputBlobs[0].relativePath)],
+
  ["S5_doc_missing",d=>d.docs["README.md"]="short"]
 ];
 for(const [name,change] of failures){

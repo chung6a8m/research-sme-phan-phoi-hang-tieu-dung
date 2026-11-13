@@ -21,3 +21,5 @@ S5 dùng **Product-First**: L0 bất biến, L1 cấu hình hữu hạn, L2 cầ
 **Không suy diễn:** requestedModes ≠ admittedModes; EV-14 trước Pilot ≠ EV-15 sau Pilot; Pilot của NPP-01 không thành template toàn ngành; P0 không waive; B_NO_CHANNEL luôn BLOCKED; offline A yêu cầu E2E riêng; toàn Kho-01 phải độc quyền ghi sau cutover.
 
 Các ví dụ synthetic không được dùng làm dữ liệu NPP thật. S6 mới thực thi PWA/API/SQL/provider/accounting, kiểm thử thiết bị/offline/restore/cutover và xin Product Verification/Tenant Go-Live độc lập.
+
+**Versioned freeze candidate:** `reviewedInputBlobs[]` khóa 14 blob nguồn R009/S1–S4, CI phát hiện drift. Manifest không khóa chính nó và không thay được `ownerAcceptance` thực; `baselineFreezeCommitSha` vẫn null cho tới quyết định phiên bản mới có căn cứ.

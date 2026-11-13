@@ -21,7 +21,8 @@
     "sourceDocuments",
     "unresolved",
     "modeState",
-    "s6HandoffStatus"
+    "s6HandoffStatus",
+    "reviewedInputBlobs"
   ],
   "properties": {
     "schemaVersion": {
@@ -221,6 +222,29 @@
     },
     "s6HandoffStatus": {
       "const": "PREPARED_NOT_EXECUTED"
+    },
+    "reviewedInputBlobs": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relativePath",
+          "gitBlobSha"
+        ],
+        "properties": {
+          "relativePath": {
+            "type": "string",
+            "minLength": 4
+          },
+          "gitBlobSha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          }
+        }
+      }
     }
   }
 }

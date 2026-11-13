@@ -8,6 +8,7 @@ No PII, field answers, or secret values are printed.
 import argparse
 import copy
 import json
+import hashlib
 from pathlib import Path
 from jsonschema import Draft202012Validator
 
@@ -113,6 +114,18 @@ def semantic(kind, record, dossier=None, answers=None):
             failures.append("all EV-01..15 must stay pending in candidate")
         if record.get("modeState",{}).get("B_NO_CHANNEL")!="BLOCKED":
             failures.append("blocked mode cannot be released")
+        anchors=record.get("reviewedInputBlobs",[])
+        if len(anchors)!=14 or len({x.get("relativePath") for x in anchors})!=14:
+            failures.append("freeze must anchor 14 unique reviewed inputs")
+        for entry in anchors:
+            filename=ROOT / entry.get("relativePath","not-a-real-path")
+            if not filename.is_file() or entry.get("relativePath") not in record.get("sourceDocuments",[]):
+                failures.append("freeze reviewed input missing")
+                continue
+            data=filename.read_bytes()
+            git_blob=hashlib.sha1(b"blob "+str(len(data)).encode("ascii")+b"\0"+data).hexdigest()
+            if git_blob!=entry.get("gitBlobSha"):
+                failures.append("reviewed source blob drift without new baseline review")
         paths=record.get("sourceDocuments",[])
         if len(set(paths))!=len(paths) or any(not (ROOT / p).resolve().is_file() for p in paths):
             failures.append("freeze sources must exist and be unique")
@@ -166,6 +179,8 @@ def run_tests():
        ("freeze","B_GO",lambda d:d["modeState"].update(B_NO_CHANNEL="GO")),
        ("freeze","missing_document",lambda d:d["sourceDocuments"].append("ghost.md")),
        ("freeze","duplicate_source",lambda d:d["sourceDocuments"].append(d["sourceDocuments"][0])),
+       ("freeze","reviewed_source_drift",lambda d:d["reviewedInputBlobs"][0].update(gitBlobSha="a"*40)),
+       ("freeze","reviewed_source_missing",lambda d:d["reviewedInputBlobs"].pop()),
     ]
     for kind,name,change in negatives:
         doc=copy.deepcopy(SAMPLES[kind])
