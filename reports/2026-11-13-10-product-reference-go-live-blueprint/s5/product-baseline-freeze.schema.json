@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product Baseline v1 freeze candidate NOT signed",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "baselineId",
+    "parentReviewedHead",
+    "baselineFreezeCommitSha",
+    "decisionStatus",
+    "status",
+    "productDocReadiness",
+    "ownerAcceptance",
+    "productVerification",
+    "tenantGoLiveAcceptance",
+    "productDecisionIds",
+    "evidenceGateDecisionIds",
+    "tadrStatus",
+    "sourceDocuments",
+    "unresolved",
+    "modeState",
+    "s6HandoffStatus"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s5-v1"
+    },
+    "recordKind": {
+      "const": "PRODUCT_BASELINE_FREEZE_CANDIDATE_NOT_OWNER_APPROVAL"
+    },
+    "baselineId": {
+      "const": "PRODUCT_BASELINE_V1_CANDIDATE"
+    },
+    "parentReviewedHead": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "baselineFreezeCommitSha": {
+      "type": "null"
+    },
+    "decisionStatus": {
+      "const": "OWNER_DECIDED_IN_CHAT"
+    },
+    "status": {
+      "const": "FREEZE_CANDIDATE_REVIEW_PENDING"
+    },
+    "productDocReadiness": {
+      "const": "DOC_READY_CANDIDATE_ONLY"
+    },
+    "ownerAcceptance": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Owner approval must remain absent until verified record",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "approvalRef",
+        "acceptedAt",
+        "acceptedBy"
+      ],
+      "properties": {
+        "state": {
+          "const": "PENDING"
+        },
+        "approvalRef": {
+          "type": "null"
+        },
+        "acceptedAt": {
+          "type": "null"
+        },
+        "acceptedBy": {
+          "type": "null"
+        }
+      }
+    },
+    "productVerification": {
+      "const": "PENDING"
+    },
+    "tenantGoLiveAcceptance": {
+      "const": "PENDING"
+    },
+    "productDecisionIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^PADR-0[1-9]$"
+      },
+      "minItems": 9,
+      "uniqueItems": true,
+      "maxItems": 9
+    },
+    "evidenceGateDecisionIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVQ-0[1-7]$"
+      },
+      "minItems": 7,
+      "uniqueItems": true,
+      "maxItems": 7
+    },
+    "tadrStatus": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "Technical decisions pending",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tadrId",
+          "status"
+        ],
+        "properties": {
+          "tadrId": {
+            "type": "string",
+            "pattern": "^TADR-0[1-6]$"
+          },
+          "status": {
+            "const": "DESIGN_CANDIDATE"
+          }
+        }
+      }
+    },
+    "sourceDocuments": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      },
+      "minItems": 15,
+      "uniqueItems": true
+    },
+    "unresolved": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Unresolved evidence is not waived",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceIds",
+        "bCases",
+        "legalMemo",
+        "inv09",
+        "slothresholds",
+        "rpoRto"
+      ],
+      "properties": {
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^EV-(0[1-9]|1[0-5])$"
+          },
+          "minItems": 15,
+          "uniqueItems": true,
+          "maxItems": 15
+        },
+        "bCases": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "B-CASE-001",
+              "B-CASE-002",
+              "B-CASE-003"
+            ]
+          },
+          "minItems": 3,
+          "uniqueItems": true,
+          "maxItems": 3
+        },
+        "legalMemo": {
+          "const": "EVIDENCE_PENDING"
+        },
+        "inv09": {
+          "const": "NOT_RUN"
+        },
+        "slothresholds": {
+          "const": "UNSET"
+        },
+        "rpoRto": {
+          "const": "UNSET"
+        }
+      }
+    },
+    "modeState": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "No modes are enabled from freeze",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE",
+        "B_NO_CHANNEL",
+        "PRODUCTION_CUTOVER"
+      ],
+      "properties": {
+        "A": {
+          "const": "NO_GO_PENDING"
+        },
+        "B_ONLINE": {
+          "const": "NO_GO_PENDING"
+        },
+        "MIXED": {
+          "const": "NO_GO_PENDING"
+        },
+        "OFFLINE_WRITE": {
+          "const": "DISABLED_PENDING"
+        },
+        "B_NO_CHANNEL": {
+          "const": "BLOCKED"
+        },
+        "PRODUCTION_CUTOVER": {
+          "const": "DISABLED_PENDING"
+        }
+      }
+    },
+    "s6HandoffStatus": {
+      "const": "PREPARED_NOT_EXECUTED"
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S5 tenant adoption candidate; linking S4 discovery",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "tenantId",
+    "profileVersion",
+    "baselineCandidateId",
+    "sourceRefs",
+    "requestedModes",
+    "admittedModes",
+    "offlineWriteEnabled",
+    "gapDecisions",
+    "readiness",
+    "ownerAcceptanceRef",
+    "productVerificationRef",
+    "tenantGoLiveAcceptanceRef",
+    "notes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s5-v1"
+    },
+    "recordKind": {
+      "const": "TENANT_ADOPTION_CANDIDATE_NOT_APPROVAL"
+    },
+    "tenantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profileVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baselineCandidateId": {
+      "const": "PRODUCT_BASELINE_V1_CANDIDATE"
+    },
+    "sourceRefs": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "References to S4 dossier, responses, tenant policy",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "s4Dossier",
+        "questionnaire",
+        "tenantPolicy"
+      ],
+      "properties": {
+        "s4Dossier": {
+          "type": "string",
+          "minLength": 5
+        },
+        "questionnaire": {
+          "type": "string",
+          "minLength": 5
+        },
+        "tenantPolicy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "requestedModes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "A",
+          "B_ONLINE",
+          "MIXED",
+          "B_NO_CHANNEL"
+        ]
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "admittedModes": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "offlineWriteEnabled": {
+      "const": false
+    },
+    "gapDecisions": {
+      "type": "array",
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "S5 proposed disposition references S4 gap; not a gate decision",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gapId",
+          "action",
+          "relatedControlIds",
+          "relatedPolicyIds",
+          "relatedCfgIds",
+          "sourceRefs",
+          "ownerReviewStatus",
+          "ownerDecisionRef",
+          "nextAction"
+        ],
+        "properties": {
+          "gapId": {
+            "type": "string",
+            "minLength": 3
+          },
+          "action": {
+            "enum": [
+              "ADOPT_STANDARD",
+              "CONFIGURE_L1",
+              "EXTENSION_CANDIDATE_L2",
+              "BLOCKED"
+            ]
+          },
+          "relatedControlIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^OPS-(0[1-9]|[12][0-9]|30)$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "relatedPolicyIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^POL-(0[1-9]|1[0-9]|2[0-4])$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "relatedCfgIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^CFG-(0[1-9]|1[0-9]|2[0-4])$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "sourceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "ownerReviewStatus": {
+            "enum": [
+              "PENDING_OWNER",
+              "REVIEWED_CANDIDATE_NOT_APPROVED"
+            ]
+          },
+          "ownerDecisionRef": {
+            "type": "null"
+          },
+          "nextAction": {
+            "type": "string",
+            "minLength": 8
+          }
+        }
+      },
+      "minItems": 0,
+      "uniqueItems": false
+    },
+    "readiness": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Tenant preflight discovery statuses",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seller",
+        "legal",
+        "provider",
+        "accounting",
+        "legacyWriterInventory",
+        "opening",
+        "privacy",
+        "ev14",
+        "ev15"
+      ],
+      "properties": {
+        "seller": {
+          "const": "EVIDENCE_PENDING"
+        },
+        "legal": {
+          "const": "EVIDENCE_PENDING"
+        },
+        "provider": {
+          "const": "EVIDENCE_PENDING"
+        },
+        "accounting": {
+          "const": "EVIDENCE_PENDING"
+        },
+        "legacyWriterInventory": {
+          "enum": [
+            "NOT_COLLECTED",
+            "COLLECTED_UNREVIEWED"
+          ]
+        },
+        "opening": {
+          "enum": [
+            "NOT_COLLECTED",
+            "COLLECTED_UNREVIEWED"
+          ]
+        },
+        "privacy": {
+          "const": "EVIDENCE_PENDING"
+        },
+        "ev14": {
+          "const": "NOT_RUN"
+        },
+        "ev15": {
+          "const": "NOT_RUN"
+        }
+      }
+    },
+    "ownerAcceptanceRef": {
+      "type": "null"
+    },
+    "productVerificationRef": {
+      "type": "null"
+    },
+    "tenantGoLiveAcceptanceRef": {
+      "type": "null"
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
