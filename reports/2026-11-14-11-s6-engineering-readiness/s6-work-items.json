@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "s6-engineering-readiness-v1",
+  "recordKind": "S6_IMPLEMENTATION_ROADMAP_PLAN_NOT_EXECUTION",
+  "createdOn": "2026-11-14",
+  "sourceRepository": "NOT_SELECTED",
+  "sourceRepoSelectionStatus": "BLOCKED_FOR_RUNTIME_START",
+  "environmentStatus": "NOT_PROVISIONED",
+  "personnelAssignmentsStatus": "PENDING_REAL_ASSIGNMENT",
+  "researchRepository": "chung6a8m/research-sme-phan-phoi-hang-tieu-dung",
+  "scope": "ENGINEERING_HANDOFF_AND_QUALITY_PLAN_ONLY",
+  "upstream": {
+    "prNumber": 2,
+    "baseBranch": "research/2026-11-13-product-reference-go-live-blueprint",
+    "ownerAcceptedSnapshotSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+    "metadataCommitR": "e47c3feb44c02a0fdf46c35f6c4b2f57c4365470",
+    "ownerApprovalRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994",
+    "acceptanceMetadataPath": "reports/2026-11-13-10-product-reference-go-live-blueprint/s5/acceptance-record-r/product-baseline-acceptance.record.json",
+    "pr2MergeRequiredBeforeSourceBaselineIntegration": true
+  },
+  "statuses": {
+    "plan": "PREPARED_NOT_EXECUTED",
+    "productVerification": "PENDING",
+    "tenantGoLiveAcceptance": "PENDING",
+    "realE2eRuns": 0,
+    "realEvidenceCreated": false,
+    "tadrApprovedCount": 0,
+    "modeAdmissionGranted": false
+  },
+  "allowedMvpModes": [
+    "A",
+    "B_ONLINE",
+    "MIXED"
+  ],
+  "modeStates": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "nonWaivableP0": [
+    "G-STOCK",
+    "G-CUT",
+    "G-IDEMP",
+    "G-LEDGER",
+    "G-INV"
+  ],
+  "pilot": {
+    "tenant": "NPP-01",
+    "daily": {
+      "A": 3,
+      "B_ONLINE": 3,
+      "MIXED": 2
+    },
+    "minimumRepresentativeDays": 5,
+    "entireWarehouseStockScope": "Kho-01",
+    "offWaveIncluded": true,
+    "ev14BeforeEv15": true,
+    "thresholdsStatus": "UNSET"
+  },
+  "tadrStates": {
+    "TADR-01": "DESIGN_CANDIDATE",
+    "TADR-02": "DESIGN_CANDIDATE",
+    "TADR-03": "DESIGN_CANDIDATE",
+    "TADR-04": "DESIGN_CANDIDATE",
+    "TADR-05": "DESIGN_CANDIDATE",
+    "TADR-06": "DESIGN_CANDIDATE"
+  },
+  "phases": [
+    {
+      "id": "S6-0",
+      "title": "Engineering Intake & Evidence Harness Readiness",
+      "dependsOn": [],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [],
+      "acIds": [],
+      "evIds": [],
+      "gateIds": [],
+      "owners": [
+        "Product",
+        "Engineering",
+        "QA",
+        "Security",
+        "Operations"
+      ],
+      "deliverables": [
+        "Select source repository and accountable maintainers",
+        "Choose supported runtime/dev/test environments",
+        "Define CI/test harness, secure artifact store, run provenance, P0 safety plan",
+        "Create independent signed-R read-only authenticity/semantic validator as P2 follow-up"
+      ],
+      "entryConditions": [
+        "PR2 Doc baseline reviewed/owner accepted",
+        "PR2 merge is prerequisite for source baseline integration"
+      ],
+      "exitCriteria": [
+        "Approved source repository ownership and commit controls",
+        "Engineer/QA/Ops approved test environments with seeded synthetic data and no uncontrolled production effects",
+        "Evidence provenance and P0 run safety plan documented"
+      ],
+      "realSystemEvidenceRequired": false
+    },
+    {
+      "id": "S6-A",
+      "title": "Foundation: Authority, Transaction, Ledgers & Online G-IDEMP",
+      "dependsOn": [
+        "S6-0"
+      ],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [
+        "TADR-01",
+        "TADR-02"
+      ],
+      "acIds": [
+        "AC-01",
+        "AC-03",
+        "AC-04",
+        "AC-09",
+        "AC-10",
+        "AC-11"
+      ],
+      "evIds": [
+        "EV-01",
+        "EV-03",
+        "EV-04",
+        "EV-06",
+        "EV-08"
+      ],
+      "gateIds": [
+        "G-IDEMP",
+        "G-LEDGER"
+      ],
+      "owners": [
+        "Engineering",
+        "Technical",
+        "QA",
+        "Security",
+        "Finance"
+      ],
+      "deliverables": [
+        "Tenant authority and revocation boundaries",
+        "SQL atomic stock/AR/custody/advance/CustomerCredit with source-line before-after",
+        "Durable inbox/outbox, canonical command/effect IDs, replay, lost ACK, concurrent grants",
+        "Online scoped EV-08 durable ACK/idempotency evidence without offline device admission"
+      ],
+      "entryConditions": [
+        "Reviewed TADR-01/02",
+        "Source harness provisioned"
+      ],
+      "exitCriteria": [
+        "AC negative/positive source-bound tests present",
+        "Online idempotency invariant checked against actual API/SQL build",
+        "Failed/unknown evidence retained for review"
+      ],
+      "realSystemEvidenceRequired": true
+    },
+    {
+      "id": "S6-B",
+      "title": "Module A Online E2E: Partial Delivery, Pricing, Returns & Cost",
+      "dependsOn": [
+        "S6-A"
+      ],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [
+        "TADR-01",
+        "TADR-02"
+      ],
+      "acIds": [
+        "AC-02",
+        "AC-04",
+        "AC-05",
+        "AC-06",
+        "AC-07",
+        "AC-08",
+        "AC-19"
+      ],
+      "evIds": [
+        "EV-02",
+        "EV-04",
+        "EV-05",
+        "EV-06",
+        "EV-07",
+        "EV-10",
+        "EV-11"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "owners": [
+        "Sales",
+        "Warehouse",
+        "Engineering",
+        "QA",
+        "Finance"
+      ],
+      "deliverables": [
+        "A order draft/confirm with commercial price locked and installment terms snapshot",
+        "Partial delivery by source, hold/quota separation, no premature AR",
+        "Return to quarantine separate from gift settlement and legal adjustment",
+        "Moving-average SKU × location and Finance periodic bridge",
+        "Invoice/accounting integration contract and actual test evidence per scope"
+      ],
+      "entryConditions": [
+        "Foundation AC/EV test harness prepared",
+        "Seller/provider legal test scope identified before external integration"
+      ],
+      "exitCriteria": [
+        "A online source-line accounting/stock/cost diffs independently reviewed",
+        "P0 failure prevents mode admission"
+      ],
+      "realSystemEvidenceRequired": true
+    },
+    {
+      "id": "S6-C",
+      "title": "B_ONLINE + MIXED: Atomic B, Invoice Channel & Accounting",
+      "dependsOn": [
+        "S6-A",
+        "S6-B"
+      ],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [
+        "TADR-03"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-09",
+        "AC-14",
+        "AC-15",
+        "AC-19",
+        "AC-20",
+        "AC-21"
+      ],
+      "evIds": [
+        "EV-03",
+        "EV-05",
+        "EV-06",
+        "EV-10",
+        "EV-11"
+      ],
+      "gateIds": [
+        "G-INV",
+        "G-IDEMP",
+        "G-LEDGER"
+      ],
+      "owners": [
+        "Engineering",
+        "QA",
+        "Finance",
+        "Legal",
+        "Provider",
+        "Warehouse"
+      ],
+      "deliverables": [
+        "Verified invoice channel gate for B_ONLINE and fail-closed provider UNKNOWN recovery",
+        "BQuota/credit/receipt atomicity and independent A hold",
+        "Independent MIXED A+B_ONLINE E2E",
+        "Accounting API/FILE/MANUAL_REGISTER POSTED/read-back/reconciliation",
+        "No alternative invoice channel on PWA disconnect; B_NO_CHANNEL remains blocked"
+      ],
+      "entryConditions": [
+        "Reviewed TADR-03",
+        "Real provider/seller/accounting sandbox and legal review available"
+      ],
+      "exitCriteria": [
+        "Independent B_ONLINE/MIXED evidence with source/external refs",
+        "B_NO_CHANNEL and B alternative offline channel are not enabled"
+      ],
+      "realSystemEvidenceRequired": true
+    },
+    {
+      "id": "S6-D",
+      "title": "Conditional Offline A: Device/Trip Grant, Replay, Revoke, Restore",
+      "dependsOn": [
+        "S6-A"
+      ],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [
+        "TADR-02",
+        "TADR-04"
+      ],
+      "acIds": [
+        "AC-01",
+        "AC-11",
+        "AC-12",
+        "AC-13",
+        "AC-17"
+      ],
+      "evIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "owners": [
+        "Engineering",
+        "QA",
+        "Security",
+        "Operations"
+      ],
+      "deliverables": [
+        "PWA IndexedDB durable journal, TTL/epoch/mode/device/trip scope, one writer per trip",
+        "Lost ACK/replay/concurrency/device loss/restore negative cases",
+        "External authority and PrivacyActionLedger outside rollback",
+        "F-01..22 controlled fault plan and evidence where applicable"
+      ],
+      "entryConditions": [
+        "Reviewed TADR-04",
+        "Authorized device matrix and controlled fault-injection sandbox"
+      ],
+      "exitCriteria": [
+        "EV-08/09 verified separately for OFFLINE_WRITE in real-device scope",
+        "Offline grant remains disabled until distinct admission"
+      ],
+      "realSystemEvidenceRequired": true
+    },
+    {
+      "id": "S6-E",
+      "title": "Full Kho-01 Cutover, Legacy Writer Fencing & Forward Recovery",
+      "dependsOn": [
+        "S6-A",
+        "S6-B",
+        "S6-C",
+        "S6-D"
+      ],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [
+        "TADR-05"
+      ],
+      "acIds": [
+        "AC-04",
+        "AC-10",
+        "AC-13",
+        "AC-16"
+      ],
+      "evIds": [
+        "EV-04",
+        "EV-09",
+        "EV-10",
+        "EV-11",
+        "EV-12"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-INV"
+      ],
+      "owners": [
+        "Warehouse",
+        "IT",
+        "Finance",
+        "Security",
+        "Operations",
+        "Tenant Owner"
+      ],
+      "deliverables": [
+        "C0..C8 opening manifest across MAIN/TRIP/lot/hold/quota/AR/custody/advance/invoices",
+        "Inventory and block legacy UI/API/job/import/direct SQL/device queues across ENTIRE Kho-01 including off-wave",
+        "Multi-party approved opening, generation/firstEffectId fencing",
+        "Rehearsed forward-only recovery and DR external registry reconciliation"
+      ],
+      "entryConditions": [
+        "Reviewed TADR-05",
+        "Authorized multi-party cutover rehearsal scope",
+        "P0 safeguards independent of pilot trip count"
+      ],
+      "exitCriteria": [
+        "EV-04/12 and per-mode cutover evidence reviewed; P0 failures stay NO_GO",
+        "Do not rollback business effects after firstEffectId"
+      ],
+      "realSystemEvidenceRequired": true
+    },
+    {
+      "id": "S6-F",
+      "title": "Pilot Readiness and NPP-01 Representative Pilot Go/No-Go",
+      "dependsOn": [
+        "S6-B",
+        "S6-C",
+        "S6-E"
+      ],
+      "status": "PLANNED_NOT_EXECUTED",
+      "tadrIds": [
+        "TADR-06"
+      ],
+      "acIds": [
+        "AC-17",
+        "AC-18"
+      ],
+      "evIds": [
+        "EV-13",
+        "EV-14",
+        "EV-15"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "owners": [
+        "Product",
+        "QA",
+        "Operations",
+        "Sales",
+        "Finance",
+        "Tenant Owner"
+      ],
+      "deliverables": [
+        "Review UX-01..08 and denominator n/N with device/role coverage",
+        "Measure/propose SLO, support costs, RPO/RTO, retention and approve thresholds BEFORE EV-14",
+        "Pilot EV-14 readiness signed before any actual pilot start",
+        "Pilot EV-15 after ≥5 representative days with 3 A + 3 B_ONLINE + 2 MIXED per day for NPP-01 only",
+        "Per-mode Product Verification and separate tenant Go/No-Go with approved evidence"
+      ],
+      "entryConditions": [
+        "Reviewed TADR-06",
+        "Mode-specific P0/real evidence and tenant cutover gates passed before EV-14",
+        "NPP-01 authorized actual pilot plan, staff and equipment"
+      ],
+      "exitCriteria": [
+        "EV-14 evidence before Pilot; EV-15 only after actual pilot",
+        "No automatic mode admission or unverified Go-Live"
+      ],
+      "realSystemEvidenceRequired": true
+    }
+  ],
+  "backlogControls": [
+    {
+      "id": "S6-P2-ACCEPTANCE-AUTHENTICITY",
+      "severity": "P2",
+      "status": "FOLLOW_UP",
+      "title": "Post-signoff read-only validator for acceptance record R",
+      "ownerRole": "Engineering / QA",
+      "rule": "Must cross-check actual GitHub comment login, time, SHA, reviewer refs, findings, and exact-sha CI; signed JSON alone is not proof."
+    }
+  ],
+  "artifacts": {
+    "sourceTests": "NOT_IMPLEMENTED",
+    "actualEvidence": "NOT_COLLECTED",
+    "externalApprovals": "NOT_COLLECTED",
+    "sourceBranch": "NOT_CREATED"
+  }
+}

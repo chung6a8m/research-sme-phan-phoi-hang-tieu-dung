@@ -1,0 +1,20 @@
+name: S6 engineering readiness plan checks (NOT product E2E)
+on:
+  pull_request:
+    paths:
+      - 'briefs/2026-11-14-11-s6-engineering-readiness.md'
+      - 'reports/2026-11-14-11-s6-engineering-readiness/**'
+      - '.github/workflows/s6-engineering-readiness.yml'
+  workflow_dispatch:
+jobs:
+  plan-only:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate S6 plan and source boundary (no runtime)
+        run: node reports/2026-11-14-11-s6-engineering-readiness/s6-readiness-validation.mjs --self-test
