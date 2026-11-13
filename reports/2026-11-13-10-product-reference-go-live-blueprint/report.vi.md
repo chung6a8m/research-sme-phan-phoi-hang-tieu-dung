@@ -98,3 +98,28 @@ Các gate bất biến **G-INV** (hóa đơn B no-channel), **G-STOCK** (writer 
 - [ ] Có handoff sang source repo và nêu rõ DOC_READY **không** phải PRODUCT_VERIFIED hoặc TENANT_GO_LIVE_ACCEPTED.
 
 **Tại commit khởi tạo:** chỉ hoàn thành **S0**, các checklist P01–P08 đều chưa triển khai. Không có bằng chứng NPP-01, E2E, legal sign-off hoặc Go-Live được tạo trong R010.
+
+## 9. Kết quả triển khai S1/P01–P02 trong PR #2 (13/11/2026)
+
+**Tình trạng:** `S1_DOCUMENTED_REVIEW_PENDING`. Các cấu phần tài liệu S1 đã được **soạn và commit**, còn **Owner Product Baseline acceptance, sản phẩm thực thi và tenant Go-Live đều chưa đạt**. Trạng thái `S0` trong §8 là ghi nhận tại **commit khởi tạo** trước khi S1 được bổ sung.
+
+| Gói | Tài liệu hiện có | Phạm vi đã soạn | Việc còn chờ |
+|---|---|---|---|
+| P01 — Product Standard | [Scope & personas](product-scope-and-personas.vi.md) | Phân khúc giả định, thuật ngữ, persona, chu trình ngày và ranh giới sản phẩm | Owner xác nhận định hướng product-first |
+| P01 — Workflows/SOP | [SOP-01–12](sop-a-b-mixed.vi.md) | Tenant/master, A, B online, mixed, kho/cost, pricing/return, receipt/credit, custody/advance, offline, invoice/accounting, cutover, visit/pilot | UAT hành vi thật, UI/workflow mapping trong source PR |
+| P01 — Roles/RACI | [Role & approvals](role-and-approval-matrix.vi.md) | 11 role logic, action matrix, 10 approval classes và phân nhiệm | Owner/Finance ký trường hợp kiêm nhiệm, permission implementation |
+| P02 — Policies | [POL-01–24 / CFG-01–24](product-policy-catalog.vi.md) | Mỗi BR có POL, bất biến L0 và bounded default L1, feature gate riêng mode | Owner review defaults, tài liệu thuế/provider thực, TADR |
+| P02 — Tenant Profile | [Logical schema](tenant-profile-schema.vi.md), [JSON Schema](tenant-profile.schema.json), [synthetic draft example](tenant-profile.example.json) | Profile version, metadata/fields/validation shape; ví dụ không có seller thật và không activate mode | Code/DB validation, tenant identity/evidence, import S2 |
+| P02 — Product ADR | [PADR-01–09](product-adrs.vi.md) | Alternatives, consequences, câu hỏi Owner theo từng chủ đề | **Tất cả PADR vẫn `PROPOSED_FOR_OWNER_REVIEW`** |
+| P01+P02 — Trace | [S1 D/BR→POL/SOP→AC/EV](s1-traceability.vi.md), [validator](kiem-tra-s1.py) | Mapping 15 D, 24 BR↔POL, 12 SOP, 9 PADR; kiểm cấu trúc bằng script | Runtime evidence S3/S6 chưa chạy |
+
+**Vùng chưa tự nhận đã khép:** không tạo dữ liệu thực NPP-01, hợp đồng seller/provider, JSON Schema production, DDL/OpenAPI, ứng dụng PWA/backend, diễn tập writer lock/restore/cutover, kiểm thử accounting/invoice hoặc Owner approval. B no-channel/LEGAL-MEMO/EV-10 vẫn `EVIDENCE_PENDING`. **Không có phát hành mode thực chỉ bằng thay đổi tenant profile.**
+
+### Cổng kiểm chất lượng S1
+
+1. Chạy `python reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py` trên checkout có R009 và R010; đối chiếu cấu trúc D15/BR24/POL24/SOP12/PADR9, link và JSON schema/example. Đây chỉ là **structural validation**.
+2. Product Owner review PADR-01/03 trước khi đóng băng chuẩn; Finance/warehouse/ops review PADR-02/04/05/06/07/08/09 và các default CFG.
+3. Nếu approved, tạo decision record có version, scope, approver và acceptedAt thật; không sửa lịch sử R009.
+4. Bàn giao S2 template T01–T14 và fixtures F0/F1/F2 từ catalog/schema; S3 nối AC/evidence nhưng không dùng checker tài liệu thay system test.
+
+**Đánh dấu checklist §8:** P01/P02 **đã có tài liệu ứng viên**, chưa đạt điều kiện **Owner Product Baseline acceptance**. P03–P08 tiếp tục chưa triển khai. Ghi nhận kết quả chạy kiểm tra thực tế riêng sau khi kiểm.

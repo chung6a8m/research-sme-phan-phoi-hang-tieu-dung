@@ -38,6 +38,13 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 | B010 | [Đề bài Product Reference Baseline & Go-Live Blueprint](briefs/2026-11-13-10-product-reference-go-live-blueprint.md) | Đề bài cho chuẩn sản phẩm đa NPP, template và Go-Live gates; chưa là kết quả triển khai. |
 | R010 | [Lộ trình Product Reference Baseline & Go-Live Blueprint](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) | Đã lập S0 roadmap; P01–P08 chưa thực hiện, mọi default mới là đề xuất. |
 | R010-F | [Template catalogue và fixture blueprint](reports/2026-11-13-10-product-reference-go-live-blueprint/template-catalog-and-fixtures.vi.md) | Thiết kế T01–T14/F0–F2 giả lập; chưa có file nhập liệu máy đọc được. |
+| R010-S1-P01 | [Phạm vi sản phẩm và personas](reports/2026-11-13-10-product-reference-go-live-blueprint/product-scope-and-personas.vi.md) | S1 đã soạn, `S1_DOCUMENTED_REVIEW_PENDING`; định hướng product-first, chưa Owner approve. |
+| R010-S1-SOP | [12 quy trình vận hành chuẩn A/B/mixed và xử lý ngoại lệ](reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md) | S1 đã soạn; SOP là ứng viên, chưa thử nghiệm UX/E2E. |
+| R010-S1-ROLE | [Role/RACI và 10 approval classes](reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md) | Ma trận quyền logical, chưa RBAC sản phẩm hoặc ký phân nhiệm NPP. |
+| R010-S1-POL | [24 Product Policies + 24 key cấu hình](reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md) | Bám BR-01–24; các default mới là `PRODUCT_DEFAULT_PROPOSED`. |
+| R010-S1-TP | [Tenant Profile logical schema](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile-schema.vi.md), [JSON Schema](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json), [ví dụ synthetic](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.example.json) | Schema `DESIGN_CANDIDATE`, ví dụ DRAFT không dùng production. |
+| R010-S1-ADR | [9 Product ADR ứng viên](reports/2026-11-13-10-product-reference-go-live-blueprint/product-adrs.vi.md) | PADR-01–09 đang `PROPOSED_FOR_OWNER_REVIEW`, không thay quyết định R009. |
+| R010-S1-TR | [Truy vết S1](reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md) và [validator](reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py) | Cấu trúc D/BR→POL/SOP→AC/EV; không phải kiểm thử ứng dụng. |
 | R010-S | [Nguồn và giới hạn bằng chứng R010](reports/2026-11-13-10-product-reference-go-live-blueprint/sources.md) | Tách kế thừa R009 với giả định sản phẩm và chứng cứ thực chưa có. |
 | R009 | [MVP Specification Baseline v1 — NPP-01](reports/2026-11-13-09-mvp-specification-baseline/report.vi.md) | Đã lập bản baseline theo quyết định Owner sau R008; chính sách có trạng thái, đặc tả là draft, chưa có nghiệm thu hệ thống/Go-Live. |
 | R009-RAW | [Phỏng vấn quyết định Q01.txt — nguyên văn](reports/2026-11-13-09-mvp-specification-baseline/sources/npp-01-interview-summary-2026-11-12.original.txt) | Đã bảo toàn 10.280 byte nguồn tóm lược và SHA-256 trong R009-S; **không phải** transcript Q01–Q10 hoặc báo cáo Markdown đầy đủ từng dẫn. |
@@ -151,6 +158,8 @@ Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi
 **Baseline NPP-01 ngày 13/11/2026:** [R009](reports/2026-11-13-09-mvp-specification-baseline/report.vi.md) hợp nhất những chính sách Owner đã chọn sau R008 thành Decision Register/ADR, glossary, rule/data/API/state, acceptance/evidence và roadmap triển khai. Các kỹ thuật chi tiết vẫn là ứng viên review; `B-CASE-001/002/003`, `LEGAL-MEMO`, quyền ghi kho độc quyền, offline/cutover và pilot thật vẫn cần chứng cứ trước Go-Live. Tài liệu NPP-01 kèm theo được biên tập từ bản tóm lược hiện có, không được gắn nhãn bản gốc nguyên văn.
 
 **Blueprint sản phẩm ngày 13/11/2026:** [R010](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) đề xuất bộ chuẩn đa NPP và [catalog dữ liệu nhập/fixture](reports/2026-11-13-10-product-reference-go-live-blueprint/template-catalog-and-fixtures.vi.md). S0 mới là kế hoạch/đề bài, không khẳng định P01–P08, sản phẩm hay Go-Live đã xong. R009/NPP-01 giữ nguyên lịch sử.
+
+**Bổ sung S1/P01–P02 ngày 13/11/2026:** [R010 §9](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) đã có bộ SOP/roles/policies/schema/ADR và trace ứng viên trên PR #2. **S1 đã soạn tài liệu, chờ Owner review**; không coi default giả lập là chính sách đã duyệt, chưa tạo fixture/import S2 hoặc evidence Go-Live.
 
 ## Quy tắc sử dụng kết quả
 

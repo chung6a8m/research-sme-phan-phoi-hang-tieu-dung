@@ -1,0 +1,433 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "R010 S1 Product Tenant Profile v0.1 (design candidate)",
+  "description": "Structural validation ONLY; not proof of seller identity, legal invoice channel, security authorization or admission to production.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profileId",
+    "tenantCode",
+    "version",
+    "lifecycle",
+    "effectiveFrom",
+    "provenance",
+    "legalSeller",
+    "localization",
+    "requestedModes",
+    "customerPolicy",
+    "inventory",
+    "prices",
+    "cash",
+    "offline",
+    "invoice",
+    "accounting",
+    "operations",
+    "approvals",
+    "approval"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0.0-proposed"
+    },
+    "profileId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenantCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "REVIEW_PENDING",
+        "ACCEPTED",
+        "EFFECTIVE",
+        "SUPERSEDED",
+        "REJECTED"
+      ]
+    },
+    "effectiveFrom": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "provenance": {
+      "type": "string",
+      "enum": [
+        "SYNTHETIC_FIXTURE",
+        "TENANT_INPUT"
+      ]
+    },
+    "legalSeller": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sellerProfileRef",
+        "evidenceStatus"
+      ],
+      "properties": {
+        "sellerProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "evidenceStatus": {
+          "type": "string",
+          "enum": [
+            "EVIDENCE_PENDING",
+            "VERIFIED_EXTERNALLY"
+          ]
+        }
+      }
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currency",
+        "timezone"
+      ],
+      "properties": {
+        "currency": {
+          "const": "VND"
+        },
+        "timezone": {
+          "const": "Asia/Ho_Chi_Minh"
+        }
+      }
+    },
+    "requestedModes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "A",
+          "B_ONLINE",
+          "MIXED",
+          "B_NO_CHANNEL"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "customerPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "defaultPaymentTermsDays",
+        "defaultCreditLimitVnd",
+        "creditApprovalPolicyRef"
+      ],
+      "properties": {
+        "defaultPaymentTermsDays": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 365
+        },
+        "defaultCreditLimitVnd": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "creditApprovalPolicyRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lotPolicy",
+        "returnQuarantineLocationCode"
+      ],
+      "properties": {
+        "lotPolicy": {
+          "const": "SKU_PROFILE"
+        },
+        "returnQuarantineLocationCode": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "prices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowedRuleFamilies",
+        "roundingProfileRef",
+        "taxProfileRef"
+      ],
+      "properties": {
+        "allowedRuleFamilies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "LIST_PRICE",
+              "CUSTOMER_GROUP",
+              "FIXED_DISCOUNT",
+              "PERCENT_DISCOUNT",
+              "GIFT_THRESHOLD"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "roundingProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "taxProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "cash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bankVerificationPolicy",
+        "cashierAcceptanceRequired"
+      ],
+      "properties": {
+        "bankVerificationPolicy": {
+          "const": "VERIFIED_MANUAL_OR_PROVIDER_FACT"
+        },
+        "cashierAcceptanceRequired": {
+          "const": true
+        }
+      }
+    },
+    "offline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requested",
+        "requestedModes",
+        "grantTtlMinutes",
+        "maxCreditExposureVnd"
+      ],
+      "properties": {
+        "requested": {
+          "type": "boolean"
+        },
+        "requestedModes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B_ONLINE",
+              "MIXED"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "grantTtlMinutes": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1440
+            }
+          ]
+        },
+        "maxCreditExposureVnd": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "invoice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "providerProfileRef",
+        "noChannelBPolicy"
+      ],
+      "properties": {
+        "providerProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "noChannelBPolicy": {
+          "const": "BLOCKED"
+        }
+      }
+    },
+    "accounting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapterProfileRef",
+        "deliveryMode"
+      ],
+      "properties": {
+        "adapterProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "deliveryMode": {
+          "const": "DISABLED_UNTIL_VERIFIED"
+        }
+      }
+    },
+    "operations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cutoverMode",
+        "reportingMode",
+        "privacyRetentionProfileRef"
+      ],
+      "properties": {
+        "cutoverMode": {
+          "const": "CLEAN_FORWARD_ONLY"
+        },
+        "reportingMode": {
+          "const": "AS_OF_WITH_PENDING"
+        },
+        "privacyRetentionProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "approvals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "thresholdProfileRef"
+      ],
+      "properties": {
+        "thresholdProfileRef": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requestedBy",
+        "approvedBy",
+        "acceptedAt"
+      ],
+      "properties": {
+        "requestedBy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approvedBy": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "acceptedAt": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "offline": {
+            "properties": {
+              "requested": {
+                "const": true
+              }
+            },
+            "required": [
+              "requested"
+            ]
+          }
+        },
+        "required": [
+          "offline"
+        ]
+      },
+      "then": {
+        "properties": {
+          "offline": {
+            "properties": {
+              "grantTtlMinutes": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1440
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lifecycle": {
+            "const": "DRAFT"
+          }
+        },
+        "required": [
+          "lifecycle"
+        ]
+      },
+      "then": {
+        "properties": {
+          "approval": {
+            "properties": {
+              "acceptedAt": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

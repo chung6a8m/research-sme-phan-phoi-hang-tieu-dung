@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0-proposed",
+  "profileId": "DEMO-TENANT-001-PROFILE-v1",
+  "tenantCode": "DEMO-TENANT-001",
+  "version": 1,
+  "lifecycle": "DRAFT",
+  "effectiveFrom": "2026-11-13",
+  "provenance": "SYNTHETIC_FIXTURE",
+  "legalSeller": {
+    "sellerProfileRef": null,
+    "evidenceStatus": "EVIDENCE_PENDING"
+  },
+  "localization": {
+    "currency": "VND",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "requestedModes": [
+    "A"
+  ],
+  "customerPolicy": {
+    "defaultPaymentTermsDays": 0,
+    "defaultCreditLimitVnd": 0,
+    "creditApprovalPolicyRef": null
+  },
+  "inventory": {
+    "lotPolicy": "SKU_PROFILE",
+    "returnQuarantineLocationCode": "DEMO-QUARANTINE"
+  },
+  "prices": {
+    "allowedRuleFamilies": [
+      "LIST_PRICE",
+      "CUSTOMER_GROUP",
+      "FIXED_DISCOUNT",
+      "PERCENT_DISCOUNT",
+      "GIFT_THRESHOLD"
+    ],
+    "roundingProfileRef": null,
+    "taxProfileRef": null
+  },
+  "cash": {
+    "bankVerificationPolicy": "VERIFIED_MANUAL_OR_PROVIDER_FACT",
+    "cashierAcceptanceRequired": true
+  },
+  "offline": {
+    "requested": false,
+    "requestedModes": [],
+    "grantTtlMinutes": null,
+    "maxCreditExposureVnd": 0
+  },
+  "invoice": {
+    "providerProfileRef": null,
+    "noChannelBPolicy": "BLOCKED"
+  },
+  "accounting": {
+    "adapterProfileRef": null,
+    "deliveryMode": "DISABLED_UNTIL_VERIFIED"
+  },
+  "operations": {
+    "cutoverMode": "CLEAN_FORWARD_ONLY",
+    "reportingMode": "AS_OF_WITH_PENDING",
+    "privacyRetentionProfileRef": null
+  },
+  "approvals": {
+    "thresholdProfileRef": null
+  },
+  "approval": {
+    "requestedBy": "DEMO-SETUP-ONLY",
+    "approvedBy": null,
+    "acceptedAt": null
+  }
+}
