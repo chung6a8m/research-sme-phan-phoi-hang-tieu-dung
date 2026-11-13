@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
       - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/golden-oracles.json'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fault-case-catalog.csv'
@@ -12,6 +13,7 @@ on:
       - 'research/2026-11-13-product-reference-go-live-blueprint'
     paths:
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
       - 'reports/2026-11-13-09-mvp-specification-baseline/acceptance-tests-and-evidence.vi.md'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/golden-oracles.json'
       - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fault-case-catalog.csv'
