@@ -38,6 +38,19 @@ const negatives=[
  ["L2_fake_approved_item",d=>d.extension.entries.push({extensionId:"FAKE"})],
  ["freeze_fake_signature",d=>d.freeze.ownerAcceptance.state="ACCEPTED"],
  ["freeze_source_missing",d=>d.freeze.sourceDocuments=d.freeze.sourceDocuments.filter(x=>x!=="product-governance.vi.md")],
+ ["snapshot_fake_owner",d=>d.snapshot.ownerApprovalRef="https://fake.invalid"],
+ ["snapshot_fake_sha",d=>d.snapshot.snapshotCommitSha="a".repeat(40)],
+ ["snapshot_false_qa",d=>d.snapshot.reviewMatrixState="PASS"],
+ ["snapshot_false_ci",d=>d.snapshot.finalSnapshotChecks="PASS"],
+ ["snapshot_wrong_base",d=>d.snapshot.baseBranch="staging"],
+ ["snapshot_not_merged",d=>d.snapshot.pr1Merge.mergedIntoMain=false],
+ ["snapshot_lost_scope",d=>d.snapshot.scope.baselinePaths=[]],
+ ["snapshot_missing_S5",d=>d.snapshot.scope.baselinePaths=d.snapshot.scope.baselinePaths.filter(x=>!x.includes("2026-11-13-10-product"))],
+ ["snapshot_fake_R",d=>d.snapshot.acceptanceRecordRState="CREATED"],
+ ["snapshot_fake_B",d=>d.snapshot.modeState.B_NO_CHANNEL="GO"],
+ ["snapshot_wrong_upstream",d=>d.snapshot.pr1Merge.mergeCommitSha="a".repeat(40)],
+ ["snapshot_missing_pre_CI",d=>d.snapshot.preSnapshotChecks.runs.pop()],
+ ["snapshot_candidate_no_doc",d=>d.docs.snapshot=""],
  ["governance_doc_missing",d=>d.docs.governance="short"]
 ];
 for(const [name,mutate] of negatives){

@@ -46,12 +46,22 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Verify upstream R009 main and unchanged source before Snapshot C
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor 86850a7b4d515b8f14dd736cc9657e051c2ec588 HEAD
+          git diff --quiet 86850a7b4d515b8f14dd736cc9657e051c2ec588 HEAD -- reports/2026-11-13-09-mvp-specification-baseline .github/workflows/r009-specification-contract-validation.yml
+          python reports/2026-11-13-09-mvp-specification-baseline/kiem-tra-truy-vet.py
+          python reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py
       - name: Structural trace S1-S4 and S5 (NOT NPP assessment)
         shell: bash
         run: |
@@ -69,6 +79,7 @@ jobs:
           S5=reports/2026-11-13-10-product-reference-go-live-blueprint/s5
           python "$S5/s5-schema-tests.py"
           python "$S5/s5-owner-acceptance-schema-tests.py"
+          python "$S5/s5-snapshot-c-schema-tests.py"
           python "$S5/s5-owner-acceptance-schema-tests.py" --acceptance "$S5/product-baseline-acceptance.example.json"
           python "$S5/s5-schema-tests.py" --adoption "$S5/tenant-adoption-profile.example.json" --dossier reports/2026-11-13-10-product-reference-go-live-blueprint/s4/tenant-operations-discovery.example.json --answers "$S5/questionnaire-responses.example.json"
           python "$S5/s5-schema-tests.py" --pilot "$S5/npp-01-pilot-blueprint.example.json" --freeze "$S5/product-baseline-freeze.candidate.json"

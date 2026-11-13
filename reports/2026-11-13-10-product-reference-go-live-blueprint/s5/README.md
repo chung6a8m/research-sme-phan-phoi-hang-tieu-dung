@@ -31,7 +31,7 @@ Owner đã chọn phương án 1 cho cả Q01–Q20 trong hội thoại ngày 13
 | [product-extension-backlog-template.json](product-extension-backlog-template.json) | Q20: L2 mặc định DEFER, không fork tenant hoặc tự mở mode |
 | [owner governance validator](s5-owner-governance-validation.mjs), [negative regression](s5-owner-governance-regression.mjs), [acceptance schema tests](s5-owner-acceptance-schema-tests.py) | Chặn fake approval/CI/reviewer/EV/P0/threshold/L2 bằng synthetic tests |
 
-**Trình tự theo Q12/Q08:** review và merge PR #1 → retarget PR #2 vào main → kiểm S1–S5/final reviewers và tạo commit C toàn-tree → Owner tự đăng GitHub comment xác nhận C → commit R chỉ lưu acceptance record thật → review/merge riêng. Bất kỳ thay đổi contract sau C cần review lại. C/R **chưa tồn tại**.
+**Trình tự theo Q12/Q08:** review và merge PR #1 → retarget PR #2 vào main → kiểm S1–S5/final reviewers và chuẩn bị commit C toàn-tree → Owner tự đăng GitHub comment xác nhận C khi reviewer/QA gates đủ → commit R chỉ lưu acceptance record thật → review/merge riêng. Những nội dung Bước A được ghi ở đây là lịch sử trước khi tạo Snapshot C; hồ sơ ký R vẫn chưa tồn tại.
 
 **Q11:** Cho phép sandbox/UAT từng mode; không tính là EV-15. Pilot NPP-01 vẫn 3A+3B_ONLINE+2MIXED/ngày × ≥5 ngày; writer độc quyền toàn Kho-01 khi cutover. Các mode production vẫn NO_GO/PENDING.
 
@@ -44,3 +44,10 @@ Các ví dụ synthetic không được dùng làm dữ liệu NPP thật. S6 m�
 **Versioned freeze candidate:** `reviewedInputBlobs[]` khóa 14 blob nguồn R009/S1–S4, CI phát hiện drift. Manifest không khóa chính nó và không thay được `ownerAcceptance` thực; `baselineFreezeCommitSha` vẫn null cho tới quyết định phiên bản mới có căn cứ.
 
 **CI kết quả S5:** [validation-results.vi.md](validation-results.vi.md) ghi GitHub Actions và các giới hạn không thể thay bằng synthetic checks.
+
+## Chuẩn bị Snapshot C sau khi PR #1 merge và PR #2 retarget main
+
+- PR #1 đã merge vào `main`: [merge commit 86850a7b4d51](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/commit/86850a7b4d515b8f14dd736cc9657e051c2ec588). PR #2 đã đồng bộ với `main` bằng [0443705d](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/commit/0443705d4d5cd772a69eab9bf5b625e30a9c43a2).
+- [Snapshot C candidate](product-baseline-snapshot-c.candidate.json), [schema](product-baseline-snapshot-c.schema.json), [readiness & QA handoff](baseline-snapshot-c-readiness.vi.md), [negative schema tests](s5-snapshot-c-schema-tests.py) chuẩn bị scope toàn-tree và quy trình ký; `snapshotCommitSha=null` trong chính file candidate để tránh self-reference. SHA GitHub của **commit chứa snapshot** là C sau khi commit được push.
+- CI S2–S5 sau retarget về main ở [0443705d](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/commit/0443705d4d5cd772a69eab9bf5b625e30a9c43a2) đã SUCCESS (synthetic/contract). **CI tại C và reviewer thật** vẫn phải được kiểm trước Owner sign-off; không tự chuyển matrix `PENDING_REVIEW` thành PASS.
+- **Không phải Acceptance Record R:** mẫu `product-baseline-acceptance.example.json` vẫn chưa ký, chưa có GitHub Owner comment, và các mode/EV/TADR vẫn pending. PR #2 tiếp tục Draft, không tự merge.

@@ -11,7 +11,7 @@ const idsEqual=(actual,expected)=>Array.isArray(actual)&&actual.length===expecte
 const ownerQ=Array.from({length:20},(_,i)=>"Q"+String(i+1).padStart(2,"0"));
 const p0=["G-STOCK","G-CUT","G-IDEMP","G-LEDGER","G-INV"];
 const modes={A:"NO_GO_PENDING",B_ONLINE:"NO_GO_PENDING",MIXED:"NO_GO_PENDING",OFFLINE_WRITE:"DISABLED_PENDING",B_NO_CHANNEL:"BLOCKED",PRODUCTION_CUTOVER:"DISABLED_PENDING"};
-const requiredSources=["owner-baseline-review-decisions.json","owner-baseline-review-decisions.vi.md","product-governance.vi.md","baseline-review-matrix.json","baseline-review-matrix.vi.md","outstanding-register.json","product-baseline-acceptance.schema.json","product-baseline-acceptance.example.json","product-extension-backlog-template.json","s5-owner-governance-validation.mjs","s5-owner-governance-regression.mjs","s5-owner-acceptance-schema-tests.py"];
+const requiredSources=["owner-baseline-review-decisions.json","owner-baseline-review-decisions.vi.md","product-governance.vi.md","baseline-review-matrix.json","baseline-review-matrix.vi.md","outstanding-register.json","product-baseline-acceptance.schema.json","product-baseline-acceptance.example.json","product-extension-backlog-template.json","s5-owner-governance-validation.mjs","s5-owner-governance-regression.mjs","s5-owner-acceptance-schema-tests.py","product-baseline-snapshot-c.candidate.json","product-baseline-snapshot-c.schema.json","baseline-snapshot-c-readiness.vi.md","s5-snapshot-c-schema-tests.py"];
 const expectedSemantics={
  Q01:"PRODUCT_VERIFIED",Q02:"commit C",Q03:"GitHub comment",Q04:"P0",Q05:"TADR",
  Q06:"S1–S5",Q07:"merge",Q08:"commit C",Q09:"Product/BA",Q10:"S5",
@@ -22,15 +22,15 @@ export function loadOwnerGovernance(){
  return {
   decisions:json("owner-baseline-review-decisions.json"),matrix:json("baseline-review-matrix.json"),
   outstanding:json("outstanding-register.json"),acceptance:json("product-baseline-acceptance.example.json"),
-  extension:json("product-extension-backlog-template.json"),
+  extension:json("product-extension-backlog-template.json"),snapshot:json("product-baseline-snapshot-c.candidate.json"),
   freeze:json("product-baseline-freeze.candidate.json"),
   evidence:json("../s3/evidence-register.json"),
-  docs:{review:read("owner-baseline-review-decisions.vi.md"),governance:read("product-governance.vi.md"),matrix:read("baseline-review-matrix.vi.md")},
+  docs:{review:read("owner-baseline-review-decisions.vi.md"),governance:read("product-governance.vi.md"),matrix:read("baseline-review-matrix.vi.md"),snapshot:read("baseline-snapshot-c-readiness.vi.md")},
   sourcesPresent:Object.fromEntries(requiredSources.map(x=>[x,fs.existsSync(path.resolve(DIR,x))]))
  };
 }
 export function validateOwnerGovernance(d){
- const {decisions:q,matrix:m,outstanding:o,acceptance:a,extension:l,freeze:f,evidence:e}=d;
+ const {decisions:q,matrix:m,outstanding:o,acceptance:a,extension:l,freeze:f,evidence:e,snapshot:s}=d;
  check(q.schemaVersion==="s5-owner-review-v1"&&q.recordKind==="OWNER_REVIEW_DECISIONS_IN_CHAT_NOT_BASELINE_APPROVAL","Q record not a signed approval");
  check(q.reviewDate==="2026-11-13"&&q.sourceType==="OWNER_INTERVIEW_CHAT"&&q.formalOwnerGitHubSignoff==="PENDING"&&q.signedBaselineCommitSha===null&&q.ownerApprovalRef===null,"Q interview not a GitHub signature");
  check(q.baselineTarget===f.baselineId,"Q target must equal freeze candidate");
@@ -79,6 +79,22 @@ export function validateOwnerGovernance(d){
  check(a.productVerification==="PENDING"&&a.tenantGoLiveAcceptance==="PENDING"&&JSON.stringify(a.modeState)===JSON.stringify(modes),"no unsigned mode/tenant GO");
  check(l.recordKind==="PRODUCT_EXTENSION_BACKLOG_TEMPLATE_NOT_APPROVAL"&&l.sourceDecisionId==="Q20"&&l.defaultDisposition==="DEFER"&&l.entries.length===0,"L2 default backlog");
  check(idsEqual(l.allowedDispositions,["DEFER","PRODUCT_EXTENSION_REVIEW","REJECT_BLOCKED"])&&l.requireProductAdrForDevelopment&&!l.allowTenantFork&&!l.allowProductionFromBacklog&&l.requireOwnerApprovalForProductExtension,"no tenant fork or L2 autoGO");
+
+ check(s.schemaVersion==="s5-snapshot-c-v1"&&s.recordKind==="PRODUCT_BASELINE_SNAPSHOT_C_PREPARATION_NOT_SIGNED"&&s.baselineId===f.baselineId,"Snapshot C must be unsigned candidate");
+ check(s.sourcePrNumber===2&&s.baseBranch==="main"&&s.pr1Merge.prNumber===1&&s.pr1Merge.mergedIntoMain===true,"PR #1 must be merged and PR #2 based on main");
+ check(s.pr1Merge.mergeCommitSha==="86850a7b4d515b8f14dd736cc9657e051c2ec588"&&s.upstreamReconciliationCommitSha==="0443705d4d5cd772a69eab9bf5b625e30a9c43a2","PR #1/PR #2 ancestry must be pinned");
+ check(s.snapshotCommitSha===null&&s.commitShaResolution==="GITHUB_PR2_HEAD_SHA_AFTER_SNAPSHOT_COMMIT_CREATED","do not self-reference commit C");
+ check(s.ownerApprovalRef===null&&s.ownerAcceptedAt===null&&s.acceptanceRecordRState==="NOT_CREATED","no fake Owner signature or commit R");
+ check(s.finalSnapshotChecks==="PENDING_EXACT_COMMIT_C_CI"&&s.reviewMatrixState==="PENDING_ACTUAL_REVIEW","do not claim final CI or reviewer signoff from candidate");
+ check(s.preSnapshotChecks.checkedSha===s.upstreamReconciliationCommitSha&&s.preSnapshotChecks.kind==="SYNTHETIC_CONTRACT_ONLY","pre-C CI bound to reconciled HEAD");
+ check(idsEqual(s.preSnapshotChecks.runs.map(x=>x.name),["S2","S3","S4","S5"])&&s.preSnapshotChecks.runs.every(x=>x.result==="SUCCESS"&&x.url.endsWith(String(x.runId))),"4 pre-C workflow references must be real-pattern");
+ check(s.scope.freezeInputBlobCount===f.reviewedInputBlobs.length&&s.scope.treeIdentity==="THE_GITHUB_COMMIT_C_HASH_CAPTURES_FULL_TREE_AT_APPROVAL","14 anchors are subset, C captures full Git tree");
+ const requiredScope=["reports/2026-11-13-09-mvp-specification-baseline/**","reports/2026-11-13-10-product-reference-go-live-blueprint/**","briefs/2026-11-13-10-product-reference-go-live-blueprint.md","README.md"];
+ check(requiredScope.every(p=>s.scope.baselinePaths.includes(p)),"C baseline must include R009/R010, B010 and README");
+ check(s.scope.historicalModelEvidence==="R008_MODEL_ONLY_NOT_PRODUCT_VERIFICATION"&&s.productVerification==="PENDING"&&s.tenantGoLiveAcceptance==="PENDING","C never verifies product or tenant");
+ check(JSON.stringify(s.modeState)===JSON.stringify(modes)&&JSON.stringify(s.modeState)===JSON.stringify(f.modeState),"Snapshot C cannot grant modes");
+ check(d.docs.snapshot.includes("R009")&&d.docs.snapshot.includes("R010")&&d.docs.snapshot.includes("S5"),"Snapshot C readiness must describe scope and handoff");
+
  for(const p of requiredSources)check(d.sourcesPresent[p]===true&&f.sourceDocuments.includes(p),"S5 freeze candidate must enumerate governance source "+p);
  check(f.ownerAcceptance.state==="PENDING"&&f.baselineFreezeCommitSha===null&&f.productVerification==="PENDING"&&f.tenantGoLiveAcceptance==="PENDING","candidate still pending");
  return {status:"S5_OWNER_GOVERNANCE_CONTRACT_ONLY",ownerReviewDecisions:20,requiredReviewers:3,conditionalReviewers:3,outstanding:o.registerEntries.length,p0NonWaivable:5,githubOwnerSigned:false,realE2eRuns:0,productVerified:false,tenantGoLiveAccepted:false};

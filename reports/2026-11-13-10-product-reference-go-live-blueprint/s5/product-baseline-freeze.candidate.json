@@ -105,7 +105,11 @@
     "product-extension-backlog-template.json",
     "s5-owner-governance-validation.mjs",
     "s5-owner-governance-regression.mjs",
-    "s5-owner-acceptance-schema-tests.py"
+    "s5-owner-acceptance-schema-tests.py",
+    "product-baseline-snapshot-c.candidate.json",
+    "product-baseline-snapshot-c.schema.json",
+    "baseline-snapshot-c-readiness.vi.md",
+    "s5-snapshot-c-schema-tests.py"
   ],
   "unresolved": {
     "evidenceIds": [

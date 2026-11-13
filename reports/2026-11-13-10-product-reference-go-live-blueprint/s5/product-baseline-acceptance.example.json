@@ -70,5 +70,5 @@
     "B_NO_CHANNEL": "BLOCKED",
     "PRODUCTION_CUTOVER": "DISABLED_PENDING"
   },
-  "notes": "Chỉ là template PRE-SIGNOFF. Không có commit C, URL GitHub hoặc thời điểm ký được xác minh."
+  "notes": "Mẫu unsigned PRE-SIGNOFF; SHA C lấy từ GitHub sau khi commit C tồn tại, không tự nhúng vào snapshot. Không có URL/timestamp GitHub Owner ký và chưa có commit R. Reviewer thực vẫn pending."
 }

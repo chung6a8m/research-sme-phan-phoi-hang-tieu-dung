@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "s5-snapshot-c-v1",
+  "recordKind": "PRODUCT_BASELINE_SNAPSHOT_C_PREPARATION_NOT_SIGNED",
+  "baselineId": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "sourcePrNumber": 2,
+  "baseBranch": "main",
+  "pr1Merge": {
+    "prNumber": 1,
+    "mergedIntoMain": true,
+    "mergeCommitSha": "86850a7b4d515b8f14dd736cc9657e051c2ec588"
+  },
+  "upstreamReconciliationCommitSha": "0443705d4d5cd772a69eab9bf5b625e30a9c43a2",
+  "scope": {
+    "baselinePaths": [
+      "reports/2026-11-13-09-mvp-specification-baseline/**",
+      "reports/2026-11-13-10-product-reference-go-live-blueprint/**",
+      "briefs/2026-11-13-10-product-reference-go-live-blueprint.md",
+      "README.md",
+      ".github/workflows/s2-synthetic-validation.yml",
+      ".github/workflows/s3-acceptance-contract-validation.yml",
+      ".github/workflows/s4-operations-contract-validation.yml",
+      ".github/workflows/s5-adoption-baseline-contract-validation.yml"
+    ],
+    "historicalModelEvidence": "R008_MODEL_ONLY_NOT_PRODUCT_VERIFICATION",
+    "freezeInputBlobCount": 14,
+    "treeIdentity": "THE_GITHUB_COMMIT_C_HASH_CAPTURES_FULL_TREE_AT_APPROVAL"
+  },
+  "snapshotCommitSha": null,
+  "commitShaResolution": "GITHUB_PR2_HEAD_SHA_AFTER_SNAPSHOT_COMMIT_CREATED",
+  "preSnapshotChecks": {
+    "checkedSha": "0443705d4d5cd772a69eab9bf5b625e30a9c43a2",
+    "kind": "SYNTHETIC_CONTRACT_ONLY",
+    "runs": [
+      {
+        "name": "S2",
+        "runId": 43437293918,
+        "result": "SUCCESS",
+        "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43437293918"
+      },
+      {
+        "name": "S3",
+        "runId": 43437295589,
+        "result": "SUCCESS",
+        "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43437295589"
+      },
+      {
+        "name": "S4",
+        "runId": 43437294211,
+        "result": "SUCCESS",
+        "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43437294211"
+      },
+      {
+        "name": "S5",
+        "runId": 43437294163,
+        "result": "SUCCESS",
+        "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43437294163"
+      }
+    ]
+  },
+  "finalSnapshotChecks": "PENDING_EXACT_COMMIT_C_CI",
+  "reviewMatrixState": "PENDING_ACTUAL_REVIEW",
+  "ownerApprovalRef": null,
+  "ownerAcceptedAt": null,
+  "acceptanceRecordRState": "NOT_CREATED",
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "modeState": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "notes": "C là commit Git thực sau khi ghi snapshot, không thể tự nhúng SHA C vào nội dung commit C. Owner comment phải ghi full SHA C, R chỉ tạo sau comment và đúng reviewer/quality gates. Đây không phải chữ ký."
+}
