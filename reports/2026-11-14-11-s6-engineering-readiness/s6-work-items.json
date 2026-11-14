@@ -475,6 +475,5 @@
   "sourceRepoLicenseAmendmentRef": "s6-0-owner-q01-mit-amendment.json",
   "sourceRepositoryCurrentObservationRef": "s6-0-main-foundation-observation.json",
   "sourceRepositoryLicense": "MIT",
-  "sourceRepositoryLicenseState": "LICENSE_ON_PR_BRANCH_NOT_YET_MAIN",
-  "sourceRepoLicenseState": "MIT_MAIN_GITHUB_RECOGNIZED"
+  "sourceRepositoryLicenseState": "MIT_MAIN_GITHUB_RECOGNIZED"
 }
