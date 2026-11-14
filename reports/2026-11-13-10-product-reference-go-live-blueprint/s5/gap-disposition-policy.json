@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "GAP_DISPOSITION_RULES_NOT_APPROVAL",
+  "precedence": [
+    "L0_INVARIANTS",
+    "MODE_ADMISSION",
+    "P0_GATES",
+    "TENANT_L1",
+    "L2_REVIEW"
+  ],
+  "actions": [
+    {
+      "code": "ADOPT_STANDARD",
+      "s4Classification": "L0_STANDARD",
+      "meaning": "Tenant thay đổi SOP để tuân thủ lõi L0, không có override",
+      "allowProductionFromDocument": false
+    },
+    {
+      "code": "CONFIGURE_L1",
+      "s4Classification": "L1_CONFIGURATION",
+      "meaning": "Chỉ chọn giá trị hợp lệ trong CFG-01..24 và profile đã version/duyệt, không suy permission",
+      "allowProductionFromDocument": false
+    },
+    {
+      "code": "EXTENSION_CANDIDATE_L2",
+      "s4Classification": "L2_EXTENSION_CANDIDATE",
+      "meaning": "Ngoài L1 nhưng không vi phạm L0; tạo Product/TADR, trace AC/EV và Owner decision mới trước phát triển",
+      "allowProductionFromDocument": false
+    },
+    {
+      "code": "BLOCKED",
+      "s4Classification": "BLOCKED",
+      "meaning": "Vi phạm L0/P0, chưa đủ seller/legal/provider/stock/cutover, hoặc nhánh B bị deferred; không bật feature",
+      "allowProductionFromDocument": false
+    }
+  ],
+  "p0NeverWaivable": [
+    "G-STOCK",
+    "G-CUT",
+    "G-IDEMP",
+    "G-LEDGER",
+    "G-INV"
+  ],
+  "bNoChannel": "BLOCKED",
+  "realEvidenceCannotBeSynthesized": true
+}

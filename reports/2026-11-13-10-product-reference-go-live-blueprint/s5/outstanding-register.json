@@ -1,0 +1,837 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "OUTSTANDING_REGISTER_PENDING_INITIAL_SNAPSHOT_NOT_EVIDENCE",
+  "baselineTarget": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "status": "OPEN_NOT_PRODUCT_VERIFIED",
+  "lastActualReviewRef": null,
+  "ownerGithubSignoffRef": null,
+  "realE2eRuns": 0,
+  "productVerified": false,
+  "tenantGoLiveAccepted": false,
+  "nonWaivableP0": [
+    "G-STOCK",
+    "G-CUT",
+    "G-IDEMP",
+    "G-LEDGER",
+    "G-INV"
+  ],
+  "modeStates": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "registerEntries": [
+    {
+      "id": "TADR-01",
+      "kind": "TECHNICAL_DESIGN",
+      "title": "Transaction and ledgers",
+      "sourceStatus": "DESIGN_CANDIDATE",
+      "currentStatus": "DESIGN_CANDIDATE",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Engineering / Technical",
+      "milestone": "S6-A",
+      "sourceRefs": [
+        "TADR-01",
+        "R009-TADR",
+        "S5-S6-HANDOFF"
+      ],
+      "requiredEvidence": "Versioned TADR tradeoffs/decision, review + test design",
+      "exitCriteria": "SQL schema/isolation/indexes, concurrency, three-ledger invariant and moving-average cost with QA review",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TADR-02",
+      "kind": "TECHNICAL_DESIGN",
+      "title": "Durability, ACK and idempotency",
+      "sourceStatus": "DESIGN_CANDIDATE",
+      "currentStatus": "DESIGN_CANDIDATE",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Engineering / QA",
+      "milestone": "S6-A",
+      "sourceRefs": [
+        "TADR-02",
+        "R009-TADR",
+        "S5-S6-HANDOFF"
+      ],
+      "requiredEvidence": "Versioned TADR tradeoffs/decision, review + test design",
+      "exitCriteria": "Canonical IDs/hash, inbox/outbox, server committed but ACK lost, retry and dependency journal tested",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TADR-03",
+      "kind": "TECHNICAL_DESIGN",
+      "title": "Provider and accounting adapters",
+      "sourceStatus": "DESIGN_CANDIDATE",
+      "currentStatus": "DESIGN_CANDIDATE",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Engineering / Provider / Finance",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "TADR-03",
+        "R009-TADR",
+        "S5-S6-HANDOFF"
+      ],
+      "requiredEvidence": "Versioned TADR tradeoffs/decision, review + test design",
+      "exitCriteria": "Invoice/accounting API/FILE/MANUAL_REGISTER, UNKNOWN lookup, POSTED/read-back/reconciliation contracts",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TADR-04",
+      "kind": "TECHNICAL_DESIGN",
+      "title": "Authority and disaster recovery",
+      "sourceStatus": "DESIGN_CANDIDATE",
+      "currentStatus": "DESIGN_CANDIDATE",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Security / Operations",
+      "milestone": "S6-D",
+      "sourceRefs": [
+        "TADR-04",
+        "R009-TADR",
+        "S5-S6-HANDOFF"
+      ],
+      "requiredEvidence": "Versioned TADR tradeoffs/decision, review + test design",
+      "exitCriteria": "GenerationAnchor/revocation outside rollback, privacy, restore, RPO/RTO source evidence",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TADR-05",
+      "kind": "TECHNICAL_DESIGN",
+      "title": "Cutover and Forward Recovery",
+      "sourceStatus": "DESIGN_CANDIDATE",
+      "currentStatus": "DESIGN_CANDIDATE",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Warehouse / IT / Finance",
+      "milestone": "S6-E",
+      "sourceRefs": [
+        "TADR-05",
+        "R009-TADR",
+        "S5-S6-HANDOFF"
+      ],
+      "requiredEvidence": "Versioned TADR tradeoffs/decision, review + test design",
+      "exitCriteria": "Full Kho-01 legacy-writer lock, signed opening, complete after-first-effect recovery",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TADR-06",
+      "kind": "TECHNICAL_DESIGN",
+      "title": "Pilot quality/metrics",
+      "sourceStatus": "DESIGN_CANDIDATE",
+      "currentStatus": "DESIGN_CANDIDATE",
+      "priority": "FOLLOWUP",
+      "ownerRole": "QA / Operations / Product",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "TADR-06",
+        "R009-TADR",
+        "S5-S6-HANDOFF"
+      ],
+      "requiredEvidence": "Versioned TADR tradeoffs/decision, review + test design",
+      "exitCriteria": "UX-01..08, SLO/n/N, thresholds and approved pre-pilot EV-14 plan",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-01",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Tenant isolation / membership / revoke / audit",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Security / Product QA",
+      "milestone": "S6-A",
+      "sourceRefs": [
+        "EV-01",
+        "AC-01"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-02",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Customer/Outlet/ShipTo dữ liệu thật và snapshot",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Sales / Data Owner",
+      "milestone": "S6-B",
+      "sourceRefs": [
+        "EV-02",
+        "AC-02"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-03",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Mixed A+B stock/AR/custody/cost từng bước",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Warehouse / Sales / Finance",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "EV-03",
+        "AC-03"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-04",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Kho-01 toàn scope, legacy writer lock, lot/quarantine",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Warehouse / IT",
+      "milestone": "S6-E",
+      "sourceRefs": [
+        "EV-04",
+        "AC-03",
+        "AC-04",
+        "AC-05",
+        "AC-16"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-05",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Price/discount/VAT/gift/return/refund theo line",
+      "sourceStatus": "MODEL_ONLY",
+      "currentStatus": "MODEL_ONLY_REAL_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Sales / Finance",
+      "milestone": "S6-B",
+      "sourceRefs": [
+        "EV-05",
+        "AC-05",
+        "AC-07",
+        "AC-19"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-06",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "AR, custody, advance, credit, grant, receipts",
+      "sourceStatus": "MODEL_ONLY",
+      "currentStatus": "MODEL_ONLY_REAL_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Finance / Cashier",
+      "milestone": "S6-A",
+      "sourceRefs": [
+        "EV-06",
+        "AC-03",
+        "AC-08",
+        "AC-09",
+        "AC-10",
+        "AC-19",
+        "AC-20",
+        "AC-21"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-07",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Moving average vs accounting periodic cost bridge",
+      "sourceStatus": "MODEL_ONLY",
+      "currentStatus": "MODEL_ONLY_REAL_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Cost Accountant / Finance",
+      "milestone": "S6-B",
+      "sourceRefs": [
+        "EV-07",
+        "AC-03",
+        "AC-06"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-08",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "PWA journal/durable ACK/SQL/concurrency",
+      "sourceStatus": "MODEL_ONLY",
+      "currentStatus": "MODEL_ONLY_REAL_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "QA / Engineering",
+      "milestone": "S6-D",
+      "sourceRefs": [
+        "EV-08",
+        "AC-03",
+        "AC-09",
+        "AC-11",
+        "AC-12"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-09",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Restore/revoke/privacy/generation/external registry",
+      "sourceStatus": "MODEL_ONLY",
+      "currentStatus": "MODEL_ONLY_REAL_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Security / Operations",
+      "milestone": "S6-D",
+      "sourceRefs": [
+        "EV-09",
+        "AC-01",
+        "AC-12",
+        "AC-13"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-10",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Seller/provider legal invoice A/B_ONLINE, B-CASE/INV-09",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Legal / Finance / Provider",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "EV-10",
+        "AC-13",
+        "AC-14",
+        "AC-19"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-11",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Accounting POSTED/reconciliation by source",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Finance / IT / Accounting Adapter",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "EV-11",
+        "AC-03",
+        "AC-15",
+        "AC-19"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-12",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Opening, writer lock, cutover and forward recovery",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Owner / Warehouse / Finance",
+      "milestone": "S6-E",
+      "sourceRefs": [
+        "EV-12",
+        "AC-04",
+        "AC-10",
+        "AC-16"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-13",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "No-order visit và UX-01..08 trên thiết bị",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Sales / QA",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "EV-13",
+        "AC-17"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-14",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Pilot preflight threshold, staff, devices, runbooks",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Owner / Operations",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "EV-14",
+        "AC-18"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "EV-15",
+      "kind": "PRODUCT_EVIDENCE",
+      "title": "Pilot real ≥5 days/coverage/incident/decision per mode",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Owner / Operations / Finance",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "EV-15",
+        "AC-18"
+      ],
+      "requiredEvidence": "TestRunId, buildSha, mode/tenant/environment, actual/expected, independent reviewer, artifacts/hashes, before/after diff where applicable",
+      "exitCriteria": "System thật đã chạy theo AC và gate, có xác nhận có thẩm quyền; không lấy synthetic/model làm PASS",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "G-STOCK",
+      "kind": "P0_GATE",
+      "title": "Writer độc quyền kho",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_NON_WAIVABLE",
+      "ownerRole": "Warehouse / IT",
+      "milestone": "S6-E",
+      "sourceRefs": [
+        "G-STOCK",
+        "EVQ-02",
+        "S3-MODE-GATES"
+      ],
+      "requiredEvidence": "Real-world gate evidence and independent authoritative review per mode/build/tenant",
+      "exitCriteria": "Toàn Kho-01 kể cả ngoài Wave, khóa đường ghi legacy, E2E multi-path và offline",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "G-CUT",
+      "kind": "P0_GATE",
+      "title": "Opening/cutover và Forward Recovery",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_NON_WAIVABLE",
+      "ownerRole": "Warehouse / Finance / IT",
+      "milestone": "S6-E",
+      "sourceRefs": [
+        "G-CUT",
+        "EVQ-02",
+        "S3-MODE-GATES"
+      ],
+      "requiredEvidence": "Real-world gate evidence and independent authoritative review per mode/build/tenant",
+      "exitCriteria": "Snapshot, opening, sign-off nhiều bên, legacy lock và diễn tập sau first effect",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "G-IDEMP",
+      "kind": "P0_GATE",
+      "title": "Idempotency mọi side effect",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_NON_WAIVABLE",
+      "ownerRole": "Engineering / QA",
+      "milestone": "S6-A",
+      "sourceRefs": [
+        "G-IDEMP",
+        "EVQ-02",
+        "S3-MODE-GATES"
+      ],
+      "requiredEvidence": "Real-world gate evidence and independent authoritative review per mode/build/tenant",
+      "exitCriteria": "Command/source identity, ACK loss/retry/restore không ghi trùng",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "G-LEDGER",
+      "kind": "P0_GATE",
+      "title": "Ba sổ và đối soát nhất quán",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_NON_WAIVABLE",
+      "ownerRole": "Finance / Engineering",
+      "milestone": "S6-A",
+      "sourceRefs": [
+        "G-LEDGER",
+        "EVQ-02",
+        "S3-MODE-GATES"
+      ],
+      "requiredEvidence": "Real-world gate evidence and independent authoritative review per mode/build/tenant",
+      "exitCriteria": "AR/Custody/Advance/CustomerCredit bất biến, correction có nguồn, reconciliation",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "G-INV",
+      "kind": "P0_GATE",
+      "title": "Kênh hóa đơn hợp lệ",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_NON_WAIVABLE",
+      "ownerRole": "Legal / Provider / QA",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "G-INV",
+        "EVQ-02",
+        "S3-MODE-GATES"
+      ],
+      "requiredEvidence": "Real-world gate evidence and independent authoritative review per mode/build/tenant",
+      "exitCriteria": "A/B_ONLINE invoice provider/LEGAL evidence trong scope, B_NO_CHANNEL vẫn BLOCKED",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "B-CASE-001",
+      "kind": "LEGAL_OR_INVOICE_DEPENDENCY",
+      "title": "B no-channel legal/provider case",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_FOR_AFFECTED_MODE",
+      "ownerRole": "Legal / Seller / Provider / QA",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "B-CASE-001",
+        "EV-10",
+        "EVQ-05"
+      ],
+      "requiredEvidence": "Seller/provider/legal record and real invoice-channel test where applicable",
+      "exitCriteria": "Chỉ khi có nguồn thực, legal/provider acceptance, real run; không mở B_NO_CHANNEL trong MVP v1",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "B-CASE-002",
+      "kind": "LEGAL_OR_INVOICE_DEPENDENCY",
+      "title": "B no-channel legal/provider case",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_FOR_AFFECTED_MODE",
+      "ownerRole": "Legal / Seller / Provider / QA",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "B-CASE-002",
+        "EV-10",
+        "EVQ-05"
+      ],
+      "requiredEvidence": "Seller/provider/legal record and real invoice-channel test where applicable",
+      "exitCriteria": "Chỉ khi có nguồn thực, legal/provider acceptance, real run; không mở B_NO_CHANNEL trong MVP v1",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "B-CASE-003",
+      "kind": "LEGAL_OR_INVOICE_DEPENDENCY",
+      "title": "B no-channel legal/provider case",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_FOR_AFFECTED_MODE",
+      "ownerRole": "Legal / Seller / Provider / QA",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "B-CASE-003",
+        "EV-10",
+        "EVQ-05"
+      ],
+      "requiredEvidence": "Seller/provider/legal record and real invoice-channel test where applicable",
+      "exitCriteria": "Chỉ khi có nguồn thực, legal/provider acceptance, real run; không mở B_NO_CHANNEL trong MVP v1",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "LEGAL-MEMO",
+      "kind": "LEGAL_OR_INVOICE_DEPENDENCY",
+      "title": "Legal opinion for B invoice channel",
+      "sourceStatus": "EVIDENCE_PENDING",
+      "currentStatus": "EVIDENCE_PENDING",
+      "priority": "P0_FOR_AFFECTED_MODE",
+      "ownerRole": "Legal / Seller / Provider / QA",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "LEGAL-MEMO",
+        "EV-10",
+        "EVQ-05"
+      ],
+      "requiredEvidence": "Seller/provider/legal record and real invoice-channel test where applicable",
+      "exitCriteria": "Chỉ khi có nguồn thực, legal/provider acceptance, real run; không mở B_NO_CHANNEL trong MVP v1",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "INV-09",
+      "kind": "LEGAL_OR_INVOICE_DEPENDENCY",
+      "title": "Offline invoice fault scenario",
+      "sourceStatus": "NOT_RUN",
+      "currentStatus": "NOT_RUN",
+      "priority": "P0_FOR_AFFECTED_MODE",
+      "ownerRole": "Legal / Seller / Provider / QA",
+      "milestone": "S6-C",
+      "sourceRefs": [
+        "INV-09",
+        "EV-10",
+        "EVQ-05"
+      ],
+      "requiredEvidence": "Seller/provider/legal record and real invoice-channel test where applicable",
+      "exitCriteria": "Chỉ khi có nguồn thực, legal/provider acceptance, real run; không mở B_NO_CHANNEL trong MVP v1",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-UX",
+      "kind": "THRESHOLD_UNSET",
+      "title": "UX-01..08",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "QA / Product",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Ngưỡng từng bài UX, vai trò/thiết bị và denominator đã được duyệt",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-SLO",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Latency / availability",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Engineering / Operations",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Metric definition và giá trị đo, sign-off trước EV-14",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-COVERAGE",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Trip coverage n/N",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "QA / Tenant Owner",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Bộ mẫu số và coverage theo mode/ngày, sign-off EV-14",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-CASE",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Case age / escalation",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Operations",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Timebox và owner case đã duyệt trước pilot",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-COST",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Support cost",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Product / Operations",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Metric và ngưỡng báo cáo pilot được duyệt",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-DATA",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Data completeness n/N",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Data Owner / QA",
+      "milestone": "S6-F",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Định nghĩa source expected/received, asOf, sign-off",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-RPO-RTO",
+      "kind": "THRESHOLD_UNSET",
+      "title": "RPO/RTO",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Engineering / Security / Operations",
+      "milestone": "S6-D",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Ngưỡng từ diễn tập, không dùng giá trị synthetic",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-OFFLINE",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Offline TTL/cap",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Operations / Security / Finance",
+      "milestone": "S6-D",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Grant TTL/budget per mode/device/trip có duyệt sau E2E",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    },
+    {
+      "id": "TH-RETENTION",
+      "kind": "THRESHOLD_UNSET",
+      "title": "Data/artifact retention",
+      "sourceStatus": "UNSET",
+      "currentStatus": "UNSET",
+      "priority": "FOLLOWUP",
+      "ownerRole": "Legal / Security / Tenant",
+      "milestone": "S6-E",
+      "sourceRefs": [
+        "Q16",
+        "EV-14",
+        "TADR-06"
+      ],
+      "requiredEvidence": "Measurement/assumption, unit, n/N, scope, ownerApprovalRef actual; no manufactured numeric defaults",
+      "exitCriteria": "Hồ sơ policy áp dụng từng dữ liệu và tenant theo nghĩa vụ thực",
+      "evidenceRefs": [],
+      "actualOwnerRef": null,
+      "closedAt": null
+    }
+  ],
+  "policy": "Update register separately from immutable commit C. Never promote without real evidence and authorized reviewer. P0 cannot be waived. No personal/tenant-sensitive records in public repo."
+}

@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "SYNTHETIC_UNANSWERED_QUESTIONNAIRE_NOT_EVIDENCE",
+  "tenantId": "SYNTHETIC_ONLY_NOT_NPP_01",
+  "profileVersion": "SYNTHETIC_S5_CANDIDATE",
+  "answers": [
+    {
+      "questionId": "Q-01",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-02",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-03",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-04",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-05",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-06",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-07",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-08",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-09",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-10",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-11",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-12",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-13",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-14",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-15",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-16",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-17",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-18",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-19",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-20",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-21",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-22",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-23",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    },
+    {
+      "questionId": "Q-24",
+      "state": "UNANSWERED",
+      "answer": null,
+      "sourceRefs": [],
+      "respondentRole": null,
+      "reviewerRef": null
+    }
+  ]
+}

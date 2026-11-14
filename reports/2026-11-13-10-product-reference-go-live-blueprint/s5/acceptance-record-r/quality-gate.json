@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "s5-acceptance-record-r-v1",
+  "recordKind": "C_PRIME_EXACT_SHA_SYNTHETIC_CONTRACT_CI",
+  "checkedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+  "result": "SYNTHETIC_CONTRACT_CI_SUCCESS",
+  "runs": [
+    {
+      "stage": "S2",
+      "runId": 43467769664,
+      "headSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "conclusion": "SUCCESS",
+      "evidenceClass": "SYNTHETIC_CONTRACT_ONLY",
+      "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769664"
+    },
+    {
+      "stage": "S3",
+      "runId": 43467769648,
+      "headSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "conclusion": "SUCCESS",
+      "evidenceClass": "SYNTHETIC_CONTRACT_ONLY",
+      "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769648"
+    },
+    {
+      "stage": "S4",
+      "runId": 43467769694,
+      "headSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "conclusion": "SUCCESS",
+      "evidenceClass": "SYNTHETIC_CONTRACT_ONLY",
+      "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769694"
+    },
+    {
+      "stage": "S5",
+      "runId": 43467769562,
+      "headSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "conclusion": "SUCCESS",
+      "evidenceClass": "SYNTHETIC_CONTRACT_ONLY",
+      "url": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769562"
+    }
+  ],
+  "sourceAnchors": 14,
+  "freezeManifestRef": "../product-baseline-freeze.candidate.json",
+  "reconciliationRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541",
+  "ownerApprovalRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994",
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "realE2eRuns": 0,
+  "notes": "S2-S5 synthetic/contract only; no PWA/API/SQL/provider/accounting/runtime evidence verified."
+}

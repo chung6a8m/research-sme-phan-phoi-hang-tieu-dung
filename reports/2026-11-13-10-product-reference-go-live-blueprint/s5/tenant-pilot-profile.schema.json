@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S5 tenant pilot plan; cannot attest EV14/15 or mode admission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "tenantReference",
+    "sourceDecision",
+    "tenantProfileVersion",
+    "warehouseCode",
+    "entireWarehouseStockScope",
+    "warehouseOffWaveIncluded",
+    "requestedModes",
+    "admittedModes",
+    "plannedDailyTrips",
+    "minimumRepresentativeDays",
+    "operationalScope",
+    "ev14",
+    "ev15",
+    "uxScripts",
+    "thresholds",
+    "sellerLegalProviderStatus",
+    "openingCutoverStatus",
+    "legacyWriterLockStatus",
+    "productVerificationRef",
+    "tenantAcceptanceRef",
+    "ownerApprovalRef",
+    "deferred",
+    "status"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s5-v1"
+    },
+    "recordKind": {
+      "const": "TENANT_PILOT_BLUEPRINT_NOT_ACCEPTED"
+    },
+    "tenantReference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceDecision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenantProfileVersion": {
+      "type": "null"
+    },
+    "warehouseCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entireWarehouseStockScope": {
+      "const": true
+    },
+    "warehouseOffWaveIncluded": {
+      "const": true
+    },
+    "requestedModes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "A",
+          "B_ONLINE",
+          "MIXED"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "admittedModes": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "plannedDailyTrips": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Daily schedule candidate",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "properties": {
+        "A": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "B_ONLINE": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "MIXED": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "minimumRepresentativeDays": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "operationalScope": {
+      "const": "USER_WAVES_ONLY_STOCK_AUTHORITY_ENTIRE_WAREHOUSE"
+    },
+    "ev14": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "EV readiness and pilot outcome not executed",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "thresholdApprovalRef",
+        "denominatorPlanRef"
+      ],
+      "properties": {
+        "status": {
+          "const": "NOT_RUN"
+        },
+        "thresholdApprovalRef": {
+          "type": "null"
+        },
+        "denominatorPlanRef": {
+          "type": "null"
+        }
+      }
+    },
+    "ev15": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "EV15 not executed",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "actualRunsRef",
+        "observedDays"
+      ],
+      "properties": {
+        "status": {
+          "const": "NOT_RUN"
+        },
+        "actualRunsRef": {
+          "type": "null"
+        },
+        "observedDays": {
+          "type": "null"
+        }
+      }
+    },
+    "uxScripts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^UX-0[1-8]$"
+      },
+      "minItems": 8,
+      "uniqueItems": true,
+      "maxItems": 8
+    },
+    "thresholds": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "Pilot quantitative thresholds not approved",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ux",
+        "coverage",
+        "latency",
+        "caseAge",
+        "supportCost",
+        "rpo",
+        "rto"
+      ],
+      "properties": {
+        "ux": {
+          "const": "UNSET"
+        },
+        "coverage": {
+          "const": "UNSET"
+        },
+        "latency": {
+          "const": "UNSET"
+        },
+        "caseAge": {
+          "const": "UNSET"
+        },
+        "supportCost": {
+          "const": "UNSET"
+        },
+        "rpo": {
+          "const": "UNSET"
+        },
+        "rto": {
+          "const": "UNSET"
+        }
+      }
+    },
+    "sellerLegalProviderStatus": {
+      "const": "EVIDENCE_PENDING"
+    },
+    "openingCutoverStatus": {
+      "const": "NOT_RUN"
+    },
+    "legacyWriterLockStatus": {
+      "const": "NOT_RUN"
+    },
+    "productVerificationRef": {
+      "type": "null"
+    },
+    "tenantAcceptanceRef": {
+      "type": "null"
+    },
+    "ownerApprovalRef": {
+      "type": "null"
+    },
+    "deferred": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "B-CASE-001",
+          "B-CASE-002",
+          "B-CASE-003",
+          "LEGAL-MEMO",
+          "INV-09"
+        ]
+      },
+      "minItems": 5,
+      "uniqueItems": true,
+      "maxItems": 5
+    },
+    "status": {
+      "const": "PLANNING_ONLY_NO_TENANT_SIGNOFF"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "tenantReference": {
+            "const": "NPP-01"
+          }
+        },
+        "required": [
+          "tenantReference"
+        ]
+      },
+      "then": {
+        "properties": {
+          "sourceDecision": {
+            "const": "R009-D-15"
+          },
+          "warehouseCode": {
+            "const": "Kho-01"
+          },
+          "requestedModes": {
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "plannedDailyTrips": {
+            "properties": {
+              "A": {
+                "const": 3
+              },
+              "B_ONLINE": {
+                "const": 3
+              },
+              "MIXED": {
+                "const": 2
+              }
+            }
+          },
+          "minimumRepresentativeDays": {
+            "minimum": 5
+          }
+        }
+      }
+    }
+  ]
+}

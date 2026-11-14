@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "q09-snapshot-cprime-pre-signoff-v1",
+  "recordKind": "PRODUCT_BASELINE_SNAPSHOT_CPRIME_NOT_SIGNED",
+  "parentCommitC": "4e2e4626208b52c6d09ebe3722b2a4462f6f6112",
+  "sourcePr": 2,
+  "baseBranch": "main",
+  "candidateCommitSha": null,
+  "shaResolution": "GitHub PR #2 HEAD after last commit and protected synthetic CI; never self-reference",
+  "findingRefs": [
+    "PBA-02",
+    "PBA-03",
+    "PBA-09",
+    "TECH-08",
+    "TECH-11"
+  ],
+  "contractChangeScope": [
+    "R010 POL/SOP/RACI",
+    "S3 acceptance and scoped mode gates",
+    "S3 negative regression and Gherkin",
+    "S5 six-role review governance"
+  ],
+  "ownerInterviewSelections": {
+    "productBA": 12,
+    "technical": 15,
+    "qa": 10,
+    "sign01": 2,
+    "sign02": 1,
+    "sign03": 1,
+    "source": "OWNER_INTERVIEW_IN_CHAT_NOT_FORMAL_SIGNATURE"
+  },
+  "reviewState": "PENDING_ACTUAL_REVIEW",
+  "requiredRoles": [
+    "PRODUCT_BA",
+    "TECHNICAL",
+    "QA",
+    "FINANCE",
+    "LEGAL",
+    "OPERATIONS"
+  ],
+  "ownerApprovalRef": null,
+  "ownerAcceptedAt": null,
+  "acceptanceRecordR": "NOT_CREATED",
+  "realProductEvidence": "EVIDENCE_PENDING",
+  "productVerified": false,
+  "tenantGoLiveAccepted": false,
+  "tadr": "DESIGN_CANDIDATE",
+  "offlineWrite": "DISABLED_PENDING",
+  "bNoChannel": "BLOCKED",
+  "comment": "Cprime is a whole-tree Git candidate. CI success, synthetic model evidence and chat decisions never substitute actual reviewRef/Owner approval, real test evidence or production Mode Admission."
+}

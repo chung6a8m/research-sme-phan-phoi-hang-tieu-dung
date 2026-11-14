@@ -1,0 +1,1314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S4 tenant operations dossier: not a Go-Live authority",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "tenantId",
+    "profileVersion",
+    "createdAt",
+    "scope",
+    "runtime",
+    "cutover",
+    "assessments",
+    "modeDecisions",
+    "readiness",
+    "pilot",
+    "deferredEvidence",
+    "signoffs",
+    "evidenceIndex",
+    "openCases",
+    "discoveryGaps",
+    "p1Exceptions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s4-v1"
+    },
+    "recordKind": {
+      "enum": [
+        "UNEXECUTED_TEMPLATE_NOT_GATE_APPROVAL",
+        "TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL",
+        "TENANT_EVIDENCE_COLLECTION_NOT_GATE_APPROVAL"
+      ]
+    },
+    "tenantId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "profileVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "warehouseCode",
+        "entireWarehouseStockScope",
+        "requestedModes",
+        "admittedModes"
+      ],
+      "properties": {
+        "warehouseCode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entireWarehouseStockScope": {
+          "const": true
+        },
+        "requestedModes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "A",
+              "B_ONLINE",
+              "MIXED",
+              "OFFLINE_WRITE",
+              "B_NO_CHANNEL",
+              "PRODUCTION_CUTOVER"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "admittedModes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "A",
+              "B_ONLINE",
+              "MIXED"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "commitSha",
+        "buildVersion",
+        "environment",
+        "sellerProfileVersion",
+        "providerVersion",
+        "accountingMappingVersion",
+        "privacyPolicyVersion"
+      ],
+      "properties": {
+        "repository": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "commitSha": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "buildVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "environment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sellerProfileVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "providerVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "accountingMappingVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "privacyPolicyVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "cutover": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage",
+        "cutoffAt",
+        "sourceManifestSha256",
+        "writerInventoryRef",
+        "openingApprovalRef",
+        "backupRehearsalRef",
+        "firstEffectId",
+        "forwardRecoveryOnly"
+      ],
+      "properties": {
+        "stage": {
+          "enum": [
+            "NOT_STARTED",
+            "PREPARING",
+            "REHEARSING",
+            "QUARANTINED",
+            "POST_FIRST_EFFECT"
+          ]
+        },
+        "cutoffAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceManifestSha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "writerInventoryRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "openingApprovalRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "backupRehearsalRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "firstEffectId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "forwardRecoveryOnly": {
+          "const": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "stage": {
+                "const": "POST_FIRST_EFFECT"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "firstEffectId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceManifestSha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "openingApprovalRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "writerInventoryRef": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cutoffAt": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "firstEffectId": {
+                "type": "string"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "stage": {
+                "const": "POST_FIRST_EFFECT"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "controlId",
+          "status",
+          "evidenceRefs",
+          "reviewer",
+          "reviewedAt",
+          "caseId"
+        ],
+        "properties": {
+          "controlId": {
+            "type": "string",
+            "pattern": "^OPS-(0[1-9]|[12][0-9]|30)$"
+          },
+          "status": {
+            "enum": [
+              "NOT_EVALUATED",
+              "BLOCKED",
+              "FAILED",
+              "EXECUTED_UNREVIEWED",
+              "REVIEWED_EVIDENCE_NOT_GATE"
+            ]
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "reviewer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "caseId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "REVIEWED_EVIDENCE_NOT_GATE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "evidenceRefs": {
+                  "minItems": 1
+                },
+                "reviewer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reviewedAt": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 30,
+      "maxItems": 30
+    },
+    "modeDecisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mode",
+          "decision",
+          "admissionRecordRef"
+        ],
+        "properties": {
+          "mode": {
+            "enum": [
+              "A",
+              "B_ONLINE",
+              "MIXED",
+              "OFFLINE_WRITE",
+              "B_NO_CHANNEL",
+              "PRODUCTION_CUTOVER"
+            ]
+          },
+          "decision": {
+            "enum": [
+              "NO_GO_PENDING",
+              "DISABLED_PENDING",
+              "BLOCKED"
+            ]
+          },
+          "admissionRecordRef": {
+            "type": "null"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "A"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "decision": {
+                  "const": "NO_GO_PENDING"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "B_ONLINE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "decision": {
+                  "const": "NO_GO_PENDING"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "MIXED"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "decision": {
+                  "const": "NO_GO_PENDING"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "OFFLINE_WRITE"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "decision": {
+                  "const": "DISABLED_PENDING"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "B_NO_CHANNEL"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "decision": {
+                  "const": "BLOCKED"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "PRODUCTION_CUTOVER"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "decision": {
+                  "const": "DISABLED_PENDING"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 6,
+      "maxItems": 6
+    },
+    "readiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evId",
+        "state",
+        "thresholdApprovalRef",
+        "denominatorPlanRef"
+      ],
+      "properties": {
+        "evId": {
+          "const": "EV-14"
+        },
+        "state": {
+          "enum": [
+            "NOT_RUN",
+            "BLOCKED",
+            "EXECUTED_UNREVIEWED"
+          ]
+        },
+        "thresholdApprovalRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "denominatorPlanRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "pilot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evId",
+        "state",
+        "observedDays",
+        "actualRunsRef"
+      ],
+      "properties": {
+        "evId": {
+          "const": "EV-15"
+        },
+        "state": {
+          "enum": [
+            "NOT_RUN",
+            "BLOCKED",
+            "EXECUTED_UNREVIEWED"
+          ]
+        },
+        "observedDays": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "actualRunsRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "deferredEvidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "B-CASE-001",
+              "B-CASE-002",
+              "B-CASE-003",
+              "LEGAL-MEMO",
+              "INV-09"
+            ]
+          },
+          "state": {
+            "enum": [
+              "EVIDENCE_PENDING",
+              "NOT_RUN"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "id": {
+                  "const": "INV-09"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "state": {
+                  "const": "NOT_RUN"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "id": {
+                  "enum": [
+                    "B-CASE-001",
+                    "B-CASE-002",
+                    "B-CASE-003",
+                    "LEGAL-MEMO"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "state": {
+                  "const": "EVIDENCE_PENDING"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 5,
+      "maxItems": 5
+    },
+    "signoffs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role",
+          "signoffRef",
+          "signer",
+          "at",
+          "scope"
+        ],
+        "properties": {
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "signoffRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "signer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "evidenceIndex": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evId",
+          "testRunId",
+          "artifactUri",
+          "sha256",
+          "classification"
+        ],
+        "properties": {
+          "evId": {
+            "type": "string",
+            "pattern": "^EV-(0[1-9]|1[0-5])$"
+          },
+          "testRunId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifactUri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "classification": {
+            "enum": [
+              "REDACTED",
+              "RESTRICTED_INTERNAL",
+              "TENANT_APPROVED"
+            ]
+          }
+        }
+      }
+    },
+    "openCases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "caseId",
+          "owner",
+          "nextAction",
+          "scope"
+        ],
+        "properties": {
+          "caseId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "nextAction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "discoveryGaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gapId",
+          "controlIds",
+          "modeScope",
+          "classification",
+          "summary",
+          "status",
+          "owner",
+          "nextAction",
+          "sourceRefs"
+        ],
+        "properties": {
+          "gapId": {
+            "type": "string",
+            "minLength": 3
+          },
+          "controlIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^OPS-(0[1-9]|[12][0-9]|30)$"
+            }
+          },
+          "modeScope": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "A",
+                "B_ONLINE",
+                "MIXED",
+                "OFFLINE_WRITE",
+                "PRODUCTION_CUTOVER"
+              ]
+            }
+          },
+          "classification": {
+            "enum": [
+              "L0_STANDARD",
+              "L1_CONFIGURATION",
+              "L2_EXTENSION_CANDIDATE",
+              "BLOCKED"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 8
+          },
+          "status": {
+            "enum": [
+              "OPEN_UNVERIFIED",
+              "REVIEW_PENDING",
+              "BLOCKED_UNVERIFIED"
+            ]
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nextAction": {
+            "type": "string",
+            "minLength": 8
+          },
+          "sourceRefs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "p1Exceptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "exceptionId",
+          "severity",
+          "controlIds",
+          "modeScope",
+          "state",
+          "owner",
+          "expiresAt",
+          "mitigation",
+          "compensatingControls",
+          "remediation",
+          "reviewer",
+          "approvalRef",
+          "acceptedAt",
+          "evidenceRefs"
+        ],
+        "properties": {
+          "exceptionId": {
+            "type": "string",
+            "minLength": 3
+          },
+          "severity": {
+            "const": "P1"
+          },
+          "controlIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^OPS-(0[1-9]|[12][0-9]|30)$"
+            }
+          },
+          "modeScope": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "A",
+                "B_ONLINE",
+                "MIXED",
+                "OFFLINE_WRITE"
+              ]
+            }
+          },
+          "state": {
+            "enum": [
+              "PROPOSED",
+              "PENDING_REVIEW",
+              "OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS",
+              "EXPIRED"
+            ]
+          },
+          "owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expiresAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mitigation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "compensatingControls": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 4
+            }
+          },
+          "remediation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "approvalRef": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "acceptedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidenceRefs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "enum": [
+                    "PROPOSED",
+                    "PENDING_REVIEW"
+                  ]
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "reviewer": {
+                  "type": "null"
+                },
+                "approvalRef": {
+                  "type": "null"
+                },
+                "acceptedAt": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "OWNER_ACCEPTED_EXCEPTION_NOT_GATE_PASS"
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "owner": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expiresAt": {
+                  "type": "string",
+                  "minLength": 10
+                },
+                "mitigation": {
+                  "type": "string",
+                  "minLength": 8
+                },
+                "compensatingControls": {
+                  "minItems": 1
+                },
+                "remediation": {
+                  "type": "string",
+                  "minLength": 8
+                },
+                "reviewer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "approvalRef": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "acceptedAt": {
+                  "type": "string",
+                  "minLength": 10
+                },
+                "evidenceRefs": {
+                  "minItems": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "recordKind": {
+            "const": "UNEXECUTED_TEMPLATE_NOT_GATE_APPROVAL"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tenantId": {
+            "type": "null"
+          },
+          "profileVersion": {
+            "type": "null"
+          },
+          "createdAt": {
+            "type": "null"
+          },
+          "scope": {
+            "properties": {
+              "requestedModes": {
+                "maxItems": 0
+              },
+              "admittedModes": {
+                "maxItems": 0
+              }
+            }
+          },
+          "runtime": {
+            "properties": {
+              "commitSha": {
+                "type": "null"
+              },
+              "environment": {
+                "type": "null"
+              }
+            }
+          },
+          "cutover": {
+            "properties": {
+              "stage": {
+                "const": "NOT_STARTED"
+              },
+              "firstEffectId": {
+                "type": "null"
+              },
+              "sourceManifestSha256": {
+                "type": "null"
+              },
+              "openingApprovalRef": {
+                "type": "null"
+              }
+            }
+          },
+          "assessments": {
+            "items": {
+              "properties": {
+                "status": {
+                  "const": "NOT_EVALUATED"
+                },
+                "evidenceRefs": {
+                  "maxItems": 0
+                },
+                "reviewer": {
+                  "type": "null"
+                },
+                "reviewedAt": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "signoffs": {
+            "maxItems": 0
+          },
+          "evidenceIndex": {
+            "maxItems": 0
+          },
+          "openCases": {
+            "maxItems": 0
+          },
+          "readiness": {
+            "properties": {
+              "state": {
+                "const": "NOT_RUN"
+              },
+              "thresholdApprovalRef": {
+                "type": "null"
+              },
+              "denominatorPlanRef": {
+                "type": "null"
+              }
+            }
+          },
+          "pilot": {
+            "properties": {
+              "state": {
+                "const": "NOT_RUN"
+              },
+              "observedDays": {
+                "type": "null"
+              },
+              "actualRunsRef": {
+                "type": "null"
+              }
+            }
+          },
+          "discoveryGaps": {
+            "maxItems": 0
+          },
+          "p1Exceptions": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordKind": {
+            "const": "TENANT_DISCOVERY_GAP_NOT_GATE_APPROVAL"
+          }
+        },
+        "required": [
+          "recordKind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "profileVersion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "properties": {
+              "admittedModes": {
+                "maxItems": 0
+              }
+            }
+          },
+          "runtime": {
+            "properties": {
+              "commitSha": {
+                "type": "null"
+              },
+              "environment": {
+                "type": "null"
+              }
+            }
+          },
+          "cutover": {
+            "properties": {
+              "stage": {
+                "const": "NOT_STARTED"
+              },
+              "firstEffectId": {
+                "type": "null"
+              },
+              "sourceManifestSha256": {
+                "type": "null"
+              },
+              "openingApprovalRef": {
+                "type": "null"
+              },
+              "backupRehearsalRef": {
+                "type": "null"
+              }
+            }
+          },
+          "assessments": {
+            "items": {
+              "properties": {
+                "status": {
+                  "const": "NOT_EVALUATED"
+                },
+                "evidenceRefs": {
+                  "maxItems": 0
+                },
+                "reviewer": {
+                  "type": "null"
+                },
+                "reviewedAt": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          "readiness": {
+            "properties": {
+              "state": {
+                "const": "NOT_RUN"
+              },
+              "thresholdApprovalRef": {
+                "type": "null"
+              },
+              "denominatorPlanRef": {
+                "type": "null"
+              }
+            }
+          },
+          "pilot": {
+            "properties": {
+              "state": {
+                "const": "NOT_RUN"
+              },
+              "observedDays": {
+                "type": "null"
+              },
+              "actualRunsRef": {
+                "type": "null"
+              }
+            }
+          },
+          "signoffs": {
+            "maxItems": 0
+          },
+          "evidenceIndex": {
+            "maxItems": 0
+          },
+          "openCases": {
+            "maxItems": 0
+          },
+          "p1Exceptions": {
+            "items": {
+              "properties": {
+                "state": {
+                  "enum": [
+                    "PROPOSED",
+                    "PENDING_REVIEW"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "recordKind": {
+            "const": "TENANT_EVIDENCE_COLLECTION_NOT_GATE_APPROVAL"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tenantId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "profileVersion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "runtime": {
+            "properties": {
+              "commitSha": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "environment": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "PRODUCT_ARCHETYPES_FOR_DESIGN_ONLY",
+  "status": "NOT_FIELD_VALIDATED",
+  "archetypes": [
+    {
+      "id": "ARCH-A-REGIONAL",
+      "label": "NPP giao theo đơn đặt trước",
+      "modes": [
+        "A"
+      ],
+      "indicativeWorkflow": "A confirm → reservation → partial deliveries → AR/collection",
+      "nonNegotiables": [
+        "Customer chịu AR",
+        "Stock writer độc quyền toàn kho",
+        "Hóa đơn A theo căn cứ được kiểm"
+      ]
+    },
+    {
+      "id": "ARCH-B-ONLINE",
+      "label": "NPP bán/giao/thu trực tiếp",
+      "modes": [
+        "B_ONLINE"
+      ],
+      "indicativeWorkflow": "Quota → sale+delivery+receipt atomic, invoice channel verified",
+      "nonNegotiables": [
+        "B_NO_CHANNEL BLOCKED",
+        "G-INV",
+        "AR/custody/advance tách sổ"
+      ]
+    },
+    {
+      "id": "ARCH-MIXED",
+      "label": "NPP vận hành chuyến hỗn hợp",
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "indicativeWorkflow": "AReservation và BQuota tách nguồn, đối soát hai nhánh trên cùng chuyến",
+      "nonNegotiables": [
+        "MIXED phải E2E riêng",
+        "Không dùng BQuota lấy A hold",
+        "G-STOCK toàn kho"
+      ]
+    },
+    {
+      "id": "ARCH-COMPLEXITY",
+      "label": "NPP nhiều kho/tích hợp/nguồn legacy",
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "indicativeWorkflow": "Đánh giá riêng phạm vi kiến trúc, kiểm full writer ownership, kế toán và external effects",
+      "nonNegotiables": [
+        "Không suy multi-warehouse đã được MVP verified",
+        "Cần extension/TADR nếu vượt boundary",
+        "Không bật mode bằng requestedModes"
+      ]
+    }
+  ],
+  "tenantClassification": "CANDIDATE_ONLY_NO_AUTOMATIC_FIT"
+}

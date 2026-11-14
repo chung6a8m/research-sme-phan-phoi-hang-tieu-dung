@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S5 questionnaire answers; never evidence of mode admission",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "tenantId",
+    "profileVersion",
+    "answers"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s5-v1"
+    },
+    "recordKind": {
+      "enum": [
+        "SYNTHETIC_UNANSWERED_QUESTIONNAIRE_NOT_EVIDENCE",
+        "TENANT_QUESTIONNAIRE_COLLECTION_NOT_VERIFIED"
+      ]
+    },
+    "tenantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profileVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "answers": {
+      "type": "array",
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "Questionnaire response is not tenant evidence",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "questionId",
+          "state",
+          "answer",
+          "sourceRefs",
+          "respondentRole",
+          "reviewerRef"
+        ],
+        "properties": {
+          "questionId": {
+            "type": "string",
+            "pattern": "^Q-(0[1-9]|1[0-9]|2[0-4])$"
+          },
+          "state": {
+            "enum": [
+              "UNANSWERED",
+              "ANSWERED_UNVERIFIED",
+              "SOURCE_REVIEWED_NOT_GATE"
+            ]
+          },
+          "answer": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sourceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "respondentRole": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reviewerRef": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "UNANSWERED"
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "answer": {
+                  "type": "null"
+                },
+                "sourceRefs": {
+                  "maxItems": 0
+                },
+                "respondentRole": {
+                  "type": "null"
+                },
+                "reviewerRef": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "SOURCE_REVIEWED_NOT_GATE"
+                }
+              },
+              "required": [
+                "state"
+              ]
+            },
+            "then": {
+              "properties": {
+                "answer": {
+                  "type": "string",
+                  "minLength": 5
+                },
+                "sourceRefs": {
+                  "minItems": 1
+                },
+                "respondentRole": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reviewerRef": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 24,
+      "maxItems": 24
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "recordKind": {
+            "const": "SYNTHETIC_UNANSWERED_QUESTIONNAIRE_NOT_EVIDENCE"
+          }
+        },
+        "required": [
+          "recordKind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "tenantId": {
+            "const": "SYNTHETIC_ONLY_NOT_NPP_01"
+          },
+          "answers": {
+            "items": {
+              "properties": {
+                "state": {
+                  "const": "UNANSWERED"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

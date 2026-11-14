@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "PRODUCT_BASELINE_ACCEPTANCE_TEMPLATE_NOT_SIGNED",
+  "baselineId": "PRODUCT_BASELINE_V1",
+  "state": "PENDING_OWNER_SIGNATURE",
+  "scope": "PRODUCT_POLICY_AND_CONTRACT_ONLY",
+  "upstreamPrNumber": 1,
+  "sourcePrNumber": 2,
+  "snapshotCommitSha": null,
+  "ownerApproval": {
+    "githubCommentUrl": null,
+    "githubLogin": null,
+    "githubCreatedAt": null,
+    "approvedSnapshotSha": null
+  },
+  "reviewMatrixRef": "baseline-review-matrix.json",
+  "qualityGateRef": null,
+  "outstandingRegisterRef": "outstanding-register.json",
+  "decisionRefs": {
+    "ownerReview": [
+      "Q01",
+      "Q02",
+      "Q03",
+      "Q04",
+      "Q05",
+      "Q06",
+      "Q07",
+      "Q08",
+      "Q09",
+      "Q10",
+      "Q11",
+      "Q12",
+      "Q13",
+      "Q14",
+      "Q15",
+      "Q16",
+      "Q17",
+      "Q18",
+      "Q19",
+      "Q20"
+    ],
+    "padr": [
+      "PADR-01",
+      "PADR-02",
+      "PADR-03",
+      "PADR-04",
+      "PADR-05",
+      "PADR-06",
+      "PADR-07",
+      "PADR-08",
+      "PADR-09"
+    ],
+    "evq": [
+      "EVQ-01",
+      "EVQ-02",
+      "EVQ-03",
+      "EVQ-04",
+      "EVQ-05",
+      "EVQ-06",
+      "EVQ-07"
+    ]
+  },
+  "productVerification": "PENDING",
+  "tenantGoLiveAcceptance": "PENDING",
+  "modeState": {
+    "A": "NO_GO_PENDING",
+    "B_ONLINE": "NO_GO_PENDING",
+    "MIXED": "NO_GO_PENDING",
+    "OFFLINE_WRITE": "DISABLED_PENDING",
+    "B_NO_CHANNEL": "BLOCKED",
+    "PRODUCTION_CUTOVER": "DISABLED_PENDING"
+  },
+  "notes": "Mẫu unsigned PRE-SIGNOFF; SHA C lấy từ GitHub sau khi commit C tồn tại, không tự nhúng vào snapshot. Không có URL/timestamp GitHub Owner ký và chưa có commit R. Reviewer thực vẫn pending."
+}

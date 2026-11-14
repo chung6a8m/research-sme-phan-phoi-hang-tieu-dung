@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prepared C snapshot, not Owner acceptance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordKind",
+    "baselineId",
+    "sourcePrNumber",
+    "baseBranch",
+    "pr1Merge",
+    "upstreamReconciliationCommitSha",
+    "scope",
+    "snapshotCommitSha",
+    "commitShaResolution",
+    "preSnapshotChecks",
+    "finalSnapshotChecks",
+    "reviewMatrixState",
+    "ownerApprovalRef",
+    "ownerAcceptedAt",
+    "acceptanceRecordRState",
+    "productVerification",
+    "tenantGoLiveAcceptance",
+    "modeState",
+    "notes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "s5-snapshot-c-v1"
+    },
+    "recordKind": {
+      "const": "PRODUCT_BASELINE_SNAPSHOT_C_PREPARATION_NOT_SIGNED"
+    },
+    "baselineId": {
+      "const": "PRODUCT_BASELINE_V1_CANDIDATE"
+    },
+    "sourcePrNumber": {
+      "const": 2
+    },
+    "baseBranch": {
+      "const": "main"
+    },
+    "pr1Merge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prNumber",
+        "mergedIntoMain",
+        "mergeCommitSha"
+      ],
+      "properties": {
+        "prNumber": {
+          "const": 1
+        },
+        "mergedIntoMain": {
+          "const": true
+        },
+        "mergeCommitSha": {
+          "const": "86850a7b4d515b8f14dd736cc9657e051c2ec588"
+        }
+      }
+    },
+    "upstreamReconciliationCommitSha": {
+      "const": "0443705d4d5cd772a69eab9bf5b625e30a9c43a2"
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baselinePaths",
+        "historicalModelEvidence",
+        "freezeInputBlobCount",
+        "treeIdentity"
+      ],
+      "properties": {
+        "baselinePaths": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
+        },
+        "historicalModelEvidence": {
+          "const": "R008_MODEL_ONLY_NOT_PRODUCT_VERIFICATION"
+        },
+        "freezeInputBlobCount": {
+          "const": 14
+        },
+        "treeIdentity": {
+          "const": "THE_GITHUB_COMMIT_C_HASH_CAPTURES_FULL_TREE_AT_APPROVAL"
+        }
+      }
+    },
+    "snapshotCommitSha": {
+      "type": "null"
+    },
+    "commitShaResolution": {
+      "const": "GITHUB_PR2_HEAD_SHA_AFTER_SNAPSHOT_COMMIT_CREATED"
+    },
+    "preSnapshotChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checkedSha",
+        "kind",
+        "runs"
+      ],
+      "properties": {
+        "checkedSha": {
+          "const": "0443705d4d5cd772a69eab9bf5b625e30a9c43a2"
+        },
+        "kind": {
+          "const": "SYNTHETIC_CONTRACT_ONLY"
+        },
+        "runs": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "runId",
+              "result",
+              "url"
+            ],
+            "properties": {
+              "name": {
+                "enum": [
+                  "S2",
+                  "S3",
+                  "S4",
+                  "S5"
+                ]
+              },
+              "runId": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "result": {
+                "const": "SUCCESS"
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https://github\\.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/[0-9]+$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "finalSnapshotChecks": {
+      "const": "PENDING_EXACT_COMMIT_C_CI"
+    },
+    "reviewMatrixState": {
+      "const": "PENDING_ACTUAL_REVIEW"
+    },
+    "ownerApprovalRef": {
+      "type": "null"
+    },
+    "ownerAcceptedAt": {
+      "type": "null"
+    },
+    "acceptanceRecordRState": {
+      "const": "NOT_CREATED"
+    },
+    "productVerification": {
+      "const": "PENDING"
+    },
+    "tenantGoLiveAcceptance": {
+      "const": "PENDING"
+    },
+    "modeState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE",
+        "B_NO_CHANNEL",
+        "PRODUCTION_CUTOVER"
+      ],
+      "properties": {
+        "A": {
+          "const": "NO_GO_PENDING"
+        },
+        "B_ONLINE": {
+          "const": "NO_GO_PENDING"
+        },
+        "MIXED": {
+          "const": "NO_GO_PENDING"
+        },
+        "OFFLINE_WRITE": {
+          "const": "DISABLED_PENDING"
+        },
+        "B_NO_CHANNEL": {
+          "const": "BLOCKED"
+        },
+        "PRODUCTION_CUTOVER": {
+          "const": "DISABLED_PENDING"
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 100
+    }
+  }
+}

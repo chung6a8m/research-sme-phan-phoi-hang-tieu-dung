@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "TENANT_PILOT_BLUEPRINT_NOT_ACCEPTED",
+  "tenantReference": "NPP-01",
+  "sourceDecision": "R009-D-15",
+  "tenantProfileVersion": null,
+  "warehouseCode": "Kho-01",
+  "entireWarehouseStockScope": true,
+  "warehouseOffWaveIncluded": true,
+  "requestedModes": [
+    "A",
+    "B_ONLINE",
+    "MIXED"
+  ],
+  "admittedModes": [],
+  "plannedDailyTrips": {
+    "A": 3,
+    "B_ONLINE": 3,
+    "MIXED": 2
+  },
+  "minimumRepresentativeDays": 5,
+  "operationalScope": "USER_WAVES_ONLY_STOCK_AUTHORITY_ENTIRE_WAREHOUSE",
+  "ev14": {
+    "status": "NOT_RUN",
+    "thresholdApprovalRef": null,
+    "denominatorPlanRef": null
+  },
+  "ev15": {
+    "status": "NOT_RUN",
+    "actualRunsRef": null,
+    "observedDays": null
+  },
+  "uxScripts": [
+    "UX-01",
+    "UX-02",
+    "UX-03",
+    "UX-04",
+    "UX-05",
+    "UX-06",
+    "UX-07",
+    "UX-08"
+  ],
+  "thresholds": {
+    "ux": "UNSET",
+    "coverage": "UNSET",
+    "latency": "UNSET",
+    "caseAge": "UNSET",
+    "supportCost": "UNSET",
+    "rpo": "UNSET",
+    "rto": "UNSET"
+  },
+  "sellerLegalProviderStatus": "EVIDENCE_PENDING",
+  "openingCutoverStatus": "NOT_RUN",
+  "legacyWriterLockStatus": "NOT_RUN",
+  "productVerificationRef": null,
+  "tenantAcceptanceRef": null,
+  "ownerApprovalRef": null,
+  "deferred": [
+    "B-CASE-001",
+    "B-CASE-002",
+    "B-CASE-003",
+    "LEGAL-MEMO",
+    "INV-09"
+  ],
+  "status": "PLANNING_ONLY_NO_TENANT_SIGNOFF"
+}

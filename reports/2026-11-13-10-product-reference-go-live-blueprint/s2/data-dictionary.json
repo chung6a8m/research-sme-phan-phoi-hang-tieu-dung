@@ -1,0 +1,1077 @@
+{
+  "schemaVersion": "s2-v2",
+  "syntheticOnly": true,
+  "basis": "R009 DC-01..18 BR-01..24 and R010-S1 P01/P02; Owner PADR-02/EVQ-05/06, 2026-11-13",
+  "conventions": {
+    "date": "YYYY-MM-DD local Asia/Ho_Chi_Minh",
+    "money": "VND integer strings, exact",
+    "quantity": "base UoM Decimal",
+    "sourceHash": "SHA256(ascii business columns + tenantCode/schemaVersion/sourceSystem/sourceRecordId/importBatchId, pipe separated)",
+    "process": "upload -> validate -> FK/source/balance -> dry-run -> error/discrepancy review -> approval -> commit once",
+    "limitation": "All generated examples MODEL_ONLY, no production go-live/e-invoice evidence",
+    "requestedModes": "Distinct | delimited tokens A|B_ONLINE|MIXED|B_NO_CHANNEL mapped to S1 requestedModes[]; request does not grant mode admission",
+    "openingStockLine": "sourceDocumentId is document header, sourceLineId identifies the opening-stock line",
+    "creditPolicy": "T02 UNSET -> no terms/limit/approval, fail-closed; APPROVED -> explicit N>=0 and limit>=0 including approved zero + approvalRef. CSV cannot sign Finance approval.",
+    "accounting": "T13 manual register is a candidate type with source IDs, durable posting and reconciliation evidence required.",
+    "invoiceScope": "MVP A/B_ONLINE/MIXED B_ONLINE; B alternative channel during PWA outage deferred, B_NO_CHANNEL BLOCKED."
+  },
+  "commonFields": [
+    "tenantCode",
+    "schemaVersion",
+    "sourceSystem",
+    "sourceRecordId",
+    "sourceHash",
+    "importBatchId"
+  ],
+  "tables": [
+    {
+      "id": "T01",
+      "name": "tenant-profile",
+      "owner": "Tenant Owner",
+      "fields": [
+        {
+          "name": "warehouseCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-WH01"
+        },
+        {
+          "name": "legalSellerRef",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "currency",
+          "type": "VND",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "VND"
+          ],
+          "sample": "VND"
+        },
+        {
+          "name": "timezone",
+          "type": "TZ",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "Asia/Ho_Chi_Minh"
+          ],
+          "sample": "Asia/Ho_Chi_Minh"
+        },
+        {
+          "name": "requestedModes",
+          "type": "modes",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "A"
+        },
+        {
+          "name": "profileVersion",
+          "type": "int",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "1"
+        },
+        {
+          "name": "evidenceStatus",
+          "type": "pending",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "EVIDENCE_PENDING"
+          ],
+          "sample": "EVIDENCE_PENDING"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "name": "customers",
+      "owner": "Sales/AR",
+      "fields": [
+        {
+          "name": "customerCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-C0001"
+        },
+        {
+          "name": "customerLabel",
+          "type": "text",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "SYNTH_CUSTOMER_1"
+        },
+        {
+          "name": "customerGroup",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "GT-A"
+        },
+        {
+          "name": "creditPolicyStatus",
+          "type": "creditStatus",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "UNSET",
+            "APPROVED"
+          ],
+          "sample": "UNSET"
+        },
+        {
+          "name": "creditTermsDays",
+          "type": "int",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "creditLimitVnd",
+          "type": "money",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "creditApprovalRef",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "status",
+          "type": "status",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "ACTIVE",
+            "INACTIVE"
+          ],
+          "sample": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "name": "outlets",
+      "owner": "Sales",
+      "fields": [
+        {
+          "name": "outletCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-O0001"
+        },
+        {
+          "name": "customerCode",
+          "type": "code",
+          "required": true,
+          "ref": "T02.customerCode",
+          "allowed": null,
+          "sample": "F0-DEMO-01-C0001"
+        },
+        {
+          "name": "addressSample",
+          "type": "text",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "DEMO_ROUTE_1_NO_REAL_ADDRESS"
+        },
+        {
+          "name": "effectiveFrom",
+          "type": "date",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "2026-11-01"
+        },
+        {
+          "name": "effectiveTo",
+          "type": "date",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "status",
+          "type": "status",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "ACTIVE",
+            "INACTIVE"
+          ],
+          "sample": "ACTIVE"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "name": "products-uom",
+      "owner": "Warehouse",
+      "fields": [
+        {
+          "name": "skuCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-SKU-X"
+        },
+        {
+          "name": "baseUom",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "PCS"
+        },
+        {
+          "name": "salesUom",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "BOX"
+        },
+        {
+          "name": "conversionNumerator",
+          "type": "int",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "12"
+        },
+        {
+          "name": "conversionDenominator",
+          "type": "int",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "1"
+        },
+        {
+          "name": "quantityStep",
+          "type": "int",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "1"
+        },
+        {
+          "name": "lotTracking",
+          "type": "YN",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "Y",
+            "N"
+          ],
+          "sample": "Y"
+        },
+        {
+          "name": "expiryPolicy",
+          "type": "expiry",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "FEFO",
+            "NONE"
+          ],
+          "sample": "FEFO"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "name": "opening-stock-lots",
+      "owner": "Warehouse/Cost",
+      "fields": [
+        {
+          "name": "skuCode",
+          "type": "code",
+          "required": true,
+          "ref": "T04.skuCode",
+          "allowed": null,
+          "sample": "F0-DEMO-01-SKU-X"
+        },
+        {
+          "name": "locationCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-WH01"
+        },
+        {
+          "name": "lotCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-LOT1"
+        },
+        {
+          "name": "expiryDate",
+          "type": "date",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": "2027-12-31"
+        },
+        {
+          "name": "stockStatus",
+          "type": "stock",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "AVAILABLE",
+            "QUARANTINE",
+            "IN_TRANSIT"
+          ],
+          "sample": "AVAILABLE"
+        },
+        {
+          "name": "qtyBase",
+          "type": "decimal",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "100"
+        },
+        {
+          "name": "totalCost",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "1000"
+        },
+        {
+          "name": "sourceDocumentId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-OPEN-STOCK-1"
+        },
+        {
+          "name": "sourceLineId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "L0001"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "name": "prices-promotions",
+      "owner": "Pricing",
+      "fields": [
+        {
+          "name": "ruleId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-PRICE-1"
+        },
+        {
+          "name": "customerGroup",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "GT-A"
+        },
+        {
+          "name": "skuCode",
+          "type": "code",
+          "required": true,
+          "ref": "T04.skuCode",
+          "allowed": null,
+          "sample": "F0-DEMO-01-SKU-X"
+        },
+        {
+          "name": "priceMode",
+          "type": "priceMode",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "EXCLUSIVE",
+            "INCLUSIVE"
+          ],
+          "sample": "EXCLUSIVE"
+        },
+        {
+          "name": "unitPrice",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "15"
+        },
+        {
+          "name": "discountType",
+          "type": "discount",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "NONE",
+            "FIXED",
+            "PERCENT"
+          ],
+          "sample": "NONE"
+        },
+        {
+          "name": "discountValue",
+          "type": "int",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "0"
+        },
+        {
+          "name": "effectiveFrom",
+          "type": "date",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "2026-11-01"
+        },
+        {
+          "name": "effectiveTo",
+          "type": "date",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "giftThreshold",
+          "type": "int",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "0"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "name": "opening-receivables",
+      "owner": "AR Accountant",
+      "fields": [
+        {
+          "name": "customerCode",
+          "type": "code",
+          "required": true,
+          "ref": "T02.customerCode",
+          "allowed": null,
+          "sample": "F0-DEMO-01-C0001"
+        },
+        {
+          "name": "openItemId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-AR-1"
+        },
+        {
+          "name": "deliverySourceId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-LEGACY-DEL-1"
+        },
+        {
+          "name": "deliveryDate",
+          "type": "date",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "2026-10-25"
+        },
+        {
+          "name": "dueDate",
+          "type": "date",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "2026-11-25"
+        },
+        {
+          "name": "originalGross",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "140000"
+        },
+        {
+          "name": "openAmount",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "140000"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "name": "opening-customer-credits",
+      "owner": "AR Accountant",
+      "fields": [
+        {
+          "name": "customerCode",
+          "type": "code",
+          "required": true,
+          "ref": "T02.customerCode",
+          "allowed": null,
+          "sample": "F0-DEMO-01-C0002"
+        },
+        {
+          "name": "creditSourceId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-CREDIT-1"
+        },
+        {
+          "name": "verifiedReceiptSourceId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-LEGACY-RECEIPT-1"
+        },
+        {
+          "name": "availableAmount",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "25000"
+        },
+        {
+          "name": "reservedAmount",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "0"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "name": "opening-cash-custody",
+      "owner": "Cashier",
+      "fields": [
+        {
+          "name": "employeeCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-EMP01"
+        },
+        {
+          "name": "custodySourceId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-CUSTODY-1"
+        },
+        {
+          "name": "amountHeld",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "60000"
+        },
+        {
+          "name": "acceptedToFund",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "0"
+        },
+        {
+          "name": "cutoffDate",
+          "type": "date",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "2026-11-12"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "opening-advances",
+      "owner": "Finance",
+      "fields": [
+        {
+          "name": "employeeCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-EMP01"
+        },
+        {
+          "name": "advanceId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-ADVANCE-1"
+        },
+        {
+          "name": "issued",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "500000"
+        },
+        {
+          "name": "approvedExpenses",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "300000"
+        },
+        {
+          "name": "cashierAcceptedReturns",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "0"
+        },
+        {
+          "name": "outstanding",
+          "type": "money",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "200000"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "name": "staff-vehicle-trips-grants",
+      "owner": "Operations",
+      "fields": [
+        {
+          "name": "tripCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-T0001"
+        },
+        {
+          "name": "mode",
+          "type": "mode",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "A",
+            "B_ONLINE",
+            "MIXED"
+          ],
+          "sample": "A"
+        },
+        {
+          "name": "vehicleCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-VEH01"
+        },
+        {
+          "name": "vehicleKind",
+          "type": "vehicleKind",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "MOTORBIKE",
+            "TRUCK"
+          ],
+          "sample": "MOTORBIKE"
+        },
+        {
+          "name": "writerInstallationId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-INST0001"
+        },
+        {
+          "name": "grantId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-GRANT0001"
+        },
+        {
+          "name": "deliveryEmployeeCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-EMP01"
+        },
+        {
+          "name": "driverEmployeeCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-EMP01"
+        },
+        {
+          "name": "aReservationRef",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-ARES-1"
+        },
+        {
+          "name": "bQuotaRef",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "serviceDate",
+          "type": "date",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "2026-11-13"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "name": "cutover-external-manifest",
+      "owner": "IT/Ops",
+      "fields": [
+        {
+          "name": "legacySystem",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "SYNTHETIC_LEGACY"
+        },
+        {
+          "name": "recordType",
+          "type": "recordType",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "STOCK",
+            "AR",
+            "DEVICE_JOURNAL",
+            "EXTERNAL_INVOICE"
+          ],
+          "sample": "STOCK"
+        },
+        {
+          "name": "legacyId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-OPEN-STOCK-1"
+        },
+        {
+          "name": "sourceHashExternal",
+          "type": "sha256",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "c701a3fc8e572d89535e09f0242092f8c6b90e1d57766a60b23c730995bd725c"
+        },
+        {
+          "name": "externalInvoiceRef",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "devicePendingJournal",
+          "type": "device",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "UNKNOWN",
+            "NONE_KNOWN",
+            "RECONCILED"
+          ],
+          "sample": "UNKNOWN"
+        },
+        {
+          "name": "status",
+          "type": "pending",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "EVIDENCE_PENDING"
+          ],
+          "sample": "EVIDENCE_PENDING"
+        },
+        {
+          "name": "ownerRole",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "OPS"
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "name": "accounting-provider-profile",
+      "owner": "Finance/Integration",
+      "fields": [
+        {
+          "name": "adapterCode",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-MOCK-ADAPTER"
+        },
+        {
+          "name": "adapterType",
+          "type": "adapter",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "MOCK_ONLY",
+            "API",
+            "FILE",
+            "MANUAL_REGISTER"
+          ],
+          "sample": "MOCK_ONLY"
+        },
+        {
+          "name": "providerProfileRef",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "mappingVersion",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "s2-mock-v1"
+        },
+        {
+          "name": "receiptMechanism",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "NOT_CONFIGURED"
+        },
+        {
+          "name": "postedMechanism",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "NOT_CONFIGURED"
+        },
+        {
+          "name": "lookupMechanism",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "NOT_CONFIGURED"
+        },
+        {
+          "name": "reconciliationMethod",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "NOT_CONFIGURED"
+        },
+        {
+          "name": "evidenceStatus",
+          "type": "pending",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "EVIDENCE_PENDING"
+          ],
+          "sample": "EVIDENCE_PENDING"
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "name": "go-live-evidence-cases",
+      "owner": "QA/Owner",
+      "fields": [
+        {
+          "name": "caseId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "F0-DEMO-01-CASE-A"
+        },
+        {
+          "name": "mode",
+          "type": "allModes",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "A",
+            "B_ONLINE",
+            "MIXED",
+            "B_NO_CHANNEL"
+          ],
+          "sample": "A"
+        },
+        {
+          "name": "gateId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "G-INV"
+        },
+        {
+          "name": "acId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "AC-14"
+        },
+        {
+          "name": "evId",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "EV-10"
+        },
+        {
+          "name": "buildSha",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "testRunId",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "decision",
+          "type": "decision",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "NO_GO",
+            "PENDING",
+            "GO"
+          ],
+          "sample": "NO_GO"
+        },
+        {
+          "name": "status",
+          "type": "runStatus",
+          "required": true,
+          "ref": null,
+          "allowed": [
+            "NOT_RUN",
+            "BLOCKED",
+            "FAILED",
+            "VERIFIED"
+          ],
+          "sample": "NOT_RUN"
+        },
+        {
+          "name": "reviewer",
+          "type": "code",
+          "required": false,
+          "ref": null,
+          "allowed": null,
+          "sample": ""
+        },
+        {
+          "name": "caseOwner",
+          "type": "code",
+          "required": true,
+          "ref": null,
+          "allowed": null,
+          "sample": "OPS"
+        }
+      ]
+    }
+  ]
+}

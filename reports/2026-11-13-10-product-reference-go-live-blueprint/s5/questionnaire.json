@@ -1,0 +1,541 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "PRODUCT_ADOPTION_QUESTIONNAIRE_NOT_TENANT_EVIDENCE",
+  "status": "QUESTION_BANK_PREPARED",
+  "scope": "P07",
+  "questions": [
+    {
+      "questionId": "Q-01",
+      "domain": "Seller/tenant",
+      "prompt": "Xác minh một seller pháp lý cho mỗi tenant, bản đồ organization/DB và nguồn quyền hiện hành?",
+      "requestedRoles": [
+        "Tenant Owner",
+        "Legal",
+        "Security"
+      ],
+      "policyIds": [
+        "POL-01"
+      ],
+      "configurationIds": [
+        "CFG-03"
+      ],
+      "controlIds": [
+        "OPS-01",
+        "OPS-23"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-02",
+      "domain": "Customer/Outlet/ShipTo",
+      "prompt": "Khách hàng chịu nợ, điểm bán 0..n và địa chỉ giao snapshot lấy từ nguồn nào? Có dữ liệu trùng không?",
+      "requestedRoles": [
+        "Sales",
+        "Data Owner"
+      ],
+      "policyIds": [
+        "POL-02"
+      ],
+      "configurationIds": [],
+      "controlIds": [
+        "OPS-01",
+        "OPS-03"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-03",
+      "domain": "Module A",
+      "prompt": "Có bước chốt đơn A, giao nhiều lần, giao thiếu và đối soát đơn → giao → công nợ như thế nào?",
+      "requestedRoles": [
+        "Sales",
+        "Operations"
+      ],
+      "policyIds": [
+        "POL-03"
+      ],
+      "configurationIds": [
+        "CFG-04"
+      ],
+      "controlIds": [
+        "OPS-08"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-04",
+      "domain": "Trip/Mixed",
+      "prompt": "Chuyến A/B/Mixed, nguồn AReservation và BQuota, lái xe/giao hàng kiêm nhiệm hay tách vai ra sao?",
+      "requestedRoles": [
+        "Operations",
+        "Warehouse"
+      ],
+      "policyIds": [
+        "POL-04"
+      ],
+      "configurationIds": [
+        "CFG-07"
+      ],
+      "controlIds": [
+        "OPS-04",
+        "OPS-08"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-05",
+      "domain": "One stock writer",
+      "prompt": "Liệt kê mọi đường ghi stock của legacy: UI, API, job, import, SQL, offline và hàng ngoài Wave 1 trên toàn kho?",
+      "requestedRoles": [
+        "Warehouse",
+        "IT"
+      ],
+      "policyIds": [
+        "POL-05"
+      ],
+      "configurationIds": [],
+      "controlIds": [
+        "OPS-05",
+        "OPS-13"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-06",
+      "domain": "UoM/lot/return",
+      "prompt": "SKU/UoM, conversion, lot/expiry/FEFO, stock trên xe và hàng trả cách ly có nguồn đối soát nào?",
+      "requestedRoles": [
+        "Warehouse",
+        "QA"
+      ],
+      "policyIds": [
+        "POL-06"
+      ],
+      "configurationIds": [
+        "CFG-08",
+        "CFG-09"
+      ],
+      "controlIds": [
+        "OPS-07"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-07",
+      "domain": "Cost",
+      "prompt": "Giá vốn vận hành theo SKU×location và giá vốn bình quân kỳ của kế toán được đối chiếu/correct như thế nào?",
+      "requestedRoles": [
+        "Finance",
+        "Cost Accountant"
+      ],
+      "policyIds": [
+        "POL-07"
+      ],
+      "configurationIds": [
+        "CFG-10"
+      ],
+      "controlIds": [
+        "OPS-28"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-08",
+      "domain": "Price/rounding/tax",
+      "prompt": "Giá theo VND, bảng giá theo phiên bản, snapshot thuế/UoM và Decimal line-stable rounding được xác nhận từ nguồn nào?",
+      "requestedRoles": [
+        "Sales",
+        "Finance",
+        "Tax"
+      ],
+      "policyIds": [
+        "POL-08"
+      ],
+      "configurationIds": [
+        "CFG-01",
+        "CFG-12"
+      ],
+      "controlIds": [
+        "OPS-24"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-09",
+      "domain": "Gift/discount",
+      "prompt": "Năm nhóm pricing rules hữu hạn, chiết khấu, quà theo mua ròng và waiver có duyệt được ưu tiên/kiểm soát thế nào?",
+      "requestedRoles": [
+        "Sales",
+        "Finance"
+      ],
+      "policyIds": [
+        "POL-09"
+      ],
+      "configurationIds": [
+        "CFG-11"
+      ],
+      "controlIds": [
+        "OPS-24"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-10",
+      "domain": "Credit terms",
+      "prompt": "Timezone/ngày nghiệp vụ và thời hạn theo từng delivery, credit terms UNSET khác APPROVED=0 và open AR items ra sao?",
+      "requestedRoles": [
+        "Finance",
+        "Sales"
+      ],
+      "policyIds": [
+        "POL-10"
+      ],
+      "configurationIds": [
+        "CFG-02",
+        "CFG-05",
+        "CFG-06"
+      ],
+      "controlIds": [
+        "OPS-02",
+        "OPS-28"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-11",
+      "domain": "B online atomic",
+      "prompt": "B SaleDeliveryReceipt atomic, khi kênh hóa đơn offline không hợp lệ thì giữ WAITING_INVOICE_CHANNEL thế nào?",
+      "requestedRoles": [
+        "Sales",
+        "IT",
+        "Legal"
+      ],
+      "policyIds": [
+        "POL-11"
+      ],
+      "configurationIds": [],
+      "controlIds": [
+        "OPS-08",
+        "OPS-25"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-12",
+      "domain": "B quota/grant",
+      "prompt": "Quyền hạn BQuota, TTL/hạn mức, exposure đã được Finance duyệt và race trên cùng quota được kiểm soát ra sao?",
+      "requestedRoles": [
+        "Finance",
+        "Operations"
+      ],
+      "policyIds": [
+        "POL-12"
+      ],
+      "configurationIds": [
+        "CFG-23"
+      ],
+      "controlIds": [
+        "OPS-02",
+        "OPS-04"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-13",
+      "domain": "Three ledgers",
+      "prompt": "Bank VERIFIED khác ảnh chuyển khoản, AR/custody/advance, Cashier acceptance độc lập và hoàn ứng nhiều lần được kiểm ra sao?",
+      "requestedRoles": [
+        "Cashier",
+        "Finance"
+      ],
+      "policyIds": [
+        "POL-13"
+      ],
+      "configurationIds": [
+        "CFG-13",
+        "CFG-14",
+        "CFG-15"
+      ],
+      "controlIds": [
+        "OPS-09"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-14",
+      "domain": "CustomerCredit",
+      "prompt": "Biên lai thu thừa phân bổ từng lần, CustomerCredit và refund thực đã giải ngân có source IDs thế nào?",
+      "requestedRoles": [
+        "Finance",
+        "Cashier"
+      ],
+      "policyIds": [
+        "POL-14"
+      ],
+      "configurationIds": [],
+      "controlIds": [
+        "OPS-09"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-15",
+      "domain": "Writer/device",
+      "prompt": "Một writer/trip; thiết bị tái sử dụng chuyến sau, lái xe khác giao hàng, revoke/epoch/quyền offline kiểm gì?",
+      "requestedRoles": [
+        "Operations",
+        "Security"
+      ],
+      "policyIds": [
+        "POL-15"
+      ],
+      "configurationIds": [
+        "CFG-17"
+      ],
+      "controlIds": [
+        "OPS-04"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-16",
+      "domain": "Offline journal",
+      "prompt": "PWA offline grant có được yêu cầu theo mode/thiết bị, đã qua E2E chưa; journal/ACK/idempotency/revoke kiểm thế nào?",
+      "requestedRoles": [
+        "IT",
+        "QA"
+      ],
+      "policyIds": [
+        "POL-16"
+      ],
+      "configurationIds": [
+        "CFG-16"
+      ],
+      "controlIds": [
+        "OPS-18"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-17",
+      "domain": "Privacy/restore",
+      "prompt": "Retention/privacy theo cơ sở xử lý nào, ai xác nhận PrivacyActionLedger, quyền hiện hành và external authority ngoài rollback?",
+      "requestedRoles": [
+        "Legal",
+        "Security",
+        "Data Owner"
+      ],
+      "policyIds": [
+        "POL-17"
+      ],
+      "configurationIds": [
+        "CFG-24"
+      ],
+      "controlIds": [
+        "OPS-16",
+        "OPS-29",
+        "OPS-30"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-18",
+      "domain": "Invoice provider",
+      "prompt": "Seller/provider A/B_ONLINE, trạng thái UNKNOWN/lookup/idempotency, B_NO_CHANNEL blocked, legal memo đang chờ nguồn gì?",
+      "requestedRoles": [
+        "Legal",
+        "Finance",
+        "Provider"
+      ],
+      "policyIds": [
+        "POL-18"
+      ],
+      "configurationIds": [
+        "CFG-18"
+      ],
+      "controlIds": [
+        "OPS-10",
+        "OPS-23",
+        "OPS-25",
+        "OPS-26"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-19",
+      "domain": "Accounting adapter",
+      "prompt": "API/FILE/MANUAL_REGISTER, source hash, RECEIVED/POSTED/RECONCILED, external registry và correction do ai xác thực?",
+      "requestedRoles": [
+        "Finance",
+        "IT"
+      ],
+      "policyIds": [
+        "POL-19"
+      ],
+      "configurationIds": [
+        "CFG-19"
+      ],
+      "controlIds": [
+        "OPS-10",
+        "OPS-27",
+        "OPS-28"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-20",
+      "domain": "Returns",
+      "prompt": "Hàng trả held/accepted/received, cách ly QA, AR/refund và approved release có luồng chứng từ nào?",
+      "requestedRoles": [
+        "Warehouse",
+        "Finance"
+      ],
+      "policyIds": [
+        "POL-20"
+      ],
+      "configurationIds": [],
+      "controlIds": [
+        "OPS-07"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-21",
+      "domain": "Opening/cutover",
+      "prompt": "Có kế hoạch C0–C8, T01–T14, snapshot/cutoff, ký đa bên, writer lock tất cả đường và forward recovery?",
+      "requestedRoles": [
+        "IT",
+        "Warehouse",
+        "Finance",
+        "Tenant Owner"
+      ],
+      "policyIds": [
+        "POL-21"
+      ],
+      "configurationIds": [
+        "CFG-21"
+      ],
+      "controlIds": [
+        "OPS-05",
+        "OPS-06",
+        "OPS-07",
+        "OPS-08",
+        "OPS-10",
+        "OPS-11",
+        "OPS-12",
+        "OPS-13",
+        "OPS-14",
+        "OPS-15",
+        "OPS-17"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-22",
+      "domain": "Visits/UX",
+      "prompt": "Lượt thăm không đơn và 8 bài UX được thao tác trên thiết bị nào, ai quan sát/đào tạo?",
+      "requestedRoles": [
+        "Sales",
+        "QA"
+      ],
+      "policyIds": [
+        "POL-22"
+      ],
+      "configurationIds": [],
+      "controlIds": [
+        "OPS-20"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-23",
+      "domain": "Reporting/support",
+      "prompt": "Daily close với asOf/n/N, pending case có owner, monitoring/hypercare, quy trình escalation ra sao?",
+      "requestedRoles": [
+        "Operations",
+        "Finance"
+      ],
+      "policyIds": [
+        "POL-23"
+      ],
+      "configurationIds": [
+        "CFG-20"
+      ],
+      "controlIds": [
+        "OPS-19"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    },
+    {
+      "questionId": "Q-24",
+      "domain": "Pilot readiness",
+      "prompt": "Phân biệt EV-14 trước Pilot/EV-15 sau; NPP-01 D-15, ngưỡng UX/SLO, denominator, hỗ trợ/chi phí cần ai ký?",
+      "requestedRoles": [
+        "Tenant Owner",
+        "Operations",
+        "QA",
+        "Finance"
+      ],
+      "policyIds": [
+        "POL-24"
+      ],
+      "configurationIds": [
+        "CFG-22"
+      ],
+      "controlIds": [
+        "OPS-20",
+        "OPS-21",
+        "OPS-22"
+      ],
+      "answerState": "NOT_COLLECTED",
+      "expectedEvidenceClass": "AUTHORIZED_TENANT_SOURCE_OR_SIGNED_REVIEW",
+      "mandatoryBeforeTenantGoLive": true
+    }
+  ]
+}

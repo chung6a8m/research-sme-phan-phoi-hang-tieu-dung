@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "BASELINE_REVIEW_MATRIX_POST_SIGNOFF_METADATA_ONLY",
+  "targetBaseline": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "status": "REVIEW_COMPLETE_FOR_DOCUMENT_SCOPE",
+  "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+  "ownerAcceptanceRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994",
+  "requiredRoleCodes": [
+    "PRODUCT_BA",
+    "TECHNICAL",
+    "QA"
+  ],
+  "reviewers": [
+    {
+      "roleCode": "PRODUCT_BA",
+      "roleName": "Product/BA",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "S1/PADR/EVQ Q01..Q20, 24 POL/CFG, 12 SOP, D→BR→DC/API/SM→AC/EV; tenant-adoption and pilot boundaries",
+      "state": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "reviewerRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860297537",
+      "reviewedAt": "2026-11-13T17:34:27Z",
+      "reviewEvidenceRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+      ],
+      "findingRefs": [
+        "PBA-02",
+        "PBA-03",
+        "PBA-09"
+      ],
+      "nextAction": "Document review accepted; independent S6 evidence/tenant signoffs still required",
+      "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "reviewerGitHubLogin": "chung6a8m",
+      "reviewMode": "OWNER_MULTIROLE",
+      "submittedBy": "AI_ON_EXPLICIT_OWNER_INSTRUCTION",
+      "independentReviewer": false,
+      "authorityBasis": "OWNER_MULTIPLE_ROLES_NOT_INDEPENDENT",
+      "decision": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE"
+    },
+    {
+      "roleCode": "TECHNICAL",
+      "roleName": "Technical",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "Schema/CSV/validators, transaction boundaries pending TADR, source anchor consistency, read-only S3/S4, mode and cutover policies",
+      "state": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "reviewerRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860298525",
+      "reviewedAt": "2026-11-13T17:34:30Z",
+      "reviewEvidenceRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+      ],
+      "findingRefs": [
+        "TECH-08",
+        "TECH-11"
+      ],
+      "nextAction": "Document review accepted; independent S6 evidence/tenant signoffs still required",
+      "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "reviewerGitHubLogin": "chung6a8m",
+      "reviewMode": "OWNER_MULTIROLE",
+      "submittedBy": "AI_ON_EXPLICIT_OWNER_INSTRUCTION",
+      "independentReviewer": false,
+      "authorityBasis": "OWNER_MULTIPLE_ROLES_NOT_INDEPENDENT",
+      "decision": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE"
+    },
+    {
+      "roleCode": "QA",
+      "roleName": "QA",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "S1-S5 synthetic CI on final HEAD, negative regression, 14 reviewed blobs, S5 whole-tree snapshot plan, outstanding vs evidence semantics",
+      "state": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "reviewerRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310",
+      "reviewedAt": "2026-11-13T17:34:32Z",
+      "reviewEvidenceRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769664",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769648",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769694",
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769562"
+      ],
+      "findingRefs": [
+        "PBA-02",
+        "PBA-03",
+        "PBA-09",
+        "TECH-08",
+        "TECH-11"
+      ],
+      "nextAction": "Document review accepted; independent S6 evidence/tenant signoffs still required",
+      "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "reviewerGitHubLogin": "chung6a8m",
+      "reviewMode": "OWNER_MULTIROLE",
+      "submittedBy": "AI_ON_EXPLICIT_OWNER_INSTRUCTION",
+      "independentReviewer": false,
+      "authorityBasis": "OWNER_MULTIPLE_ROLES_NOT_INDEPENDENT",
+      "decision": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE"
+    },
+    {
+      "roleCode": "FINANCE",
+      "roleName": "Finance",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
+      "scope": "Credit UNSET/approved-zero, accounting, ledger, cost bridge; actual tenant accounting signoff independent",
+      "state": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "reviewerRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860324100",
+      "reviewedAt": "2026-11-13T17:35:39Z",
+      "reviewEvidenceRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+      ],
+      "findingRefs": [
+        "PBA-02",
+        "PBA-03",
+        "PBA-09"
+      ],
+      "nextAction": "Document review accepted; independent S6 evidence/tenant signoffs still required",
+      "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "reviewerGitHubLogin": "chung6a8m",
+      "reviewMode": "DELEGATED_SIGNATURE",
+      "submittedBy": "AI_ON_EXPLICIT_OWNER_INSTRUCTION",
+      "independentReviewer": false,
+      "authorityBasis": "OWNER_ATTESTED_OFF_PLATFORM_CONSULTATION_AND_DELEGATION_NOT_INDEPENDENTLY_VERIFIED",
+      "decision": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE"
+    },
+    {
+      "roleCode": "LEGAL",
+      "roleName": "Legal/Tax",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
+      "scope": "Seller/provider/legal invoice channel, privacy; B-CASE and LEGAL-MEMO remain PENDING",
+      "state": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "reviewerRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860325094",
+      "reviewedAt": "2026-11-13T17:35:42Z",
+      "reviewEvidenceRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+      ],
+      "findingRefs": [
+        "PBA-03",
+        "PBA-09",
+        "TECH-11"
+      ],
+      "nextAction": "Document review accepted; independent S6 evidence/tenant signoffs still required",
+      "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "reviewerGitHubLogin": "chung6a8m",
+      "reviewMode": "DELEGATED_SIGNATURE",
+      "submittedBy": "AI_ON_EXPLICIT_OWNER_INSTRUCTION",
+      "independentReviewer": false,
+      "authorityBasis": "OWNER_ATTESTED_OFF_PLATFORM_CONSULTATION_AND_DELEGATION_NOT_INDEPENDENTLY_VERIFIED",
+      "decision": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE"
+    },
+    {
+      "roleCode": "OPERATIONS",
+      "roleName": "Operations/Security",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
+      "scope": "Warehouse writer/DR/offline thresholds/incident/cutover/pilot; real rehearsal and tenant signatures pending",
+      "state": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE",
+      "reviewerRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860326019",
+      "reviewedAt": "2026-11-13T17:35:45Z",
+      "reviewEvidenceRefs": [
+        "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+      ],
+      "findingRefs": [
+        "TECH-08",
+        "TECH-11"
+      ],
+      "nextAction": "Document review accepted; independent S6 evidence/tenant signoffs still required",
+      "reviewedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+      "reviewerGitHubLogin": "chung6a8m",
+      "reviewMode": "DELEGATED_SIGNATURE",
+      "submittedBy": "AI_ON_EXPLICIT_OWNER_INSTRUCTION",
+      "independentReviewer": false,
+      "authorityBasis": "OWNER_ATTESTED_OFF_PLATFORM_CONSULTATION_AND_DELEGATION_NOT_INDEPENDENTLY_VERIFIED",
+      "decision": "REVIEW_ACCEPTED_FOR_DOCUMENT_SCOPE"
+    }
+  ],
+  "qualityGate": {
+    "state": "SYNTHETIC_CONTRACT_CI_SUCCESS_ON_CPRIME",
+    "candidateCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+    "checkedCommitSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+    "ciRefs": [
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769664",
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769648",
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769694",
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43467769562"
+    ],
+    "findingsDispositionRefs": [
+      "findings-disposition.json",
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+    ],
+    "baselineSnapshotRef": "../product-baseline-snapshot-cprime.candidate.json",
+    "limit": "Not Product Verification"
+  },
+  "comment": "Six role-scoped records posted under same Owner GitHub account via AI on explicit instruction. Not six independent reviewers. Finance/Legal/Operations delegations based on Owner attestation, not independently authenticated. No runtime or tenant approvals implied.",
+  "additionalMandatoryRoleCodesForQ09Cprime": [
+    "FINANCE",
+    "LEGAL",
+    "OPERATIONS"
+  ],
+  "ownerMultiRoleReviewPolicy": {
+    "roles": [
+      "PRODUCT_BA",
+      "TECHNICAL",
+      "QA"
+    ],
+    "singleOwnerMayPerformAllThree": true,
+    "independentReviewConfirmed": false,
+    "requiredSeparateReviewRefs": 3,
+    "existingReviewRefs": [
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860297537",
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860298525",
+      "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6860299310"
+    ],
+    "status": "THREE_OWNER_ROLE_RECORDS_NONINDEPENDENT"
+  },
+  "reconciliationRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6861241541"
+}

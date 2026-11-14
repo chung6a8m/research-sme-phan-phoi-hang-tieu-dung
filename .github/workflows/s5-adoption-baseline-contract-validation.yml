@@ -1,0 +1,92 @@
+name: S5 P07 adoption and baseline-contract checks (NOT tenant evidence)
+on:
+  pull_request:
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s5/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s4/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/data-dictionary.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fixture-manifest.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-adrs.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md'
+      - '.github/workflows/s5-adoption-baseline-contract-validation.yml'
+  push:
+    branches:
+      - 'research/2026-11-13-product-reference-go-live-blueprint'
+    paths:
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s5/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s4/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s3/**'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/data-dictionary.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s2/fixture-manifest.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/product-adrs.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md'
+      - 'reports/2026-11-13-09-mvp-specification-baseline/implementation-and-pilot-plan.vi.md'
+      - 'reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md'
+      - '.github/workflows/s5-adoption-baseline-contract-validation.yml'
+permissions:
+  contents: read
+jobs:
+  validate-s5-contract-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify upstream R009 main and unchanged source before Snapshot C
+        shell: bash
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor 86850a7b4d515b8f14dd736cc9657e051c2ec588 HEAD
+          git diff --quiet 86850a7b4d515b8f14dd736cc9657e051c2ec588 HEAD -- reports/2026-11-13-09-mvp-specification-baseline .github/workflows/r009-specification-contract-validation.yml
+          python reports/2026-11-13-09-mvp-specification-baseline/kiem-tra-truy-vet.py
+          python reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py
+      - name: Structural trace S1-S4 and S5 (NOT NPP assessment)
+        shell: bash
+        run: |
+          set -euo pipefail
+          S5=reports/2026-11-13-10-product-reference-go-live-blueprint/s5
+          node "$S5/s5-validate.mjs" --report s5-contract-report.json
+          node "$S5/s5-regression.mjs"
+          node "$S5/s5-owner-governance-validation.mjs"
+          node "$S5/s5-owner-governance-regression.mjs"
+      - name: JSON Schema + semantic negative tests (synthetic only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install 'jsonschema>=4.20,<5'
+          S5=reports/2026-11-13-10-product-reference-go-live-blueprint/s5
+          python "$S5/s5-schema-tests.py"
+          python "$S5/s5-owner-acceptance-schema-tests.py"
+          python "$S5/s5-snapshot-c-schema-tests.py"
+          python "$S5/s5-owner-acceptance-schema-tests.py" --acceptance "$S5/product-baseline-acceptance.example.json"
+          python "$S5/s5-schema-tests.py" --adoption "$S5/tenant-adoption-profile.example.json" --dossier reports/2026-11-13-10-product-reference-go-live-blueprint/s4/tenant-operations-discovery.example.json --answers "$S5/questionnaire-responses.example.json"
+          python "$S5/s5-schema-tests.py" --pilot "$S5/npp-01-pilot-blueprint.example.json" --freeze "$S5/product-baseline-freeze.candidate.json"
+      - name: Upload contract-only report
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s5-contract-check-not-tenant-evidence
+          path: s5-contract-report.json
+          retention-days: 7

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "s5-owner-review-v1",
+  "recordKind": "BASELINE_REVIEW_MATRIX_PRE_SIGNOFF",
+  "targetBaseline": "PRODUCT_BASELINE_V1_CANDIDATE",
+  "status": "REVIEW_NOT_COMPLETE",
+  "reviewedCommitSha": null,
+  "ownerAcceptanceRef": null,
+  "requiredRoleCodes": [
+    "PRODUCT_BA",
+    "TECHNICAL",
+    "QA"
+  ],
+  "reviewers": [
+    {
+      "roleCode": "PRODUCT_BA",
+      "roleName": "Product/BA",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "S1/PADR/EVQ Q01..Q20, 24 POL/CFG, 12 SOP, D→BR→DC/API/SM→AC/EV; tenant-adoption and pilot boundaries",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
+    },
+    {
+      "roleCode": "TECHNICAL",
+      "roleName": "Technical",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "Schema/CSV/validators, transaction boundaries pending TADR, source anchor consistency, read-only S3/S4, mode and cutover policies",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
+    },
+    {
+      "roleCode": "QA",
+      "roleName": "QA",
+      "participation": "REQUIRED_BEFORE_OWNER_SIGNOFF",
+      "scope": "S1-S5 synthetic CI on final HEAD, negative regression, 14 reviewed blobs, S5 whole-tree snapshot plan, outstanding vs evidence semantics",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
+    },
+    {
+      "roleCode": "FINANCE",
+      "roleName": "Finance",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
+      "scope": "Credit UNSET/approved-zero, accounting, ledger, cost bridge; actual tenant accounting signoff independent",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
+    },
+    {
+      "roleCode": "LEGAL",
+      "roleName": "Legal/Tax",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
+      "scope": "Seller/provider/legal invoice channel, privacy; B-CASE and LEGAL-MEMO remain PENDING",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
+    },
+    {
+      "roleCode": "OPERATIONS",
+      "roleName": "Operations/Security",
+      "participation": "REQUIRED_BY_Q09_SIGN02_BEFORE_OWNER_SIGNOFF",
+      "scope": "Warehouse writer/DR/offline thresholds/incident/cutover/pilot; real rehearsal and tenant signatures pending",
+      "state": "PENDING_REVIEW",
+      "reviewerRef": null,
+      "reviewedAt": null,
+      "reviewEvidenceRefs": [],
+      "findingRefs": [],
+      "nextAction": "Review trên SHA Candidate C' sau contract fixes/CI, ghi reviewRef/reviewedAt thực; không suy sign-off từ chat hoặc CI"
+    }
+  ],
+  "qualityGate": {
+    "state": "NOT_EXECUTED_ON_FINAL_SNAPSHOT",
+    "candidateCommitSha": null,
+    "checkedCommitSha": null,
+    "ciRefs": [],
+    "findingsDispositionRefs": [],
+    "baselineSnapshotRef": null
+  },
+  "comment": "Q09-SIGN-01=2 Owner kiêm ba vai trò Product/BA Technical QA nhưng không độc lập nhân sự, phải có ba reviewRef riêng. Q09-SIGN-02=1 Finance Legal Operations review contract trước signoff. Hiện tất cả PENDING, không có chữ ký hoặc evidence/Go-Live giả.",
+  "additionalMandatoryRoleCodesForQ09Cprime": [
+    "FINANCE",
+    "LEGAL",
+    "OPERATIONS"
+  ],
+  "ownerMultiRoleReviewPolicy": {
+    "roles": [
+      "PRODUCT_BA",
+      "TECHNICAL",
+      "QA"
+    ],
+    "singleOwnerMayPerformAllThree": true,
+    "independentReviewConfirmed": false,
+    "requiredSeparateReviewRefs": 3,
+    "existingReviewRefs": [],
+    "status": "PENDING_ACTUAL_ROLE_REVIEW"
+  }
+}

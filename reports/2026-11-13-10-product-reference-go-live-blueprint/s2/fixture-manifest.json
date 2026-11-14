@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "s2-v2",
+  "origin": "R009 AC-03/19/20/21 + R010-S1; Owner PADR-02/EVQ-05/06 2026-11-13",
+  "status": "MODEL_ONLY",
+  "syntheticOnly": true,
+  "seeds": {
+    "F0": 101,
+    "F1": 202,
+    "F2": 303
+  },
+  "hashMethod": "SHA256 UTF-8 ASCII artifact bytes (non-signed; synthetic data)",
+  "files": {
+    "data-dictionary.json": "8c1a6a5241816f16a240b97d45474b9093cd11204208869e6ff547fddb1b206f",
+    "examples.json": "4720c1185ad57cfe450f1e69072ec6378ce30ff652e9fe4f5dbfd3780f1aff6e",
+    "fixtures/F0.json": "ff7de1621f82b0c712533a93a0cd9ede915bf85f4ca42b4ca3bbd43ed81005b5",
+    "fixtures/F1.json": "0c5fdf7b2fcb085a8dd504f0bcdb3f1169e01c2922910ac2e5189c67b25cbf5f",
+    "fixtures/F2.json": "b8dccf60e0ae42fa6559eff9240dfbd69bef41574d793b6dbfed959e2eaf26f1",
+    "golden-oracles.json": "8273ce3114ebff437a616b3e77022707cd3629ee743870aa745acce75e1562cf",
+    "templates/blank/T01-tenant-profile.csv": "ca6714a80fd79f0f0c8ea70f79607b72907f0d63393319cadbe012af8e9eea60",
+    "templates/blank/T02-customers.csv": "d677aaa92fa2363b67ffef751cfc8433cc3b98a2a17e044b28442e71656f66f1",
+    "templates/blank/T03-outlets.csv": "7c840447c62da660e2ab6a03fbbe70852b53500b73c2a7c671ed4992bab127c5",
+    "templates/blank/T04-products-uom.csv": "1e078aa155228f8c4b610f12141178bd8d04c569e2d08a966e15c52284815dc7",
+    "templates/blank/T05-opening-stock-lots.csv": "b2e2b5f8d1b88de35ee50427d82097bc26cf892eec616e52f354f434b25204c5",
+    "templates/blank/T06-prices-promotions.csv": "7f60d09c301a69472cecb7675c8c254180adbd903beece69215f63fbc785fce6",
+    "templates/blank/T07-opening-receivables.csv": "3f104b4d47257657eeb5d7aa77230aa667bb01646707d9b0892afa978eade03f",
+    "templates/blank/T08-opening-customer-credits.csv": "d9f6049f4e0f197caa4221cdf9f5a39aaae516042dbc05b26a855a213c101451",
+    "templates/blank/T09-opening-cash-custody.csv": "b7f8f066f2007992e15502bd5be1fea4ffdf21c4672e6b0ae6a2b7d99c4847de",
+    "templates/blank/T10-opening-advances.csv": "25f670735b1258f33e75dfc92a41794c936b4e4e78927847d343e766baf02b76",
+    "templates/blank/T11-staff-vehicle-trips-grants.csv": "dd0fbb2d37284688f70ab91a80ea7ada2767642ac6706836a461b58f42d74763",
+    "templates/blank/T12-cutover-external-manifest.csv": "6ed8adff300b2bb0ea2107fd10781cd0bd4ac2546e2dc3fa8ea7765d811645df",
+    "templates/blank/T13-accounting-provider-profile.csv": "77ce42b22f51b284578e02518727637a34f6883032e3c8e0f262ad4302e5e137",
+    "templates/blank/T14-go-live-evidence-cases.csv": "594daea0815f6effcd65b6493e303624ef9eb72f67931668da82f3d95636ea73",
+    "trip-scenarios.json": "faac804411436086b5f84f72638ee3653d60f26757094c27001e2db86ba5f790",
+    "s2-trip-scenarios.mjs": "9348dd7dd7862819e0a9327988c6839cb4af9ae1f2bf5fd8d26590d89329e46d"
+  }
+}

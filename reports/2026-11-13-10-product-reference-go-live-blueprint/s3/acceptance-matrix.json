@@ -1,0 +1,1498 @@
+{
+  "schemaVersion": "s3-v1",
+  "basis": "R009-AC-01..21",
+  "kind": "SYNTHETIC_TEST_CONTRACT",
+  "status": "NOT_RUN_PRODUCT",
+  "cases": [
+    {
+      "acId": "AC-01",
+      "title": "Tenant isolation và revoke",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-01",
+        "BR-17"
+      ],
+      "evidenceIds": [
+        "EV-01",
+        "EV-09"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "scenarioIds": [
+        "S3-AC01-P",
+        "S3-AC01-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-01",
+          "POL-17"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-01",
+          "DC-17"
+        ],
+        "apiIds": [
+          "API-01",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-01",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "TECH-11"
+        ],
+        "requiredSemanticChecks": [
+          "REVOKED_MEMBERSHIP_DENIES_EXPORT_OR_FILE",
+          "SIGNED_URL_REVOKE_EXPIRY_AND_DOWNLOAD_AUTHORIZATION"
+        ]
+      }
+    },
+    {
+      "acId": "AC-02",
+      "title": "Customer không cần Outlet và ShipTo snapshot",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-02",
+        "BR-03",
+        "BR-08"
+      ],
+      "evidenceIds": [
+        "EV-02"
+      ],
+      "modes": [
+        "A",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [],
+      "scenarioIds": [
+        "S3-AC02-P",
+        "S3-AC02-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-02",
+          "POL-03",
+          "POL-08"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-02",
+          "SOP-04",
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-02",
+          "DC-05",
+          "DC-08"
+        ],
+        "apiIds": [
+          "API-02"
+        ],
+        "stateMachineIds": [
+          "SM-01"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-02",
+          "D-03",
+          "D-05"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-03",
+          "PADR-04",
+          "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-09"
+        ],
+        "requiredSemanticChecks": [
+          "A_CONFIRM_PRICE_LOCKED_ACROSS_PARTIAL_DELIVERIES",
+          "AMENDMENT_ONLY_UNDELIVERED_WITH_SOURCE_VERSION"
+        ]
+      }
+    },
+    {
+      "acId": "AC-03",
+      "title": "Mixed A+B cân từng mốc T0–T6",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-03",
+        "BR-04",
+        "BR-07",
+        "BR-11",
+        "BR-12",
+        "BR-13"
+      ],
+      "evidenceIds": [
+        "EV-03",
+        "EV-04",
+        "EV-06",
+        "EV-07",
+        "EV-08",
+        "EV-11"
+      ],
+      "modes": [
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-03"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC03-P",
+        "S3-AC03-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-03",
+          "POL-04",
+          "POL-07",
+          "POL-11",
+          "POL-12",
+          "POL-13"
+        ],
+        "sopIds": [
+          "SOP-02",
+          "SOP-03",
+          "SOP-04",
+          "SOP-05",
+          "SOP-06",
+          "SOP-07",
+          "SOP-08",
+          "SOP-09"
+        ],
+        "dataContractIds": [
+          "DC-04",
+          "DC-05",
+          "DC-06",
+          "DC-07",
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-02",
+          "API-03",
+          "API-04",
+          "API-05",
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-01",
+          "SM-02",
+          "SM-03",
+          "SM-04",
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-03",
+          "D-04",
+          "D-06",
+          "D-07",
+          "D-11",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-02",
+          "PADR-03",
+          "PADR-04",
+          "PADR-05",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-04",
+      "title": "Một writer kho toàn Kho-01",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-05",
+        "BR-21"
+      ],
+      "evidenceIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "PRODUCTION_CUTOVER"
+      ],
+      "fixtureRefs": [
+        "F1"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "scenarioIds": [
+        "S3-AC04-P",
+        "S3-AC04-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-05",
+          "POL-21"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-03",
+          "DC-16"
+        ],
+        "apiIds": [
+          "API-09"
+        ],
+        "stateMachineIds": [
+          "SM-08"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-10",
+          "D-11",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-05",
+      "title": "UoM FEFO lot và quarantine",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-06",
+        "BR-20"
+      ],
+      "evidenceIds": [
+        "EV-04",
+        "EV-05"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC05-P",
+        "S3-AC05-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-06",
+          "POL-20"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-03",
+          "DC-12"
+        ],
+        "apiIds": [
+          "API-03",
+          "API-05"
+        ],
+        "stateMachineIds": [
+          "SM-04"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-04",
+          "D-05",
+          "D-11"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-04",
+          "PADR-05",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-06",
+      "title": "Moving average và kỳ kế toán khóa",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-07",
+        "BR-20"
+      ],
+      "evidenceIds": [
+        "EV-07"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC06-P",
+        "S3-AC06-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-07",
+          "POL-20"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-07",
+          "DC-12"
+        ],
+        "apiIds": [
+          "API-03",
+          "API-05"
+        ],
+        "stateMachineIds": [
+          "SM-04"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-04",
+          "D-05"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-04",
+          "PADR-05"
+        ]
+      }
+    },
+    {
+      "acId": "AC-07",
+      "title": "Quà ròng và waiver được duyệt",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-09"
+      ],
+      "evidenceIds": [
+        "EV-05"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC07-P",
+        "S3-AC07-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-09"
+        ],
+        "sopIds": [
+          "SOP-06"
+        ],
+        "dataContractIds": [
+          "DC-08"
+        ],
+        "apiIds": [
+          "API-05"
+        ],
+        "stateMachineIds": [
+          "SM-04"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-05"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-04",
+          "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-03"
+        ],
+        "requiredSemanticChecks": [
+          "PHYSICAL_RETURN_TO_QUARANTINE_WITHOUT_AR_CHANGE",
+          "GIFT_RECOVERED_OR_APPROVED_WAIVER_BEFORE_SETTLEMENT"
+        ]
+      }
+    },
+    {
+      "acId": "AC-08",
+      "title": "Hạn nợ theo delivery snapshot",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-10"
+      ],
+      "evidenceIds": [
+        "EV-06"
+      ],
+      "modes": [
+        "A",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC08-P",
+        "S3-AC08-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-10"
+        ],
+        "sopIds": [
+          "SOP-02",
+          "SOP-07"
+        ],
+        "dataContractIds": [
+          "DC-09"
+        ],
+        "apiIds": [
+          "API-02"
+        ],
+        "stateMachineIds": [
+          "SM-01"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-02"
+        ],
+        "requiredSemanticChecks": [
+          "CREDIT_UNSET_ALLOW_VERIFIED_CASH_ONLY",
+          "CREDIT_UNSET_DENY_UNAPPROVED_DEFERRED_PAYMENT"
+        ]
+      }
+    },
+    {
+      "acId": "AC-09",
+      "title": "SaleDeliveryReceipt atomic và grant",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-11",
+        "BR-12",
+        "BR-13",
+        "BR-15",
+        "BR-16"
+      ],
+      "evidenceIds": [
+        "EV-06",
+        "EV-08"
+      ],
+      "modes": [
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-03"
+      ],
+      "gateIds": [
+        "G-IDEMP",
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC09-P",
+        "S3-AC09-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-11",
+          "POL-12",
+          "POL-13",
+          "POL-15",
+          "POL-16"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-04",
+          "SOP-07",
+          "SOP-08",
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-04",
+          "DC-06",
+          "DC-09",
+          "DC-10",
+          "DC-11",
+          "DC-13"
+        ],
+        "apiIds": [
+          "API-04",
+          "API-06",
+          "API-10",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-03",
+          "SM-05",
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-03",
+          "D-06",
+          "D-07",
+          "D-09",
+          "D-12",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-02",
+          "PADR-03",
+          "PADR-05",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-10",
+      "title": "Ba sổ và cashier handover",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-13",
+        "BR-14"
+      ],
+      "evidenceIds": [
+        "EV-06",
+        "EV-12"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC10-P",
+        "S3-AC10-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-13",
+          "POL-14"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-06",
+          "SOP-07",
+          "SOP-08"
+        ],
+        "dataContractIds": [
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
+    },
+    {
+      "acId": "AC-11",
+      "title": "Durable ACK và dependency inbox",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-16"
+      ],
+      "evidenceIds": [
+        "EV-08"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "scenarioIds": [
+        "S3-AC11-P",
+        "S3-AC11-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-16"
+        ],
+        "sopIds": [
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-13"
+        ],
+        "apiIds": [
+          "API-10",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-07",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "TECH-08"
+        ],
+        "requiredSemanticChecks": [
+          "ONLINE_DURABLE_ACK_IDEMPOTENCY_SCOPED_EV08",
+          "OFFLINE_DEVICE_E2E_IS_SEPARATE_ADMISSION"
+        ]
+      }
+    },
+    {
+      "acId": "AC-12",
+      "title": "Một writer trip và occurred event",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-15",
+        "BR-16"
+      ],
+      "evidenceIds": [
+        "EV-08",
+        "EV-09"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP"
+      ],
+      "scenarioIds": [
+        "S3-AC12-P",
+        "S3-AC12-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-15",
+          "POL-16"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-04",
+          "SOP-09",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-04",
+          "DC-13"
+        ],
+        "apiIds": [
+          "API-04",
+          "API-10",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-03",
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-07",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-13",
+      "title": "Restore không hồi sinh authority hoặc invoice",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-17",
+        "BR-18"
+      ],
+      "evidenceIds": [
+        "EV-09",
+        "EV-10"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F2"
+      ],
+      "gateIds": [
+        "G-IDEMP",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC13-P",
+        "S3-AC13-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-17",
+          "POL-18"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-02",
+          "SOP-03",
+          "SOP-09",
+          "SOP-10",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-14",
+          "DC-17"
+        ],
+        "apiIds": [
+          "API-01",
+          "API-07",
+          "API-11"
+        ],
+        "stateMachineIds": [
+          "SM-06",
+          "SM-09"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-01",
+          "D-08",
+          "D-09",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-01",
+          "PADR-03",
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-14",
+      "title": "Hóa đơn delivery A và B_ONLINE",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-18"
+      ],
+      "evidenceIds": [
+        "EV-10"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC14-P",
+        "S3-AC14-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-18"
+        ],
+        "sopIds": [
+          "SOP-02",
+          "SOP-03",
+          "SOP-09",
+          "SOP-10"
+        ],
+        "dataContractIds": [
+          "DC-14"
+        ],
+        "apiIds": [
+          "API-07"
+        ],
+        "stateMachineIds": [
+          "SM-06"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-08"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-03",
+          "PADR-07"
+        ]
+      }
+    },
+    {
+      "acId": "AC-15",
+      "title": "Outbox accounting đối soát theo source",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-19"
+      ],
+      "evidenceIds": [
+        "EV-11"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC15-P",
+        "S3-AC15-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-19"
+        ],
+        "sopIds": [
+          "SOP-10"
+        ],
+        "dataContractIds": [
+          "DC-15"
+        ],
+        "apiIds": [
+          "API-08"
+        ],
+        "stateMachineIds": [
+          "SM-07"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-13"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-06"
+        ]
+      }
+    },
+    {
+      "acId": "AC-16",
+      "title": "Cutover opening và Forward Recovery",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-21"
+      ],
+      "evidenceIds": [
+        "EV-04",
+        "EV-12"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "PRODUCTION_CUTOVER"
+      ],
+      "fixtureRefs": [
+        "F1"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT"
+      ],
+      "scenarioIds": [
+        "S3-AC16-P",
+        "S3-AC16-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-21"
+        ],
+        "sopIds": [
+          "SOP-05",
+          "SOP-11"
+        ],
+        "dataContractIds": [
+          "DC-16"
+        ],
+        "apiIds": [
+          "API-09"
+        ],
+        "stateMachineIds": [
+          "SM-08"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-10",
+          "D-14"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-07",
+          "PADR-08"
+        ]
+      }
+    },
+    {
+      "acId": "AC-17",
+      "title": "Visit không sinh order giả",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-22"
+      ],
+      "evidenceIds": [
+        "EV-13"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED",
+        "OFFLINE_WRITE"
+      ],
+      "fixtureRefs": [
+        "F0"
+      ],
+      "gateIds": [],
+      "scenarioIds": [
+        "S3-AC17-P",
+        "S3-AC17-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-22"
+        ],
+        "sopIds": [
+          "SOP-12"
+        ],
+        "dataContractIds": [
+          "DC-18"
+        ],
+        "apiIds": [
+          "API-12"
+        ],
+        "stateMachineIds": [
+          "SM-10"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-15"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-09"
+        ]
+      }
+    },
+    {
+      "acId": "AC-18",
+      "title": "Pilot readiness và coverage theo mode",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-05",
+        "BR-23",
+        "BR-24"
+      ],
+      "evidenceIds": [
+        "EV-14",
+        "EV-15"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F1"
+      ],
+      "gateIds": [
+        "G-STOCK",
+        "G-CUT",
+        "G-IDEMP",
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC18-P",
+        "S3-AC18-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-05",
+          "POL-23",
+          "POL-24"
+        ],
+        "sopIds": [
+          "SOP-04",
+          "SOP-05",
+          "SOP-08",
+          "SOP-11",
+          "SOP-12"
+        ],
+        "dataContractIds": [
+          "DC-03",
+          "DC-16",
+          "DC-18"
+        ],
+        "apiIds": [
+          "API-09",
+          "API-12"
+        ],
+        "stateMachineIds": [
+          "SM-08",
+          "SM-10"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-11",
+          "D-15"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-08",
+          "PADR-09"
+        ]
+      }
+    },
+    {
+      "acId": "AC-19",
+      "title": "Pricing Decimal và partial return",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-08",
+        "BR-14",
+        "BR-20"
+      ],
+      "evidenceIds": [
+        "EV-05",
+        "EV-06",
+        "EV-10",
+        "EV-11"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-19"
+      ],
+      "gateIds": [
+        "G-LEDGER",
+        "G-INV"
+      ],
+      "scenarioIds": [
+        "S3-AC19-P",
+        "S3-AC19-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-08",
+          "POL-14",
+          "POL-20"
+        ],
+        "sopIds": [
+          "SOP-01",
+          "SOP-02",
+          "SOP-05",
+          "SOP-06",
+          "SOP-07"
+        ],
+        "dataContractIds": [
+          "DC-08",
+          "DC-09",
+          "DC-12"
+        ],
+        "apiIds": [
+          "API-02",
+          "API-05",
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-01",
+          "SM-04",
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-04",
+          "D-05",
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-04",
+          "PADR-05"
+        ]
+      },
+      "q09SemanticAcceptance": {
+        "findingRefs": [
+          "PBA-03",
+          "PBA-09"
+        ],
+        "requiredSemanticChecks": [
+          "PARTIAL_RETURN_GIFT_HELD_BLOCKS_SETTLEMENT",
+          "A_CONFIRM_PRICE_SNAPSHOT_NON_RETROACTIVE"
+        ]
+      }
+    },
+    {
+      "acId": "AC-20",
+      "title": "Advance settlement nhiều lần",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-13"
+      ],
+      "evidenceIds": [
+        "EV-06"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-20"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC20-P",
+        "S3-AC20-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-13"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-07",
+          "SOP-08"
+        ],
+        "dataContractIds": [
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
+    },
+    {
+      "acId": "AC-21",
+      "title": "Receipt allocation và CustomerCredit",
+      "source": "R009-AC",
+      "businessRules": [
+        "BR-13",
+        "BR-14"
+      ],
+      "evidenceIds": [
+        "EV-06"
+      ],
+      "modes": [
+        "A",
+        "B_ONLINE",
+        "MIXED"
+      ],
+      "fixtureRefs": [
+        "F0",
+        "S2:AC-21"
+      ],
+      "gateIds": [
+        "G-LEDGER"
+      ],
+      "scenarioIds": [
+        "S3-AC21-P",
+        "S3-AC21-N"
+      ],
+      "testLevel": [
+        "BDD_CONTRACT",
+        "REAL_E2E_REQUIRED"
+      ],
+      "productExecutionStatus": "NOT_RUN",
+      "implementationStatus": "STEPS_UNBOUND",
+      "s1Trace": {
+        "derivation": "VIA_R009_DIRECT_BR_AND_S1_BR_TO_POLICY_TO_DECISION",
+        "policyIds": [
+          "POL-13",
+          "POL-14"
+        ],
+        "sopIds": [
+          "SOP-03",
+          "SOP-06",
+          "SOP-07",
+          "SOP-08"
+        ],
+        "dataContractIds": [
+          "DC-09",
+          "DC-10",
+          "DC-11"
+        ],
+        "apiIds": [
+          "API-06"
+        ],
+        "stateMachineIds": [
+          "SM-05"
+        ],
+        "decisionIdsViaPolicy": [
+          "D-06",
+          "D-12"
+        ],
+        "productAdrIdsViaPolicy": [
+          "PADR-02",
+          "PADR-05"
+        ]
+      }
+    }
+  ]
+}

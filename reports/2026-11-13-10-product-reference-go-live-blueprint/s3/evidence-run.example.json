@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "s3-v1",
+  "recordKind": "TEST_EXECUTION_OBSERVATION_NOT_GATE_APPROVAL",
+  "runKind": "PLACEHOLDER",
+  "executionStatus": "NOT_RUN",
+  "acId": "AC-03",
+  "evIds": [
+    "EV-03",
+    "EV-04",
+    "EV-06",
+    "EV-07",
+    "EV-08",
+    "EV-11"
+  ],
+  "scenarioId": "S3-AC03-P",
+  "mode": "MIXED",
+  "testRunId": null,
+  "tenantId": null,
+  "profileVersion": null,
+  "runtime": {
+    "repository": null,
+    "commitSha": null,
+    "buildVersion": null,
+    "environment": null,
+    "device": null,
+    "providerVersion": null,
+    "accountingAdapterVersion": null,
+    "schemaVersion": null
+  },
+  "fixtureId": "F0",
+  "fixtureHash": null,
+  "faultId": null,
+  "startedAt": null,
+  "endedAt": null,
+  "expected": "R009 AC-03 / S2 AC-03: đối soát từng mốc T0–T6 khi chạy hệ thống thật.",
+  "actual": null,
+  "ledgerSnapshots": [],
+  "documentSourceIds": [],
+  "artifacts": [],
+  "review": {
+    "state": "NOT_SUBMITTED",
+    "reviewer": null,
+    "at": null,
+    "signoffRef": null
+  },
+  "openRisks": [],
+  "blockers": [
+    "Chưa có PWA/API/SQL/provider test harness và testRunId thật."
+  ]
+}

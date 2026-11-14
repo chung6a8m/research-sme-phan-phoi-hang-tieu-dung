@@ -4,6 +4,21 @@ Repository này là **nơi lưu kết quả nghiên cứu của dự án**, khô
 
 Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được phép ghi các báo cáo nghiên cứu vào repository và chủ động tổ chức thư mục, tên file phù hợp.
 
+## Quyết định Owner và các gate Go-Live — PR #2 (13/11/2026)
+
+- [9 PADR + 7 EVQ — Owner Decision Register](reports/2026-11-13-10-product-reference-go-live-blueprint/owner-decisions-and-evidence-gates.vi.md): đã phê duyệt phương án trong phỏng vấn, không thay thế test results.
+- [EVQ Acceptance Gates](reports/2026-11-13-10-product-reference-go-live-blueprint/evq-acceptance-gates.vi.md): P0 không miễn; P1 có scope/timebox; EV-14 Pilot readiness khác EV-15 Pilot results.
+- **Hai thay đổi phạm vi:** Credit UNSET khác APPROVED=0 (PADR-02); MVP A/B_ONLINE/MIXED dùng B online, hoãn B cần kênh hóa đơn thay thế khi PWA mất mạng (EVQ-05). B_NO_CHANNEL tiếp tục BLOCKED.
+- **Bảo vệ evidence:** EV-01..15 EVIDENCE_PENDING hoặc MODEL_ONLY/real pending theo R009; B-CASE/LEGAL-MEMO pending, INV-09 NOT_RUN; synthetic CI không phải ProductVerification hoặc TenantGoLive.
+
+## S5/P07 — Adoption, Gap Assessment và Product Baseline Freeze candidate (PR #2)
+
+- [S5 index — quy trình và artifacts](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/README.md): 24 câu hỏi và mapping POL/CFG/OPS, 4 archetype giả thuyết, ma trận CSV 30 OPS `UNASSESSED`, disposition L0/L1/L2/BLOCKED.
+- [Tenant adoption profile](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/tenant-adoption-profile.schema.json), [Product Pilot Contract](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/product-pilot-contract.json), [NPP-01 pilot blueprint](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/npp-01-pilot-blueprint.example.json): kế hoạch D-15 3A+3B_ONLINE+2MIXED/ngày × ≥5 ngày, stock authority toàn Kho-01.
+- [Product Baseline v1 freeze candidate](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/product-baseline-freeze.candidate.json) và [S5 CI evidence](reports/2026-11-13-10-product-reference-go-live-blueprint/s5/validation-results.vi.md): 14 Git blob anchors R009/S1–S4, 16 Owner decisions, TADR/evidence pending; **không phải phê duyệt freeze hoặc Go-Live**.
+
+**Trạng thái:** S5 contract-only đã được triển khai và CI synthetic PASS; `OWNER_BASELINE_ACCEPTANCE_PENDING`, `PRODUCT_VERIFIED=false`, `TENANT_GO_LIVE_ACCEPTED=false`. PR #2 tiếp tục Draft.
+
 ## Mục lục
 
 | Mã | Tài liệu | Trạng thái |
@@ -35,6 +50,24 @@ Theo xác nhận của chủ dự án ngày **11/11/2026**, trợ lý được p
 | R008-L | [Hồ sơ hóa đơn, vận chuyển và dữ liệu](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/hoa-don-va-du-lieu.vi.md) | Nguồn hiện hành/sắp hiệu lực, schema provider, profile/state/mapping và ca sandbox; chưa chạy provider hoặc xác nhận hồ sơ NPP. |
 | R008-P | [Pilot, viếng thăm và bàn giao](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/pilot-va-ban-giao.vi.md) | Hồ sơ tuyển/đầu vào, visit không đơn, 8 bài UX, cutover/import/export, ngoại lệ/KPI/cost; chưa có người dùng hoặc dữ liệu pilot. |
 | R008-S | [Nguồn và phạm vi kiểm chứng R008](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/sources.md) | Sổ nguồn chuyên đề, lệnh chạy, số liệu/mô hình, trạng thái bằng chứng và giới hạn. |
+| B010 | [Đề bài Product Reference Baseline & Go-Live Blueprint](briefs/2026-11-13-10-product-reference-go-live-blueprint.md) | Đề bài cho chuẩn sản phẩm đa NPP, template và Go-Live gates; chưa là kết quả triển khai. |
+| R010 | [Lộ trình Product Reference Baseline & Go-Live Blueprint](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) | Đã lập S0 roadmap; P01–P08 chưa thực hiện, mọi default mới là đề xuất. |
+| R010-F | [Template catalogue và fixture blueprint](reports/2026-11-13-10-product-reference-go-live-blueprint/template-catalog-and-fixtures.vi.md) | Thiết kế T01–T14/F0–F2 giả lập; chưa có file nhập liệu máy đọc được. |
+| R010-S1-P01 | [Phạm vi sản phẩm và personas](reports/2026-11-13-10-product-reference-go-live-blueprint/product-scope-and-personas.vi.md) | S1 đã soạn, `S1_DOCUMENTED_REVIEW_PENDING`; định hướng product-first, chưa Owner approve. |
+| R010-S1-SOP | [12 quy trình vận hành chuẩn A/B/mixed và xử lý ngoại lệ](reports/2026-11-13-10-product-reference-go-live-blueprint/sop-a-b-mixed.vi.md) | S1 đã soạn; SOP là ứng viên, chưa thử nghiệm UX/E2E. |
+| R010-S1-ROLE | [Role/RACI và 10 approval classes](reports/2026-11-13-10-product-reference-go-live-blueprint/role-and-approval-matrix.vi.md) | Ma trận quyền logical, chưa RBAC sản phẩm hoặc ký phân nhiệm NPP. |
+| R010-S1-POL | [24 Product Policies + 24 key cấu hình](reports/2026-11-13-10-product-reference-go-live-blueprint/product-policy-catalog.vi.md) | Bám BR-01–24; các default mới là `PRODUCT_DEFAULT_PROPOSED`. |
+| R010-S1-TP | [Tenant Profile logical schema](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile-schema.vi.md), [JSON Schema](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.schema.json), [ví dụ synthetic](reports/2026-11-13-10-product-reference-go-live-blueprint/tenant-profile.example.json) | Schema `DESIGN_CANDIDATE`, ví dụ DRAFT không dùng production. |
+| R010-S1-ADR | [9 Product ADR ứng viên](reports/2026-11-13-10-product-reference-go-live-blueprint/product-adrs.vi.md) | PADR-01–09 đang `PROPOSED_FOR_OWNER_REVIEW`, không thay quyết định R009. |
+| R010-S2 | [S2 — Data Foundation P03/P04](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md) | 14 CSV blank + dictionary/example + F0/F1/F2 + 343 trip model + Node checks; **synthetic CI success**, Owner pending. |
+| R010-S2-IMPORT | [Hướng dẫn nhập CSV/Excel và dry-run](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/import-template-guide.vi.md) | CSV + Excel generator và non-writing validator; không là import/cutover thật. |
+| R010-S2-QUALITY | [Kiểm chất lượng/đối soát](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/data-quality-and-reconciliation.vi.md) | Ràng buộc opening/kho–tiền–nợ; Go-Live blocker độc lập. |
+| R010-S2-SCENARIO | [Kịch bản F0/F1/F2 và oracle](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/reference-scenarios.vi.md) | Các ca và expected giả lập, không phải fault injection thật. |
+| R010-S2-VAL | [Báo cáo kiểm chứng S2](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/validation-results.vi.md) | Model checks và GitHub Actions success; chưa product/pilot verified. |
+| R010-S4 | [S4 Operations P06/P08](reports/2026-11-13-10-product-reference-go-live-blueprint/s4/README.md) | Runbook P06/preflight P08, 30 OPS controls, dossier draft/schema, CI contract; không có operational test/GO evidence. |
+| R010-S1-VAL | [Kết quả kiểm cấu trúc S1](reports/2026-11-13-10-product-reference-go-live-blueprint/s1-validation-results.vi.md) | Đã đối chiếu ID/truy vết/link/JSON qua GitHub; không phải kiểm chứng ứng dụng hoặc Owner approval. |
+| R010-S1-TR | [Truy vết S1](reports/2026-11-13-10-product-reference-go-live-blueprint/s1-traceability.vi.md) và [validator](reports/2026-11-13-10-product-reference-go-live-blueprint/kiem-tra-s1.py) | Cấu trúc D/BR→POL/SOP→AC/EV; không phải kiểm thử ứng dụng. |
+| R010-S | [Nguồn và giới hạn bằng chứng R010](reports/2026-11-13-10-product-reference-go-live-blueprint/sources.md) | Tách kế thừa R009 với giả định sản phẩm và chứng cứ thực chưa có. |
 | R009 | [MVP Specification Baseline v1 — NPP-01](reports/2026-11-13-09-mvp-specification-baseline/report.vi.md) | Đã lập bản baseline theo quyết định Owner sau R008; chính sách có trạng thái, đặc tả là draft, chưa có nghiệm thu hệ thống/Go-Live. |
 | R009-RAW | [Phỏng vấn quyết định Q01.txt — nguyên văn](reports/2026-11-13-09-mvp-specification-baseline/sources/npp-01-interview-summary-2026-11-12.original.txt) | Đã bảo toàn 10.280 byte nguồn tóm lược và SHA-256 trong R009-S; **không phải** transcript Q01–Q10 hoặc báo cáo Markdown đầy đủ từng dẫn. |
 | R009-NPP | [Tổng hợp quyết định và khoảng trống NPP-01](reports/2026-11-13-09-mvp-specification-baseline/npp-01-tong-hop-quyet-dinh-va-khoang-trong-mvp-2026-11-12.vi.md) | Bản biên tập lại từ tóm lược ngày 12/11/2026, không phải bản sao byte của file Markdown đầy đủ; phân rã thành 15 gói khoảng trống và gate. |
@@ -145,6 +178,16 @@ Ngày **11/11/2026**, chủ dự án chọn **Module A — đặt trước rồi
 **Thực hiện nghiên cứu tiếp nối ngày 12/11/2026:** theo yêu cầu Owner, [R008](reports/2026-11-12-08-khep-quy-tac-va-dac-ta-mvp/report.vi.md) khép bốn findings ở lớp quy tắc/contract ứng viên, bổ sung bộ số liệu nhiều ngày và mô hình giao thức có kết quả chạy, hồ sơ hóa đơn/chứng từ cấp xe, đặc tả hợp nhất và công cụ chuẩn bị pilot. Việc thực hiện B007 đã được yêu cầu; các phương án sản phẩm trong R008 vẫn cần chấp nhận theo phạm vi. Chưa có thiết bị/provider/NPP/pilot để thay bằng chứng mô hình bằng nghiệm thu thực tế. R001–R007 giữ nguyên như lịch sử; đặc tả đề nghị mới nằm tại R008-SPEC.
 
 **Baseline NPP-01 ngày 13/11/2026:** [R009](reports/2026-11-13-09-mvp-specification-baseline/report.vi.md) hợp nhất những chính sách Owner đã chọn sau R008 thành Decision Register/ADR, glossary, rule/data/API/state, acceptance/evidence và roadmap triển khai. Các kỹ thuật chi tiết vẫn là ứng viên review; `B-CASE-001/002/003`, `LEGAL-MEMO`, quyền ghi kho độc quyền, offline/cutover và pilot thật vẫn cần chứng cứ trước Go-Live. Tài liệu NPP-01 kèm theo được biên tập từ bản tóm lược hiện có, không được gắn nhãn bản gốc nguyên văn.
+
+**Blueprint sản phẩm ngày 13/11/2026:** [R010](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) đề xuất bộ chuẩn đa NPP và [catalog dữ liệu nhập/fixture](reports/2026-11-13-10-product-reference-go-live-blueprint/template-catalog-and-fixtures.vi.md). S0 mới là kế hoạch/đề bài, không khẳng định P01–P08, sản phẩm hay Go-Live đã xong. R009/NPP-01 giữ nguyên lịch sử.
+
+**Bổ sung S1/P01–P02 ngày 13/11/2026:** [R010 §9](reports/2026-11-13-10-product-reference-go-live-blueprint/report.vi.md) đã có bộ SOP/roles/policies/schema/ADR và trace ứng viên trên PR #2. **S1 đã soạn tài liệu, chờ Owner review**; không coi default giả lập là chính sách đã duyệt, chưa tạo fixture/import S2 hoặc evidence Go-Live.
+
+**Bổ sung S2/P03–P04 ngày 13/11/2026:** [R010-S2](reports/2026-11-13-10-product-reference-go-live-blueprint/s2/README.md) hiện có các bộ template CSV, dictionary, F0/F1/F2, trip projections, import dry-run, script tạo Excel và CI mô hình. Đây là `S2_ARTIFACTS_IMPLEMENTED_SYNTHETIC_CI_VERIFIED` **chờ review**, không phải sản phẩm Go-Live. Workbook Excel mẫu được tạo trong phiên chat và script tái tạo đã vào PR; binary XLSX chưa commit. Các mệnh đề S0/S1 cũ phản ánh thời điểm tạo tương ứng.
+
+**Bổ sung S3/P05 ngày 13/11/2026:** [R010-S3 Acceptance & Quality](reports/2026-11-13-10-product-reference-go-live-blueprint/s3/README.md) đã có 21 AC liên kết D/BR/POL/SOP/DC/API/SM/PADR/EV, 42 Gherkin positive/negative, 22 fault-injection cases, 15 hồ sơ EV, evidence-run schema và CI kiểm trace/negative. [CI S3](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43396658093) PASS trên HEAD `b8e0acd7` theo phạm vi **contract-only**. Gherkin chưa có step definitions/product runtime; `realE2eRuns=0`, tất cả EV thực pending; **không** đồng nghĩa `PRODUCT_VERIFIED` hoặc tenant Go-Live.
+
+**Bổ sung S4/P06–P08 ngày 13/11/2026:** [R010-S4 Operations & Preflight](reports/2026-11-13-10-product-reference-go-live-blueprint/s4/README.md) đã có runbook cutover (full Kho-01 writer fencing, snapshot/first effect/forward-only), DR/restore, monitoring/incident/hypercare, phân quyền ký/đào tạo và preflight seller/invoice/accounting/privacy. 30 kiểm soát OPS-01..30 liên kết AC/EV/mode, mẫu dossier/schema và CI **chỉ kiểm contract**. [CI S4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/actions/runs/43399848506) PASS contract (30 OPS, 20 mutation, 17 JSON Schema), **không phải runtime**. S4 `NOT_EXECUTED`: chưa diễn tập, chưa có hồ sơ ký NPP/Legal/Finance, EV real pending; A/B_ONLINE/MIXED NO_GO_PENDING, offline/cutover disabled, B_NO_CHANNEL blocked.
 
 ## Quy tắc sử dụng kết quả
 

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "s5-v1",
+  "recordKind": "PRODUCT_PILOT_CONTRACT_NOT_TENANT_ACCEPTANCE",
+  "kind": "TENANT_AGNOSTIC",
+  "sourceDecisions": [
+    "PADR-09",
+    "EVQ-01",
+    "EVQ-02",
+    "EVQ-07"
+  ],
+  "mvpModes": [
+    "A",
+    "B_ONLINE",
+    "MIXED"
+  ],
+  "blockedModes": [
+    "B_NO_CHANNEL"
+  ],
+  "principles": [
+    "Mode admission is separate by tenant, build, scope and evidence",
+    "P0 G-STOCK/G-CUT/G-IDEMP/G-LEDGER/G-INV non-waivable",
+    "EV-14 approved thresholds, device, roles and denominator BEFORE pilot",
+    "EV-15 measured actual outcomes AFTER representative pilot",
+    "MIXED requires A and B_ONLINE gates and independent Mixed E2E",
+    "Inventory authority covers entire warehouse including outside wave",
+    "OFFLINE_WRITE disabled unless EV-08/09 real device/trip grant verified",
+    "No automatic GO from tenant profile, fixture or CI"
+  ],
+  "metricDefinitions": [
+    {
+      "id": "UX-01..08",
+      "threshold": "UNSET",
+      "denominator": "PER_ROLE_AND_DEVICE_EXECUTIONS"
+    },
+    {
+      "id": "TRIP_COVERAGE",
+      "threshold": "UNSET",
+      "denominator": "SCHEDULED_ELIGIBLE_TRIPS_PER_MODE_DAY"
+    },
+    {
+      "id": "INTEGRITY",
+      "threshold": "P0_ZERO_OPEN_REQUIRED",
+      "denominator": "BUSINESS_EVENTS_AND_EXTERNAL_EFFECTS"
+    },
+    {
+      "id": "LATENCY",
+      "threshold": "UNSET",
+      "denominator": "ACTUAL_OPERATIONS_BY_MODE"
+    },
+    {
+      "id": "CASE_AGE",
+      "threshold": "UNSET",
+      "denominator": "OPEN_CASES_WITH_OWNER_AS_OF"
+    },
+    {
+      "id": "SUPPORT_COST",
+      "threshold": "UNSET",
+      "denominator": "OBSERVED_PILOT_PERIOD"
+    },
+    {
+      "id": "DATA_COMPLETENESS",
+      "threshold": "UNSET",
+      "denominator": "SOURCE_EVENTS_RECEIVED_EXPECTED_N_OVER_N"
+    }
+  ],
+  "thresholdApprovalRef": null,
+  "actualPilotEvidenceRefs": []
+}

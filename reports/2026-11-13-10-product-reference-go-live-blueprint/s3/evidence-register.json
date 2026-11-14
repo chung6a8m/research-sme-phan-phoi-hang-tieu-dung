@@ -1,0 +1,426 @@
+{
+  "schemaVersion": "s3-v1",
+  "basis": "R009-EV-01..15",
+  "kind": "PENDING_EVIDENCE_REGISTRY",
+  "status": "NO_REAL_EVIDENCE_COLLECTED",
+  "records": [
+    {
+      "evId": "EV-01",
+      "title": "Tenant isolation / membership / revoke / audit",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Security",
+        "Product QA"
+      ],
+      "acIds": [
+        "AC-01"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-02",
+      "title": "Customer/Outlet/ShipTo dữ liệu thật và snapshot",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Sales",
+        "Data Owner"
+      ],
+      "acIds": [
+        "AC-02"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-03",
+      "title": "Mixed A+B stock/AR/custody/cost từng bước",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Warehouse",
+        "Sales",
+        "Finance"
+      ],
+      "acIds": [
+        "AC-03"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-04",
+      "title": "Kho-01 toàn scope, legacy writer lock, lot/quarantine",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Warehouse",
+        "IT"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-04",
+        "AC-05",
+        "AC-16"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-05",
+      "title": "Price/discount/VAT/gift/return/refund theo line",
+      "source": "R009-AC",
+      "researchStatus": "MODEL_ONLY",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Sales",
+        "Finance"
+      ],
+      "acIds": [
+        "AC-05",
+        "AC-07",
+        "AC-19"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-06",
+      "title": "AR, custody, advance, credit, grant, receipts",
+      "source": "R009-AC",
+      "researchStatus": "MODEL_ONLY",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Finance",
+        "Cashier"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-08",
+        "AC-09",
+        "AC-10",
+        "AC-19",
+        "AC-20",
+        "AC-21"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-07",
+      "title": "Moving average vs accounting periodic cost bridge",
+      "source": "R009-AC",
+      "researchStatus": "MODEL_ONLY",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Cost Accountant",
+        "Finance"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-06"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-08",
+      "title": "PWA journal/durable ACK/SQL/concurrency",
+      "source": "R009-AC",
+      "researchStatus": "MODEL_ONLY",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "QA",
+        "Engineering"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-09",
+        "AC-11",
+        "AC-12"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-09",
+      "title": "Restore/revoke/privacy/generation/external registry",
+      "source": "R009-AC",
+      "researchStatus": "MODEL_ONLY",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Security",
+        "Operations"
+      ],
+      "acIds": [
+        "AC-01",
+        "AC-12",
+        "AC-13"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-10",
+      "title": "Seller/provider legal invoice A/B_ONLINE, B-CASE/INV-09",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Legal",
+        "Finance",
+        "Provider"
+      ],
+      "acIds": [
+        "AC-13",
+        "AC-14",
+        "AC-19"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-11",
+      "title": "Accounting POSTED/reconciliation by source",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Finance",
+        "IT",
+        "Accounting Adapter"
+      ],
+      "acIds": [
+        "AC-03",
+        "AC-15",
+        "AC-19"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-12",
+      "title": "Opening, writer lock, cutover and forward recovery",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Owner",
+        "Warehouse",
+        "Finance"
+      ],
+      "acIds": [
+        "AC-04",
+        "AC-10",
+        "AC-16"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-13",
+      "title": "No-order visit và UX-01..08 trên thiết bị",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Sales",
+        "QA"
+      ],
+      "acIds": [
+        "AC-17"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-14",
+      "title": "Pilot preflight threshold, staff, devices, runbooks",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Owner",
+        "Operations"
+      ],
+      "acIds": [
+        "AC-18"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    },
+    {
+      "evId": "EV-15",
+      "title": "Pilot real ≥5 days/coverage/incident/decision per mode",
+      "source": "R009-AC",
+      "researchStatus": "EVIDENCE_PENDING",
+      "realExecutionStatus": "NOT_RUN",
+      "realVerification": "EVIDENCE_PENDING",
+      "requiredRoles": [
+        "Owner",
+        "Operations",
+        "Finance"
+      ],
+      "acIds": [
+        "AC-18"
+      ],
+      "requiredRecords": [
+        "testRunId",
+        "commitSha",
+        "environment",
+        "tenantModeScope",
+        "expectedActual",
+        "ledgerDiffBeforeAfter",
+        "artifactsAndHashes",
+        "reviewerAcceptance"
+      ],
+      "acceptance": "REQUIRES_REAL_SYSTEM_EVIDENCE_AND_AUTHORIZED_REVIEW"
+    }
+  ]
+}
