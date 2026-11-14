@@ -1,3 +1,5 @@
+> **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
+
 # S6 — Source repository and PR governance
 
 **Cập nhật 14/11/2026:** PR #2 đã MERGED vào `main` (merge `ba6d526b518b877c1f2c9f04732273f9f33968c4`); PR #3 đã retarget base `main` và vẫn Draft. Các dòng về stacked branch dưới đây là *quy trình trước khi merge*, không còn là trạng thái hiện hành.

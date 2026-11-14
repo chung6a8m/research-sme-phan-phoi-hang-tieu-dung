@@ -3,7 +3,7 @@
   "recordKind": "S6_IMPLEMENTATION_ROADMAP_PLAN_NOT_EXECUTION",
   "createdOn": "2026-11-14",
   "sourceRepository": "chung6a8m/MyDms",
-  "sourceRepoSelectionStatus": "OWNER_DECIDED_REPO_EXISTS_FOUNDATION_PENDING",
+  "sourceRepoSelectionStatus": "OWNER_DECIDED_SOURCE_BOOTSTRAP_PR_DRAFT",
   "environmentStatus": "NOT_PROVISIONED",
   "personnelAssignmentsStatus": "PENDING_REAL_ASSIGNMENT",
   "researchRepository": "chung6a8m/research-sme-phan-phoi-hang-tieu-dung",
@@ -96,9 +96,10 @@
         "Preserve signed-R authenticity audit and product C-prime source anchors"
       ],
       "entryConditions": [
-        "Product C-prime Owner-accepted only for document contract and PR2 merged",
-        "Source repo chosen by Owner: D / chung6a8m/MyDms, verified exists but public/empty",
-        "Gate A safety prerequisites must be met before any technical spike"
+        "Product C-prime Owner accepted for document/contract only, PR2 merge confirmed",
+        "Q01 Private verified on source repo, main initialized, source PR #1 Draft",
+        "CI four jobs failed before any steps; no runtime/SQL/browser tests have run",
+        "Gate A safety/real sandbox still required before any technical spike"
       ],
       "exitCriteria": [
         "Repository PRIVATE verified with ownership, initialized branch and reviewed access/CI control",
@@ -463,11 +464,12 @@
   "sourceRepositoryDecisionRef": "s6-0-owner-engineering-decisions.json",
   "sourceEnvironmentSelectionStatus": "PENDING_ACTUAL_ENVIRONMENT",
   "ownerEngineeringDecisionsRef": "s6-0-owner-engineering-decisions.json",
-  "sourceRepositoryVisibilityCurrent": "public",
+  "sourceRepositoryVisibilityCurrent": "private",
   "sourceRepositoryVisibilityTarget": "private",
-  "sourceRepositoryBootstrapStatus": "REPOSITORY_EMPTY_NO_BRANCH",
+  "sourceRepositoryBootstrapStatus": "BOOTSTRAP_PR_DRAFT_CI_RUNNER_BLOCKED",
   "gates": {
-    "gateA": "BLOCKED_UNTIL_PRIVATE_AND_SAFE_SANDBOX_READY",
+    "gateA": "BLOCKED_PENDING_CI_RUNNER_AND_SAFE_SANDBOX",
     "gateB": "BLOCKED_PENDING_TADR_REVIEW_AND_OWNER_RUNTIME_AUTHORIZATION"
-  }
+  },
+  "sourceRepositoryObservationRef": "s6-0-source-bootstrap-observation.json"
 }

@@ -1,3 +1,5 @@
+> **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
+
 # R011 — S6 Engineering Readiness & Handoff
 
 **Status:** S6-0 OWNER_DIRECTION_RECORDED / SOURCE_BOOTSTRAP_PENDING; S6 runtime PREPARED_NOT_EXECUTED, 14/11/2026. **Source:** R009 + R010 S1–S5, Owner Acceptance Snapshot C′, commit R.
