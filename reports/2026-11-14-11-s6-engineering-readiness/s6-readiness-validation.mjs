@@ -10,7 +10,7 @@ const phases=["S6-0","S6-A","S6-B","S6-C","S6-D","S6-E","S6-F"];
 const p0=["G-STOCK","G-CUT","G-IDEMP","G-LEDGER","G-INV"];
 const modes={A:"NO_GO_PENDING",B_ONLINE:"NO_GO_PENDING",MIXED:"NO_GO_PENDING",OFFLINE_WRITE:"DISABLED_PENDING",B_NO_CHANNEL:"BLOCKED",PRODUCTION_CUTOVER:"DISABLED_PENDING"};
 const root="../2026-11-13-10-product-reference-go-live-blueprint/";
-export function validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs){
+export function validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs,mainObs){
  fail(plan.recordKind==="S6_IMPLEMENTATION_ROADMAP_PLAN_NOT_EXECUTION"&&plan.scope==="ENGINEERING_HANDOFF_AND_QUALITY_PLAN_ONLY","cannot claim implementation");
  fail(acceptance.state==="OWNER_BASELINE_ACCEPTED"&&acceptance.scope==="PRODUCT_POLICY_AND_CONTRACT_ONLY","Owner document baseline not accepted");
  fail(plan.upstream.ownerAcceptedSnapshotSha===acceptance.snapshotCommitSha&&plan.upstream.ownerAcceptedSnapshotSha===acceptance.ownerApproval.approvedSnapshotSha&&plan.upstream.metadataCommitR==="e47c3feb44c02a0fdf46c35f6c4b2f57c4365470","wrong approved baseline identity");
@@ -25,24 +25,29 @@ export function validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDec
  fail(ownerDecision.sourceRepo.selectedOption==="D"&&ownerDecision.sourceRepo.repository===plan.sourceRepository&&ownerDecision.sourceRepo.githubRepositoryId===1457279467&&ownerDecision.sourceRepo.existsVerified===true,"actual Owner-selected repository mismatch");
  fail(ownerDecision.sourceRepo.targetVisibility==="private"&&ownerDecision.sourceRepo.observedVisibilityAtDecision==="public"&&ownerDecision.sourceRepo.bootstrapStatus==="REPOSITORY_EMPTY_NO_BRANCH"&&ownerDecision.sourceRepo.branchActuallyExists===false,"fabricated private/bootstrap readiness");
  // Prior Private record is historical; Q01-v2 MIT/public is the effective source policy.
- fail(plan.sourceRepositoryVisibilityCurrent==="public"&&plan.sourceRepositoryVisibilityTarget==="public"&&plan.sourceRepositoryBootstrapStatus==="BOOTSTRAP_PR_DRAFT_FOUNDATION_CI_PASS_MIT_PENDING_MAIN"&&plan.sourceRepositoryObservationRef==="s6-0-source-bootstrap-observation.json"&&plan.sourceRepositoryCurrentObservationRef==="s6-0-mit-source-observation.json","current public MIT source observation missing");
+ fail(plan.sourceRepositoryVisibilityCurrent==="public"&&plan.sourceRepositoryVisibilityTarget==="public"&&plan.sourceRepositoryBootstrapStatus==="FOUNDATION_B04_CONTRACT_MAIN_GATE_A_PENDING"&&plan.sourceRepositoryObservationRef==="s6-0-source-bootstrap-observation.json"&&plan.sourceRepositoryCurrentObservationRef==="s6-0-main-foundation-observation.json","current public MIT source observation missing");
  fail(sourceObs.recordKind==="REPO_AND_CI_OBSERVATION_NOT_PRODUCT_VERIFICATION"&&sourceObs.sourceRepository===plan.sourceRepository&&sourceObs.githubRepoId===1457279467&&sourceObs.githubVisibility==="private","unverified private repository");
  fail(sourceObs.bootstrapPullRequest==="https://github.com/chung6a8m/MyDms/pull/1"&&sourceObs.sourcePrDraft===true&&sourceObs.sourcePrMerged===false,"source PR merge/review fabricated");
  fail(sourceObs.ciObservedResult==="FAILURE_WITH_ZERO_EXECUTED_STEPS"&&sourceObs.ciFailedJobs.length===4&&sourceObs.actualDotnetBuilds===0&&sourceObs.actualSqlFixtures===0,"CI failure cannot be promoted to runtime testing");
  fail(sourceObs.gateA==="BLOCKED_PENDING_CI_RUNNER_AND_SAFE_SANDBOX"&&sourceObs.gateB==="BLOCKED_PENDING_REAL_TADR_REVIEW_AND_OWNER_AUTHORIZATION"&&sourceObs.productVerified===false&&sourceObs.tenantGoLiveAccepted===false,"source observation falsely elevated an acceptance gate");
  fail(q01Amendment.recordKind==="OWNER_Q01_LICENSE_POLICY_AMENDMENT_IN_CHAT_NOT_TECHNICAL_ADR_APPROVAL"&&q01Amendment.decisionId==="Q01"&&q01Amendment.version===2&&q01Amendment.supersedes.code==="PRIVATE_PROPRIETARY_SOURCE"&&q01Amendment.effectivePolicy.openSource===true&&q01Amendment.effectivePolicy.licenseSpdxId==="MIT"&&q01Amendment.effectivePolicy.sourceVisibility==="public","Q01 v2 effective MIT decision missing");
  fail(q01Amendment.effectivePolicy.repository===plan.sourceRepository&&q01Amendment.effectivePolicy.retainsPreviousQ02ToQ08===true&&q01Amendment.productVerified===false&&q01Amendment.tenantGoLiveAccepted===false,"Q01 license amendment cannot change product or tenant approval");
- fail(plan.sourceRepoLicenseAmendmentRef==="s6-0-owner-q01-mit-amendment.json"&&plan.sourceRepositoryLicense==="MIT"&&plan.sourceRepositoryLicenseState==="LICENSE_ON_PR_BRANCH_NOT_YET_MAIN","MIT source policy not linked or falsely merged");
+ fail(plan.sourceRepoLicenseAmendmentRef==="s6-0-owner-q01-mit-amendment.json"&&plan.sourceRepositoryLicense==="MIT"&&plan.sourceRepositoryLicenseState==="MIT_MAIN_GITHUB_RECOGNIZED","MIT source policy not linked or falsely merged");
  fail(currentObs.recordKind==="CURRENT_SOURCE_GITHUB_AND_FOUNDATION_CI_NOT_PRODUCT_VERIFICATION"&&currentObs.ownerEffectiveQ01Ref===plan.sourceRepoLicenseAmendmentRef&&currentObs.githubRepo===plan.sourceRepository&&currentObs.githubVisibility==="public"&&currentObs.selectedLicense==="MIT","GitHub current source differs from MIT decision");
  fail(currentObs.sourceCommitSha==="b4683f84248ba7f580c54c91022216101e1d747a"&&currentObs.ciHeadSha===currentObs.sourceCommitSha&&currentObs.ciRunStatus==="SUCCESS"&&currentObs.ciVerifiedJobs.length===5&&currentObs.sqlInfraSmokePassed===true,"source foundation CI attribution/coverage missing");
  fail(currentObs.sourcePRDraft===true&&currentObs.sourcePRMerged===false&&currentObs.licenseMergedIntoMain===false&&currentObs.mainBranchLegacyProprietaryReadmeStillPresent===true,"falsely claimed MIT merged into main");
  fail(currentObs.sqlBusinessE2eRuns===0&&currentObs.sandboxApprovedForFaultInjection===false&&currentObs.secureEvidenceStore==="NOT_CONFIGURED"&&currentObs.gateA===plan.gates.gateA&&currentObs.productVerified===false&&currentObs.tenantGoLiveAccepted===false,"source CI cannot imply spike admission or product verification");
+ fail(mainObs.recordKind==="SOURCE_FOUNDATION_MAIN_CI_NOT_PRODUCT_VERIFICATION"&&mainObs.sourceRepository===plan.sourceRepository&&mainObs.githubVisibility==="public"&&mainObs.githubLicenseSpdx==="MIT"&&mainObs.githubDefaultBranch==="main"&&mainObs.ownerPolicyRef===plan.sourceRepoLicenseAmendmentRef,"effective MIT main observation missing");
+ fail(mainObs.bootstrapPr===1&&mainObs.bootstrapPrMerged===true&&mainObs.bootstrapMergeSha==="66e1609a7aaaa663894a5411a4f41c49ef4e9836"&&mainObs.bootstrapMainRunConclusion==="SUCCESS"&&mainObs.bootstrapMainJobCount===5,"foundation merge/CI evidence mismatch");
+ fail(mainObs.b04Pr===3&&mainObs.b04PrMerged===true&&mainObs.b04MergeSha==="323e294b148fe8795b666c1efd73c43212efa5c6"&&mainObs.currentMainSha===mainObs.b04MergeSha&&mainObs.b04MainRunConclusion==="SUCCESS"&&mainObs.b04MainJobCount===6,"B04 merge/CI evidence mismatch");
+ fail(mainObs.b04PublicSyntheticGuard==="MERGED_AND_CI_VERIFIED"&&mainObs.b04RestrictedEvidenceStore==="NOT_CONFIGURED"&&mainObs.b04SafetyReview==="PENDING_REAL_QA_OPS_SECURITY_APPROVAL","synthetic B04 checks cannot stand in for secure external evidence");
+ fail(mainObs.gateA===plan.gates.gateA&&mainObs.gateB==="BLOCKED_PENDING_TADR_REVIEW_AND_OWNER_RUNTIME_AUTHORIZATION"&&mainObs.b05Spike==="NOT_STARTED"&&mainObs.b06Spike==="NOT_STARTED"&&mainObs.tadr01==="DESIGN_CANDIDATE"&&mainObs.tadr02==="DESIGN_CANDIDATE"&&mainObs.realBusinessE2eRuns===0&&mainObs.productVerified===false&&mainObs.tenantGoLiveAccepted===false,"source merged foundation cannot automatically promote Gate A, TADR, EV or Go-Live");
  const choices=ownerDecision.decisions||[];
  fail(choices.length===8&&JSON.stringify(choices.map(x=>x.id))===JSON.stringify(["Q01","Q02","Q03","Q04","Q05","Q06","Q07","Q08"])&&JSON.stringify(choices.map(x=>x.selectedOption))===JSON.stringify([1,1,1,1,1,1,3,1]),"Owner interview selection drift");
  fail(ownerDecision.ownerSource.ownerGitHubSignoffForQ01ToQ08==="NOT_SEPARATELY_ATTESTED_ON_GITHUB","invented authenticated Owner GitHub signature");
  fail(ownerDecision.gates.gateA.ready===false&&ownerDecision.gates.gateB.ready===false&&ownerDecision.gates.gateB.ownerDirection==="PENDING","Gate A/B cannot self-pass");
  fail(plan.gates.gateA==="BLOCKED_PENDING_B04_SECURE_EVIDENCE_AND_SAFETY_REVIEW"&&plan.gates.gateB==="BLOCKED_PENDING_TADR_REVIEW_AND_OWNER_RUNTIME_AUTHORIZATION","fake foundation/runtime admission");
- fail(plan.statuses.plan==="PREPARED_NOT_EXECUTED"&&plan.statuses.realE2eRuns===0&&plan.statuses.realEvidenceCreated===false&&plan.statuses.tadrApprovedCount===0&&plan.statuses.modeAdmissionGranted===false,"false runtime/evidence status");
+ fail(plan.statuses.plan==="S6_0_PARTIALLY_EXECUTED_FOUNDATION_ONLY"&&plan.statuses.realE2eRuns===0&&plan.statuses.realEvidenceCreated===false&&plan.statuses.tadrApprovedCount===0&&plan.statuses.modeAdmissionGranted===false,"false runtime/evidence status");
  fail(plan.statuses.productVerification==="PENDING"&&plan.statuses.tenantGoLiveAcceptance==="PENDING","false product or tenant acceptance");
  fail(JSON.stringify(plan.modeStates)===JSON.stringify(modes)&&JSON.stringify(outstanding.modeStates)===JSON.stringify(modes),"mode promotion outside gate");
  fail(JSON.stringify(plan.nonWaivableP0)===JSON.stringify(p0)&&JSON.stringify(outstanding.nonWaivableP0)===JSON.stringify(p0),"non-waivable P0 missing");
@@ -54,7 +59,7 @@ export function validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDec
  for(const [id,state] of Object.entries(plan.tadrStates)){fail(outSet.has(id)&&state==="DESIGN_CANDIDATE","unreviewed TADR unexpectedly approved "+id);}
  fail(Object.keys(plan.tadrStates).length===6,"TADR count");
  for(const row of plan.phases){
-   fail(row.status==="PLANNED_NOT_EXECUTED"&&row.deliverables.length>0&&row.exitCriteria.length>0&&row.owners.length>0,"phase claims execution or no DoD "+row.id);
+   fail((row.id==="S6-0"?row.status==="PARTIAL_FOUNDATION_EXECUTION_ONLY":row.status==="PLANNED_NOT_EXECUTED")&&row.deliverables.length>0&&row.exitCriteria.length>0&&row.owners.length>0,"phase has unverified execution or no DoD "+row.id);
    for(const dep of row.dependsOn)fail(phases.indexOf(dep)>=0&&phases.indexOf(dep)<phases.indexOf(row.id),"invalid phase dependency "+row.id);
    for(const id of row.tadrIds)fail(outSet.has(id)&&plan.tadrStates[id]==="DESIGN_CANDIDATE","unknown TADR "+id);
    for(const id of row.evIds)fail(evSet.has(id)&&outSet.has(id),"unknown EV "+id);
@@ -74,7 +79,8 @@ const ownerDecision=read("s6-0-owner-engineering-decisions.json");
 const sourceObs=read("s6-0-source-bootstrap-observation.json");
 const q01Amendment=read("s6-0-owner-q01-mit-amendment.json");
 const currentObs=read("s6-0-mit-source-observation.json");
-const result=validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs);
+const mainObs=read("s6-0-main-foundation-observation.json");
+const result=validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs,mainObs);
 if(process.argv.includes("--self-test")){
  const cases=[
   ["fake_prod_go",p=>p.statuses.productVerification="VERIFIED"],
@@ -90,23 +96,29 @@ if(process.argv.includes("--self-test")){
   ["wrong_merge_sha",p=>p.upstream.pr2MergeCommitSha="a".repeat(40)],
   ["cutover_falsely_requires_offline_feature",p=>p.phases.find(x=>x.id==="S6-E").dependsOn.push("S6-D")]
  ];
- for(const [id,edit] of cases){const copy=structuredClone(plan);edit(copy);let rejected=false;try{validate(copy,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs);}catch{rejected=true;}fail(rejected,"negative case not rejected "+id);}
+ for(const [id,edit] of cases){const copy=structuredClone(plan);edit(copy);let rejected=false;try{validate(copy,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs,mainObs);}catch{rejected=true;}fail(rejected,"negative case not rejected "+id);}
  const candidate=structuredClone(repoDecision);
  candidate.ownerSelectedOption="D";
- let incorrectlyApproved=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,candidate,ownerDecision,sourceObs,q01Amendment,currentObs);incorrectlyApproved=true;}catch{}
+ let incorrectlyApproved=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,candidate,ownerDecision,sourceObs,q01Amendment,currentObs,mainObs);incorrectlyApproved=true;}catch{}
  fail(!incorrectlyApproved,"historical candidate must remain an unsigned candidate");
  const forged=structuredClone(ownerDecision);forged.decisions[6].selectedOption=1;
- let rejectedForged=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,forged,sourceObs,q01Amendment,currentObs);}catch{rejectedForged=true;}
+ let rejectedForged=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,forged,sourceObs,q01Amendment,currentObs,mainObs);}catch{rejectedForged=true;}
  fail(rejectedForged,"false Q07 Owner selection not rejected");
  const fakeCi=structuredClone(sourceObs);fakeCi.ciObservedResult="SUCCESS";
- let ciRejected=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,fakeCi,q01Amendment,currentObs);}catch{ciRejected=true;}
+ let ciRejected=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,fakeCi,q01Amendment,currentObs,mainObs);}catch{ciRejected=true;}
  fail(ciRejected,"historical unexecuted private-repo CI cannot be promoted to SUCCESS");
  const fakeLicense=structuredClone(q01Amendment);fakeLicense.effectivePolicy.licenseSpdxId="GPL-3.0";
- let rejectedLicense=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,fakeLicense,currentObs);}catch{rejectedLicense=true;}
+ let rejectedLicense=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,fakeLicense,currentObs,mainObs);}catch{rejectedLicense=true;}
  fail(rejectedLicense,"Q01 v2 MIT amendment bypassed");
  const fakeCurrent=structuredClone(currentObs);fakeCurrent.licenseMergedIntoMain=true;
- let rejectedMain=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,fakeCurrent);}catch{rejectedMain=true;}
- fail(rejectedMain,"proposed MIT license incorrectly promoted to main");
- console.log("PASS_S6_PLAN_NEGATIVES "+(cases.length+5));
+ let rejectedMain=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,fakeCurrent,mainObs);}catch{rejectedMain=true;}
+ fail(rejectedMain,"historical pre-merge MIT snapshot cannot be rewritten");
+ const forgedMain=structuredClone(mainObs);forgedMain.b04RestrictedEvidenceStore="VERIFIED";
+ let mainBlocked=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs,forgedMain);}catch{mainBlocked=true;}
+ fail(mainBlocked,"B04 restricted evidence store cannot be self-approved");
+ const fakeSpikes=structuredClone(mainObs);fakeSpikes.b05Spike="PASSED";
+ let spikeBlocked=false;try{validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecision,ownerDecision,sourceObs,q01Amendment,currentObs,fakeSpikes);}catch{spikeBlocked=true;}
+ fail(spikeBlocked,"B05 cannot run before Gate A");
+ console.log("PASS_S6_PLAN_NEGATIVES "+(cases.length+7));
 }
 console.log(JSON.stringify(result));

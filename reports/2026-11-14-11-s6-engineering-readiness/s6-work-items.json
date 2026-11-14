@@ -21,7 +21,7 @@
     "s6ReadinessPullRequestBase": "main"
   },
   "statuses": {
-    "plan": "PREPARED_NOT_EXECUTED",
+    "plan": "S6_0_PARTIALLY_EXECUTED_FOUNDATION_ONLY",
     "productVerification": "PENDING",
     "tenantGoLiveAcceptance": "PENDING",
     "realE2eRuns": 0,
@@ -75,7 +75,7 @@
       "id": "S6-0",
       "title": "Engineering Intake & Evidence Harness Readiness",
       "dependsOn": [],
-      "status": "PLANNED_NOT_EXECUTED",
+      "status": "PARTIAL_FOUNDATION_EXECUTION_ONLY",
       "tadrIds": [],
       "acIds": [],
       "evIds": [],
@@ -88,18 +88,18 @@
         "Operations"
       ],
       "deliverables": [
-        "Record Owner selection D and Q01..Q08 linked to source repository decision (done in documents only)",
-        "Apply Owner Q01 v2 public MIT: source PR includes LICENSE/README/NOTICE, default main merge pending; ensure no sensitive evidence in public Git",
-        "Provision isolated SQL/API/PWA test harness, secure artifact store and source-bound evidence metadata (pending)",
-        "Authorize bounded nonproduction Technical Spikes TADR-01/02 only after Gate A safety checks (pending)",
-        "Obtain actual Technical/QA and scoped Finance TADR reviews before Gate B S6-A runtime (pending)",
-        "Preserve signed-R authenticity audit and product C-prime source anchors"
+        "Owner source selection and Q01 v2 MIT recorded, MIT present on main",
+        "B01-B03 source/architecture/layered CI foundation merged and synthetic CI tested",
+        "B04 public-only synthetic evidence schema/validator and runbook merged; private external evidence store still NOT_CONFIGURED",
+        "Secure artifact store, actual restricted access/retention/audit tests and QA/Ops/Security safety approval required for Gate A",
+        "Only after Gate A may B05/B06 isolated SQL/API synthetic spikes execute; no S6-A product runtime",
+        "Technical/QA/Finance TADR-01/02 versioned decisions before Gate B; preserve immutable Product C-prime and R"
       ],
       "entryConditions": [
-        "Product C-prime Owner accepted for document contract only; PR2 merged",
-        "Q01 v2 public MIT replaces Private/Proprietary; GitHub source repository public",
-        "Source PR1 Draft with MIT LICENSE at exact source commit and five foundation CI jobs SUCCESS",
-        "SQL fixture smoke is infrastructure-only; secure artifact store/QA safety/fault-injection approval pending"
+        "Immutable Product C-prime Owner-accepted document contract and PR2 merged",
+        "Source repo public/MIT: bootstrap PR1 and B04 public synthetic evidence contract PR3 merged into main",
+        "GitHub main CI 5/5 foundation PASS at bootstrap merge and 6/6 PASS at B04 merge",
+        "B04 restricted evidence store, actual reviewer/safety approval pending; Gate A NOT_READY"
       ],
       "exitCriteria": [
         "Repository source MIT licensing merged/verified on main, protected access and CI rules reviewed",
@@ -466,14 +466,15 @@
   "ownerEngineeringDecisionsRef": "s6-0-owner-engineering-decisions.json",
   "sourceRepositoryVisibilityCurrent": "public",
   "sourceRepositoryVisibilityTarget": "public",
-  "sourceRepositoryBootstrapStatus": "BOOTSTRAP_PR_DRAFT_FOUNDATION_CI_PASS_MIT_PENDING_MAIN",
+  "sourceRepositoryBootstrapStatus": "FOUNDATION_B04_CONTRACT_MAIN_GATE_A_PENDING",
   "gates": {
     "gateA": "BLOCKED_PENDING_B04_SECURE_EVIDENCE_AND_SAFETY_REVIEW",
     "gateB": "BLOCKED_PENDING_TADR_REVIEW_AND_OWNER_RUNTIME_AUTHORIZATION"
   },
   "sourceRepositoryObservationRef": "s6-0-source-bootstrap-observation.json",
   "sourceRepoLicenseAmendmentRef": "s6-0-owner-q01-mit-amendment.json",
-  "sourceRepositoryCurrentObservationRef": "s6-0-mit-source-observation.json",
+  "sourceRepositoryCurrentObservationRef": "s6-0-main-foundation-observation.json",
   "sourceRepositoryLicense": "MIT",
-  "sourceRepositoryLicenseState": "LICENSE_ON_PR_BRANCH_NOT_YET_MAIN"
+  "sourceRepositoryLicenseState": "LICENSE_ON_PR_BRANCH_NOT_YET_MAIN",
+  "sourceRepoLicenseState": "MIT_MAIN_GITHUB_RECOGNIZED"
 }
