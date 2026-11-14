@@ -2,8 +2,8 @@
   "schemaVersion": "s6-engineering-readiness-v1",
   "recordKind": "S6_IMPLEMENTATION_ROADMAP_PLAN_NOT_EXECUTION",
   "createdOn": "2026-11-14",
-  "sourceRepository": "NOT_SELECTED",
-  "sourceRepoSelectionStatus": "BLOCKED_FOR_RUNTIME_START",
+  "sourceRepository": "chung6a8m/MyDms",
+  "sourceRepoSelectionStatus": "OWNER_DECIDED_REPO_EXISTS_FOUNDATION_PENDING",
   "environmentStatus": "NOT_PROVISIONED",
   "personnelAssignmentsStatus": "PENDING_REAL_ASSIGNMENT",
   "researchRepository": "chung6a8m/research-sme-phan-phoi-hang-tieu-dung",
@@ -88,20 +88,24 @@
         "Operations"
       ],
       "deliverables": [
-        "Select source repository and accountable maintainers",
-        "Choose supported runtime/dev/test environments",
-        "Define CI/test harness, secure artifact store, run provenance, P0 safety plan",
-        "Create independent signed-R read-only authenticity/semantic validator as P2 follow-up",
-        "Review source candidates from MyDmsVn, SaasOne, FullStackHero and a new dedicated repository; Owner to approve S6-0-REPO-01"
+        "Record Owner selection D and Q01..Q08 linked to source repository decision (done in documents only)",
+        "Verify repo PRIVATE/proprietary notice and bootstrap main/README/solution/CI (pending)",
+        "Provision isolated SQL/API/PWA test harness, secure artifact store and source-bound evidence metadata (pending)",
+        "Authorize bounded nonproduction Technical Spikes TADR-01/02 only after Gate A safety checks (pending)",
+        "Obtain actual Technical/QA and scoped Finance TADR reviews before Gate B S6-A runtime (pending)",
+        "Preserve signed-R authenticity audit and product C-prime source anchors"
       ],
       "entryConditions": [
-        "PR2 Doc baseline reviewed/owner accepted",
-        "PR2 merge ba6d526 verified for prerequisite; S6-0 still awaits repository/owners/env selection"
+        "Product C-prime Owner-accepted only for document contract and PR2 merged",
+        "Source repo chosen by Owner: D / chung6a8m/MyDms, verified exists but public/empty",
+        "Gate A safety prerequisites must be met before any technical spike"
       ],
       "exitCriteria": [
-        "Approved source repository ownership and commit controls",
-        "Engineer/QA/Ops approved test environments with seeded synthetic data and no uncontrolled production effects",
-        "Evidence provenance and P0 run safety plan documented"
+        "Repository PRIVATE verified with ownership, initialized branch and reviewed access/CI control",
+        "Foundation build/tests and disposable nonproduction SQL/API test environment validated",
+        "Actual Technical/QA and scoped Finance TADR-01/02 decisions with reviewer authority/source evidence",
+        "Secure evidence provenance and nonwaivable P0 safety plan recorded",
+        "Explicit Owner Gate B decision for S6-A runtime; not Product Verification or tenant Go-Live"
       ],
       "realSystemEvidenceRequired": false
     },
@@ -149,8 +153,8 @@
         "Online scoped EV-08 durable ACK/idempotency evidence without offline device admission"
       ],
       "entryConditions": [
-        "Reviewed TADR-01/02",
-        "Source harness provisioned"
+        "Gate B S6-0 authorization documented by Owner after actual TADR-01/02 review",
+        "Source harness and authorized SQL/QA/Finance execution context provisioned"
       ],
       "exitCriteria": [
         "AC negative/positive source-bound tests present",
@@ -455,7 +459,15 @@
     "signedAcceptanceAudit": "CANDIDATE_AWAITING_GITHUB_CI"
   },
   "sourceRepositoryRecommendation": "NEW_DEDICATED_FMCG_DMS_SOURCE_REPOSITORY",
-  "sourceRepositoryRecommendationStatus": "DECISION_CANDIDATE_OWNER_PENDING",
-  "sourceRepositoryDecisionRef": "s6-0-source-repository-decision.candidate.json",
-  "sourceEnvironmentSelectionStatus": "PENDING_ACTUAL_ENVIRONMENT"
+  "sourceRepositoryRecommendationStatus": "OWNER_SELECTED_D",
+  "sourceRepositoryDecisionRef": "s6-0-owner-engineering-decisions.json",
+  "sourceEnvironmentSelectionStatus": "PENDING_ACTUAL_ENVIRONMENT",
+  "ownerEngineeringDecisionsRef": "s6-0-owner-engineering-decisions.json",
+  "sourceRepositoryVisibilityCurrent": "public",
+  "sourceRepositoryVisibilityTarget": "private",
+  "sourceRepositoryBootstrapStatus": "REPOSITORY_EMPTY_NO_BRANCH",
+  "gates": {
+    "gateA": "BLOCKED_UNTIL_PRIVATE_AND_SAFE_SANDBOX_READY",
+    "gateB": "BLOCKED_PENDING_TADR_REVIEW_AND_OWNER_RUNTIME_AUTHORIZATION"
+  }
 }

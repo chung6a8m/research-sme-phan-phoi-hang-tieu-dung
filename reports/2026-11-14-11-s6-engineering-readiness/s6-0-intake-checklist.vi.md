@@ -1,6 +1,6 @@
 # S6-0 — Intake checklist và bàn giao source execution
 
-**Status:** `PARTIALLY_PREPARED / OWNER_SOURCE_SELECTION_PENDING`; Product C′ được Owner chấp nhận ở cấp policy/contract, PR #2 merged vào main 14/11/2026. Không nhận bằng chứng runtime.
+**Status:** `OWNER_REPOSITORY_DECIDED / OWNER_Q01_TO_Q08_RECORDED / SOURCE_FOUNDATION_PENDING`; Product C′ được Owner chấp nhận ở cấp policy/contract, PR #2 merged vào main 14/11/2026. Không nhận bằng chứng runtime.
 
 ## 1. Trạng thái công việc có nguồn
 
@@ -10,8 +10,9 @@
 | PR #3 retarget `main` | **VERIFIED** | [PR #3](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/3), chỉ file S6 |
 | Product C′ Owner Acceptance | **VERIFIED DOCUMENT_ONLY** | [Comment #6866595994](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994), Acceptance R |
 | Source-repository shortlist/recommendation | **PREPARED** | [Đánh giá phương án](s6-0-source-repository-evaluation.vi.md), đề xuất repo mới |
-| Owner source repository selection | **PENDING** | Owner xác nhận `S6-0-REPO-01`, tên/visibility/ownership/license |
-| Source repo thực / branch + branch rules | **NOT_CREATED / NOT_VERIFIED** | Tạo repo sau quyết định, kiểm GitHub URL, branch protection/CI |
+| Owner source repository selection | **DECIDED_IN_CHAT** | D / `chung6a8m/MyDms`; [Issue #4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/issues/4) và [Q01–Q08](s6-0-owner-engineering-decisions.json) |
+| Target visibility/licensing | **MISMATCH / IMPLEMENTATION PENDING** | Q01 yêu cầu Private+Proprietary; GitHub đang Public. Chuyển Private và xác lập notice trước source |
+| Source repo thực / branch + branch rules | **REPO_EXISTS / BRANCH_EMPTY** | GitHub repo ID `1457279467`, admin true, branches `[]`, chưa README/CI; tạo nhánh, kiểm soát access/merge sau Private |
 | Engineering/QA/Ops/Security/Finance owners | **UNASSIGNED** | Phân công người cụ thể, thẩm quyền và reviewer thay thế/độc lập khi bắt buộc |
 | Test environment/PWA devices/SQL/provider sandbox | **NOT_PROVISIONED** | Thiết lập môi trường cô lập, nhà cung cấp được phép, dữ liệu synthetic/permission |
 | Secure evidence store/retention/audit | **NOT_CONFIGURED** | Chỉ metadata/hash trên public repo, source artifact bí mật lưu riêng |
@@ -20,8 +21,8 @@
 
 ## 2. Chuỗi thực thi S6-0
 
-- **I0 — Repository decision:** Owner chọn phương án và xác nhận tên, license/visibility; Engineering giới thiệu source layout/branch policy. Không có quyền tự dùng một repo trùng tên chưa kiểm chứng.
-- **I1 — Foundation selection & TADR:** Sau quyết định Repo, lập TADR-01/02, giao Technical/QA/Finance/Operations review; không làm Product policy override.
+- **I0 — Repository decision:** Owner đã chốt D, MyDms, Q01 Private proprietary, Q02 monorepo; tiếp theo xác minh thay đổi visibility thực và triển khai notice/branch/CI theo Q07. Không coi repo Public đã đáp ứng Q01.
+- **I1 — Foundation selection & TADR:** Q03–Q06 chốt stack/kiến trúc/CI nền, nhưng SQL isolation, migration, ACK semantics phải review TADR-01/02; Q08 cho phép spike cô lập sau private/sandbox safety, không tự phê duyệt TADR.
 - **I2 — Harness setup:** CI restore/build/test/reproducible dependencies, API/SQL test environment, PWA browsers/IndexedDB devices, provider/accounting sandbox (chưa khởi chạy production).
 - **I3 — Source/provenance:** canonical C′ + R anchors, no silent contract changes, testRunId/buildSha/mode/tenant/seller/fixtureHash/ledgerDiff + artifact URI/SHA256, reviewer.
 - **I4 — Security:** authorization, least privilege, masking, secrets storage, client offline grant, writer identity, DR external registry and owner-accepted safety plan.
@@ -29,6 +30,8 @@
 
 ## 3. Cổng chặn áp dụng ngay
 
-`sourceRepository=NOT_SELECTED`, `S6-0=PLANNED_NOT_EXECUTED`, `realE2eRuns=0`, `TADR-01..06=DESIGN_CANDIDATE`, `EV-01..15=EVIDENCE_PENDING/MODEL_ONLY_REAL_PENDING`. B_NO_CHANNEL BLOCKED; OFFLINE_WRITE và PRODUCTION_CUTOVER disabled pending; năm P0 không miễn trừ.
+**Q07/Q08:** Solo Owner merge sau applicable CI chỉ áp dụng đến PR foundation hoặc spike đã được scope; TADR approval độc lập (Technical/QA/Finance khi cần) vẫn PENDING. Gate A chờ Private/sandbox; Gate B chờ reviewer + verified safety + explicit Owner authorization.
+
+`sourceRepository=chung6a8m/MyDms (OWNER_SELECTED, PUBLIC_EMPTY, NOT_BOOTSTRAPPED)`, `S6-0=PLANNED_NOT_EXECUTED`, `realE2eRuns=0`, `TADR-01..06=DESIGN_CANDIDATE`, `EV-01..15=EVIDENCE_PENDING/MODEL_ONLY_REAL_PENDING`. B_NO_CHANNEL BLOCKED; OFFLINE_WRITE và PRODUCTION_CUTOVER disabled pending; năm P0 không miễn trừ.
 
 Đầu ra của đợt này **là đánh giá và hồ sơ chuẩn bị**, không phải gán "đã xây dựng MVP".

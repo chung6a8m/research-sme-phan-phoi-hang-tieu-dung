@@ -1,6 +1,6 @@
 # R011 — S6 Engineering Readiness & Handoff
 
-**Status:** S6-0 RESEARCH / SOURCE_DECISION_PENDING; S6 runtime PREPARED_NOT_EXECUTED, 14/11/2026. **Source:** R009 + R010 S1–S5, Owner Acceptance Snapshot C′, commit R.
+**Status:** S6-0 OWNER_DIRECTION_RECORDED / SOURCE_BOOTSTRAP_PENDING; S6 runtime PREPARED_NOT_EXECUTED, 14/11/2026. **Source:** R009 + R010 S1–S5, Owner Acceptance Snapshot C′, commit R.
 
 ## Versioned inputs
 
@@ -10,14 +10,23 @@
 
 ## Upstream merge and retarget (verified)
 
-PR #2 was merged to `main` as [`ba6d526b`](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/commit/ba6d526b518b877c1f2c9f04732273f9f33968c4). PR #3 is now based directly on `main`, still Draft. Its source-code environment remains unselected.
+PR #2 was merged to `main` as [`ba6d526b`](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/commit/ba6d526b518b877c1f2c9f04732273f9f33968c4). PR #3 is now based directly on `main`, still Draft. **Owner đã chọn `chung6a8m/MyDms`; repository tồn tại nhưng PUBLIC/rỗng, chưa có source environment.**
+
+## Owner Q01–Q08 (14/11/2026)
+
+- [Source/Owner decision #4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/issues/4): D / `chung6a8m/MyDms` đã chọn, repo tồn tại. GitHub vẫn **Public**, branch `[]`, chưa có README/CI.
+- Q01 Private proprietary; Q02 monorepo; Q03 .NET 10/SQL Server/React+TS; Q04 independent Modular Monolith and database-per-tenant; Q05 Business Module-First Clean Architecture; Q06 layered CI with actual SQL/API; Q07 solo Owner merge after CI; Q08 two gates with isolated technical spike before review.
+- **Gate A/B chưa ready;** TADR-01/02 vẫn DESIGN_CANDIDATE, mọi EV thật pending. Owner interview không tự tạo chữ ký Technical/QA/Finance.
+- [Owner interview record](s6-0-owner-engineering-decisions.json) · [Foundation plan](s6-0-foundation-bootstrap-plan.vi.md). Candidate source-decision JSON bên dưới là **historical pre-selection snapshot**, không phải hồ sơ hiện hành.
 
 ## Artifacts
 
 | File | Giá trị |
 |---|---|
-| [s6-0-source-repository-evaluation.vi.md](s6-0-source-repository-evaluation.vi.md) | Source repo comparison & recommended dedicated repository, NOT approved |
-| [s6-0-source-repository-decision.candidate.json](s6-0-source-repository-decision.candidate.json) | Machine-readable S6-0-REPO-01, OWNER_DECISION_PENDING |
+| [s6-0-owner-engineering-decisions.json](s6-0-owner-engineering-decisions.json) | Current Q01–Q08 Owner interview decisions and source observation (chat record, not independent TADR approval) |
+| [s6-0-foundation-bootstrap-plan.vi.md](s6-0-foundation-bootstrap-plan.vi.md) | Ordered B00–B08 bootstrap/spike/test/evidence/review/authorization plan |
+| [s6-0-source-repository-evaluation.vi.md](s6-0-source-repository-evaluation.vi.md) | Historical comparison before Owner selected D; still useful for alternatives |
+| [s6-0-source-repository-decision.candidate.json](s6-0-source-repository-decision.candidate.json) | **Historical pre-selection candidate** (intentionally frozen as pending), not current state |
 | [s6-0-intake-checklist.vi.md](s6-0-intake-checklist.vi.md) | Owner/QA/Ops intake, remaining real blockers |
 | [s6-owner-acceptance-audit.mjs](s6-owner-acceptance-audit.mjs) | Read-only signed-R source audit (local negatives + live GitHub provenance) |
 | [roadmap.vi.md](roadmap.vi.md) | Trình tự S6-0/A..F, dependency, PR DoR/DoD, gates |
@@ -31,7 +40,7 @@ PR #2 was merged to `main` as [`ba6d526b`](https://github.com/chung6a8m/research
 
 **Có thể bắt đầu:** review trade-offs TADR; chọn source repo/owners; thiết kế sandbox/CI/artifact store và test harness; mapping fixture F0/F1/F2 và step definitions.
 
-**Chưa đủ điều kiện khởi chạy source thật:** source repo chưa chọn, environment chưa provision, owner roles thực chưa assign; TADR-01..06 vẫn DESIGN_CANDIDATE. Chưa có testRunId thực, dữ liệu tenant hay provider/legal/Finance signoff.
+**Chưa đủ điều kiện khởi chạy S6-A runtime:** repo đã chọn nhưng đang **Public/rỗng**, chưa có CI/sandbox, environment chưa provision, owner roles thực chưa assign; TADR-01..06 vẫn DESIGN_CANDIDATE. Q08 cho phép thiết kế/technical spike cô lập sau Gate A safety, không phê duyệt runtime. Chưa có testRunId thực, dữ liệu tenant hay provider/legal/Finance signoff.
 
 **Không được nhầm:** PLAN_VALIDATED ≠ PRODUCT_VERIFIED ≠ TENANT_GO_LIVE_ACCEPTED. Synthetic CI trong nhánh này chỉ kiểm kế hoạch, không chạy PWA/API/SQL/provider.
 
@@ -48,4 +57,4 @@ Validator chỉ đọc file, phủ các negative cases để chặn fake Product
 
 ## Quy trình riêng
 
-PR #2 đã merge; PR #3 đã **retarget về `main`** và xác nhận diff chỉ gồm file S6. Sau mọi cập nhật trên PR #3 cần kiểm CI lại đúng HEAD. Không bổ sung code hoặc sửa C′/R trong PR readiness. Source implementation sẽ diễn ra qua PR riêng trong **repository kỹ thuật được phê duyệt sau S6-0**. Không tự kích hoạt Mode Admission/Production Cutover.
+PR #2 đã merge; PR #3 đã **retarget về `main`** và xác nhận diff chỉ gồm file S6. Sau mọi cập nhật trên PR #3 cần kiểm CI lại đúng HEAD. Không bổ sung code hoặc sửa C′/R trong PR readiness. Source foundation/spike sẽ được tổ chức thành PR riêng trong **`chung6a8m/MyDms` sau khi Private được xác minh**; runtime chỉ sau Gate B. Không tự kích hoạt Mode Admission/Production Cutover.

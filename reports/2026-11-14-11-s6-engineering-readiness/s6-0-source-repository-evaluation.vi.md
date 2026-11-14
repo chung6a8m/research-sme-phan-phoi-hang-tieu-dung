@@ -1,3 +1,5 @@
+> **Lưu ý lịch sử:** Bảng so sánh này được lập trước phỏng vấn Owner ngày 14/11/2026. Hiện Owner đã chọn phương án D, repository `chung6a8m/MyDms` (GitHub tồn tại, Public/rỗng), cùng Q01–Q08. Xem [hồ sơ hiện hành](s6-0-owner-engineering-decisions.json) và [kế hoạch bootstrap](s6-0-foundation-bootstrap-plan.vi.md). Các dòng `OWNER_APPROVAL_PENDING` bên dưới phản ánh snapshot trước quyết định, không phải trạng thái hiện hành.
+
 # S6-0 — Đánh giá repository source chính thức cho Product DMS
 
 **Ngày rà soát:** 14/11/2026 · **Kết luận:** `SOURCE_REPOSITORY_DECISION_CANDIDATE / OWNER_APPROVAL_PENDING`. PR #2 đã merge vào `main` bằng `ba6d526b518b877c1f2c9f04732273f9f33968c4`; Product Baseline C′ và Acceptance Record R đã được ghi nhận, chỉ phạm vi tài liệu.

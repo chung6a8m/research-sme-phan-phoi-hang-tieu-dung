@@ -5,11 +5,11 @@
 ## 0. S6-0 — Engineering intake
 
 - **Đã xác nhận** PR #2 merge commit `ba6d526b518b877c1f2c9f04732273f9f33968c4` và PR #3 retarget `main` (không merge PR #3). Product C′ immutable, R chỉ metadata.
-- Đã rà soát các source candidates và [đề xuất repository DMS mới](s6-0-source-repository-evaluation.vi.md); **Owner quyết định S6-0-REPO-01 vẫn PENDING**, tên/visibility/license chưa chốt; maintainer, test pipeline, execution environment chưa được gán.
+- **Owner đã chọn D / `chung6a8m/MyDms` và Q01–Q08** theo [hồ sơ](s6-0-owner-engineering-decisions.json). Repo thực tồn tại, admin có quyền nhưng **Public/rỗng, chưa có branch**. B00 chuyển Private phải hoàn tất trước khi thêm source thương mại; [kế hoạch B00–B08](s6-0-foundation-bootstrap-plan.vi.md). Nhân sự/CI/sandbox/evidence vẫn pending.
 - Dựng sandbox test/CI, dataset tổng hợp có quyền, secure artifact store, log/ledger checkpoints, reviewer matrix, secrets isolation.
 - Đưa TADR-01/02 vào design review; chưa chốt database, hosting, identity, sync, provider hoặc accounting adapter bằng suy đoán.
 - P2: đã có ứng viên [signed R read-only auditor](s6-owner-acceptance-audit.mjs) để đối chiếu comment/sha/reviewers/CI với GitHub thật, chờ CI HEAD và QA review; không dùng JSON tự chứng thực.
-- **DoD:** source repo/environment/roles và policy test safety được phê duyệt; S6 runtime work được phép mở PR trong môi trường kiểm soát, chưa Product Verified.
+- **Gate A/B (Q08):** B00–B04 đảm bảo Private + isolated sandbox + CI/test safety, rồi chỉ chạy technical spike B05/B06; sau B07 actual Technical/QA/Finance TADR review và B08 Owner authorization mới được mở S6-A runtime. Solo-Developer Q07 cho phép Owner merge PR sau CI nhưng không thay independent review nếu TADR yêu cầu. **DoD:** runtime chỉ được mở khi Gate B PASS có bằng chứng; chưa Product Verified.
 
 ## 1. Vertical slice roadmap
 

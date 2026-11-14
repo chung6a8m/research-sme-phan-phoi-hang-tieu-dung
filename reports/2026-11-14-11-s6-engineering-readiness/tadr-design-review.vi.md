@@ -1,3 +1,5 @@
+> **Q08 Owner direction 14/11/2026:** Hai cổng; cho phép technical spike TADR-01/02 chỉ sau Gate A Private + isolated sandbox + safety. Technical/QA và Finance (ledger) phải review thật trước Gate B, nếu chưa có reviewer thì giữ `DESIGN_CANDIDATE` / runtime BLOCKED. Solo Owner merge theo Q07 **không** thay thế TADR acceptance. Xem [bootstrap plan](s6-0-foundation-bootstrap-plan.vi.md).
+
 # S6 — TADR-01..06: Design review queue
 
 **Không chấp nhận kỹ thuật bằng cách suy ra từ Product Approval.** Sáu TADR trong R009/R010 hiện DESIGN_CANDIDATE; Engineering cần phương án, trade-off, reviewer, test contract và quyết định có phiên bản riêng trước khi dùng làm kiến trúc sản phẩm.
