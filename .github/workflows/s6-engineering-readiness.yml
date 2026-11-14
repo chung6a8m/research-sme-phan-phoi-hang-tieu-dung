@@ -11,10 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: read
+      pull-requests: read
+      actions: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate S6 plan and source boundary (no runtime)
+      - name: Validate source decision and S6 plan (no runtime)
         run: node reports/2026-11-14-11-s6-engineering-readiness/s6-readiness-validation.mjs --self-test
+      - name: Negative checks for signed R metadata only
+        run: node reports/2026-11-14-11-s6-engineering-readiness/s6-owner-acceptance-audit.mjs --self-test
+      - name: Authenticate signed R using actual read-only GitHub metadata
+        run: node reports/2026-11-14-11-s6-engineering-readiness/s6-owner-acceptance-audit.mjs --github
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

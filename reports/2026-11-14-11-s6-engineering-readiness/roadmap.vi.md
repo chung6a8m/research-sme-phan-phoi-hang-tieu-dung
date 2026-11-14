@@ -4,11 +4,11 @@
 
 ## 0. S6-0 — Engineering intake
 
-- Xác nhận PR #2 merge/manual review/branch policy trước khi tích hợp source baseline. Product C′ immutable, R chỉ metadata.
-- Owner/Engineering chọn source repository thực tế, maintainer, test pipeline, execution environment; không tự gán repo từ dự án khác.
+- **Đã xác nhận** PR #2 merge commit `ba6d526b518b877c1f2c9f04732273f9f33968c4` và PR #3 retarget `main` (không merge PR #3). Product C′ immutable, R chỉ metadata.
+- Đã rà soát các source candidates và [đề xuất repository DMS mới](s6-0-source-repository-evaluation.vi.md); **Owner quyết định S6-0-REPO-01 vẫn PENDING**, tên/visibility/license chưa chốt; maintainer, test pipeline, execution environment chưa được gán.
 - Dựng sandbox test/CI, dataset tổng hợp có quyền, secure artifact store, log/ledger checkpoints, reviewer matrix, secrets isolation.
 - Đưa TADR-01/02 vào design review; chưa chốt database, hosting, identity, sync, provider hoặc accounting adapter bằng suy đoán.
-- P2: validator hậu phê duyệt R bằng read-only cross-check với actual GitHub comment/sha/CI/reviewer refs, không dùng JSON tự chứng thực.
+- P2: đã có ứng viên [signed R read-only auditor](s6-owner-acceptance-audit.mjs) để đối chiếu comment/sha/reviewers/CI với GitHub thật, chờ CI HEAD và QA review; không dùng JSON tự chứng thực.
 - **DoD:** source repo/environment/roles và policy test safety được phê duyệt; S6 runtime work được phép mở PR trong môi trường kiểm soát, chưa Product Verified.
 
 ## 1. Vertical slice roadmap

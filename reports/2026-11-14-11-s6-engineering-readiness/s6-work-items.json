@@ -15,7 +15,10 @@
     "metadataCommitR": "e47c3feb44c02a0fdf46c35f6c4b2f57c4365470",
     "ownerApprovalRef": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994",
     "acceptanceMetadataPath": "reports/2026-11-13-10-product-reference-go-live-blueprint/s5/acceptance-record-r/product-baseline-acceptance.record.json",
-    "pr2MergeRequiredBeforeSourceBaselineIntegration": true
+    "pr2MergeRequiredBeforeSourceBaselineIntegration": true,
+    "pr2Merged": true,
+    "pr2MergeCommitSha": "ba6d526b518b877c1f2c9f04732273f9f33968c4",
+    "s6ReadinessPullRequestBase": "main"
   },
   "statuses": {
     "plan": "PREPARED_NOT_EXECUTED",
@@ -88,11 +91,12 @@
         "Select source repository and accountable maintainers",
         "Choose supported runtime/dev/test environments",
         "Define CI/test harness, secure artifact store, run provenance, P0 safety plan",
-        "Create independent signed-R read-only authenticity/semantic validator as P2 follow-up"
+        "Create independent signed-R read-only authenticity/semantic validator as P2 follow-up",
+        "Review source candidates from MyDmsVn, SaasOne, FullStackHero and a new dedicated repository; Owner to approve S6-0-REPO-01"
       ],
       "entryConditions": [
         "PR2 Doc baseline reviewed/owner accepted",
-        "PR2 merge is prerequisite for source baseline integration"
+        "PR2 merge ba6d526 verified for prerequisite; S6-0 still awaits repository/owners/env selection"
       ],
       "exitCriteria": [
         "Approved source repository ownership and commit controls",
@@ -445,6 +449,13 @@
     "sourceTests": "NOT_IMPLEMENTED",
     "actualEvidence": "NOT_COLLECTED",
     "externalApprovals": "NOT_COLLECTED",
-    "sourceBranch": "NOT_CREATED"
-  }
+    "sourceBranch": "NOT_CREATED",
+    "sourceRepositoryAssessment": "s6-0-source-repository-evaluation.vi.md",
+    "sourceRepoOwnerApproval": "NOT_GIVEN",
+    "signedAcceptanceAudit": "CANDIDATE_AWAITING_GITHUB_CI"
+  },
+  "sourceRepositoryRecommendation": "NEW_DEDICATED_FMCG_DMS_SOURCE_REPOSITORY",
+  "sourceRepositoryRecommendationStatus": "DECISION_CANDIDATE_OWNER_PENDING",
+  "sourceRepositoryDecisionRef": "s6-0-source-repository-decision.candidate.json",
+  "sourceEnvironmentSelectionStatus": "PENDING_ACTUAL_ENVIRONMENT"
 }
