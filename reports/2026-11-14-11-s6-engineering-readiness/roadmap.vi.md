@@ -1,0 +1,59 @@
+> **S6-0 current source status (14/11/2026):** MyDms [PR #1](https://github.com/chung6a8m/MyDms/pull/1) **MERGED** (`66e1609a7aaaa663894a5411a4f41c49ef4e9836`), `main` Public/MIT [recognized by GitHub](https://github.com/chung6a8m/MyDms/blob/main/LICENSE); [foundation main CI #43553550509](https://github.com/chung6a8m/MyDms/actions/runs/43553550509) **5/5 SUCCESS**. MyDms [B04 PR #3](https://github.com/chung6a8m/MyDms/pull/3) **MERGED** (`323e294b148fe8795b666c1efd73c43212efa5c6`), [B04 main CI #43554003740](https://github.com/chung6a8m/MyDms/actions/runs/43554003740) **6/6 SUCCESS** including public-only synthetic evidence validator. [Current source observation](s6-0-main-foundation-observation.json). **B04 private evidence store and actual QA/Ops/Security safety approval PENDING** ([MyDms Issue #4](https://github.com/chung6a8m/MyDms/issues/4)); **Gate A NOT_READY; B05/B06 NOT_STARTED; Gate B BLOCKED**; real EV-01..15 pending. Earlier banners below are snapshots, not current state.
+
+> **Effective Owner Q01 v2 — 14/11/2026:** MyDms đã được Owner chuyển định hướng từ **Private/Proprietary sang Public/Open Source MIT**. [Hồ sơ thay đổi Q01](s6-0-owner-q01-mit-amendment.json) · [GitHub/CI observation](s6-0-mit-source-observation.json). [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) đã có LICENSE MIT trên source branch, [source CI #43552194768](https://github.com/chung6a8m/MyDms/actions/runs/43552194768) **SUCCESS (foundation only, 5 jobs)** tại `b4683f84248b`; **chưa merge MIT vào main**. B04 secure evidence/safety vẫn pending; Gate A/B BLOCKED; không TADR approval hay EV real. Các đoạn nói Q01 Private bên dưới là **historical** và bị thay thế bởi Q01 v2, không phải chính sách hiện hành.
+
+> **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
+
+# S6 — Roadmap thực thi và kiểm chứng (active, chưa chạy)
+
+**Căn cứ:** R009 implementation plan; R010 S5 handoff, S3 AC/EV/Fault, S4 Ops/P08, Owner Acceptance C′. Đây là work queue **PLANNED_NOT_EXECUTED**, không phải quyết định kỹ thuật TADR cuối cùng.
+
+## 0. S6-0 — Engineering intake
+
+- **Đã xác nhận** PR #2 merge commit `ba6d526b518b877c1f2c9f04732273f9f33968c4` và PR #3 retarget `main` (không merge PR #3). Product C′ immutable, R chỉ metadata.
+- **Owner đã chọn D / `chung6a8m/MyDms` và Q01–Q08** theo [hồ sơ](s6-0-owner-engineering-decisions.json). Repo thực tồn tại, Public theo Owner Q01 v2 MIT và đã có source PR Draft/branch/CI nền. B00 MIT trên `main` vẫn chờ merge; [kế hoạch B00–B08](s6-0-foundation-bootstrap-plan.vi.md). Nhân sự/CI/sandbox/evidence vẫn pending.
+- Dựng sandbox test/CI, dataset tổng hợp có quyền, secure artifact store, log/ledger checkpoints, reviewer matrix, secrets isolation.
+- Đưa TADR-01/02 vào design review; chưa chốt database, hosting, identity, sync, provider hoặc accounting adapter bằng suy đoán.
+- P2: đã có ứng viên [signed R read-only auditor](s6-owner-acceptance-audit.mjs) để đối chiếu comment/sha/reviewers/CI với GitHub thật, chờ CI HEAD và QA review; không dùng JSON tự chứng thực.
+- **Gate A/B (Q08):** B00–B04 đảm bảo MIT/public governance + isolated sandbox + CI/test safety, rồi chỉ chạy technical spike B05/B06; sau B07 actual Technical/QA/Finance TADR review và B08 Owner authorization mới được mở S6-A runtime. Solo-Developer Q07 cho phép Owner merge PR sau CI nhưng không thay independent review nếu TADR yêu cầu. **DoD:** runtime chỉ được mở khi Gate B PASS có bằng chứng; chưa Product Verified.
+
+## 1. Vertical slice roadmap
+
+| Stage | Scope source/test | TADR / AC / EV | Điều kiện để tiến |
+|---|---|---|---|
+| **S6-A Foundation** | Tenant authority, transaction/stock and 3-ledger, durable inbox/outbox, ACK/replay/concurrency, scoped Online G-IDEMP | TADR-01/02; AC-01/03/04/09/10/11; EV-01/03/04/06/08 | Chứng minh per-event/source-line SQL/API, không tự cấp Offline Write |
+| **S6-B A Online** | Order Confirm giá thương mại khóa, multiple partial delivery, terms/due theo lần giao; return/quarantine/gift, moving average SKU×location; invoice/accounting | AC-02/04/05/06/07/08/19; EV-02/04/05/06/07/10/11 | Kiểm từng source document và Finance review, không tự coi invoice fixture là pháp lý |
+| **S6-C B_ONLINE + MIXED** | B sale/delivery/receipt atomic, BQuota/credit, provider channel verified, UNKNOWN lookup; accounting POSTED vs RECONCILED; Mixed E2E độc lập | TADR-03; AC-03/09/14/15/19/20/21; EV-03/05/06/10/11 | A hold không dùng thay BQuota, B_NO_CHANNEL BLOCKED |
+| **S6-D Offline A** | Per-mode/device/trip grant TTL/epoch, durable PWA journal, loss/replay/revoke/restore/PrivacyActionLedger; F-01..22 scoped | TADR-02/04; AC-01/11/12/13/17; EV-08/09 | Real-device E2E riêng; Offline Write vẫn DISABLED cho đến mode admission |
+| **S6-E Cutover** | C0..C8, opening manifest/signer, legacy writer lock toàn Kho-01 bao gồm off-wave/UI/API/job/import/DB/offline, Forward Recovery | TADR-04 (DR/authority scope) + TADR-05; AC-04/10/13/16; EV-04/09/10/11/12 | Multi-party approval và rehearsal; no rollback sau firstEffectId |
+| **S6-F Pilot** | TADR-06 UX-01..08, approved SLO/coverage n/N, EV-14 trước Pilot, EV-15 sau 5+ ngày với 3A/3B_ONLINE/2MIXED/ngày | AC-17/18; EV-13/14/15 | Go/No-Go theo mode độc lập Product Verification/Tenant Acceptance |
+
+**Dependencies:** A sau S6-0; B sau A; C sau A+B; D sau A (có thể song song B/C); E sau A+B+C, TADR-04 (recovery/authority scope) và TADR-05, **không phụ thuộc hoàn thành Offline A S6-D**; E vẫn kiểm kê/khóa mọi legacy offline device, queue và grant trên toàn Kho-01, có EV-09 restore/revoke cần thiết. F sau B+C+E và EV-14 đã đủ scope. B alternative channel khi PWA mất mạng DEFERRED. G-STOCK, G-CUT, G-IDEMP, G-LEDGER, G-INV nonwaivable.
+
+## 2. Definition of Ready cho source PR
+
+1. Repository/branch/maintainer, mode/build/tenant scope, reviewed TADR và affected D/BR/POL/SOP/DC/API/SM/AC/EV đã ghi.
+2. Định nghĩa expected actual per-source line/ledger và source IDs, negative concurrency/failure cases, fixture hash.
+3. Data source được phép sử dụng, safety plan cho fault injection/provider, sandbox, secrets/PII policy, secure artifacts.
+4. Không có business semantic drift so với C′; nếu cần thay contract phải qua Product ADR/Owner version mới.
+5. P0 dependencies/trạng thái blocked và người chịu trách nhiệm được công bố, không ẩn trong demo.
+
+## 3. Definition of Done cho source PR
+
+1. Code+schema/migration+API/PWA/SQL/provider integration, unit/integration/E2E tests theo AC/EV, có negative và concurrency/restore/replay.
+2. Real-system evidence testRunId/build/tenant/mode/environment, actual/expected từng bước, source ledger diff trước/sau, artifact SHA256 và reviewer approval có thẩm quyền.
+3. Khi evidence chưa được QA/Finance/Legal/Ops xác nhận, để NOT_RUN/BLOCKED/EXECUTED_UNREVIEWED, không tự chuyển EV PASS.
+4. P0 không miễn; P1 exception phải scope/timebox/owner/mitigation/compensatingControls/reviewer/approvalRef.
+5. Merge source ≠ Product Verification ≠ Tenant Go-Live; mode admission và cutover có workflow độc lập.
+
+## 4. Handoff per milestone
+
+- **S6-0:** source repo, TADR queue, CI/harness, policies, secure artifact store.
+- **S6-A:** atomic ledgers, tenant authority, online G-IDEMP real-system runs.
+- **S6-B:** A per-delivery/price/cost/returns evidence.
+- **S6-C:** B_ONLINE/Mixed invoice & accounting external evidence.
+- **S6-D:** offline device/journal/restore evidence theo grant riêng.
+- **S6-E:** C0..C8 full Kho-01 stock writer fencing evidence.
+- **S6-F:** EV-14 pre-pilot evidence, EV-15 actual pilot and mode-level Go/No-Go.
+
+Máy đọc được: [s6-work-items.json](s6-work-items.json). Bảy stage hiện đều PLANNED_NOT_EXECUTED.
