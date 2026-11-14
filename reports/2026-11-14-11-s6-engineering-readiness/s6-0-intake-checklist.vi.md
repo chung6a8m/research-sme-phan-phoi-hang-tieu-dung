@@ -1,3 +1,5 @@
+> **Effective Owner Q01 v2 — 14/11/2026:** MyDms đã được Owner chuyển định hướng từ **Private/Proprietary sang Public/Open Source MIT**. [Hồ sơ thay đổi Q01](s6-0-owner-q01-mit-amendment.json) · [GitHub/CI observation](s6-0-mit-source-observation.json). [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) đã có LICENSE MIT trên source branch, [source CI #43552194768](https://github.com/chung6a8m/MyDms/actions/runs/43552194768) **SUCCESS (foundation only, 5 jobs)** tại `b4683f84248b`; **chưa merge MIT vào main**. B04 secure evidence/safety vẫn pending; Gate A/B BLOCKED; không TADR approval hay EV real. Các đoạn nói Q01 Private bên dưới là **historical** và bị thay thế bởi Q01 v2, không phải chính sách hiện hành.
+
 > **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
 
 # S6-0 — Intake checklist và bàn giao source execution
@@ -13,7 +15,7 @@
 | Product C′ Owner Acceptance | **VERIFIED DOCUMENT_ONLY** | [Comment #6866595994](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/pull/2#issuecomment-6866595994), Acceptance R |
 | Source-repository shortlist/recommendation | **PREPARED** | [Đánh giá phương án](s6-0-source-repository-evaluation.vi.md), đề xuất repo mới |
 | Owner source repository selection | **DECIDED_IN_CHAT** | D / `chung6a8m/MyDms`; [Issue #4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/issues/4) và [Q01–Q08](s6-0-owner-engineering-decisions.json) |
-| Target visibility/licensing | **MISMATCH / IMPLEMENTATION PENDING** | Q01 yêu cầu Private+Proprietary; GitHub đang Public. Chuyển Private và xác lập notice trước source |
+| Target visibility/licensing | **OWNER_Q01_V2_PUBLIC_MIT / PR_PENDING_MAIN** | MIT LICENSE trong MyDms PR #1, source CI PASS; merge vào `main` còn pending |
 | Source repo thực / branch + branch rules | **REPO_EXISTS / BRANCH_EMPTY** | GitHub repo ID `1457279467`, admin true, branches `[]`, chưa README/CI; tạo nhánh, kiểm soát access/merge sau Private |
 | Engineering/QA/Ops/Security/Finance owners | **UNASSIGNED** | Phân công người cụ thể, thẩm quyền và reviewer thay thế/độc lập khi bắt buộc |
 | Test environment/PWA devices/SQL/provider sandbox | **NOT_PROVISIONED** | Thiết lập môi trường cô lập, nhà cung cấp được phép, dữ liệu synthetic/permission |
@@ -23,7 +25,7 @@
 
 ## 2. Chuỗi thực thi S6-0
 
-- **I0 — Repository decision:** Owner đã chốt D, MyDms, Q01 Private proprietary, Q02 monorepo; tiếp theo xác minh thay đổi visibility thực và triển khai notice/branch/CI theo Q07. Không coi repo Public đã đáp ứng Q01.
+- **I0 — Repository decision:** Owner đã chốt D, MyDms, Q01 v2 Public MIT (thay Q01 v1 Private/Proprietary), Q02 monorepo; phải merge LICENSE/NOTICE vào `main` theo Q07 và đối chiếu GitHub metadata.
 - **I1 — Foundation selection & TADR:** Q03–Q06 chốt stack/kiến trúc/CI nền, nhưng SQL isolation, migration, ACK semantics phải review TADR-01/02; Q08 cho phép spike cô lập sau private/sandbox safety, không tự phê duyệt TADR.
 - **I2 — Harness setup:** CI restore/build/test/reproducible dependencies, API/SQL test environment, PWA browsers/IndexedDB devices, provider/accounting sandbox (chưa khởi chạy production).
 - **I3 — Source/provenance:** canonical C′ + R anchors, no silent contract changes, testRunId/buildSha/mode/tenant/seller/fixtureHash/ledgerDiff + artifact URI/SHA256, reviewer.

@@ -1,3 +1,5 @@
+> **Effective Owner Q01 v2 — 14/11/2026:** MyDms đã được Owner chuyển định hướng từ **Private/Proprietary sang Public/Open Source MIT**. [Hồ sơ thay đổi Q01](s6-0-owner-q01-mit-amendment.json) · [GitHub/CI observation](s6-0-mit-source-observation.json). [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) đã có LICENSE MIT trên source branch, [source CI #43552194768](https://github.com/chung6a8m/MyDms/actions/runs/43552194768) **SUCCESS (foundation only, 5 jobs)** tại `b4683f84248b`; **chưa merge MIT vào main**. B04 secure evidence/safety vẫn pending; Gate A/B BLOCKED; không TADR approval hay EV real. Các đoạn nói Q01 Private bên dưới là **historical** và bị thay thế bởi Q01 v2, không phải chính sách hiện hành.
+
 > **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
 
 # S6-0 — Foundation Bootstrap & Technical Spike plan (Owner Q01–Q08)
@@ -8,7 +10,7 @@
 
 ## A. Điều đã chọn và điều chưa đạt
 
-- **Owner:** D / `chung6a8m/MyDms`, Private/Proprietary, monorepo; .NET 10 + SQL Server + React/TypeScript; Modular Monolith độc lập + database-per-tenant; Business Module-First / Clean Architecture; CI phân tầng; Solo Owner merge sau CI; hai cổng có spike trước TADR review.
+- **Owner:** D / `chung6a8m/MyDms`, **Public/MIT (Q01 v2)**, monorepo; .NET 10 + SQL Server + React/TypeScript; Modular Monolith độc lập + database-per-tenant; Business Module-First / Clean Architecture; CI phân tầng; Solo Owner merge sau CI; hai cổng có spike trước TADR review.
 - **GitHub tại lúc ghi nhận:** repo tồn tại, admin có quyền, **PUBLIC và rỗng** (branches `[]`, `main` chỉ là default-branch metadata). **Không được claim repo đã Private hoặc CI đã sẵn sàng.**
 - **Chưa được chọn:** ORM/data access, migration engine, transaction isolation, UoW/concurrency, identity implementation, durable ACK protocol, hosting/cloud, provider/accounting runtime, retention/RPO/RTO; review theo TADR tương ứng.
 - **Chưa có:** current branch/README/CI, private visibility verified, actual maintainer/role-scoped reviewers, branch rules, isolated environment, approved fault-safety plan, private evidence store, TADR technical approvals, real-system evidence. Không đồng nhất solo GitHub merge với independent reviewer signatures.
@@ -17,7 +19,7 @@
 
 | ID | Phạm vi | Việc làm cụ thể | DoD kiểm chứng và dependency |
 |---|---|---|---|
-| **B00 — Privacy first** | Repo governance | Đổi `MyDms` từ Public sang **Private**, xác minh lại qua GitHub API; tài liệu bản quyền/notice proprietary phù hợp; giới hạn quyền; cấm push source thương mại trước khi private | `visibility=private` được kiểm chứng và không lộ secret/data trong history; không tự khẳng định license đã được luật sư duyệt |
+| **B00 — MIT source policy** | Repo governance | GitHub Public theo Q01 v2; thêm MIT LICENSE/NOTICE/README trên PR, review/merge trước khi khai MIT trên `main`; giữ secrets/data nhạy cảm ngoài Git | Source PR exact-HEAD CI PASS; Owner merge MIT rồi đối chiếu `main` và GitHub license metadata |
 | **B01 — Source bootstrap** | Foundation | Sau B00, tạo `main`, README, `AGENTS.md`, `.editorconfig`, `.gitattributes`, `.gitignore`, `global.json`, `.slnx`, NuGet settings và workspace React/Vite/TS; skeleton API/Domain/Application/Infrastructure/Tests, không code nghiệp vụ thật | Fresh clone restore/build/typecheck PASS, source repo SHA và reproducible toolchain được lưu |
 | **B02 — Architectural boundaries** | Product-first modular monolith | `src/server/Host`, `Platform/{Tenancy,Identity,Authorization,Auditing}`, `Modules/{Catalog,Customers,Inventory,Trips,Sales,Settlement,Integrations}`, `apps/{admin-web,field-pwa}`, `contracts`, `tests`; module folders là kiến nghị, chỉ tạo projects có nhu cầu. Public contracts không lộ EF/SQL/HTTP internals | Architecture tests cấm Domain→Infrastructure/API, frontend→database, module→foreign persistence; quyền ghi cross-module phải qua application coordinator/transaction design review |
 | **B03 — CI layered** | GitHub Actions | PR: formatting, restore/build, TypeScript typecheck, unit, architecture, contracts; scoped SQL: disposable SQL Server instance, migration/smoke, transaction/idempotency, fail on skipped mandatory tests; milestone: API/Playwright/PWA/fault/recovery. Dùng pin dependency và secret tối thiểu | CI PASS đúng source SHA trên PR; không coi lint/synthetic PASS thay SQL/provider/browser evidence; xác thực runner/SQL version thực |
@@ -27,7 +29,7 @@
 | **B07 — Technical review** | TADR-01/02 | Engineering/Technical/QA và Finance với ledger review các artifacts/spikes, options, rejected alternatives, risks, source refs, CI/negative evidence; quyết định riêng có version+approval ref bởi người thật | `DESIGN_CANDIDATE` chỉ đổi sau review đúng thẩm quyền; khi chưa có reviewer, `BLOCKED_PENDING_REVIEW` dù Owner đã merge spike/CI |
 | **B08 — Gate B assessment** | S6-0 → S6-A | Đối chiếu private repo, ownership, required CI, SQL test harness, evidence store, no P0 waiver, reviewer/TADR approvals và Owner authorization; ghi decision | `S6-0_READY_FOR_SOURCE_SLICE` chỉ sau gate pass và quyết định có căn cứ. Không tự mở mode/tenant Go-Live/Product Verified |
 
-**Phụ thuộc:** B00 → B01 → B02/B03/B04 → B05/B06 (có thể song song sau khi safety prerequisites đạt) → B07 → B08. B05/B06 chỉ dùng dữ liệu synthetic và isolated nonproduction; không cấp production credentials. B00 là ưu tiên tuyệt đối để tránh công khai source thương mại trái Q01.
+**Phụ thuộc:** B00 → B01 → B02/B03/B04 → B05/B06 (có thể song song sau khi safety prerequisites đạt) → B07 → B08. B05/B06 chỉ dùng dữ liệu synthetic và isolated nonproduction; không cấp production credentials. B00 là áp dụng MIT theo Q01 v2; vẫn ưu tiên bảo vệ dữ liệu và secrets ngoài mã nguồn.
 
 ## C. Cấu trúc gợi ý cho `MyDms`
 

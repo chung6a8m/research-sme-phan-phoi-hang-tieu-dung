@@ -89,20 +89,20 @@
       ],
       "deliverables": [
         "Record Owner selection D and Q01..Q08 linked to source repository decision (done in documents only)",
-        "Verify repo PRIVATE/proprietary notice and bootstrap main/README/solution/CI (pending)",
+        "Apply Owner Q01 v2 public MIT: source PR includes LICENSE/README/NOTICE, default main merge pending; ensure no sensitive evidence in public Git",
         "Provision isolated SQL/API/PWA test harness, secure artifact store and source-bound evidence metadata (pending)",
         "Authorize bounded nonproduction Technical Spikes TADR-01/02 only after Gate A safety checks (pending)",
         "Obtain actual Technical/QA and scoped Finance TADR reviews before Gate B S6-A runtime (pending)",
         "Preserve signed-R authenticity audit and product C-prime source anchors"
       ],
       "entryConditions": [
-        "Product C-prime Owner accepted for document/contract only, PR2 merge confirmed",
-        "Q01 Private verified on source repo, main initialized, source PR #1 Draft",
-        "CI four jobs failed before any steps; no runtime/SQL/browser tests have run",
-        "Gate A safety/real sandbox still required before any technical spike"
+        "Product C-prime Owner accepted for document contract only; PR2 merged",
+        "Q01 v2 public MIT replaces Private/Proprietary; GitHub source repository public",
+        "Source PR1 Draft with MIT LICENSE at exact source commit and five foundation CI jobs SUCCESS",
+        "SQL fixture smoke is infrastructure-only; secure artifact store/QA safety/fault-injection approval pending"
       ],
       "exitCriteria": [
-        "Repository PRIVATE verified with ownership, initialized branch and reviewed access/CI control",
+        "Repository source MIT licensing merged/verified on main, protected access and CI rules reviewed",
         "Foundation build/tests and disposable nonproduction SQL/API test environment validated",
         "Actual Technical/QA and scoped Finance TADR-01/02 decisions with reviewer authority/source evidence",
         "Secure evidence provenance and nonwaivable P0 safety plan recorded",
@@ -464,12 +464,16 @@
   "sourceRepositoryDecisionRef": "s6-0-owner-engineering-decisions.json",
   "sourceEnvironmentSelectionStatus": "PENDING_ACTUAL_ENVIRONMENT",
   "ownerEngineeringDecisionsRef": "s6-0-owner-engineering-decisions.json",
-  "sourceRepositoryVisibilityCurrent": "private",
-  "sourceRepositoryVisibilityTarget": "private",
-  "sourceRepositoryBootstrapStatus": "BOOTSTRAP_PR_DRAFT_CI_RUNNER_BLOCKED",
+  "sourceRepositoryVisibilityCurrent": "public",
+  "sourceRepositoryVisibilityTarget": "public",
+  "sourceRepositoryBootstrapStatus": "BOOTSTRAP_PR_DRAFT_FOUNDATION_CI_PASS_MIT_PENDING_MAIN",
   "gates": {
-    "gateA": "BLOCKED_PENDING_CI_RUNNER_AND_SAFE_SANDBOX",
+    "gateA": "BLOCKED_PENDING_B04_SECURE_EVIDENCE_AND_SAFETY_REVIEW",
     "gateB": "BLOCKED_PENDING_TADR_REVIEW_AND_OWNER_RUNTIME_AUTHORIZATION"
   },
-  "sourceRepositoryObservationRef": "s6-0-source-bootstrap-observation.json"
+  "sourceRepositoryObservationRef": "s6-0-source-bootstrap-observation.json",
+  "sourceRepoLicenseAmendmentRef": "s6-0-owner-q01-mit-amendment.json",
+  "sourceRepositoryCurrentObservationRef": "s6-0-mit-source-observation.json",
+  "sourceRepositoryLicense": "MIT",
+  "sourceRepositoryLicenseState": "LICENSE_ON_PR_BRANCH_NOT_YET_MAIN"
 }

@@ -1,3 +1,5 @@
+> **Effective Owner Q01 v2 — 14/11/2026:** MyDms đã được Owner chuyển định hướng từ **Private/Proprietary sang Public/Open Source MIT**. [Hồ sơ thay đổi Q01](s6-0-owner-q01-mit-amendment.json) · [GitHub/CI observation](s6-0-mit-source-observation.json). [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) đã có LICENSE MIT trên source branch, [source CI #43552194768](https://github.com/chung6a8m/MyDms/actions/runs/43552194768) **SUCCESS (foundation only, 5 jobs)** tại `b4683f84248b`; **chưa merge MIT vào main**. B04 secure evidence/safety vẫn pending; Gate A/B BLOCKED; không TADR approval hay EV real. Các đoạn nói Q01 Private bên dưới là **historical** và bị thay thế bởi Q01 v2, không phải chính sách hiện hành.
+
 > **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
 
 # R011 — S6 Engineering Readiness & Handoff
@@ -17,7 +19,7 @@ PR #2 was merged to `main` as [`ba6d526b`](https://github.com/chung6a8m/research
 ## Owner Q01–Q08 (14/11/2026)
 
 - [Source/Owner decision #4](https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/issues/4): D / `chung6a8m/MyDms` đã chọn, repo tồn tại. GitHub vẫn **Public**, branch `[]`, chưa có README/CI.
-- Q01 Private proprietary; Q02 monorepo; Q03 .NET 10/SQL Server/React+TS; Q04 independent Modular Monolith and database-per-tenant; Q05 Business Module-First Clean Architecture; Q06 layered CI with actual SQL/API; Q07 solo Owner merge after CI; Q08 two gates with isolated technical spike before review.
+- Q01 v2 Public MIT (**supersedes Q01 v1**); Q02 monorepo; Q03 .NET 10/SQL Server/React+TS; Q04 independent Modular Monolith and database-per-tenant; Q05 Business Module-First Clean Architecture; Q06 layered CI with actual SQL/API; Q07 solo Owner merge after CI; Q08 two gates with isolated technical spike before review.
 - **Gate A/B chưa ready;** TADR-01/02 vẫn DESIGN_CANDIDATE, mọi EV thật pending. Owner interview không tự tạo chữ ký Technical/QA/Finance.
 - [Owner interview record](s6-0-owner-engineering-decisions.json) · [Foundation plan](s6-0-foundation-bootstrap-plan.vi.md). Candidate source-decision JSON bên dưới là **historical pre-selection snapshot**, không phải hồ sơ hiện hành.
 
@@ -25,7 +27,9 @@ PR #2 was merged to `main` as [`ba6d526b`](https://github.com/chung6a8m/research
 
 | File | Giá trị |
 |---|---|
-| [s6-0-owner-engineering-decisions.json](s6-0-owner-engineering-decisions.json) | Current Q01–Q08 Owner interview decisions and source observation (chat record, not independent TADR approval) |
+| [s6-0-owner-engineering-decisions.json](s6-0-owner-engineering-decisions.json) | Historical Q01 v1 + Q02–Q08 interview decisions (versioned record) |
+| [s6-0-owner-q01-mit-amendment.json](s6-0-owner-q01-mit-amendment.json) | Effective Owner Q01 v2 MIT open-source amendment |
+| [s6-0-mit-source-observation.json](s6-0-mit-source-observation.json) | Public GitHub source PR with exact-HEAD foundation CI, not product verification |
 | [s6-0-foundation-bootstrap-plan.vi.md](s6-0-foundation-bootstrap-plan.vi.md) | Ordered B00–B08 bootstrap/spike/test/evidence/review/authorization plan |
 | [s6-0-source-repository-evaluation.vi.md](s6-0-source-repository-evaluation.vi.md) | Historical comparison before Owner selected D; still useful for alternatives |
 | [s6-0-source-repository-decision.candidate.json](s6-0-source-repository-decision.candidate.json) | **Historical pre-selection candidate** (intentionally frozen as pending), not current state |

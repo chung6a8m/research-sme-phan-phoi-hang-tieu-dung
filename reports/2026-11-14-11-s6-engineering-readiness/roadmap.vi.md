@@ -1,3 +1,5 @@
+> **Effective Owner Q01 v2 — 14/11/2026:** MyDms đã được Owner chuyển định hướng từ **Private/Proprietary sang Public/Open Source MIT**. [Hồ sơ thay đổi Q01](s6-0-owner-q01-mit-amendment.json) · [GitHub/CI observation](s6-0-mit-source-observation.json). [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) đã có LICENSE MIT trên source branch, [source CI #43552194768](https://github.com/chung6a8m/MyDms/actions/runs/43552194768) **SUCCESS (foundation only, 5 jobs)** tại `b4683f84248b`; **chưa merge MIT vào main**. B04 secure evidence/safety vẫn pending; Gate A/B BLOCKED; không TADR approval hay EV real. Các đoạn nói Q01 Private bên dưới là **historical** và bị thay thế bởi Q01 v2, không phải chính sách hiện hành.
+
 > **Cập nhật thực thi B00–B04 (14/11/2026):** GitHub đã xác minh `chung6a8m/MyDms` **PRIVATE**; `main` và source bootstrap [MyDms PR #1](https://github.com/chung6a8m/MyDms/pull/1) Draft đã có. Candidate source SHA `b0e2434b4639e233e019edb12443206328233ad4`. [Initial CI run #43548426310](https://github.com/chung6a8m/MyDms/actions/runs/43548426310) **FAILURE với 4 jobs không chạy bước nào**; nguyên nhân runner/Actions chưa rõ, xem [MyDms Issue #2](https://github.com/chung6a8m/MyDms/issues/2). B01–B04 candidate/partial; B05/B06 NOT_STARTED; Gate A/B vẫn **BLOCKED**. [Source observation](s6-0-source-bootstrap-observation.json) ghi provenance; không có real runtime EV.
 
 # S6 — Roadmap thực thi và kiểm chứng (active, chưa chạy)
@@ -7,11 +9,11 @@
 ## 0. S6-0 — Engineering intake
 
 - **Đã xác nhận** PR #2 merge commit `ba6d526b518b877c1f2c9f04732273f9f33968c4` và PR #3 retarget `main` (không merge PR #3). Product C′ immutable, R chỉ metadata.
-- **Owner đã chọn D / `chung6a8m/MyDms` và Q01–Q08** theo [hồ sơ](s6-0-owner-engineering-decisions.json). Repo thực tồn tại, admin có quyền nhưng **Public/rỗng, chưa có branch**. B00 chuyển Private phải hoàn tất trước khi thêm source thương mại; [kế hoạch B00–B08](s6-0-foundation-bootstrap-plan.vi.md). Nhân sự/CI/sandbox/evidence vẫn pending.
+- **Owner đã chọn D / `chung6a8m/MyDms` và Q01–Q08** theo [hồ sơ](s6-0-owner-engineering-decisions.json). Repo thực tồn tại, Public theo Owner Q01 v2 MIT và đã có source PR Draft/branch/CI nền. B00 MIT trên `main` vẫn chờ merge; [kế hoạch B00–B08](s6-0-foundation-bootstrap-plan.vi.md). Nhân sự/CI/sandbox/evidence vẫn pending.
 - Dựng sandbox test/CI, dataset tổng hợp có quyền, secure artifact store, log/ledger checkpoints, reviewer matrix, secrets isolation.
 - Đưa TADR-01/02 vào design review; chưa chốt database, hosting, identity, sync, provider hoặc accounting adapter bằng suy đoán.
 - P2: đã có ứng viên [signed R read-only auditor](s6-owner-acceptance-audit.mjs) để đối chiếu comment/sha/reviewers/CI với GitHub thật, chờ CI HEAD và QA review; không dùng JSON tự chứng thực.
-- **Gate A/B (Q08):** B00–B04 đảm bảo Private + isolated sandbox + CI/test safety, rồi chỉ chạy technical spike B05/B06; sau B07 actual Technical/QA/Finance TADR review và B08 Owner authorization mới được mở S6-A runtime. Solo-Developer Q07 cho phép Owner merge PR sau CI nhưng không thay independent review nếu TADR yêu cầu. **DoD:** runtime chỉ được mở khi Gate B PASS có bằng chứng; chưa Product Verified.
+- **Gate A/B (Q08):** B00–B04 đảm bảo MIT/public governance + isolated sandbox + CI/test safety, rồi chỉ chạy technical spike B05/B06; sau B07 actual Technical/QA/Finance TADR review và B08 Owner authorization mới được mở S6-A runtime. Solo-Developer Q07 cho phép Owner merge PR sau CI nhưng không thay independent review nếu TADR yêu cầu. **DoD:** runtime chỉ được mở khi Gate B PASS có bằng chứng; chưa Product Verified.
 
 ## 1. Vertical slice roadmap
 
