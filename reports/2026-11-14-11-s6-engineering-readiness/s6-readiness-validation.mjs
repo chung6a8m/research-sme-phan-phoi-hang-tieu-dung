@@ -54,6 +54,14 @@ export function validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDec
  fail(JSON.stringify(plan.allowedMvpModes)===JSON.stringify(["A","B_ONLINE","MIXED"]),"MVP scope altered");
  fail(plan.pilot.daily.A===3&&plan.pilot.daily.B_ONLINE===3&&plan.pilot.daily.MIXED===2&&plan.pilot.minimumRepresentativeDays>=5&&plan.pilot.entireWarehouseStockScope==="Kho-01"&&plan.pilot.offWaveIncluded&&plan.pilot.ev14BeforeEv15&&plan.pilot.thresholdsStatus==="UNSET","NPP-01 D15/EV14/EV15 drift");
  fail(plan.phases.length===7&&JSON.stringify(plan.phases.map(x=>x.id))===JSON.stringify(phases),"S6 phases/order incomplete");
+ const lanes=plan.parallelExecution;
+ fail(lanes?.effectiveDate==="2026-11-15"&&lanes.decisionClass==="OWNER_ACCEPTED_RESEQUENCING_ONLY_NO_Q08_CHANGE"&&lanes.readme==="s6-solo-dev-business-first.vi.md","business-first sequencing record missing");
+ const bd=lanes.businessDevelopment,sv=lanes.safetyVerification;
+ fail(bd.milestone==="BD-01"&&bd.scope==="PURE_DOMAIN_AND_UNIT_TESTS_ONLY"&&bd.status==="SOURCE_DRAFT_CI_RESULT_NOT_YET_VERIFIED"&&bd.repository==="chung6a8m/MyDms"&&bd.pullRequest===11&&bd.branch==="feature/2026-11-15-module-a-domain-first","domain PR must not be represented as runtime/CI verified");
+ fail(bd.gateARequiredForPureDomainWork===false&&bd.gateBRequiredForPureDomainWork===false&&bd.gateBRequiredForRuntimeWriteIntegration===true&&bd.stockOrLedgerEffectsImplemented===false&&bd.realSystemEvidenceClaimed===false,"domain-only lane cannot bypass Gate B or claim ledger writes");
+ fail(sv.gateA===plan.gates.gateA&&sv.gateB===plan.gates.gateB&&sv.b05B06==="PLANNED_BLOCKED_GATE_A"&&sv.realB05B06Runs===0&&sv.ownerGateAAuthorization===false&&sv.ownerGateBAuthorization===false,"safety lane cannot claim Gate A/B or execute spikes");
+ fail(lanes.productVerification==="PENDING"&&lanes.tenantGoLive==="PENDING"&&lanes.allowModeAdmission===false,"business-first must not auto-promote production");
+
  const evSet=new Set(evRegister.records.map(x=>x.evId)),acSet=new Set(acMatrix.cases.map(x=>x.acId)),outSet=new Set(outstanding.registerEntries.map(x=>x.id));
  fail(evSet.size===15&&acSet.size===21&&outstanding.registerEntries.length===40,"upstream S3/outstanding coverage drift");
  for(const [id,state] of Object.entries(plan.tadrStates)){fail(outSet.has(id)&&state==="DESIGN_CANDIDATE","unreviewed TADR unexpectedly approved "+id);}
@@ -84,6 +92,10 @@ const result=validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDecisi
 if(process.argv.includes("--self-test")){
  const cases=[
   ["fake_prod_go",p=>p.statuses.productVerification="VERIFIED"],
+  ["fake_domain_scope_runtime",p=>p.parallelExecution.businessDevelopment.stockOrLedgerEffectsImplemented=true],
+  ["fake_domain_self_verified",p=>p.parallelExecution.productVerification="VERIFIED"],
+  ["fake_domain_gate_b",p=>p.parallelExecution.businessDevelopment.gateBRequiredForRuntimeWriteIntegration=false],
+  ["fake_spike_without_gate_a",p=>p.parallelExecution.safetyVerification.b05B06="EXECUTED"],
   ["fake_mode_admitted",p=>p.modeStates.B_NO_CHANNEL="GO"],
   ["fake_real_run",p=>p.statuses.realE2eRuns=1],
   ["missing_P0",p=>p.nonWaivableP0.pop()],
