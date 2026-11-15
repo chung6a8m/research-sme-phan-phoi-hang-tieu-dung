@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "s6-0-open-source-source-observation-v1",
+  "recordKind": "CURRENT_SOURCE_GITHUB_AND_FOUNDATION_CI_NOT_PRODUCT_VERIFICATION",
+  "observedOn": "2026-11-14",
+  "githubRepo": "chung6a8m/MyDms",
+  "githubRepoId": 1457279467,
+  "githubVisibility": "public",
+  "ownerEffectiveQ01Ref": "s6-0-owner-q01-mit-amendment.json",
+  "selectedLicense": "MIT",
+  "branch": "feat/s6-0-foundation-bootstrap",
+  "sourcePR": "https://github.com/chung6a8m/MyDms/pull/1",
+  "sourcePRDraft": true,
+  "sourcePRMerged": false,
+  "sourceCommitSha": "b4683f84248ba7f580c54c91022216101e1d747a",
+  "sourceLicenseFile": "LICENSE",
+  "sourceLicensePresentAtCommit": true,
+  "licenseMergedIntoMain": false,
+  "mainBranchLegacyProprietaryReadmeStillPresent": true,
+  "ciRunUrl": "https://github.com/chung6a8m/MyDms/actions/runs/43552194768",
+  "ciHeadSha": "b4683f84248ba7f580c54c91022216101e1d747a",
+  "ciRunStatus": "SUCCESS",
+  "ciVerifiedJobs": [
+    "dotnet-build-unit",
+    "architecture-boundary",
+    "react-typescript-build",
+    "disposable-sql-infra-only",
+    "mit-license-governance"
+  ],
+  "ciScope": "FOUNDATION_BUILD_UNIT_ARCHITECTURE_REACT_SQL_INFRA_MIT_ONLY",
+  "ciArtifacts": [
+    {
+      "name": "unit-test-evidence",
+      "sha256": "9ac779b0feaf9fdb8390e7ff8910686611cb2d2976f7cc11ca1dbd0b25472561"
+    },
+    {
+      "name": "sql-infra-evidence",
+      "sha256": "2f1724f9fea304b3a0cfa8207e2f653019d53f4964d5da25b31cfa09f7e0fa27"
+    }
+  ],
+  "sqlInfraSmokePassed": true,
+  "sqlBusinessE2eRuns": 0,
+  "sandboxApprovedForFaultInjection": false,
+  "secureEvidenceStore": "NOT_CONFIGURED",
+  "realReviewerAssignments": "PENDING",
+  "gateA": "BLOCKED_PENDING_B04_SECURE_EVIDENCE_AND_SAFETY_REVIEW",
+  "gateB": "BLOCKED_PENDING_ACTUAL_TADR_AND_OWNER_RUNTIME_AUTHORIZATION",
+  "tadr01": "DESIGN_CANDIDATE",
+  "tadr02": "DESIGN_CANDIDATE",
+  "productVerified": false,
+  "tenantGoLiveAccepted": false,
+  "note": "Separate observation from historical PRIVATE repo snapshots. No runtime approval implied by the new public license or CI."
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "s6-0-owner-engineering-direction-v1",
+  "recordKind": "OWNER_INTERVIEW_CHOICES_NOT_TECHNICAL_ADR_APPROVAL",
+  "decidedOn": "2026-11-14",
+  "status": "OWNER_DECIDED_IN_CHAT_RECORDED_FOR_S6_0_PLANNING",
+  "scope": "ENGINEERING_DIRECTION_FOR_S6_0_ONLY",
+  "ownerSource": {
+    "kind": "CHAT_INTERVIEW_Q01_TO_Q08",
+    "sourceRepositoryDecisionIssue": "https://github.com/chung6a8m/research-sme-phan-phoi-hang-tieu-dung/issues/4#issuecomment-6869632793",
+    "ownerGitHubSignoffForQ01ToQ08": "NOT_SEPARATELY_ATTESTED_ON_GITHUB",
+    "note": "Record of direct user selections in conversation; not a fabricated GitHub signature or review by separate persons"
+  },
+  "approvedProductBaseline": {
+    "immutableSnapshotSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+    "acceptanceMetadataCommitR": "e47c3feb44c02a0fdf46c35f6c4b2f57c4365470",
+    "scope": "PRODUCT_POLICY_AND_CONTRACT_ONLY"
+  },
+  "sourceRepo": {
+    "selectedOption": "D",
+    "repository": "chung6a8m/MyDms",
+    "githubRepositoryId": 1457279467,
+    "existsVerified": true,
+    "adminPermissionObserved": true,
+    "observedVisibilityAtDecision": "public",
+    "targetVisibility": "private",
+    "observedBranchesAtDecision": [],
+    "defaultBranchMetadata": "main",
+    "branchActuallyExists": false,
+    "bootstrapStatus": "REPOSITORY_EMPTY_NO_BRANCH",
+    "proprietarySourcePolicy": "SELECTED",
+    "licenseTextOrLegalNotice": "PENDING_IMPLEMENTATION"
+  },
+  "decisions": [
+    {
+      "id": "Q01",
+      "selectedOption": 1,
+      "code": "PRIVATE_PROPRIETARY_SOURCE",
+      "decision": "Private repository, proprietary commercial source; do not publish commercial implementation while repo is public"
+    },
+    {
+      "id": "Q02",
+      "selectedOption": 1,
+      "code": "SINGLE_MONOREPO",
+      "decision": "All product backend/API/admin-web/field-PWA/contracts/tests in chung6a8m/MyDms"
+    },
+    {
+      "id": "Q03",
+      "selectedOption": 1,
+      "code": "DOTNET10_SQLSERVER_REACT_TYPESCRIPT",
+      "decision": ".NET 10, SQL Server, React and TypeScript; ORM/migrations/hosting require TADR review"
+    },
+    {
+      "id": "Q04",
+      "selectedOption": 1,
+      "code": "INDEPENDENT_MODULAR_MONOLITH_SELECTIVE_REUSE_DB_PER_TENANT",
+      "decision": "Independent modular monolith, a separate TenantDB per tenant, selected references/code only after review"
+    },
+    {
+      "id": "Q05",
+      "selectedOption": 1,
+      "code": "BUSINESS_MODULE_FIRST_INNER_CLEAN_ARCHITECTURE",
+      "decision": "Modules by business domain, separate contracts, Domain/Application/Infrastructure boundaries, architecture tests"
+    },
+    {
+      "id": "Q06",
+      "selectedOption": 1,
+      "code": "LAYERED_CI_REAL_SQL_API_PER_PHASE",
+      "decision": "PR checks plus real SQL/API integration scoped by risk; milestone E2E and source-bound evidence"
+    },
+    {
+      "id": "Q07",
+      "selectedOption": 3,
+      "code": "SOLO_DEVELOPER_OWNER_MERGE_AFTER_CI",
+      "decision": "Owner can merge source PRs after applicable CI; does NOT impersonate independent technical/QA/Finance approval"
+    },
+    {
+      "id": "Q08",
+      "selectedOption": 1,
+      "code": "TWO_GATES_ISOLATED_TECH_SPIKE_BEFORE_TADR_REVIEW",
+      "decision": "Gate A foundation and isolated proof-of-concept before review; Gate B authorized S6-A runtime only after actual TADR/safety reviews"
+    }
+  ],
+  "gates": {
+    "gateA": {
+      "name": "NONPRODUCTION_FOUNDATION_AND_TECH_SPIKE",
+      "ownerDirection": "CONDITIONALLY_AUTHORIZED",
+      "ready": false,
+      "requiredBeforeSpike": [
+        "Repository visibility verified PRIVATE",
+        "Isolated SQL/test sandbox and synthetic fixtures",
+        "Fault-injection safety and secrets controls",
+        "Spike scoped to nonproduction branch/no product-runtime acceptance"
+      ]
+    },
+    "gateB": {
+      "name": "S6_A_PRODUCT_RUNTIME_AUTHORIZATION",
+      "ownerDirection": "PENDING",
+      "ready": false,
+      "requiredBeforeRuntime": [
+        "Foundation CI and test environment validated",
+        "TADR-01 and TADR-02 technical/QA reviews and Finance where applicable",
+        "Authorized real reviewers, dispositions, and versioned TADR decision records",
+        "Safety/evidence provenance and nonwaivable P0 review",
+        "Explicit Owner authorization for S6-A runtime"
+      ]
+    }
+  },
+  "riskBoundaries": {
+    "tadr01": "DESIGN_CANDIDATE",
+    "tadr02": "DESIGN_CANDIDATE",
+    "allTadrsApproved": 0,
+    "realE2eRuns": 0,
+    "productVerified": false,
+    "tenantGoLiveAccepted": false,
+    "bNoChannel": "BLOCKED",
+    "offlineWrite": "DISABLED_PENDING",
+    "productionCutover": "DISABLED_PENDING",
+    "p0WaiversAllowed": false
+  }
+}

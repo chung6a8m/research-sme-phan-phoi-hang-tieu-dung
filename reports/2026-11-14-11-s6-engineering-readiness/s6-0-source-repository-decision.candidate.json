@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "s6-0-repo-decision-v1",
+  "recordKind": "SOURCE_REPOSITORY_DECISION_CANDIDATE_NOT_OWNER_APPROVAL",
+  "reviewedOn": "2026-11-14",
+  "sourceProject": "chung6a8m/research-sme-phan-phoi-hang-tieu-dung",
+  "upstreamMerge": {
+    "pr": 2,
+    "merged": true,
+    "mergeCommitSha": "ba6d526b518b877c1f2c9f04732273f9f33968c4"
+  },
+  "ownerAcceptedSnapshotSha": "eb9c4b04e334530367b80ea4178edb4dd4a07491",
+  "decisionId": "S6-0-REPO-01",
+  "status": "OWNER_DECISION_PENDING",
+  "candidates": [
+    {
+      "code": "A",
+      "choice": "MYDMSVN_EXISTING_BACKEND_AND_FRONTEND",
+      "repos": [
+        "chung6a8m/MyDmsVn",
+        "chung6a8m/MyDmsVn.ReactWebUI"
+      ],
+      "finding": "PROVEN_SALES_INVENTORY_PATTERNS_BUT_NET48_AND_NOT_S6_FMCG_SAAS_VERIFIED",
+      "recommendation": "REFERENCE_ONLY_NOT_AUTOMATIC_SOURCE"
+    },
+    {
+      "code": "B",
+      "choice": "SAASONE_EXISTING_REUSABLE_PLATFORM",
+      "repos": [
+        "chung6a8m/SaasOne"
+      ],
+      "finding": "NET10_ORCHARD_SQLSERVER_DB_PER_TENANT_IDENTITY_ORDER_APPROVALS_BUT_NOT_FMCG_OR_PWA",
+      "recommendation": "EVALUATE_FOR_REUSE_NOT_AUTOMATIC_PRODUCT_REPO"
+    },
+    {
+      "code": "C",
+      "choice": "DOTNET_STARTER_KIT_TEMPLATE",
+      "repos": [
+        "chung6a8m/dotnet-starter-kit"
+      ],
+      "finding": "NET10_REACT_POSTGRES_MODULAR_TEMPLATE_NOT_S6_BUSINESS_P0_VERIFIED",
+      "recommendation": "ALTERNATIVE_TEMPLATE_ONLY"
+    },
+    {
+      "code": "D",
+      "choice": "NEW_DEDICATED_FMCG_DMS_SOURCE_REPOSITORY",
+      "repos": [],
+      "finding": "NEW_PRODUCT_BOUNDARY_PRESERVES_REUSABLE_PLATFORMS_AND_OWNER_ACCEPTED_CPRIME",
+      "recommendation": "PREFERRED_PENDING_OWNER_APPROVAL"
+    }
+  ],
+  "recommendedOption": "D",
+  "recommendedRepositoryNameExample": "chung6a8m/FmcgDmsVn",
+  "recommendedRepositoryActuallyExists": false,
+  "ownerSelectedOption": null,
+  "ownerApprovalRef": null,
+  "actualSourceRepository": null,
+  "repositoryCreated": false,
+  "privacyVisibility": "UNSET_OWNER_DECISION",
+  "sourceCodeLicense": "UNSET_OWNER_DECISION",
+  "techStack": "TADR_REVIEW_REQUIRED",
+  "sourceEnvironment": "NOT_PROVISIONED",
+  "personnelAssignments": "PENDING_REAL_ASSIGNMENT",
+  "exitCriteria": [
+    "Explicit Owner repository/source-boundary decision",
+    "Existence of chosen repository verified from GitHub, not a proposed name",
+    "Actual owner/maintainer/QA and branch protection confirmed",
+    "TADR-01/02 review and isolated CI/data/evidence environment authorized"
+  ],
+  "runtimeE2eRuns": 0,
+  "productVerified": false,
+  "tenantGoLiveAccepted": false
+}

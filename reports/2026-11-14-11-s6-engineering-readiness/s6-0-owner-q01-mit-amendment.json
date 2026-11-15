@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "s6-0-owner-engineering-direction-amendment-v2",
+  "recordKind": "OWNER_Q01_LICENSE_POLICY_AMENDMENT_IN_CHAT_NOT_TECHNICAL_ADR_APPROVAL",
+  "decidedOn": "2026-11-14",
+  "status": "OWNER_DECIDED_IN_CHAT_VERSIONED_RECORD",
+  "decisionId": "Q01",
+  "version": 2,
+  "supersedes": {
+    "decisionFile": "s6-0-owner-engineering-decisions.json",
+    "version": 1,
+    "option": 1,
+    "code": "PRIVATE_PROPRIETARY_SOURCE",
+    "reason": "Owner explicitly changed the source licensing choice"
+  },
+  "effectivePolicy": {
+    "repository": "chung6a8m/MyDms",
+    "sourceVisibility": "public",
+    "openSource": true,
+    "licenseSpdxId": "MIT",
+    "copyrightNotice": "Copyright (c) 2026 chung6a8m",
+    "retainsPreviousQ02ToQ08": true
+  },
+  "evidenceOfOwnerChoice": "Explicit user statement in this ChatGPT conversation on 14/11/2026: Tôi quyết định open source MyDms với MIT",
+  "ownerGitHubSignoff": "NOT_SEPARATELY_ATTESTED_ON_GITHUB",
+  "sourceImplementation": {
+    "branch": "feat/s6-0-foundation-bootstrap",
+    "pullRequest": "https://github.com/chung6a8m/MyDms/pull/1",
+    "sourceCommit": "b4683f84248ba7f580c54c91022216101e1d747a",
+    "rootLicensePath": "LICENSE",
+    "licenseOnSourceBranch": "COMMITTED",
+    "licenseOnMain": "NOT_MERGED",
+    "currentSourceCI": "FOUNDATION_CI_PASS"
+  },
+  "scope": "ENGINEERING_SOURCE_LICENSING_ONLY",
+  "unaffected": [
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q06",
+    "Q07",
+    "Q08",
+    "PRODUCT_BASELINE_C_PRIME",
+    "ACCEPTANCE_R",
+    "TADR_01_TO_06",
+    "EV_01_TO_15",
+    "MODE_ADMISSION",
+    "TENANT_GO_LIVE"
+  ],
+  "productVerified": false,
+  "tenantGoLiveAccepted": false
+}
