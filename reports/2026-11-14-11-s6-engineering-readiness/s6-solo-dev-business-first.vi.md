@@ -22,7 +22,7 @@ Owner đồng ý chuyển trọng tâm sang code nghiệp vụ. Tách hai luồn
 - Nhánh: feature/2026-11-15-module-a-domain-first
 - Phạm vi: in-memory AOrder, Customer/Outlet/ShipTo, Confirm snapshot commercial/terms/credit, simulated partial delivery per source line và per-delivery due dates; unit/negative tests.
 - Chủ yếu trace BR-02/03/08/10, DC-05/09, SM-01, SOP-02.
-- Trạng thái tại lúc tạo tài liệu: SOURCE PR DRAFT, CI chạy/chờ kết quả; không ghi test PASS khi chưa đối chiếu run.
+- Kết quả đã đối chiếu: PR DRAFT, source HEAD dedf185ac619d6e6900c8f7a8342576faa68a8f3; [foundation CI run #43674156021](https://github.com/chung6a8m/MyDms/actions/runs/43674156021) SUCCESS 6/6 jobs, .NET unit 13 passed, 0 failed, 0 skipped. Chỉ là build/unit/CI foundation, không phải Business E2E/EV/Product Verification.
 - Ranh giới: quote/rounding là candidate, không tính thuế thật, không AR/stock post.
 
 ### BD-02 — Sau review BD-01
