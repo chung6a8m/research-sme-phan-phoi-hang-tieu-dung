@@ -57,7 +57,7 @@ export function validate(plan,acceptance,outstanding,acMatrix,evRegister,repoDec
  const lanes=plan.parallelExecution;
  fail(lanes?.effectiveDate==="2026-11-15"&&lanes.decisionClass==="OWNER_ACCEPTED_RESEQUENCING_ONLY_NO_Q08_CHANGE"&&lanes.readme==="s6-solo-dev-business-first.vi.md","business-first sequencing record missing");
  const bd=lanes.businessDevelopment,sv=lanes.safetyVerification;
- fail(bd.milestone==="BD-01"&&bd.scope==="PURE_DOMAIN_AND_UNIT_TESTS_ONLY"&&bd.status==="SOURCE_DRAFT_CI_RESULT_NOT_YET_VERIFIED"&&bd.repository==="chung6a8m/MyDms"&&bd.pullRequest===11&&bd.branch==="feature/2026-11-15-module-a-domain-first","domain PR must not be represented as runtime/CI verified");
+ fail(bd.milestone==="BD-01"&&bd.scope==="PURE_DOMAIN_AND_UNIT_TESTS_ONLY"&&bd.status==="SOURCE_DRAFT_FOUNDATION_CI_6_OF_6_PASS_13_UNIT_TESTS"&&bd.ci?.runId===43674156021&&bd.ci?.sourceHeadSha===bd.sourceHeadAtDraft&&bd.ci?.conclusion==="SUCCESS"&&bd.ci?.jobSuccessCount===6&&bd.ci?.jobCount===6&&bd.ci?.unitTestsPassed===13&&bd.ci?.unitTestsFailed===0&&bd.ci?.unitTestsSkipped===0&&bd.ci?.classification==="SOURCE_BUILD_AND_UNIT_ONLY_NOT_PRODUCT_VERIFICATION"&&bd.repository==="chung6a8m/MyDms"&&bd.pullRequest===11&&bd.branch==="feature/2026-11-15-module-a-domain-first","domain PR must not be represented as runtime/CI verified");
  fail(bd.gateARequiredForPureDomainWork===false&&bd.gateBRequiredForPureDomainWork===false&&bd.gateBRequiredForRuntimeWriteIntegration===true&&bd.stockOrLedgerEffectsImplemented===false&&bd.realSystemEvidenceClaimed===false,"domain-only lane cannot bypass Gate B or claim ledger writes");
  fail(sv.gateA===plan.gates.gateA&&sv.gateB===plan.gates.gateB&&sv.b05B06==="PLANNED_BLOCKED_GATE_A"&&sv.realB05B06Runs===0&&sv.ownerGateAAuthorization===false&&sv.ownerGateBAuthorization===false,"safety lane cannot claim Gate A/B or execute spikes");
  fail(lanes.productVerification==="PENDING"&&lanes.tenantGoLive==="PENDING"&&lanes.allowModeAdmission===false,"business-first must not auto-promote production");
@@ -93,6 +93,7 @@ if(process.argv.includes("--self-test")){
  const cases=[
   ["fake_prod_go",p=>p.statuses.productVerification="VERIFIED"],
   ["fake_domain_scope_runtime",p=>p.parallelExecution.businessDevelopment.stockOrLedgerEffectsImplemented=true],
+  ["fake_unit_ci_claim",p=>p.parallelExecution.businessDevelopment.ci.unitTestsPassed=99],
   ["fake_domain_self_verified",p=>p.parallelExecution.productVerification="VERIFIED"],
   ["fake_domain_gate_b",p=>p.parallelExecution.businessDevelopment.gateBRequiredForRuntimeWriteIntegration=false],
   ["fake_spike_without_gate_a",p=>p.parallelExecution.safetyVerification.b05B06="EXECUTED"],
